@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DTOOLS v3</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#080B0F; --bg2:#0D1117; --bg3:#111820;
+  --border:#1E2A38; --border2:#243040;
+  --text:#E8F4FF; --muted:#4A6278; --muted2:#2E4255;
+  --accent:#00C8FF; --accent2:#0091BB;
+  --green:#00FF87; --red:#FF3B5C; --yellow:#FFB800; --purple:#9B5EFF;
+  --glow:0 0 20px rgba(0,200,255,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+::selection{background:rgba(0,200,255,0.25);color:var(--text);}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+
+body{background:var(–bg);color:var(–text);font-family:‘JetBrains Mono’,monospace;min-height:100vh;overflow-x:hidden;}
+body::before{content:’’;position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:999;}
+
+.shell{display:flex;min-height:100vh;}
+
+/* SIDEBAR */
+.sidebar{width:230px;min-height:100vh;background:var(–bg2);border-right:1px solid var(–border);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:50;overflow-y:auto;}
+.sidebar-logo{padding:24px 22px 18px;border-bottom:1px solid var(–border);flex-shrink:0;}
+.logo-text{font-family:‘Bebas Neue’,sans-serif;font-size:26px;letter-spacing:.1em;color:var(–accent);text-shadow:0 0 30px rgba(0,200,255,.5);line-height:1;}
+.logo-sub{font-size:9px;color:var(–muted);letter-spacing:.2em;text-transform:uppercase;margin-top:4px;}
+.sidebar-nav{padding:14px 10px;flex:1;}
+.nav-group-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(–muted2);padding:0 12px;margin:14px 0 6px;}
+.nav-item{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:6px;cursor:pointer;font-size:11px;font-weight:500;color:var(–muted);letter-spacing:.04em;transition:all .15s;border:1px solid transparent;margin-bottom:2px;background:none;width:100%;text-align:left;}
+.nav-item:hover{color:var(–text);background:var(–bg3);border-color:var(–border);}
+.nav-item.active{color:var(–accent);background:rgba(0,200,255,.06);border-color:rgba(0,200,255,.2);}
+.nav-icon{font-size:13px;width:16px;text-align:center;}
+.nav-badge{margin-left:auto;font-size:9px;background:rgba(0,200,255,.12);color:var(–accent);padding:2px 6px;border-radius:8px;}
+.sidebar-footer{padding:14px 22px;border-top:1px solid var(–border);flex-shrink:0;}
+.sdot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(–green);box-shadow:0 0 8px var(–green);margin-right:8px;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.sfoot-text{font-size:10px;color:var(–muted);letter-spacing:.06em;}
+
+/* MAIN */
+.main{margin-left:230px;flex:1;padding:36px 44px;max-width:calc(100vw - 230px);}
+.page{display:none;animation:si .2s ease;}
+.page.active{display:block;}
+@keyframes si{from{opacity:0;transform:translateX(8px);}to{opacity:1;transform:translateX(0);}}
+
+/* PAGE HEADER */
+.ph{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:22px;border-bottom:1px solid var(–border);}
+.pe{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(–accent);margin-bottom:8px;}
+.pt{font-family:‘Bebas Neue’,sans-serif;font-size:38px;letter-spacing:.06em;line-height:1;}
+.pd{font-size:11px;color:var(–muted);margin-top:5px;letter-spacing:.04em;}
+
+/* INPUTS */
+.sbar{display:flex;gap:10px;margin-bottom:28px;}
+.sinput{flex:1;background:var(–bg2);border:1px solid var(–border2);border-radius:8px;padding:13px 16px;font-family:‘JetBrains Mono’,monospace;font-size:13px;font-weight:500;color:var(–text);outline:none;transition:all .2s;letter-spacing:.04em;}
+.sinput:focus{border-color:var(–accent);box-shadow:0 0 0 3px rgba(0,200,255,.07),var(–glow);}
+.sinput::placeholder{color:var(–muted2);}
+
+.btn{font-family:‘JetBrains Mono’,monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 22px;border-radius:8px;border:none;cursor:pointer;transition:all .15s;}
+.btn-a{background:var(–accent);color:var(–bg);}
+.btn-a:hover{background:#33D4FF;box-shadow:var(–glow);}
+.btn-a:active{transform:scale(.97);}
+.btn-a:disabled{opacity:.3;cursor:not-allowed;transform:none;box-shadow:none;}
+.btn-ghost{background:var(–bg3);color:var(–text);border:1px solid var(–border2);}
+.btn-ghost:hover{border-color:var(–accent);color:var(–accent);}
+
+/* CARDS & LAYOUT */
+.card{background:var(–bg2);border:1px solid var(–border);border-radius:10px;padding:22px;margin-bottom:14px;}
+.card-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(–muted);margin-bottom:14px;}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+
+/* STAT CARDS */
+.stat-card{background:var(–bg2);border:1px solid var(–border);border-radius:10px;padding:18px 20px;}
+.stat-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(–muted);margin-bottom:8px;}
+.stat-value{font-family:‘Bebas Neue’,sans-serif;font-size:34px;letter-spacing:.04em;color:var(–accent);line-height:1;}
+.stat-sub{font-size:10px;color:var(–muted);margin-top:4px;}
+
+/* RESULT BLOCK */
+.result-block{background:var(–bg2);border:1px solid var(–border);border-radius:10px;overflow:hidden;margin-top:8px;}
+.result-row{display:flex;justify-content:space-between;align-items:center;padding:11px 18px;border-bottom:1px solid var(–border);font-size:12px;transition:background .1s;}
+.result-row:last-child{border-bottom:none;}
+.result-row:hover{background:var(–bg3);}
+.rk{color:var(–muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase;}
+.rv{color:var(–text);font-weight:500;word-break:break-all;text-align:right;max-width:60%;}
+.rv.green{color:var(–green);}
+.rv.red{color:var(–red);}
+.rv.yellow{color:var(–yellow);}
+.rv.purple{color:var(–purple);}
+.rv.accent{color:var(–accent);}
+
+/* PLATFORMS GRID */
+.plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
+.plat-card{background:var(–bg2);border:1px solid var(–border);border-radius:7px;padding:10px 13px;display:flex;align-items:center;justify-content:space-between;transition:all .2s;}
+.plat-card.available{border-color:rgba(0,255,135,.3);background:rgba(0,255,135,.04);}
+.plat-card.taken{border-color:rgba(255,59,92,.3);background:rgba(255,59,92,.04);}
+.pname{font-size:10px;font-weight:500;color:var(–text);letter-spacing:.03em;}
+.pstatus{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.plat-card.available .pstatus{color:var(–green);}
+.plat-card.taken .pstatus{color:var(–red);}
+.plat-card.checking .pstatus{color:var(–muted);}
+
+/* SUMMARY */
+.sumpills{display:flex;gap:10px;margin-bottom:18px;}
+.pill{display:flex;align-items:center;gap:6px;background:var(–bg2);border:1px solid var(–border);border-radius:20px;padding:5px 13px;font-size:10px;font-weight:500;}
+.pill .dot{width:5px;height:5px;border-radius:50%;}
+.dg{background:var(–green);box-shadow:0 0 5px var(–green);}
+.dr{background:var(–red);}
+.dm{background:var(–muted);}
+
+/* OG */
+.og-wrap{display:grid;grid-template-columns:260px 1fr;gap:16px;align-items:start;}
+.og-card{background:var(–bg2);border:1px solid var(–border);border-radius:10px;padding:28px 22px;text-align:center;}
+.og-num{font-family:‘Bebas Neue’,sans-serif;font-size:90px;line-height:1;letter-spacing:.02em;color:var(–accent);text-shadow:0 0 40px rgba(0,200,255,.4);transition:all .3s;}
+.og-slash{font-size:15px;color:var(–muted);margin:4px 0 14px;letter-spacing:.1em;}
+.tier-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 16px;border-radius:4px;margin-bottom:18px;}
+.t-leg{background:rgba(255,184,0,.1);color:var(–yellow);border:1px solid rgba(255,184,0,.3);}
+.t-rare{background:rgba(155,94,255,.1);color:var(–purple);border:1px solid rgba(155,94,255,.3);}
+.t-unc{background:rgba(0,255,135,.08);color:var(–green);border:1px solid rgba(0,255,135,.2);}
+.t-com{background:var(–bg3);color:var(–muted);border:1px solid var(–border);}
+.og-bar-wrap{height:3px;background:var(–border);border-radius:2px;overflow:hidden;}
+.og-bar-fill{height:100%;background:linear-gradient(90deg,var(–accent2),var(–accent));border-radius:2px;transition:width .8s cubic-bezier(.4,0,.2,1);box-shadow:0 0 8px var(–accent);}
+
+/* USERNAME GEN */
+.gen-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
+.gen-tag{font-size:12px;font-weight:500;padding:7px 14px;background:var(–bg3);border:1px solid var(–border2);border-radius:6px;cursor:pointer;color:var(–text);transition:all .15s;letter-spacing:.04em;}
+.gen-tag:hover{border-color:var(–accent);color:var(–accent);background:rgba(0,200,255,.06);}
+.gen-options{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+.gen-opt{display:flex;align-items:center;gap:7px;font-size:11px;color:var(–muted);cursor:pointer;}
+.gen-opt input{accent-color:var(–accent);}
+.gen-opt label{cursor:pointer;}
+
+/* SNOWFLAKE */
+.sf-bits{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;}
+.sf-bit{background:var(–bg3);border:1px solid var(–border);border-radius:7px;padding:12px 14px;}
+.sf-bit-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(–muted);margin-bottom:5px;}
+.sf-bit-val{font-size:13px;font-weight:700;color:var(–accent);}
+
+/* LIST CARD */
+.list-card{background:var(–bg2);border:1px solid var(–border);border-radius:10px;overflow:hidden;margin-bottom:14px;}
+.lhead{padding:13px 18px;border-bottom:1px solid var(–border);display:flex;align-items:center;justify-content:space-between;}
+.lhead-title{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(–muted);}
+.ladd-btn{font-family:‘JetBrains Mono’,monospace;font-size:10px;font-weight:700;letter-spacing:.06em;background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.2);color:var(–accent);padding:5px 11px;border-radius:4px;cursor:pointer;transition:all .15s;}
+.ladd-btn:hover{background:rgba(0,200,255,.14);}
+.litem{display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-bottom:1px solid var(–border);transition:background .1s;}
+.litem:last-child{border-bottom:none;}
+.litem:hover{background:var(–bg3);}
+.litem-l{display:flex;align-items:center;gap:11px;}
+.licon{width:28px;height:28px;border-radius:6px;background:var(–bg3);border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;font-size:12px;}
+.lname{font-size:12px;font-weight:500;color:var(–text);letter-spacing:.02em;}
+.lsub{font-size:10px;color:var(–muted);margin-top:2px;letter-spacing:.03em;}
+.del-btn{font-size:15px;color:var(–muted2);background:none;border:none;cursor:pointer;padding:4px 6px;border-radius:4px;transition:all .15s;line-height:1;}
+.del-btn:hover{background:rgba(255,59,92,.1);color:var(–red);}
+.empty-msg{padding:24px 18px;text-align:center;font-size:11px;color:var(–muted2);letter-spacing:.06em;}
+.add-row{display:none;gap:7px;padding:10px 14px;background:var(–bg3);border-top:1px solid var(–border);}
+.add-row.open{display:flex;}
+.add-row input,.add-row select{font-family:‘JetBrains Mono’,monospace;font-size:11px;padding:7px 11px;background:var(–bg2);border:1px solid var(–border2);border-radius:6px;color:var(–text);outline:none;transition:border-color .15s;}
+.add-row input{flex:1;}
+.add-row input:focus,.add-row select:focus{border-color:var(–accent);}
+.add-row select option{background:var(–bg2);}
+.btn-sm{font-family:‘JetBrains Mono’,monospace;font-size:11px;font-weight:700;padding:7px 13px;border-radius:6px;border:none;cursor:pointer;background:var(–accent);color:var(–bg);transition:all .15s;letter-spacing:.06em;}
+.btn-sm:hover{background:#33D4FF;}
+
+/* NOTES */
+.notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
+.note-card{background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:13px;position:relative;transition:border-color .15s;}
+.note-card:hover{border-color:var(–border2);}
+.note-ta{width:100%;background:none;border:none;color:var(–text);font-family:‘JetBrains Mono’,monospace;font-size:12px;resize:none;outline:none;min-height:90px;letter-spacing:.02em;line-height:1.7;}
+.note-ta::placeholder{color:var(–muted2);}
+.note-del{position:absolute;top:7px;right:7px;font-size:13px;color:var(–muted2);background:none;border:none;cursor:pointer;padding:2px 5px;border-radius:3px;transition:all .15s;line-height:1;}
+.note-del:hover{background:rgba(255,59,92,.1);color:var(–red);}
+.add-note-btn{display:flex;align-items:center;justify-content:center;background:var(–bg2);border:1px dashed var(–border2);border-radius:8px;padding:28px;cursor:pointer;color:var(–muted2);font-size:22px;transition:all .15s;min-height:120px;}
+.add-note-btn:hover{border-color:var(–accent);color:var(–accent);background:rgba(0,200,255,.04);}
+
+/* COPY BTN */
+.copy-btn{font-family:‘JetBrains Mono’,monospace;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;background:var(–bg3);border:1px solid var(–border2);border-radius:4px;color:var(–muted);cursor:pointer;transition:all .15s;}
+.copy-btn:hover{border-color:var(–accent);color:var(–accent);}
+
+/* NOTICE */
+.notice{font-size:10px;color:var(–muted);padding:9px 13px;background:rgba(255,184,0,.05);border:1px solid rgba(255,184,0,.15);border-radius:6px;margin-top:14px;letter-spacing:.04em;line-height:1.6;}
+.notice-blue{background:rgba(0,200,255,.05);border-color:rgba(0,200,255,.15);color:var(–muted);}
+
+/* TABLE */
+.tbl{background:var(–bg2);border:1px solid var(–border);border-radius:10px;overflow:hidden;}
+.tbl-head{display:grid;padding:11px 18px;border-bottom:1px solid var(–border);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(–muted);}
+.tbl-row{display:grid;padding:12px 18px;border-bottom:1px solid var(–border);font-size:12px;align-items:center;transition:background .1s;}
+.tbl-row:last-child{border-bottom:none;}
+.tbl-row:hover{background:var(–bg3);}
+.nbadge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;}
+.nb-b{background:rgba(0,200,255,.1);color:var(–accent);border:1px solid rgba(0,200,255,.2);}
+.nb-f{background:rgba(155,94,255,.1);color:var(–purple);border:1px solid rgba(155,94,255,.2);}
+
+.ldots{display:inline-flex;gap:3px;align-items:center;}
+.ldots span{width:3px;height:3px;border-radius:50%;background:var(–muted);animation:dp 1.2s infinite;}
+.ldots span:nth-child(2){animation-delay:.2s;}
+.ldots span:nth-child(3){animation-delay:.4s;}
+@keyframes dp{0%,80%,100%{transform:scale(.5);opacity:.3;}40%{transform:scale(1);opacity:1;}}
+</style>
+
+</head>
+<body>
+<div class="shell">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-text">DTOOLS</div>
+    <div class="logo-sub">v3.0 — Discord Utilities</div>
+  </div>
+  <nav class="sidebar-nav">
+
+```
+<div class="nav-group-label">🔵 Discord</div>
+<button class="nav-item active" onclick="go('checker',this)"><span class="nav-icon">⌕</span>Username Checker<span class="nav-badge">20</span></button>
+<button class="nav-item" onclick="go('invite',this)"><span class="nav-icon">🔗</span>Invite Checker</button>
+<button class="nav-item" onclick="go('snowflake',this)"><span class="nav-icon">❄</span>Snowflake Decoder</button>
+<button class="nav-item" onclick="go('tokeninfo',this)"><span class="nav-icon">🔑</span>Token Decoder</button>
+<button class="nav-item" onclick="go('pfpgen',this)"><span class="nav-icon">🎨</span>Avatar Color</button>
+
+<div class="nav-group-label">✦ Username</div>
+<button class="nav-item" onclick="go('og',this)"><span class="nav-icon">◈</span>OG Score</button>
+<button class="nav-item" onclick="go('generator',this)"><span class="nav-icon">⚙</span>Username Generator</button>
+<button class="nav-item" onclick="go('combos',this)"><span class="nav-icon">∞</span>Combo Builder</button>
+
+<div class="nav-group-label">📡 Stats & Info</div>
+<button class="nav-item" onclick="go('ipinfo',this)"><span class="nav-icon">◎</span>IP Lookup</button>
+<button class="nav-item" onclick="go('whois',this)"><span class="nav-icon">◻</span>WHOIS Lookup</button>
+<button class="nav-item" onclick="go('ping',this)"><span class="nav-icon">◈</span>Ping / Latency</button>
+<button class="nav-item" onclick="go('useragent',this)"><span class="nav-icon">⊡</span>User Agent</button>
+
+<div class="nav-group-label">👤 Personal</div>
+<button class="nav-item" onclick="go('nitro',this)"><span class="nav-icon">⚡</span>Nitro Tracker</button>
+<button class="nav-item" onclick="go('dashboard',this)"><span class="nav-icon">⊞</span>Dashboard</button>
+<button class="nav-item" onclick="go('notes',this)"><span class="nav-icon">≡</span>Notes</button>
+```
+
+  </nav>
+  <div class="sidebar-footer">
+    <span class="sdot"></span>
+    <span class="sfoot-text">v3.0 — local only</span>
+  </div>
+</aside>
+
+<main class="main">
+
+<!-- ══ USERNAME CHECKER ══════════════════════════════════════ -->
+
+<div class="page active" id="page-checker">
+  <div class="ph">
+    <div><div class="pe">Discord Tool</div><div class="pt">USERNAME CHECKER</div><div class="pd">Check availability across 20+ platforms simultaneously</div></div>
+  </div>
+  <div class="sbar">
+    <input class="sinput" id="c-input" placeholder="enter username..." maxlength="32">
+    <button class="btn btn-a" id="c-btn" onclick="runChecker()">→ CHECK</button>
+  </div>
+  <div class="sumpills" id="c-pills" style="display:none">
+    <div class="pill"><span class="dot dg"></span><span id="c-av">0</span>&nbsp;available</div>
+    <div class="pill"><span class="dot dr"></span><span id="c-tk">0</span>&nbsp;taken</div>
+    <div class="pill"><span class="dot dm"></span>20 platforms</div>
+  </div>
+  <div class="plat-grid" id="c-grid"></div>
+  <div class="notice" id="c-notice" style="display:none">⚠ Résultats simulés côté client. Un Cloudflare Worker est nécessaire pour les vrais checks (CORS).</div>
+</div>
+
+<!-- ══ INVITE CHECKER ════════════════════════════════════════ -->
+
+<div class="page" id="page-invite">
+  <div class="ph">
+    <div><div class="pe">Discord Tool</div><div class="pt">INVITE CHECKER</div><div class="pd">Analyse un lien d'invitation Discord</div></div>
+  </div>
+  <div class="sbar">
+    <input class="sinput" id="inv-input" placeholder="discord.gg/code ou https://discord.gg/..." >
+    <button class="btn btn-a" onclick="runInvite()">→ ANALYSE</button>
+  </div>
+  <div id="inv-result" style="display:none">
+    <div class="result-block" id="inv-data"></div>
+    <div class="notice notice-blue" style="margin-top:12px">Les infos de serveur nécessitent l'API Discord publique. Résultats partiels affichés ici.</div>
+  </div>
+</div>
+
+<!-- ══ SNOWFLAKE DECODER ═════════════════════════════════════ -->
+
+<div class="page" id="page-snowflake">
+  <div class="ph">
+    <div><div class="pe">Discord Tool</div><div class="pt">SNOWFLAKE DECODER</div><div class="pd">Décode un Discord Snowflake ID → timestamp, worker, process, increment</div></div>
+  </div>
+  <div class="sbar">
+    <input class="sinput" id="sf-input" placeholder="Discord ID (ex: 175928847299117063)" oninput="runSnowflake()">
+  </div>
+  <div id="sf-result" style="display:none">
+    <div class="result-block" id="sf-data"></div>
+    <div class="sf-bits" id="sf-bits"></div>
+  </div>
+</div>
+
+<!-- ══ TOKEN DECODER ═════════════════════════════════════════ -->
+
+<div class="page" id="page-tokeninfo">
+  <div class="ph">
+    <div><div class="pe">Discord Tool</div><div class="pt">TOKEN DECODER</div><div class="pd">Décode la partie publique d'un token Discord (base64 user ID)</div></div>
+  </div>
+  <div class="sbar">
+    <input class="sinput" id="tok-input" placeholder="token Discord (partie1.partie2.partie3)" oninput="runToken()">
+  </div>
+  <div id="tok-result" style="display:none">
+    <div class="result-block" id="tok-data"></div>
+  </div>
+  <div class="notice">⚠ Ne partage jamais ton token. Cet outil lit uniquement la partie base64 publique (user ID). Aucune donnée envoyée.</div>
+</div>
+
+<!-- ══ AVATAR COLOR ══════════════════════════════════════════ -->
+
+<div class="page" id="page-pfpgen">
+  <div class="ph">
+    <div><div class="pe">Discord Tool</div><div class="pt">AVATAR COLOR</div><div class="pd">Trouve la couleur d'avatar par défaut Discord d'un utilisateur</div></div>
+  </div>
+  <div class="sbar">
+    <input class="sinput" id="pfp-input" placeholder="Username ou User ID Discord" oninput="runPfp()">
+  </div>
+  <div id="pfp-result" style="display:none">
+    <div style="display:flex;gap:16px;align-items:center;margin-bottom:16px">
+      <div id="pfp-circle" style="width:80px;height:80px;border-radius:50%;flex-shrink:0;border:2px solid var(--border2);transition:background .3s;"></div>
+      <div id="pfp-info"></div>
+    </div>
+    <div class="result-block" id="pfp-data"></div>
+  </div>
+</div>
+
+<!-- ══ OG SCORE ══════════════════════════════════════════════ -->
+
+<div class="page" id="page-og">
+  <div class="ph">
+    <div><div class="pe">Username Tool</div><div class="pt">OG VALUE ESTIMATOR</div><div class="pd">Score la rareté d'un username de 0 à 100</div></div>
+  </div>
+  <div class="sbar">
+    <input class="sinput" id="og-input" placeholder="enter username..." maxlength="32" oninput="runOG()">
+  </div>
+  <div class="og-wrap" id="og-result" style="display:none">
+    <div class="og-card">
+      <div class="og-num" id="og-num">0</div>
+      <div class="og-slash">/ 100</div>
+      <div class="tier-badge" id="og-tier"></div>
+      <div style="margin-top:14px"><div class="og-bar-wrap"><div class="og-bar-fill" id="og-bar" style="width:0%"></div></div></div>
+    </div>
+    <div class="result-block" id="og-criteria"></div>
+  </div>
+  <div class="notice">Critères : longueur, lettres/chiffres, dictionary word, lettres rares, répétition, séquence, ponctuation.</div>
+</div>
+
+<!-- ══ USERNAME GENERATOR ════════════════════════════════════ -->
+
+<div class="page" id="page-generator">
+  <div class="ph">
+    <div><div class="pe">Username Tool</div><div class="pt">USERNAME GENERATOR</div><div class="pd">Génère des usernames OG aléatoires selon tes critères</div></div>
+  </div>
+  <div class="card">
+    <div class="card-label">Options</div>
+    <div class="gen-options">
+      <label class="gen-opt"><input type="checkbox" id="go-3l" checked><label for="go-3l">3L</label></label>
+      <label class="gen-opt"><input type="checkbox" id="go-4l" checked><label for="go-4l">4L</label></label>
+      <label class="gen-opt"><input type="checkbox" id="go-dict" checked><label for="go-dict">Dict words</label></label>
+      <label class="gen-opt"><input type="checkbox" id="go-nums"><label for="go-nums">Avec chiffres</label></label>
+      <label class="gen-opt"><input type="checkbox" id="go-rare"><label for="go-rare">Lettres rares</label></label>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <input class="sinput" id="gen-base" placeholder="Base (optionnel: ex 'ice', 'god'...)" style="margin-bottom:0">
+      <button class="btn btn-a" onclick="runGenerator()">GENERATE</button>
+    </div>
+  </div>
+  <div id="gen-output" style="display:none">
+    <div class="card-label" style="margin-top:4px">Résultats — clique pour copier</div>
+    <div class="gen-tags" id="gen-tags"></div>
+  </div>
+</div>
+
+<!-- ══ COMBO BUILDER ═════════════════════════════════════════ -->
+
+<div class="page" id="page-combos">
+  <div class="ph">
+    <div><div class="pe">Username Tool</div><div class="pt">COMBO BUILDER</div><div class="pd">Génère toutes les combinaisons possibles depuis des mots/chars</div></div>
+  </div>
+  <div class="card">
+    <div class="card-label">Mots / préfixes (un par ligne)</div>
+    <textarea class="sinput" id="combo-a" rows="4" placeholder="ice&#10;god&#10;arc&#10;void" style="resize:vertical;margin-bottom:10px"></textarea>
+    <div class="card-label">Suffixes / mots 2 (un par ligne)</div>
+    <textarea class="sinput" id="combo-b" rows="4" placeholder="123&#10;x&#10;og&#10;_" style="resize:vertical;margin-bottom:10px"></textarea>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+      <label class="gen-opt"><input type="checkbox" id="cb-sep"><label for="cb-sep">Séparateur _</label></label>
+      <label class="gen-opt"><input type="checkbox" id="cb-rev"><label for="cb-rev">Inverser aussi</label></label>
+      <button class="btn btn-a" onclick="runCombos()" style="margin-left:auto">BUILD</button>
+    </div>
+  </div>
+  <div id="combo-output" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div class="card-label" style="margin:0">Combos — clique pour copier</div>
+      <span id="combo-count" style="font-size:10px;color:var(--muted)"></span>
+    </div>
+    <div class="gen-tags" id="combo-tags"></div>
+  </div>
+</div>
+
+<!-- ══ IP LOOKUP ═════════════════════════════════════════════ -->
+
+<div class="page" id="page-ipinfo">
+  <div class="ph">
+    <div><div class="pe">Stats & Info</div><div class="pt">IP LOOKUP</div><div class="pd">Infos géographiques & réseau d'une IP (ou la tienne)</div></div>
+  </div>
+  <div class="sbar">
+    <input class="sinput" id="ip-input" placeholder="IP address (laisse vide pour ta propre IP)">
+    <button class="btn btn-a" onclick="runIP()">→ LOOKUP</button>
+  </div>
+  <div id="ip-result" style="display:none">
+    <div class="result-block" id="ip-data"></div>
+  </div>
+  <div class="notice">Données via ipapi.co (publique). Ta propre IP si champ vide.</div>
+</div>
+
+<!-- ══ WHOIS ═════════════════════════════════════════════════ -->
+
+<div class="page" id="page-whois">
+  <div class="ph">
+    <div><div class="pe">Stats & Info</div><div class="pt">WHOIS LOOKUP</div><div class="pd">Infos d'enregistrement d'un domaine</div></div>
+  </div>
+  <div class="sbar">
+    <input class="sinput" id="who-input" placeholder="domain.com">
+    <button class="btn btn-a" onclick="runWhois()">→ LOOKUP</button>
+  </div>
+  <div id="who-result" style="display:none">
+    <div class="result-block" id="who-data"></div>
+  </div>
+  <div class="notice">Données via whois.freeaiapis.com (publique). Résultats peuvent varier selon le registrar.</div>
+</div>
+
+<!-- ══ PING ══════════════════════════════════════════════════ -->
+
+<div class="page" id="page-ping">
+  <div class="ph">
+    <div><div class="pe">Stats & Info</div><div class="pt">PING / LATENCY</div><div class="pd">Mesure la latence vers plusieurs endpoints Discord & web</div></div>
+  </div>
+  <button class="btn btn-a" onclick="runPing()" id="ping-btn" style="margin-bottom:24px">▷ START PING TEST</button>
+  <div class="grid2" id="ping-grid"></div>
+</div>
+
+<!-- ══ USER AGENT ════════════════════════════════════════════ -->
+
+<div class="page" id="page-useragent">
+  <div class="ph">
+    <div><div class="pe">Stats & Info</div><div class="pt">USER AGENT INFO</div><div class="pd">Analyse complète de ton navigateur & environnement</div></div>
+  </div>
+  <div class="result-block" id="ua-data"></div>
+  <div style="margin-top:16px">
+    <div class="card-label">Raw User Agent</div>
+    <div class="card" style="word-break:break-all;font-size:11px;color:var(--accent);letter-spacing:.04em;padding:14px 18px;" id="ua-raw"></div>
+  </div>
+</div>
+
+<!-- ══ NITRO TRACKER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-nitro">
+  <div class="ph">
+    <div><div class="pe">Personal</div><div class="pt">NITRO TRACKER</div><div class="pd">Track tes abonnements Nitro & boosts</div></div>
+    <button class="btn btn-a" onclick="toggleAddRow('na-row')">+ Add</button>
+  </div>
+  <div class="grid3" style="margin-bottom:22px">
+    <div class="stat-card"><div class="stat-label">Total Nitros</div><div class="stat-value" id="ns-total">0</div></div>
+    <div class="stat-card"><div class="stat-label">Boosts actifs</div><div class="stat-value" id="ns-boosts">0</div></div>
+    <div class="stat-card"><div class="stat-label">Serveurs</div><div class="stat-value" id="ns-servers">0</div></div>
+  </div>
+  <div class="tbl">
+    <div class="tbl-head" style="grid-template-columns:2fr 1fr 1fr 1fr 36px"><span>Serveur</span><span>Type</span><span>Boosts</span><span>Expire</span><span></span></div>
+    <div id="nitro-list"></div>
+    <div id="na-row" class="add-row">
+      <input id="n-server" placeholder="Serveur" style="flex:2">
+      <select id="n-type"><option value="basic">Basic</option><option value="full">Full</option></select>
+      <input id="n-boosts" type="number" placeholder="Boosts" min="0" max="30" style="flex:.6">
+      <input id="n-expire" type="date" style="flex:1">
+      <button class="btn-sm" onclick="addNitro()">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DASHBOARD ════════════════════════════════════════════ -->
+
+<div class="page" id="page-dashboard">
+  <div class="ph">
+    <div><div class="pe">Personal</div><div class="pt">DASHBOARD</div><div class="pd">Hub — serveurs, usernames, stats</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:22px">
+    <div class="stat-card"><div class="stat-label">Serveurs</div><div class="stat-value" id="ds-srv">0</div></div>
+    <div class="stat-card"><div class="stat-label">Usernames</div><div class="stat-value" id="ds-usr">0</div></div>
+    <div class="stat-card"><div class="stat-label">Notes</div><div class="stat-value" id="ds-notes">0</div></div>
+    <div class="stat-card"><div class="stat-label">Nitro</div><div class="stat-value" id="ds-nitro">0</div></div>
+  </div>
+  <div class="grid2">
+    <div class="list-card">
+      <div class="lhead"><span class="lhead-title">Serveurs Discord</span><button class="ladd-btn" onclick="toggleAddRow('srv-row')">+ Add</button></div>
+      <div id="srv-list"></div>
+      <div id="srv-row" class="add-row"><input id="srv-name" placeholder="Nom"><input id="srv-link" placeholder="discord.gg/..."><button class="btn-sm" onclick="addServer()">OK</button></div>
+    </div>
+    <div class="list-card">
+      <div class="lhead"><span class="lhead-title">Usernames</span><button class="ladd-btn" onclick="toggleAddRow('usr-row')">+ Add</button></div>
+      <div id="usr-list"></div>
+      <div id="usr-row" class="add-row">
+        <input id="usr-name" placeholder="username">
+        <select id="usr-plat"><option>Discord</option><option>Instagram</option><option>Twitter/X</option><option>Kick</option><option>Guns.lol</option><option>TikTok</option><option>Twitch</option><option>Autre</option></select>
+        <button class="btn-sm" onclick="addUsername()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NOTES ═════════════════════════════════════════════════ -->
+
+<div class="page" id="page-notes">
+  <div class="ph">
+    <div><div class="pe">Personal</div><div class="pt">NOTES</div><div class="pd">Notes rapides — persistantes localement</div></div>
+  </div>
+  <div class="notes-grid" id="notes-grid"></div>
+</div>
+
+</main>
+</div>
+
+<script>
+// ── NAV ──────────────────────────────────────────────────────
+function go(id, el) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  el.classList.add('active');
+}
+function toggleAddRow(id) { document.getElementById(id).classList.toggle('open'); }
+
+// ── COPY ─────────────────────────────────────────────────────
+function copyText(t, el) {
+  navigator.clipboard.writeText(t);
+  const orig = el.textContent;
+  el.textContent = 'copied!';
+  el.style.color = 'var(--green)';
+  setTimeout(()=>{ el.textContent=orig; el.style.color=''; }, 1200);
+}
+
+// ── CHECKER ──────────────────────────────────────────────────
+const PLATFORMS = ['Discord','Guns.lol','Sellix','MySellAuth','Kick','Instagram','Twitter/X','TikTok','Twitch','YouTube','GitHub','Reddit','Telegram','Pinterest','Snapchat','SoundCloud','Roblox','Steam','Spotify','Cashapp'];
+
+function simCheck(plat, user) {
+  const seed = [...(user+plat)].reduce((a,c)=>a+c.charCodeAt(0),0);
+  const r = ((seed*1103515245+12345)&0x7fffffff)%100;
+  const sp = user.length<=3?55:user.length<=4?30:0;
+  return (r+sp)>55?'taken':'available';
+}
+
+function buildGrid(user) {
+  document.getElementById('c-grid').innerHTML = PLATFORMS.map(p=>`
+    <div class="plat-card checking" id="pc-${p.replace(/\W/g,'')}">
+      <span class="pname">${p}</span>
+      <span class="pstatus"><span class="ldots"><span></span><span></span><span></span></span></span>
+    </div>`).join('');
+}
+
+async function checkP(p, u) {
+  await new Promise(r=>setTimeout(r,300+Math.random()*1600));
+  const s = simCheck(p,u);
+  const el = document.getElementById('pc-'+p.replace(/\W/g,''));
+  el.className = 'plat-card '+s;
+  el.querySelector('.pstatus').textContent = s;
+  const av = document.querySelectorAll('.plat-card.available').length;
+  const tk = document.querySelectorAll('.plat-card.taken').length;
+  document.getElementById('c-av').textContent=av;
+  document.getElementById('c-tk').textContent=tk;
+}
+
+async function runChecker() {
+  const u = document.getElementById('c-input').value.trim();
+  if (!u) return;
+  const btn = document.getElementById('c-btn');
+  btn.disabled=true; btn.textContent='...';
+  document.getElementById('c-notice').style.display='none';
+  document.getElementById('c-pills').style.display='none';
+  buildGrid(u);
+  document.getElementById('c-pills').style.display='flex';
+  await Promise.all(PLATFORMS.map(p=>checkP(p,u)));
+  btn.disabled=false; btn.textContent='→ CHECK';
+  document.getElementById('c-notice').style.display='block';
+}
+document.getElementById('c-input').addEventListener('keydown',e=>{ if(e.key==='Enter') runChecker(); });
+
+// ── INVITE CHECKER ───────────────────────────────────────────
+function runInvite() {
+  let raw = document.getElementById('inv-input').value.trim();
+  if (!raw) return;
+  const code = raw.replace(/.*discord\.gg\//i,'').replace(/\?.*/,'').trim();
+  if (!code) return;
+  const res = document.getElementById('inv-result');
+  const data = document.getElementById('inv-data');
+  res.style.display = 'block';
+
+  // Simulate invite info (real check needs Discord API)
+  const isValid = code.length >= 4;
+  data.innerHTML = rows([
+    ['Code', code, 'accent'],
+    ['Format', code.length>=4?'Valide':'Trop court', code.length>=4?'green':'red'],
+    ['URL', `discord.gg/${code}`, ''],
+    ['Longueur', `${code.length} caractères`, code.length<=5?'green':''],
+    ['Type', code.length===4?'4L Invite':code.length===5?'5L Invite':'Standard', code.length<=5?'purple':''],
+    ['Status', 'Vérification manuelle requise', 'yellow'],
+  ]);
+}
+
+// ── SNOWFLAKE ────────────────────────────────────────────────
+function runSnowflake() {
+  const id = document.getElementById('sf-input').value.trim();
+  const res = document.getElementById('sf-result');
+  if (!id || !/^\d+$/.test(id)) { res.style.display='none'; return; }
+  res.style.display = 'block';
+
+  const DISCORD_EPOCH = 1420070400000n;
+  const bigId = BigInt(id);
+  const timestamp = Number((bigId >> 22n) + DISCORD_EPOCH);
+  const workerId = Number((bigId & 0x3E0000n) >> 17n);
+  const processId = Number((bigId & 0x1F000n) >> 12n);
+  const increment = Number(bigId & 0xFFFn);
+  const date = new Date(timestamp);
+
+  document.getElementById('sf-data').innerHTML = rows([
+    ['Snowflake ID', id, 'accent'],
+    ['Timestamp', timestamp.toString(), ''],
+    ['Date (UTC)', date.toUTCString(), 'green'],
+    ['Date (locale)', date.toLocaleString(), ''],
+    ['Worker ID', workerId.toString(), 'purple'],
+    ['Process ID', processId.toString(), 'purple'],
+    ['Increment', increment.toString(), 'yellow'],
+  ]);
+
+  document.getElementById('sf-bits').innerHTML = `
+    <div class="sf-bit"><div class="sf-bit-label">Timestamp (ms)</div><div class="sf-bit-val">${timestamp}</div></div>
+    <div class="sf-bit"><div class="sf-bit-label">Worker ID</div><div class="sf-bit-val">${workerId}</div></div>
+    <div class="sf-bit"><div class="sf-bit-label">Process ID</div><div class="sf-bit-val">${processId}</div></div>
+    <div class="sf-bit"><div class="sf-bit-label">Increment</div><div class="sf-bit-val">${increment}</div></div>
+    <div class="sf-bit"><div class="sf-bit-label">Création</div><div class="sf-bit-val" style="font-size:11px">${date.toLocaleDateString()}</div></div>
+    <div class="sf-bit"><div class="sf-bit-label">Âge</div><div class="sf-bit-val" style="font-size:11px">${timeSince(date)}</div></div>
+  `;
+}
+
+function timeSince(d) {
+  const s = Math.floor((Date.now()-d)/1000);
+  if(s<60) return s+'s';
+  if(s<3600) return Math.floor(s/60)+'m';
+  if(s<86400) return Math.floor(s/3600)+'h';
+  if(s<2592000) return Math.floor(s/86400)+'j';
+  if(s<31536000) return Math.floor(s/2592000)+'mo';
+  return Math.floor(s/31536000)+'ans';
+}
+
+// ── TOKEN DECODER ────────────────────────────────────────────
+function runToken() {
+  const tok = document.getElementById('tok-input').value.trim();
+  const res = document.getElementById('tok-result');
+  if (!tok) { res.style.display='none'; return; }
+
+  const parts = tok.split('.');
+  if (parts.length !== 3) {
+    document.getElementById('tok-data').innerHTML = rows([['Erreur','Format invalide (attendu: xxx.yyy.zzz)','red']]);
+    res.style.display='block'; return;
+  }
+
+  try {
+    const b64 = parts[0].replace(/-/g,'+').replace(/_/g,'/');
+    const padded = b64 + '='.repeat((4-b64.length%4)%4);
+    const decoded = atob(padded);
+    const userId = decoded;
+
+    // Decode timestamp from part 2
+    let tsInfo = '—';
+    try {
+      const p2 = parts[1].replace(/-/g,'+').replace(/_/g,'/');
+      const p2pad = p2+'='.repeat((4-p2.length%4)%4);
+      const p2dec = JSON.parse(atob(p2pad));
+      if (p2dec && p2dec.iat) tsInfo = new Date(p2dec.iat*1000).toLocaleString();
+    } catch(e) {}
+
+    document.getElementById('tok-data').innerHTML = rows([
+      ['User ID (décoded)', userId, 'accent'],
+      ['Token Part 1', parts[0].substring(0,20)+'...', ''],
+      ['Token Part 2', parts[1].substring(0,20)+'...', ''],
+      ['Emis le', tsInfo, 'green'],
+      ['Structure', '3 parties valide', 'green'],
+    ]);
+  } catch(e) {
+    document.getElementById('tok-data').innerHTML = rows([['Erreur','Décodage impossible','red']]);
+  }
+  res.style.display='block';
+}
+
+// ── AVATAR COLOR ─────────────────────────────────────────────
+const DISCORD_COLORS = ['#5865F2','#57F287','#FEE75C','#EB459E','#ED4245'];
+const COLOR_NAMES = ['Blurple','Green','Yellow','Pink','Red'];
+
+function runPfp() {
+  const input = document.getElementById('pfp-input').value.trim();
+  const res = document.getElementById('pfp-result');
+  if (!input) { res.style.display='none'; return; }
+
+  let idx;
+  if (/^\d+$/.test(input)) {
+    idx = Number(BigInt(input) % 5n);
+  } else {
+    const disc = parseInt(input.slice(-4)) || [...input].reduce((a,c)=>a+c.charCodeAt(0),0);
+    idx = disc % 5;
+  }
+
+  const color = DISCORD_COLORS[idx];
+  const name = COLOR_NAMES[idx];
+
+  document.getElementById('pfp-circle').style.background = color;
+  document.getElementById('pfp-data').innerHTML = rows([
+    ['Couleur par défaut', name, 'accent'],
+    ['Hex', color, 'green'],
+    ['Index', idx.toString(), 'purple'],
+    ['Input', input, ''],
+  ]);
+  document.getElementById('pfp-info').innerHTML = `
+    <div style="font-size:20px;font-weight:700;color:${color};text-shadow:0 0 20px ${color}66">${name}</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:6px">${color}</div>
+    <div style="font-size:11px;color:var(--muted2);margin-top:4px">Avatar par défaut Discord #${idx}</div>
+  `;
+  res.style.display='block';
+}
+
+// ── OG SCORE ─────────────────────────────────────────────────
+const DICT = ['god','ice','ace','fire','king','lord','elite','dark','void','pure','raw','one','top','pro','max','neo','arc','zero','prime','wave','echo','flux','code','root','base','core','node','edge','link','sync','sky','sun','fox','axe','owl','war','zen','aim','dot','red','fly','mob','win','gg','ok','og','bro','big','new','old','low','hot','key','law','map','sea','end'];
+
+function scoreUser(u) {
+  u = u.toLowerCase(); let score=0, bd=[];
+  if(u.length===1)      {score+=40;bd.push({l:'1 char — ultra rare',v:'+40',p:1});}
+  else if(u.length===2) {score+=30;bd.push({l:'2 chars',v:'+30',p:1});}
+  else if(u.length===3) {score+=22;bd.push({l:'3L',v:'+22',p:1});}
+  else if(u.length===4) {score+=14;bd.push({l:'4L',v:'+14',p:1});}
+  else if(u.length<=6)  {score+=6; bd.push({l:`${u.length} chars`,v:'+6',p:1});}
+  else                  {bd.push({l:`${u.length} chars (long)`,v:'0',p:0});}
+  if(/^[a-z]+$/.test(u))  {score+=10;bd.push({l:'Lettres uniquement',v:'+10',p:1});}
+  if(/^[0-9]+$/.test(u))  {score+=8; bd.push({l:'Chiffres uniquement',v:'+8',p:1});}
+  if(/[0-9]/.test(u)&&/[a-z]/.test(u)) {score-=3;bd.push({l:'Mix lettres+chiffres',v:'−3',p:0});}
+  if(['q','x','z','j'].some(l=>u.includes(l))&&u.length<=5) {score+=8;bd.push({l:'Lettre rare (q/x/z/j)',v:'+8',p:1});}
+  if(DICT.includes(u)) {score+=18;bd.push({l:'Dictionary word',v:'+18',p:1});}
+  if(new Set(u).size===1&&u.length<=4) {score+=12;bd.push({l:'Répétition (aaa/000)',v:'+12',p:1});}
+  if(/^(012|123|234|345|456|567|678|789|0123|1234|2345|3456|4567|5678|6789)$/.test(u)) {score+=8;bd.push({l:'Séquence numérique',v:'+8',p:1});}
+  if(u.includes('_')||u.includes('.')) {score-=5;bd.push({l:'Underscore/point',v:'−5',p:0});}
+  score=Math.min(100,Math.max(0,score));
+  let tier,tc;
+  if(score>=75){tier='🏆 Legendary';tc='t-leg';}
+  else if(score>=50){tier='💎 Rare';tc='t-rare';}
+  else if(score>=30){tier='✦ Uncommon';tc='t-unc';}
+  else{tier='Common';tc='t-com';}
+  return {score,tier,tc,bd};
+}
+
+function runOG() {
+  const u = document.getElementById('og-input').value.trim();
+  const res = document.getElementById('og-result');
+  if (!u) { res.style.display='none'; return; }
+  const d = scoreUser(u);
+  res.style.display='grid';
+  document.getElementById('og-num').textContent=d.score;
+  const t=document.getElementById('og-tier');
+  t.textContent=d.tier; t.className='tier-badge '+d.tc;
+  setTimeout(()=>{ document.getElementById('og-bar').style.width=d.score+'%'; },50);
+  document.getElementById('og-criteria').innerHTML = d.bd.map(c=>`
+    <div class="result-row">
+      <span class="rk">${c.l}</span>
+      <span class="rv ${c.p?'green':'red'}">${c.v}</span>
+    </div>`).join('');
+}
+
+// ── USERNAME GENERATOR ───────────────────────────────────────
+const VOWELS='aeiou', CONS='bcdfghjklmnpqrstvwxyz';
+const SMALL_DICT=['ice','god','ace','fire','ark','axe','owl','fox','arc','war','zen','sky','raw','ego','orb','hex','ion','neo'];
+const RARE='qxzj';
+
+function randChar(set) { return set[Math.floor(Math.random()*set.length)]; }
+function randStr(len, alpha='abcdefghijklmnopqrstuvwxyz') {
+  return Array.from({length:len},()=>randChar(alpha)).join('');
+}
+
+function runGenerator() {
+  const base = document.getElementById('gen-base').value.trim().toLowerCase();
+  const do3l = document.getElementById('go-3l').checked;
+  const do4l = document.getElementById('go-4l').checked;
+  const doDict = document.getElementById('go-dict').checked;
+  const doNums = document.getElementById('go-nums').checked;
+  const doRare = document.getElementById('go-rare').checked;
+
+  const results = new Set();
+
+  if (base) {
+    // Variations of base
+    const suffixes = ['','x','z','og','gg','123','0','_','xd','pro','99'];
+    const prefixes = ['','x','z','the','og','_','i'];
+    for (const s of suffixes) results.add(base+s);
+    for (const p of prefixes) results.add(p+base);
+    // Swap letters
+    for (let i=0;i<base.length;i++) {
+      const replaced = base.split('');
+      replaced[i] = doRare ? randChar(RARE) : randChar('abcdefghijklmnopqrstuvwxyz');
+      results.add(replaced.join(''));
+    }
+  }
+
+  if (do3l) for(let i=0;i<30;i++) {
+    if (doRare && Math.random()>.6) results.add(randChar(RARE)+randStr(2));
+    else results.add(randStr(3));
+  }
+  if (do4l) for(let i=0;i<30;i++) {
+    if (doNums) results.add(randStr(3)+Math.floor(Math.random()*10));
+    else results.add(randStr(4));
+  }
+  if (doDict) {
+    SMALL_DICT.forEach(w => {
+      results.add(w);
+      if (doNums) results.add(w+Math.floor(Math.random()*100));
+      results.add(w+'x'); results.add(w+'og');
+    });
+  }
+
+  const arr = [...results].slice(0,60);
+  document.getElementById('gen-output').style.display='block';
+  document.getElementById('gen-tags').innerHTML = arr.map(u=>`
+    <div class="gen-tag" onclick="copyTagAndScore('${u}',this)">${u}</div>`).join('');
+}
+
+function copyTagAndScore(u, el) {
+  navigator.clipboard.writeText(u);
+  const orig = el.textContent;
+  el.textContent = '✓ copied';
+  el.style.borderColor='var(--green)'; el.style.color='var(--green)';
+  setTimeout(()=>{ el.textContent=orig; el.style.borderColor=''; el.style.color=''; },1000);
+}
+
+// ── COMBO BUILDER ────────────────────────────────────────────
+function runCombos() {
+  const aRaw = document.getElementById('combo-a').value.trim().split('\n').map(s=>s.trim()).filter(Boolean);
+  const bRaw = document.getElementById('combo-b').value.trim().split('\n').map(s=>s.trim()).filter(Boolean);
+  const sep = document.getElementById('cb-sep').checked ? '_' : '';
+  const rev = document.getElementById('cb-rev').checked;
+
+  if (!aRaw.length || !bRaw.length) return;
+
+  const combos = new Set();
+  for (const a of aRaw) {
+    for (const b of bRaw) {
+      combos.add(a+sep+b);
+      if (rev) combos.add(b+sep+a);
+    }
+  }
+
+  const arr = [...combos];
+  document.getElementById('combo-output').style.display='block';
+  document.getElementById('combo-count').textContent = arr.length+' combos';
+  document.getElementById('combo-tags').innerHTML = arr.map(u=>`
+    <div class="gen-tag" onclick="copyTagAndScore('${u}',this)">${u}</div>`).join('');
+}
+
+// ── IP LOOKUP ────────────────────────────────────────────────
+async function runIP() {
+  const ip = document.getElementById('ip-input').value.trim();
+  const res = document.getElementById('ip-result');
+  const data = document.getElementById('ip-data');
+  res.style.display='block';
+  data.innerHTML = '<div class="result-row"><span class="rk">Status</span><span class="rv"><span class="ldots"><span></span><span></span><span></span></span></span></div>';
+
+  try {
+    const url = ip ? `https://ipapi.co/${ip}/json/` : 'https://ipapi.co/json/';
+    const r = await fetch(url);
+    const d = await r.json();
+    if (d.error) { data.innerHTML=rows([['Erreur',d.reason||'IP invalide','red']]); return; }
+    data.innerHTML = rows([
+      ['IP',d.ip,'accent'],
+      ['Pays',`${d.country_name} (${d.country_code})`,''],
+      ['Région',d.region||'—',''],
+      ['Ville',d.city||'—','green'],
+      ['ISP / Org',d.org||'—',''],
+      ['Timezone',d.timezone||'—',''],
+      ['Latitude',d.latitude?.toString()||'—','yellow'],
+      ['Longitude',d.longitude?.toString()||'—','yellow'],
+      ['ASN',d.asn||'—','purple'],
+      ['Postal',d.pos... (12 Ko restants)
