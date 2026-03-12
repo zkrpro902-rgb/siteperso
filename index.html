@@ -128,8 +128,12 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 
 /* USERNAME GEN */
 .gen-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
-.gen-tag{font-size:12px;font-weight:500;padding:7px 14px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;cursor:pointer;color:var(--text);transition:all .15s;letter-spacing:.04em;}
+.gen-tag{font-size:12px;font-weight:500;padding:7px 14px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;cursor:pointer;color:var(--text);transition:all .2s;letter-spacing:.04em;position:relative;}
 .gen-tag:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,200,255,.06);}
+.gen-tag.checking{opacity:.5;cursor:default;}
+.gen-tag.available{border-color:rgba(0,255,135,.4);background:rgba(0,255,135,.06);color:var(--green);}
+.gen-tag.taken{border-color:rgba(255,59,92,.3);background:rgba(255,59,92,.04);color:var(--muted);text-decoration:line-through;cursor:default;}
+.gen-tag.available::after{content:'✓';margin-left:6px;font-size:10px;}
 .gen-options{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
 .gen-opt{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);cursor:pointer;}
 .gen-opt input{accent-color:var(--accent);}
@@ -355,14 +359,18 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
       <label class="gen-opt"><input type="checkbox" id="go-dict" checked><label for="go-dict">Dict words</label></label>
       <label class="gen-opt"><input type="checkbox" id="go-nums"><label for="go-nums">Avec chiffres</label></label>
       <label class="gen-opt"><input type="checkbox" id="go-rare"><label for="go-rare">Lettres rares</label></label>
+      <label class="gen-opt"><input type="checkbox" id="go-check" checked><label for="go-check">Check dispo Discord</label></label>
     </div>
     <div style="display:flex;gap:10px;align-items:center;">
       <input class="sinput" id="gen-base" placeholder="Base (optionnel: ex 'ice', 'god'...)" style="margin-bottom:0">
-      <button class="btn btn-a" onclick="runGenerator()">GENERATE</button>
+      <button class="btn btn-a" id="gen-btn" onclick="runGenerator()">GENERATE</button>
     </div>
   </div>
   <div id="gen-output" style="display:none">
-    <div class="card-label" style="margin-top:4px">Résultats — clique pour copier</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div class="card-label" style="margin:0">Résultats — vert = dispo Discord · clique pour copier</div>
+      <span id="gen-stats" style="font-size:10px;color:var(--muted)"></span>
+    </div>
     <div class="gen-tags" id="gen-tags"></div>
   </div>
 </div>
@@ -776,30 +784,36 @@ function randStr(len, alpha='abcdefghijklmnopqrstuvwxyz') {
   return Array.from({length:len},()=>randChar(alpha)).join('');
 }
 
-function runGenerator() {
+async function checkDiscordOnly(user) {
+  try {
+    const r = await fetch(`${WORKER_URL}/check?user=${encodeURIComponent(user)}&platform=discord`);
+    const d = await r.json();
+    return d.status; // 'available' | 'taken' | 'error'
+  } catch(e) { return 'error'; }
+}
+
+async function runGenerator() {
   const base = document.getElementById('gen-base').value.trim().toLowerCase();
   const do3l = document.getElementById('go-3l').checked;
   const do4l = document.getElementById('go-4l').checked;
   const doDict = document.getElementById('go-dict').checked;
   const doNums = document.getElementById('go-nums').checked;
   const doRare = document.getElementById('go-rare').checked;
+  const doCheck = document.getElementById('go-check').checked;
 
   const results = new Set();
 
   if (base) {
-    // Variations of base
     const suffixes = ['','x','z','og','gg','123','0','_','xd','pro','99'];
     const prefixes = ['','x','z','the','og','_','i'];
     for (const s of suffixes) results.add(base+s);
     for (const p of prefixes) results.add(p+base);
-    // Swap letters
     for (let i=0;i<base.length;i++) {
       const replaced = base.split('');
       replaced[i] = doRare ? randChar(RARE) : randChar('abcdefghijklmnopqrstuvwxyz');
       results.add(replaced.join(''));
     }
   }
-
   if (do3l) for(let i=0;i<30;i++) {
     if (doRare && Math.random()>.6) results.add(randChar(RARE)+randStr(2));
     else results.add(randStr(3));
@@ -816,18 +830,49 @@ function runGenerator() {
     });
   }
 
-  const arr = [...results].slice(0,60);
+  const arr = [...results].slice(0, 48);
+  const btn = document.getElementById('gen-btn');
   document.getElementById('gen-output').style.display='block';
+  document.getElementById('gen-stats').textContent = '';
+
+  // Render all tags as checking
   document.getElementById('gen-tags').innerHTML = arr.map(u=>`
-    <div class="gen-tag" onclick="copyTagAndScore('${u}',this)">${u}</div>`).join('');
+    <div class="gen-tag ${doCheck?'checking':''}" id="gtag-${CSS.escape(u)}" onclick="copyGenTag('${u}',this)">${u}</div>`).join('');
+
+  if (!doCheck) return;
+
+  btn.disabled=true; btn.textContent='Checking...';
+
+  // Check Discord availability concurrently, max 6 at a time
+  let avail=0, taken=0, done=0;
+  const concurrency = 6;
+
+  async function checkOne(u) {
+    const el = document.getElementById('gtag-'+CSS.escape(u));
+    const status = await checkDiscordOnly(u);
+    if (!el) return;
+    el.classList.remove('checking');
+    if (status === 'available') { el.classList.add('available'); avail++; }
+    else if (status === 'taken') { el.classList.add('taken'); taken++; }
+    done++;
+    document.getElementById('gen-stats').textContent = `${avail} dispo · ${taken} taken · ${done}/${arr.length}`;
+  }
+
+  // Batch by concurrency
+  for (let i=0; i<arr.length; i+=concurrency) {
+    await Promise.all(arr.slice(i, i+concurrency).map(u => checkOne(u)));
+  }
+
+  btn.disabled=false; btn.textContent='GENERATE';
+  document.getElementById('gen-stats').textContent = `✓ ${avail} disponibles · ${taken} taken`;
 }
 
-function copyTagAndScore(u, el) {
+function copyGenTag(u, el) {
+  if (el.classList.contains('taken') || el.classList.contains('checking')) return;
   navigator.clipboard.writeText(u);
-  const orig = el.textContent;
-  el.textContent = '✓ copied';
-  el.style.borderColor='var(--green)'; el.style.color='var(--green)';
-  setTimeout(()=>{ el.textContent=orig; el.style.borderColor=''; el.style.color=''; },1000);
+  const orig = el.textContent.replace('✓','').trim();
+  el.textContent = '✓ copied!';
+  setTimeout(()=>{ el.textContent=orig; },900);
 }
 
 // ── COMBO BUILDER ────────────────────────────────────────────
