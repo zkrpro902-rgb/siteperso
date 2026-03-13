@@ -220,6 +220,153 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
 .add-note-btn{display:flex;align-items:center;justify-content:center;background:var(–bg2);border:1px dashed var(–border2);border-radius:8px;padding:28px;cursor:pointer;color:var(–muted2);font-size:22px;transition:all .15s;min-height:120px;}
 .add-note-btn:hover{border-color:var(–accent);color:var(–accent);background:rgba(0,200,255,.04);}
 
+/* EMBED BUILDER */
+.embed-preview{background:#2f3136;border-left:4px solid #5865f2;border-radius:0 4px 4px 0;padding:16px;margin-top:14px;font-family:sans-serif;}
+.embed-preview-title{color:#fff;font-weight:700;font-size:14px;margin-bottom:6px;}
+.embed-preview-desc{color:#dcddde;font-size:13px;line-height:1.5;white-space:pre-wrap;}
+.embed-preview-footer{color:#72767d;font-size:11px;margin-top:10px;border-top:1px solid #40444b;padding-top:8px;}
+.color-swatch{width:32px;height:32px;border-radius:4px;border:2px solid var(–border2);cursor:pointer;flex-shrink:0;}
+.embed-field-row{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-bottom:8px;align-items:center;}
+
+/* PERMISSIONS CALC */
+.perm-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px;}
+.perm-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:11px;cursor:pointer;transition:all .15s;}
+.perm-item:hover{border-color:var(–border2);}
+.perm-item.active{border-color:rgba(0,255,135,.35);background:rgba(0,255,135,.05);color:var(–green);}
+.perm-item.active .perm-dot{background:var(–green);box-shadow:0 0 6px var(–green);}
+.perm-dot{width:7px;height:7px;border-radius:50%;background:var(–muted2);flex-shrink:0;transition:all .2s;}
+.perm-value-box{font-family:‘Bebas Neue’,sans-serif;font-size:36px;color:var(–accent);letter-spacing:.05em;padding:16px 20px;background:var(–bg2);border:1px solid var(–border);border-radius:8px;text-align:center;margin-bottom:12px;}
+
+/* TIMESTAMP GEN */
+.ts-formats{display:flex;flex-direction:column;gap:6px;margin-top:12px;}
+.ts-format-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;}
+.ts-format-label{font-size:10px;color:var(–muted);letter-spacing:.06em;text-transform:uppercase;}
+.ts-format-val{font-size:12px;color:var(–accent);font-weight:500;}
+.ts-format-code{font-size:11px;color:var(–text);background:var(–bg3);padding:2px 8px;border-radius:3px;}
+
+/* MARKDOWN PREVIEW */
+.md-preview{background:#36393f;border-radius:8px;padding:20px;margin-top:12px;font-family:Whitney,sans-serif;color:#dcddde;font-size:14px;line-height:1.6;min-height:80px;}
+.md-preview strong{color:#fff;}
+.md-preview em{color:#dcddde;}
+.md-preview code{background:#2f3136;color:#e3e5e8;padding:2px 5px;border-radius:3px;font-family:‘JetBrains Mono’,monospace;font-size:12px;}
+.md-preview pre{background:#2f3136;padding:10px 14px;border-radius:4px;margin:6px 0;}
+.md-preview blockquote{border-left:4px solid #4f545c;padding-left:10px;color:#8e9297;margin:4px 0;}
+.md-preview h1,.md-preview h2,.md-preview h3{color:#fff;margin:8px 0 4px;}
+.md-preview a{color:#00b0f4;text-decoration:none;}
+.md-preview del{color:#72767d;}
+
+/* DNS LOOKUP */
+.dns-section{margin-bottom:14px;}
+.dns-type-badge{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-right:8px;}
+.dns-a{background:rgba(0,200,255,.12);color:var(–accent);}
+.dns-mx{background:rgba(155,94,255,.12);color:var(–purple);}
+.dns-txt{background:rgba(255,184,0,.12);color:var(–yellow);}
+.dns-cname{background:rgba(0,255,135,.12);color:var(–green);}
+.dns-record{font-size:11px;padding:7px 12px;background:var(–bg2);border:1px solid var(–border);border-radius:5px;margin-bottom:4px;display:flex;align-items:center;gap:8px;word-break:break-all;}
+
+/* HISTORY TRACKER */
+.hist-row{display:grid;grid-template-columns:1fr 80px 100px 80px;gap:8px;padding:10px 14px;border-bottom:1px solid var(–border);font-size:11px;align-items:center;}
+.hist-row:last-child{border-bottom:none;}
+.hist-row:hover{background:var(–bg3);}
+
+/* PORT CHECKER */
+.port-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px;}
+.port-item{padding:8px 10px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;text-align:center;font-size:11px;transition:all .2s;}
+.port-item.open{border-color:rgba(0,255,135,.35);background:rgba(0,255,135,.05);color:var(–green);}
+.port-item.closed{border-color:rgba(255,59,92,.2);color:var(–muted2);}
+.port-item.checking{opacity:.5;}
+.port-num{font-size:13px;font-weight:700;color:inherit;}
+.port-name{font-size:9px;color:var(–muted);margin-top:2px;}
+
+/* COLOR PICKER */
+.color-preview-big{width:100%;height:80px;border-radius:8px;border:1px solid var(–border);margin-bottom:12px;transition:background .2s;}
+.color-swatches-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
+.cswatch{width:28px;height:28px;border-radius:4px;cursor:pointer;border:2px solid transparent;transition:all .15s;}
+.cswatch:hover{border-color:var(–text);transform:scale(1.1);}
+
+/* LEVENSHTEIN */
+.lev-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.lev-tag{font-size:11px;padding:5px 11px;background:var(–bg2);border:1px solid var(–border2);border-radius:5px;color:var(–text);}
+.lev-tag .lev-diff{font-size:9px;color:var(–muted);margin-left:4px;}
+
+/* BULK CHECKER */
+.bulk-grid{display:flex;flex-direction:column;gap:4px;margin-top:12px;}
+.bulk-row{display:grid;grid-template-columns:140px 1fr;gap:8px;padding:8px 12px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:11px;align-items:center;}
+.bulk-row.available{border-color:rgba(0,255,135,.3);background:rgba(0,255,135,.04);}
+.bulk-row.taken{border-color:rgba(255,59,92,.15);opacity:.5;}
+.bulk-row.checking{opacity:.6;}
+.bulk-platforms{display:flex;gap:4px;flex-wrap:wrap;}
+.bulk-plat{font-size:9px;padding:2px 6px;border-radius:3px;font-weight:700;letter-spacing:.04em;}
+.bulk-plat.available{background:rgba(0,255,135,.15);color:var(–green);}
+.bulk-plat.taken{background:rgba(255,59,92,.1);color:var(–red);}
+
+/* SNIPE TRACKER */
+.snipe-status{padding:20px;text-align:center;border-radius:8px;border:1px solid var(–border);background:var(–bg2);}
+.snipe-pulse{width:16px;height:16px;border-radius:50%;background:var(–green);box-shadow:0 0 12px var(–green);margin:0 auto 10px;animation:pulse 1s infinite;}
+.snipe-pulse.idle{background:var(–muted2);box-shadow:none;animation:none;}
+.snipe-log{margin-top:10px;max-height:150px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;}
+.snipe-log-item{font-size:10px;padding:5px 10px;background:var(–bg3);border:1px solid var(–border);border-radius:4px;color:var(–muted);}
+.snipe-log-item.found{background:rgba(0,255,135,.08);border-color:rgba(0,255,135,.3);color:var(–green);}
+
+/* WORDLIST */
+.wl-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;max-height:300px;overflow-y:auto;}
+.wl-tag{font-size:11px;padding:4px 10px;background:var(–bg2);border:1px solid var(–border);border-radius:4px;color:var(–text);cursor:pointer;}
+.wl-tag:hover{border-color:var(–accent);color:var(–accent);}
+
+/* BASE64/HASH */
+.hash-result{padding:10px 14px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:11px;word-break:break-all;margin-bottom:8px;}
+.hash-label{font-size:9px;color:var(–muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
+.hash-val{color:var(–accent);font-weight:500;}
+
+/* JSON FORMATTER */
+.json-out{background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:14px;font-size:11px;line-height:1.6;max-height:360px;overflow:auto;white-space:pre;}
+.jk{color:#9cdcfe;} .jv{color:#ce9178;} .jn{color:#b5cea8;} .jb{color:#569cd6;} .jnull{color:var(–muted);}
+
+/* REGEX */
+.regex-match{background:rgba(255,184,0,.25);border-radius:2px;color:var(–yellow);}
+.regex-err{color:var(–red);font-size:11px;margin-top:6px;}
+
+/* DIFF */
+.diff-out{font-size:11px;line-height:1.7;font-family:‘JetBrains Mono’,monospace;background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:14px;max-height:360px;overflow-y:auto;}
+.diff-add{color:var(–green);background:rgba(0,255,135,.06);}
+.diff-rem{color:var(–red);background:rgba(255,59,92,.06);}
+.diff-eq{color:var(–muted);}
+
+/* BIO GENERATOR */
+.bio-result{background:#36393f;border-radius:8px;padding:20px;margin-top:12px;font-family:sans-serif;color:#dcddde;font-size:14px;line-height:1.8;min-height:60px;word-break:break-word;white-space:pre-wrap;}
+.bio-style-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px;}
+.bio-style-btn{padding:8px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:10px;cursor:pointer;color:var(–muted);text-align:center;transition:all .15s;letter-spacing:.04em;}
+.bio-style-btn:hover,.bio-style-btn.active{border-color:var(–accent);color:var(–accent);background:rgba(0,200,255,.06);}
+
+/* NITRO GIFT */
+.gift-result{padding:18px;border-radius:8px;text-align:center;margin-top:12px;}
+.gift-valid{background:rgba(0,255,135,.07);border:1px solid rgba(0,255,135,.3);}
+.gift-invalid{background:rgba(255,59,92,.06);border:1px solid rgba(255,59,92,.25);}
+.gift-icon{font-size:36px;margin-bottom:8px;}
+.gift-title{font-size:16px;font-weight:700;letter-spacing:.06em;}
+.gift-sub{font-size:11px;color:var(–muted);margin-top:4px;}
+
+/* SERVER TEMPLATE */
+.tmpl-step{background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:16px;margin-bottom:10px;}
+.tmpl-step-num{font-family:‘Bebas Neue’,sans-serif;font-size:28px;color:var(–accent);line-height:1;}
+.tmpl-step-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(–text);margin-top:2px;}
+.tmpl-preview{background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:14px;max-height:280px;overflow-y:auto;font-size:11px;}
+.tmpl-cat{color:var(–accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:10px;margin-top:10px;margin-bottom:4px;}
+.tmpl-ch{padding:4px 8px;color:var(–muted);display:flex;align-items:center;gap:6px;}
+.tmpl-ch::before{content:’#’;color:var(–muted2);}
+.tmpl-role-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:12px;margin:2px;border:1px solid var(–border2);}
+
+/* MASS DM */
+.dm-log{max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;margin-top:10px;}
+.dm-log-item{font-size:10px;padding:6px 10px;border-radius:4px;display:flex;align-items:center;gap:8px;}
+.dm-log-item.sent{background:rgba(0,255,135,.06);border:1px solid rgba(0,255,135,.15);color:var(–green);}
+.dm-log-item.fail{background:rgba(255,59,92,.06);border:1px solid rgba(255,59,92,.15);color:var(–red);}
+.dm-log-item.info{background:var(–bg3);border:1px solid var(–border);color:var(–muted);}
+.dm-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;}
+.dm-stat{background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:14px;text-align:center;}
+.dm-stat-val{font-family:‘Bebas Neue’,sans-serif;font-size:28px;letter-spacing:.05em;}
+.dm-stat-label{font-size:9px;color:var(–muted);text-transform:uppercase;letter-spacing:.1em;}
+
 /* COPY BTN */
 .copy-btn{font-family:‘JetBrains Mono’,monospace;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;background:var(–bg3);border:1px solid var(–border2);border-radius:4px;color:var(–muted);cursor:pointer;transition:all .15s;}
 .copy-btn:hover{border-color:var(–accent);color:var(–accent);}
@@ -243,10 +390,76 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
 .ldots span:nth-child(2){animation-delay:.2s;}
 .ldots span:nth-child(3){animation-delay:.4s;}
 @keyframes dp{0%,80%,100%{transform:scale(.5);opacity:.3;}40%{transform:scale(1);opacity:1;}}
+
+/* EMBED BUILDER */
+.embed-preview{background:#2b2d31;border-left:4px solid #5865f2;border-radius:4px;padding:16px 16px 16px 14px;max-width:520px;font-family:Whitney,sans-serif;}
+.embed-author{font-size:12px;font-weight:600;color:#e0e0e0;margin-bottom:8px;}
+.embed-title{font-size:15px;font-weight:700;color:#00b0f4;margin-bottom:6px;}
+.embed-desc{font-size:13px;color:#dcddde;line-height:1.5;margin-bottom:10px;white-space:pre-wrap;}
+.embed-field{margin-bottom:8px;}
+.embed-field-name{font-size:12px;font-weight:700;color:#e0e0e0;margin-bottom:2px;}
+.embed-field-val{font-size:12px;color:#dcddde;}
+.embed-footer{font-size:11px;color:#a3a6aa;margin-top:10px;padding-top:8px;border-top:1px solid #3f4147;}
+.embed-image{max-width:100%;border-radius:4px;margin-top:10px;}
+
+/* MARKDOWN PREVIEW */
+.md-preview{background:#313338;border-radius:8px;padding:16px;font-size:14px;line-height:1.6;color:#dcddde;min-height:120px;white-space:pre-wrap;}
+.md-preview strong{color:#fff;font-weight:700;}
+.md-preview em{font-style:italic;}
+.md-preview code{background:#1e1f22;padding:2px 5px;border-radius:3px;font-family:‘JetBrains Mono’,monospace;font-size:12px;color:#e3e5e8;}
+.md-preview pre{background:#1e1f22;padding:10px;border-radius:6px;margin:8px 0;}
+.md-preview blockquote{border-left:3px solid #4e5058;padding-left:10px;color:#a3a6aa;margin:4px 0;}
+.md-preview h1,.md-preview h2,.md-preview h3{color:#fff;font-weight:700;margin:8px 0 4px;}
+.md-preview a{color:#00b0f4;text-decoration:none;}
+.md-preview del{text-decoration:line-through;color:#a3a6aa;}
+.md-preview .spoiler{background:#202225;color:transparent;border-radius:3px;cursor:pointer;padding:0 3px;}
+.md-preview .spoiler:hover{color:#dcddde;background:#383a40;}
+
+/* PERM BITS */
+.perm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:12px;}
+.perm-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:11px;}
+.perm-item.has{border-color:rgba(0,255,135,.3);background:rgba(0,255,135,.04);color:var(–green);}
+.perm-item.no{opacity:.35;}
+.perm-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.perm-item.has .perm-dot{background:var(–green);}
+.perm-item.no .perm-dot{background:var(–muted2);}
+
+/* COLOR SWATCH */
+.color-swatch{width:100%;height:80px;border-radius:8px;margin:12px 0;border:1px solid var(–border);transition:background .2s;}
+.color-formats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
+.color-fmt{background:var(–bg2);border:1px solid var(–border);border-radius:6px;padding:10px;text-align:center;cursor:pointer;transition:all .15s;}
+.color-fmt:hover{border-color:var(–accent);}
+.color-fmt-label{font-size:9px;color:var(–muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.color-fmt-val{font-size:12px;font-weight:700;color:var(–text);}
+
+/* TIMESTAMP */
+.ts-formats{display:grid;grid-template-columns:1fr;gap:6px;margin-top:12px;}
+.ts-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;}
+.ts-code{font-size:11px;color:var(–accent);font-family:‘JetBrains Mono’,monospace;}
+.ts-preview{font-size:11px;color:var(–muted);}
+
+/* HISTORY */
+.hist-row{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(–border);font-size:11px;}
+.hist-row:last-child{border-bottom:none;}
+.hist-user{font-weight:700;color:var(–text);min-width:120px;}
+.hist-plat{color:var(–muted);min-width:80px;}
+.hist-status{font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.08em;}
+.hist-time{color:var(–muted2);margin-left:auto;font-size:10px;}
 </style>
 
 </head>
 <body>
+<script>
+// Early nav function so inline onclick works before main script loads
+function go(id, el) {
+  document.querySelectorAll && document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll && document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  var pg = document.getElementById('page-'+id);
+  if(pg) pg.classList.add('active');
+  if(el) el.classList.add('active');
+}
+function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classList.toggle('open'); }
+</script>
 <div class="shell">
 
 <!-- SIDEBAR -->
@@ -254,7 +467,7 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
 <aside class="sidebar">
   <div class="sidebar-logo">
     <div class="logo-text">DTOOLS</div>
-    <div class="logo-sub">v3.0 — Discord Utilities</div>
+    <div class="logo-sub">v4.0 — Discord Utilities</div>
   </div>
   <nav class="sidebar-nav">
 
@@ -265,15 +478,39 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
 <button class="nav-item" onclick="go('snowflake',this)"><span class="nav-icon">❄</span>Snowflake Decoder</button>
 <button class="nav-item" onclick="go('tokeninfo',this)"><span class="nav-icon">🔑</span>Token Decoder</button>
 <button class="nav-item" onclick="go('pfpgen',this)"><span class="nav-icon">🎨</span>Avatar Color</button>
+<button class="nav-item" onclick="go('serverlookup',this)"><span class="nav-icon">🔍</span>Server Lookup</button>
+<button class="nav-item" onclick="go('permissions',this)"><span class="nav-icon">🛡</span>Permissions Calc</button>
+<button class="nav-item" onclick="go('colorpicker',this)"><span class="nav-icon">🎨</span>Color Picker</button>
+<button class="nav-item" onclick="go('timestamp',this)"><span class="nav-icon">⏱</span>Timestamp Gen</button>
+<button class="nav-item" onclick="go('markdown',this)"><span class="nav-icon">✎</span>Markdown Preview</button>
+<button class="nav-item" onclick="go('embedbuilder',this)"><span class="nav-icon">📦</span>Embed Builder</button>
+<button class="nav-item" onclick="go('nitrogift',this)"><span class="nav-icon">🎁</span>Nitro Gift Checker</button>
+<button class="nav-item" onclick="go('bio',this)"><span class="nav-icon">✦</span>Bio Generator</button>
+<button class="nav-item" onclick="go('srvtemplate',this)"><span class="nav-icon">📋</span>Server Template</button>
+<button class="nav-item" onclick="go('massdm',this)"><span class="nav-icon">📨</span>Mass DM Tracker</button>
 
 <div class="nav-group-label">✦ Username</div>
 <button class="nav-item" onclick="go('og',this)"><span class="nav-icon">◈</span>OG Score</button>
 <button class="nav-item" onclick="go('generator',this)"><span class="nav-icon">⚙</span>Generator + Checker</button>
+<button class="nav-item" onclick="go('bulk',this)"><span class="nav-icon">⊞</span>Bulk Checker</button>
+<button class="nav-item" onclick="go('snipe',this)"><span class="nav-icon">🎯</span>Snipe Tracker</button>
 <button class="nav-item" onclick="go('combos',this)"><span class="nav-icon">∞</span>Combo Builder</button>
+<button class="nav-item" onclick="go('wordlist',this)"><span class="nav-icon">≡</span>Wordlist Builder</button>
+<button class="nav-item" onclick="go('levenshtein',this)"><span class="nav-icon">≈</span>Similar Finder</button>
+<button class="nav-item" onclick="go('history',this)"><span class="nav-icon">📋</span>Check History</button>
+
+<div class="nav-group-label">🛠 Tools</div>
+<button class="nav-item" onclick="go('base64',this)"><span class="nav-icon">⬡</span>Base64 / Hash</button>
+<button class="nav-item" onclick="go('jsonformat',this)"><span class="nav-icon">{}</span>JSON Formatter</button>
+<button class="nav-item" onclick="go('regex',this)"><span class="nav-icon">.*</span>Regex Tester</button>
+<button class="nav-item" onclick="go('uuid',this)"><span class="nav-icon">#</span>UUID / ID Gen</button>
+<button class="nav-item" onclick="go('diff',this)"><span class="nav-icon">⊿</span>Diff Checker</button>
 
 <div class="nav-group-label">📡 Stats & Info</div>
 <button class="nav-item" onclick="go('ipinfo',this)"><span class="nav-icon">◎</span>IP Lookup</button>
 <button class="nav-item" onclick="go('whois',this)"><span class="nav-icon">◻</span>WHOIS Lookup</button>
+<button class="nav-item" onclick="go('dns',this)"><span class="nav-icon">◈</span>DNS Lookup</button>
+<button class="nav-item" onclick="go('portcheck',this)"><span class="nav-icon">⊟</span>Port Checker</button>
 <button class="nav-item" onclick="go('ping',this)"><span class="nav-icon">◈</span>Ping / Latency</button>
 <button class="nav-item" onclick="go('useragent',this)"><span class="nav-icon">⊡</span>User Agent</button>
 
@@ -286,7 +523,7 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
   </nav>
   <div class="sidebar-footer">
     <span class="sdot"></span>
-    <span class="sfoot-text">v3.0 — local only</span>
+    <span class="sfoot-text">v4.0 — local only</span>
   </div>
 </aside>
 
@@ -634,6 +871,740 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
   <div class="notes-grid" id="notes-grid"></div>
 </div>
 
+<!-- ══ SERVER LOOKUP ════════════════════════════════════════ -->
+
+<div class="page" id="page-serverlookup">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">SERVER LOOKUP</div><div class="pd">Infos publiques d'un serveur via son ID</div></div></div>
+  <div class="sbar">
+    <input class="sinput" id="sl-input" placeholder="ID du serveur (ex: 1234567890123456789)">
+    <button class="btn btn-a" onclick="runServerLookup()">→ LOOKUP</button>
+  </div>
+  <div id="sl-result" style="display:none">
+    <div class="result-block" id="sl-data"></div>
+  </div>
+  <div class="notice">Utilise l'API Discord publique — invite requise pour certains champs.</div>
+</div>
+
+<!-- ══ PERMISSIONS CALCULATOR ════════════════════════════════ -->
+
+<div class="page" id="page-permissions">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">PERMISSIONS CALCULATOR</div><div class="pd">Décode une valeur de permissions Discord en bitfield</div></div></div>
+  <div class="card">
+    <div class="card-label">Valeur de permissions</div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <input class="sinput" id="perm-input" placeholder="ex: 8 (admin), 2147483647..." style="margin:0" oninput="calcPerms()">
+      <button class="btn btn-ghost" onclick="document.getElementById('perm-input').value='8';calcPerms()">Admin</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('perm-input').value='2147483647';calcPerms()">All</button>
+    </div>
+    <div id="perm-result" style="margin-top:12px;display:none">
+      <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+        <div class="stat-card" style="flex:1"><div class="stat-label">Valeur Decimal</div><div class="stat-value" id="perm-dec" style="font-size:14px"></div></div>
+        <div class="stat-card" style="flex:1"><div class="stat-label">Hex</div><div class="stat-value" id="perm-hex" style="font-size:14px"></div></div>
+        <div class="stat-card" style="flex:1"><div class="stat-label">Permissions</div><div class="stat-value" id="perm-count" style="font-size:14px"></div></div>
+      </div>
+      <div class="perm-grid" id="perm-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COLOR PICKER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-colorpicker">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">COLOR PICKER</div><div class="pd">Génère des couleurs pour les rôles Discord</div></div></div>
+  <div class="card">
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+      <div>
+        <div class="card-label">Picker visuel</div>
+        <input type="color" id="cp-picker" value="#00C8FF" oninput="updateColor(this.value)" style="width:80px;height:50px;border:none;background:none;cursor:pointer;border-radius:6px;">
+      </div>
+      <div style="flex:1">
+        <div class="card-label">Hex direct</div>
+        <input class="sinput" id="cp-hex" placeholder="#00C8FF" style="margin:0" oninput="updateColorFromHex(this.value)">
+      </div>
+    </div>
+    <div class="color-swatch" id="cp-swatch" style="background:#00C8FF"></div>
+    <div class="color-formats" id="cp-formats"></div>
+    <div style="margin-top:16px">
+      <div class="card-label">Palettes Discord populaires</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px" id="cp-presets"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TIMESTAMP GENERATOR ═══════════════════════════════════ -->
+
+<div class="page" id="page-timestamp">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">TIMESTAMP GENERATOR</div><div class="pd">Génère des timestamps Discord formatés</div></div></div>
+  <div class="card">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div>
+        <div class="card-label">Date</div>
+        <input type="date" class="sinput" id="ts-date" style="margin:0" oninput="updateTimestamps()">
+      </div>
+      <div>
+        <div class="card-label">Heure</div>
+        <input type="time" class="sinput" id="ts-time" style="margin:0" oninput="updateTimestamps()">
+      </div>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-ghost" onclick="setTsNow()">Maintenant</button>
+      <button class="btn btn-ghost" onclick="setTsIn(3600)">+1h</button>
+      <button class="btn btn-ghost" onclick="setTsIn(86400)">+1j</button>
+      <button class="btn btn-ghost" onclick="setTsIn(604800)">+7j</button>
+    </div>
+  </div>
+  <div class="ts-formats" id="ts-formats"></div>
+  <div class="notice">Colle directement dans Discord. Ex: <code style="font-size:10px;background:rgba(0,200,255,.1);padding:2px 6px;border-radius:3px">&lt;t:1234567890:R&gt;</code></div>
+</div>
+
+<!-- ══ MARKDOWN PREVIEW ═══════════════════════════════════════ -->
+
+<div class="page" id="page-markdown">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">MARKDOWN PREVIEW</div><div class="pd">Preview du markdown Discord en temps réel</div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;">
+    <div class="card" style="margin-bottom:0">
+      <div class="card-label">Input Markdown</div>
+      <textarea class="sinput" id="md-input" rows="14" placeholder="**gras** *italique* __souligné__ ~~barré~~&#10;`code` ```bloc```&#10;> citation&#10;# Titre&#10;|| spoiler ||&#10;[lien](https://discord.com)" style="resize:vertical;font-size:11px;line-height:1.6" oninput="renderMarkdown()"></textarea>
+      <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+        <button class="btn-sm" onclick="insertMd('**','**')">Bold</button>
+        <button class="btn-sm" onclick="insertMd('*','*')">Italic</button>
+        <button class="btn-sm" onclick="insertMd('__','__')">Underline</button>
+        <button class="btn-sm" onclick="insertMd('~~','~~')">Strike</button>
+        <button class="btn-sm" onclick="insertMd('`','`')">Code</button>
+        <button class="btn-sm" onclick="insertMd('```
+','
+```')">Block</button>
+        <button class="btn-sm" onclick="insertMd('> ','')">Quote</button>
+        <button class="btn-sm" onclick="insertMd('||','||')">Spoiler</button>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:0">
+      <div class="card-label">Preview Discord</div>
+      <div class="md-preview" id="md-preview">Le rendu apparaît ici...</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ EMBED BUILDER ═════════════════════════════════════════ -->
+
+<div class="page" id="page-embedbuilder">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">EMBED BUILDER</div><div class="pd">Construit un embed Discord visuellement</div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;">
+    <div class="card" style="margin-bottom:0">
+      <div class="card-label" style="margin-bottom:10px">Configuration</div>
+      <input class="sinput" id="eb-color" type="color" value="#5865F2" oninput="renderEmbed()" style="width:100%;height:36px;margin-bottom:8px;cursor:pointer;">
+      <input class="sinput" id="eb-author" placeholder="Auteur (optionnel)" style="margin-bottom:8px" oninput="renderEmbed()">
+      <input class="sinput" id="eb-title" placeholder="Titre" style="margin-bottom:8px" oninput="renderEmbed()">
+      <textarea class="sinput" id="eb-desc" rows="3" placeholder="Description..." style="margin-bottom:8px;resize:vertical" oninput="renderEmbed()"></textarea>
+      <div id="eb-fields-wrap"></div>
+      <button class="btn btn-ghost" style="width:100%;margin-bottom:8px" onclick="addEmbedField()">+ Ajouter un champ</button>
+      <input class="sinput" id="eb-footer" placeholder="Footer (optionnel)" style="margin-bottom:8px" oninput="renderEmbed()">
+      <input class="sinput" id="eb-image" placeholder="URL image (optionnel)" style="margin-bottom:0" oninput="renderEmbed()">
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:12px">
+        <div class="card-label">Preview</div>
+        <div id="eb-preview"></div>
+      </div>
+      <div class="card" style="margin-bottom:0">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div class="card-label" style="margin:0">JSON (pour bot)</div>
+          <button class="copy-btn" onclick="copyEmbedJSON(this)">COPY</button>
+        </div>
+        <pre id="eb-json" style="font-size:10px;color:var(--muted);overflow-x:auto;line-height:1.5;max-height:180px;overflow-y:auto"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LEVENSHTEIN / SIMILAR FINDER ══════════════════════════ -->
+
+<div class="page" id="page-levenshtein">
+  <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">SIMILAR FINDER</div><div class="pd">Trouve tous les usernames similaires (1-2 lettres de différence)</div></div></div>
+  <div class="sbar">
+    <input class="sinput" id="lev-input" placeholder="ex: iceberg, godlike, void...">
+    <button class="btn btn-a" onclick="runLevenshtein()">→ FIND</button>
+  </div>
+  <div id="lev-result" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div class="card-label" style="margin:0">Variantes trouvées</div>
+      <span id="lev-count" style="font-size:10px;color:var(--muted)"></span>
+    </div>
+    <div class="gen-tags" id="lev-tags"></div>
+  </div>
+</div>
+
+<!-- ══ CHECK HISTORY ═════════════════════════════════════════ -->
+
+<div class="page" id="page-history">
+  <div class="ph">
+    <div><div class="pe">Username Tool</div><div class="pt">CHECK HISTORY</div><div class="pd">Historique de tous tes checks de usernames</div></div>
+    <button class="btn btn-ghost" onclick="clearHistory()">🗑 Clear</button>
+  </div>
+  <div class="tbl" id="hist-tbl">
+    <div class="tbl-head" style="grid-template-columns:1fr 100px 80px 80px">
+      <span>Username</span><span>Plateforme</span><span>Status</span><span>Date</span>
+    </div>
+    <div id="hist-body"></div>
+  </div>
+  <div id="hist-empty" class="notice" style="display:none">Aucun check enregistré — lance le Username Checker ou le Generator.</div>
+</div>
+
+<!-- ══ DNS LOOKUP ════════════════════════════════════════════ -->
+
+<div class="page" id="page-dns">
+  <div class="ph"><div><div class="pe">Stats & Info</div><div class="pt">DNS LOOKUP</div><div class="pd">Records A, MX, TXT, CNAME, NS d'un domaine</div></div></div>
+  <div class="sbar">
+    <input class="sinput" id="dns-input" placeholder="domaine.com">
+    <button class="btn btn-a" onclick="runDNS()">→ LOOKUP</button>
+  </div>
+  <div id="dns-result" style="display:none">
+    <div id="dns-data"></div>
+  </div>
+</div>
+
+<!-- ══ PORT CHECKER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-portcheck">
+  <div class="ph"><div><div class="pe">Stats & Info</div><div class="pt">PORT CHECKER</div><div class="pd">Vérifie si un port est ouvert sur une IP/domaine</div></div></div>
+  <div class="card">
+    <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap">
+      <div style="flex:2">
+        <div class="card-label">Host / IP</div>
+        <input class="sinput" id="port-host" placeholder="exemple.com ou 1.2.3.4" style="margin:0">
+      </div>
+      <div style="flex:1">
+        <div class="card-label">Port</div>
+        <input class="sinput" id="port-num" placeholder="80" type="number" style="margin:0">
+      </div>
+      <button class="btn btn-a" onclick="runPortCheck()">→ CHECK</button>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px">
+      <span style="font-size:10px;color:var(--muted);align-self:center">Ports courants:</span>
+      <button class="btn-sm" onclick="setPort(80)">HTTP 80</button>
+      <button class="btn-sm" onclick="setPort(443)">HTTPS 443</button>
+      <button class="btn-sm" onclick="setPort(22)">SSH 22</button>
+      <button class="btn-sm" onclick="setPort(3306)">MySQL 3306</button>
+      <button class="btn-sm" onclick="setPort(5432)">PG 5432</button>
+      <button class="btn-sm" onclick="setPort(25565)">MC 25565</button>
+      <button class="btn-sm" onclick="setPort(8080)">Dev 8080</button>
+    </div>
+  </div>
+  <div id="port-result" style="display:none;margin-top:14px">
+    <div class="result-block" id="port-data"></div>
+  </div>
+  <div class="notice">⚠ Le check de port utilise une technique WebSocket/fetch — précision variable selon le firewall.</div>
+</div>
+
+<!-- ══ SERVER LOOKUP ═════════════════════════════════════════ -->
+
+<div class="page" id="page-serverlookup">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">SERVER LOOKUP</div><div class="pd">Infos publiques d'un serveur via son ID</div></div></div>
+  <div class="sbar">
+    <input class="sinput" id="srv-input" placeholder="Server ID (ex: 1234567890123456789)">
+    <button class="btn btn-a" onclick="runServerLookup()">→ LOOKUP</button>
+  </div>
+  <div id="srv-result" style="display:none"><div class="result-block" id="srv-data"></div></div>
+  <div class="notice">Utilise l'API Discord publique. Seuls les serveurs avec un widget activé retournent toutes les infos.</div>
+</div>
+
+<!-- ══ PERMISSIONS CALCULATOR ════════════════════════════════ -->
+
+<div class="page" id="page-permissions">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">PERMISSIONS CALCULATOR</div><div class="pd">Calcule les permissions à partir d'une valeur ou coche les flags</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-label">Valeur de permission (décimal)</div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <input class="sinput" id="perm-input" placeholder="ex: 8 = Administrator, 2147483647 = all" style="margin:0" oninput="permFromValue(this.value)">
+      <button class="btn btn-a" onclick="permFromValue(document.getElementById('perm-input').value)">→</button>
+    </div>
+  </div>
+  <div class="perm-value-box" id="perm-display">0</div>
+  <div class="perm-grid" id="perm-grid"></div>
+</div>
+
+<!-- ══ TIMESTAMP GENERATOR ═══════════════════════════════════ -->
+
+<div class="page" id="page-timestamp">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">TIMESTAMP GENERATOR</div><div class="pd">Génère des timestamps Discord formatés &lt;t:unix:flag&gt;</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-label">Date & Heure</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <input class="sinput" type="datetime-local" id="ts-input" style="margin:0;flex:1" oninput="updateTimestamps()">
+      <button class="btn btn-ghost" onclick="document.getElementById('ts-input').value=new Date(new Date()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,16);updateTimestamps()">Now</button>
+    </div>
+  </div>
+  <div class="ts-formats" id="ts-formats"></div>
+</div>
+
+<!-- ══ MARKDOWN PREVIEW ═══════════════════════════════════════ -->
+
+<div class="page" id="page-markdown">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">MARKDOWN PREVIEW</div><div class="pd">Preview du markdown Discord en temps réel</div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <div>
+      <div class="card-label">Input</div>
+      <textarea class="sinput" id="md-input" rows="14" placeholder="**bold** _italic_ \`code\`&#10;> blockquote&#10;~~strikethrough~~&#10;# Heading&#10;[link](https://discord.com)&#10;\`\`\`js&#10;console.log('hello')&#10;\`\`\`" style="resize:vertical;font-size:12px" oninput="updateMd()"></textarea>
+    </div>
+    <div>
+      <div class="card-label">Preview Discord</div>
+      <div class="md-preview" id="md-preview">Tape du markdown à gauche...</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ EMBED BUILDER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-embedbuilder">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">EMBED BUILDER</div><div class="pd">Crée un embed Discord visuellement et génère le code</div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <div class="card">
+      <div class="card-label">Contenu</div>
+      <input class="sinput" id="emb-title" placeholder="Titre" oninput="updateEmbed()">
+      <textarea class="sinput" id="emb-desc" rows="3" placeholder="Description..." style="resize:vertical" oninput="updateEmbed()"></textarea>
+      <input class="sinput" id="emb-footer" placeholder="Footer text" oninput="updateEmbed()">
+      <input class="sinput" id="emb-url" placeholder="URL (rend le titre cliquable)" oninput="updateEmbed()">
+      <div style="display:flex;align-items:center;gap:10px;margin-top:6px;">
+        <div class="card-label" style="margin:0">Couleur :</div>
+        <input type="color" id="emb-color" value="#5865F2" style="width:40px;height:32px;border:none;background:none;cursor:pointer;border-radius:4px;" oninput="updateEmbed()">
+        <div class="color-swatches-row" style="margin:0">
+          <div class="cswatch" style="background:#5865F2" onclick="setEmbedColor('#5865F2')"></div>
+          <div class="cswatch" style="background:#57F287" onclick="setEmbedColor('#57F287')"></div>
+          <div class="cswatch" style="background:#FEE75C" onclick="setEmbedColor('#FEE75C')"></div>
+          <div class="cswatch" style="background:#ED4245" onclick="setEmbedColor('#ED4245')"></div>
+          <div class="cswatch" style="background:#00C8FF" onclick="setEmbedColor('#00C8FF')"></div>
+          <div class="cswatch" style="background:#9B5EFF" onclick="setEmbedColor('#9B5EFF')"></div>
+          <div class="cswatch" style="background:#EB459E" onclick="setEmbedColor('#EB459E')"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card-label">Preview</div>
+      <div class="embed-preview" id="emb-preview">
+        <div class="embed-preview-title" id="emb-prev-title">Titre de l'embed</div>
+        <div class="embed-preview-desc" id="emb-prev-desc">Description ici...</div>
+        <div class="embed-preview-footer" id="emb-prev-footer"></div>
+      </div>
+      <div class="card-label" style="margin-top:14px">Code JSON (discord.js)</div>
+      <textarea class="sinput" id="emb-code" rows="8" style="font-size:10px;resize:vertical" readonly></textarea>
+      <button class="btn btn-a" style="margin-top:8px;width:100%" onclick="copyText(document.getElementById('emb-code').value, this)">COPIER LE CODE</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HISTORY TRACKER ═══════════════════════════════════════ -->
+
+<div class="page" id="page-history">
+  <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">HISTORY TRACKER</div><div class="pd">Historique des usernames checkés avec résultats</div></div></div>
+  <div style="display:flex;gap:10px;margin-bottom:14px;align-items:center">
+    <input class="sinput" id="hist-search" placeholder="Rechercher..." style="margin:0;flex:1" oninput="renderHistory()">
+    <button class="btn-sm" onclick="clearHistory()" style="background:var(--bg3);color:var(--muted);border:1px solid var(--border2)">CLEAR</button>
+  </div>
+  <div class="tbl">
+    <div class="tbl-head hist-row"><span>Username</span><span>Plateforme</span><span>Statut</span><span>Date</span></div>
+    <div id="hist-list"></div>
+  </div>
+  <div class="notice" style="margin-top:12px">Les checks depuis le Username Checker sont sauvegardés automatiquement ici.</div>
+</div>
+
+<!-- ══ SIMILAR FINDER (LEVENSHTEIN) ══════════════════════════ -->
+
+<div class="page" id="page-levenshtein">
+  <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">SIMILAR FINDER</div><div class="pd">Trouve tous les usernames similaires (1-2 lettres de diff)</div></div></div>
+  <div class="sbar">
+    <input class="sinput" id="lev-input" placeholder="ex: ice, void, arc...">
+    <select class="sinput" id="lev-dist" style="max-width:120px;margin:0">
+      <option value="1">Distance 1</option>
+      <option value="2" selected>Distance 2</option>
+    </select>
+    <button class="btn btn-a" onclick="runLevenshtein()">→ FIND</button>
+  </div>
+  <div id="lev-result" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <div class="card-label" style="margin:0">Variantes trouvées</div>
+      <span id="lev-count" style="font-size:10px;color:var(--muted)"></span>
+    </div>
+    <div class="lev-tags" id="lev-tags"></div>
+  </div>
+</div>
+
+<!-- ══ ROLE COLOR PICKER ══════════════════════════════════════ -->
+
+<div class="page" id="page-colorpick">
+  <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">ROLE COLOR PICKER</div><div class="pd">Génère des couleurs pour rôles Discord avec preview</div></div></div>
+  <div class="card">
+    <div class="color-preview-big" id="cp-preview"></div>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px">
+      <input type="color" id="cp-picker" value="#5865F2" style="width:48px;height:40px;border:none;background:none;cursor:pointer;" oninput="updateColorPick()">
+      <input class="sinput" id="cp-hex" placeholder="#5865F2" style="margin:0;flex:1;font-size:14px" oninput="cpFromHex(this.value)">
+      <button class="btn btn-a" onclick="copyText(document.getElementById('cp-hex').value, this)">COPY HEX</button>
+    </div>
+    <div class="card-label">Décimal (pour API/bot)</div>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px">
+      <div class="sinput" id="cp-decimal" style="flex:1;background:var(--bg3);cursor:text"></div>
+      <button class="btn-sm" onclick="copyText(document.getElementById('cp-decimal').textContent, this)">COPY</button>
+    </div>
+    <div class="card-label">Palettes Discord</div>
+    <div class="color-swatches-row">
+      <div class="cswatch" style="background:#5865F2" onclick="setCp('#5865F2')" title="Blurple"></div>
+      <div class="cswatch" style="background:#57F287" onclick="setCp('#57F287')" title="Green"></div>
+      <div class="cswatch" style="background:#FEE75C" onclick="setCp('#FEE75C')" title="Yellow"></div>
+      <div class="cswatch" style="background:#ED4245" onclick="setCp('#ED4245')" title="Red"></div>
+      <div class="cswatch" style="background:#EB459E" onclick="setCp('#EB459E')" title="Fuchsia"></div>
+      <div class="cswatch" style="background:#FFFFFF" onclick="setCp('#FFFFFF')" title="White"></div>
+      <div class="cswatch" style="background:#99AAB5" onclick="setCp('#99AAB5')" title="Greyple"></div>
+      <div class="cswatch" style="background:#2F3136" onclick="setCp('#2F3136')" title="Dark"></div>
+      <div class="cswatch" style="background:#00C8FF" onclick="setCp('#00C8FF')" title="Cyan"></div>
+      <div class="cswatch" style="background:#9B5EFF" onclick="setCp('#9B5EFF')" title="Purple"></div>
+      <div class="cswatch" style="background:#FF3B5C" onclick="setCp('#FF3B5C')" title="Red neon"></div>
+      <div class="cswatch" style="background:#FF8C00" onclick="setCp('#FF8C00')" title="Orange"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DNS LOOKUP ════════════════════════════════════════════ -->
+
+<div class="page" id="page-dns">
+  <div class="ph"><div><div class="pe">Stats & Info</div><div class="pt">DNS LOOKUP</div><div class="pd">Records A, MX, TXT, CNAME d'un domaine</div></div></div>
+  <div class="sbar">
+    <input class="sinput" id="dns-input" placeholder="domain.com">
+    <button class="btn btn-a" onclick="runDNS()">→ LOOKUP</button>
+  </div>
+  <div id="dns-result" style="display:none" id="dns-data"></div>
+</div>
+
+<!-- ══ PORT CHECKER ═══════════════════════════════════════════ -->
+
+<div class="page" id="page-portcheck">
+  <div class="ph"><div><div class="pe">Stats & Info</div><div class="pt">PORT CHECKER</div><div class="pd">Vérifie si des ports sont ouverts sur un host</div></div></div>
+  <div class="sbar">
+    <input class="sinput" id="port-host" placeholder="IP ou domaine (ex: 1.1.1.1)">
+    <input class="sinput" id="port-custom" placeholder="Port custom (optionnel)" style="max-width:180px;margin:0" type="number" min="1" max="65535">
+    <button class="btn btn-a" onclick="runPortCheck()">→ CHECK</button>
+  </div>
+  <div id="port-result" style="display:none">
+    <div class="card-label">Ports communs</div>
+    <div class="port-grid" id="port-grid"></div>
+  </div>
+  <div class="notice">Les checks de ports passent par des requêtes HTTP/TCP simulées. Résultats approximatifs depuis le navigateur.</div>
+</div>
+
+<!-- ══ BULK CHECKER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-bulk">
+  <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">BULK CHECKER</div><div class="pd">Check une liste de usernames sur une ou plusieurs plateformes</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-label">Usernames (un par ligne, max 50)</div>
+    <textarea class="sinput" id="bulk-input" rows="6" placeholder="ice&#10;god&#10;void&#10;arc&#10;fox" style="resize:vertical;margin-bottom:10px"></textarea>
+    <div class="card-label">Plateformes</div>
+    <div class="gen-options" id="bulk-plats" style="margin-bottom:10px">
+      <label class="gen-opt"><input type="checkbox" class="bulk-cb" value="Discord" checked><label>Discord</label></label>
+      <label class="gen-opt"><input type="checkbox" class="bulk-cb" value="Kick"><label>Kick</label></label>
+      <label class="gen-opt"><input type="checkbox" class="bulk-cb" value="Instagram"><label>Instagram</label></label>
+      <label class="gen-opt"><input type="checkbox" class="bulk-cb" value="GitHub"><label>GitHub</label></label>
+      <label class="gen-opt"><input type="checkbox" class="bulk-cb" value="Twitter/X"><label>Twitter/X</label></label>
+      <label class="gen-opt"><input type="checkbox" class="bulk-cb" value="TikTok"><label>TikTok</label></label>
+      <label class="gen-opt"><input type="checkbox" class="bulk-cb" value="Twitch"><label>Twitch</label></label>
+      <label class="gen-opt"><input type="checkbox" class="bulk-cb" value="Roblox"><label>Roblox</label></label>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-a" id="bulk-btn" onclick="runBulk()">→ CHECK ALL</button>
+      <span id="bulk-progress" style="font-size:11px;color:var(--muted);align-self:center"></span>
+    </div>
+  </div>
+  <div id="bulk-result" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <div class="card-label" style="margin:0">Résultats</div>
+      <span id="bulk-stats" style="font-size:10px;color:var(--muted)"></span>
+    </div>
+    <div class="bulk-grid" id="bulk-grid"></div>
+  </div>
+</div>
+
+<!-- ══ SNIPE TRACKER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-snipe">
+  <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">SNIPE TRACKER</div><div class="pd">Surveille un username en boucle — alerte + webhook quand dispo</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-label">Username à surveiller</div>
+    <div style="display:flex;gap:10px;margin-bottom:12px">
+      <input class="sinput" id="snipe-user" placeholder="username à sniper..." style="margin:0;flex:1">
+      <select class="sinput" id="snipe-plat" style="max-width:140px;margin:0">
+        <option>Discord</option><option>Kick</option><option>Instagram</option><option>GitHub</option><option>Twitter/X</option><option>TikTok</option><option>Twitch</option><option>Roblox</option>
+      </select>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
+      <div class="card-label" style="margin:0">Intervalle :</div>
+      <select class="sinput" id="snipe-interval" style="max-width:120px;margin:0">
+        <option value="5000">5 sec</option>
+        <option value="10000" selected>10 sec</option>
+        <option value="30000">30 sec</option>
+        <option value="60000">1 min</option>
+        <option value="300000">5 min</option>
+      </select>
+      <div class="card-label" style="margin:0">Webhook :</div>
+      <input class="sinput" id="snipe-webhook" placeholder="discord.com/api/webhooks/..." style="margin:0;flex:1">
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-a" id="snipe-start-btn" onclick="startSnipe()">▷ START SNIPE</button>
+      <button class="btn btn-ghost" id="snipe-stop-btn" onclick="stopSnipe()" style="display:none">⏹ STOP</button>
+    </div>
+  </div>
+  <div class="snipe-status" id="snipe-status">
+    <div class="snipe-pulse idle" id="snipe-dot"></div>
+    <div style="font-size:12px;color:var(--muted)" id="snipe-text">Prêt — configure et lance le snipe</div>
+    <div style="font-size:22px;font-family:'Bebas Neue';color:var(--muted2);margin-top:6px" id="snipe-counter">0 checks</div>
+  </div>
+  <div class="snipe-log" id="snipe-log" style="margin-top:10px"></div>
+</div>
+
+<!-- ══ WORDLIST BUILDER ═══════════════════════════════════════ -->
+
+<div class="page" id="page-wordlist">
+  <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">WORDLIST BUILDER</div><div class="pd">Génère des wordlists custom (leet, suffixes, caps, combos)</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-label">Mots de base (un par ligne)</div>
+    <textarea class="sinput" id="wl-words" rows="4" placeholder="ice&#10;god&#10;void&#10;arc" style="resize:vertical;margin-bottom:10px"></textarea>
+    <div class="card-label">Transformations</div>
+    <div class="gen-options" style="margin-bottom:12px">
+      <label class="gen-opt"><input type="checkbox" id="wl-leet" checked><label>Leet speak (a→4, e→3...)</label></label>
+      <label class="gen-opt"><input type="checkbox" id="wl-caps" checked><label>Caps variations</label></label>
+      <label class="gen-opt"><input type="checkbox" id="wl-suffix"><label>Suffixes (x, og, gg, 123...)</label></label>
+      <label class="gen-opt"><input type="checkbox" id="wl-prefix"><label>Préfixes (i, the, _...)</label></label>
+      <label class="gen-opt"><input type="checkbox" id="wl-rev"><label>Reversed</label></label>
+      <label class="gen-opt"><input type="checkbox" id="wl-double"><label>Double (icice, godgod...)</label></label>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-a" onclick="runWordlist()">→ GENERATE</button>
+      <button class="btn-sm" onclick="exportWordlist()" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">EXPORT .TXT</button>
+      <span id="wl-count" style="font-size:11px;color:var(--muted);align-self:center"></span>
+    </div>
+  </div>
+  <div class="wl-tags" id="wl-tags"></div>
+</div>
+
+<!-- ══ BASE64 / HASH ══════════════════════════════════════════ -->
+
+<div class="page" id="page-base64">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">BASE64 / HASH</div><div class="pd">Encode/decode Base64 · génère MD5, SHA1, SHA256</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-label">Input</div>
+    <textarea class="sinput" id="b64-input" rows="4" placeholder="Texte ou Base64..." style="resize:vertical" oninput="updateBase64()"></textarea>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn btn-a" onclick="b64Encode()">ENCODE →</button>
+      <button class="btn btn-ghost" onclick="b64Decode()">← DECODE</button>
+    </div>
+  </div>
+  <div id="b64-result">
+    <div class="hash-result" id="b64-out-encode">
+      <div class="hash-label">Base64 Encoded</div><div class="hash-val" id="b64-enc"></div>
+    </div>
+    <div class="hash-result" id="b64-out-decode">
+      <div class="hash-label">Base64 Decoded</div><div class="hash-val" id="b64-dec"></div>
+    </div>
+    <div class="hash-result">
+      <div class="hash-label">SHA-256 <button class="copy-btn" onclick="copyText(document.getElementById('hash-sha256').textContent,this)" style="margin-left:8px">COPY</button></div>
+      <div class="hash-val" id="hash-sha256"></div>
+    </div>
+    <div class="hash-result">
+      <div class="hash-label">SHA-1 <button class="copy-btn" onclick="copyText(document.getElementById('hash-sha1').textContent,this)" style="margin-left:8px">COPY</button></div>
+      <div class="hash-val" id="hash-sha1"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ JSON FORMATTER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-jsonformat">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">JSON FORMATTER</div><div class="pd">Pretty print · validation · minify</div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div>
+      <div class="card-label">Input JSON</div>
+      <textarea class="sinput" id="json-input" rows="14" placeholder='{"key":"value"}' style="resize:vertical;font-size:11px" oninput="formatJSON()"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button class="btn btn-a" onclick="formatJSON()">FORMAT</button>
+        <button class="btn btn-ghost" onclick="minifyJSON()">MINIFY</button>
+        <button class="btn-sm" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)" onclick="document.getElementById('json-input').value='';document.getElementById('json-output').innerHTML='';document.getElementById('json-err').textContent=''">CLEAR</button>
+      </div>
+      <div class="regex-err" id="json-err"></div>
+    </div>
+    <div>
+      <div class="card-label">Output</div>
+      <div class="json-out" id="json-output"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ REGEX TESTER ════════════════════════════════════════════ -->
+
+<div class="page" id="page-regex">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">REGEX TESTER</div><div class="pd">Teste une regex en live avec highlighting des matches</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px">
+      <span style="color:var(--muted);font-size:16px">/</span>
+      <input class="sinput" id="regex-pattern" placeholder="pattern" style="margin:0;flex:1;font-size:13px" oninput="runRegex()">
+      <span style="color:var(--muted);font-size:16px">/</span>
+      <input class="sinput" id="regex-flags" placeholder="flags" style="margin:0;width:70px;font-size:13px" value="gi" oninput="runRegex()">
+    </div>
+    <div class="card-label">Texte test</div>
+    <textarea class="sinput" id="regex-text" rows="5" placeholder="Colle du texte ici..." style="resize:vertical" oninput="runRegex()"></textarea>
+    <div class="regex-err" id="regex-err"></div>
+  </div>
+  <div style="display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap">
+    <span id="regex-match-count" style="font-size:11px;color:var(--muted)">0 match</span>
+    <span id="regex-groups" style="font-size:11px;color:var(--muted)"></span>
+  </div>
+  <div class="card-label">Preview (matches surlignés)</div>
+  <div id="regex-preview" style="padding:14px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;font-size:12px;line-height:1.8;min-height:60px;word-break:break-all;white-space:pre-wrap"></div>
+  <div id="regex-captures" style="margin-top:12px"></div>
+</div>
+
+<!-- ══ UUID / ID GENERATOR ════════════════════════════════════ -->
+
+<div class="page" id="page-uuid">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">UUID / ID GENERATOR</div><div class="pd">UUID v4, Snowflake IDs, tokens custom, nano IDs</div></div></div>
+  <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+    <button class="btn btn-a" onclick="genUUIDs()">GENERATE ALL</button>
+    <input class="sinput" id="uuid-count" type="number" value="5" min="1" max="20" style="max-width:80px;margin:0">
+    <span style="font-size:11px;color:var(--muted);align-self:center">quantité</span>
+  </div>
+  <div id="uuid-out"></div>
+</div>
+
+<!-- ══ DIFF CHECKER ════════════════════════════════════════════ -->
+
+<div class="page" id="page-diff">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">DIFF CHECKER</div><div class="pd">Compare deux textes et affiche les différences</div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+    <div>
+      <div class="card-label">Texte A</div>
+      <textarea class="sinput" id="diff-a" rows="8" placeholder="Texte original..." style="resize:vertical;font-size:12px"></textarea>
+    </div>
+    <div>
+      <div class="card-label">Texte B</div>
+      <textarea class="sinput" id="diff-b" rows="8" placeholder="Texte modifié..." style="resize:vertical;font-size:12px"></textarea>
+    </div>
+  </div>
+  <button class="btn btn-a" style="margin-bottom:14px" onclick="runDiff()">→ COMPARE</button>
+  <div id="diff-stats" style="font-size:11px;color:var(--muted);margin-bottom:8px"></div>
+  <div class="diff-out" id="diff-out" style="display:none"></div>
+</div>
+
+<!-- ══ NITRO GIFT CHECKER ════════════════════════════════════ -->
+
+<div class="page" id="page-nitrogift">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">NITRO GIFT CHECKER</div><div class="pd">Vérifie si un lien discord.gift est valide ou expiré</div></div></div>
+  <div class="sbar">
+    <input class="sinput" id="gift-input" placeholder="discord.gift/xxxx ou code seul">
+    <button class="btn btn-a" id="gift-btn" onclick="checkGift()">→ CHECK</button>
+  </div>
+  <div id="gift-result" style="display:none"></div>
+  <div class="notice">Utilise l'API Discord publique. Aucun token requis.</div>
+</div>
+
+<!-- ══ BIO GENERATOR ══════════════════════════════════════════ -->
+
+<div class="page" id="page-bio">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">BIO GENERATOR</div><div class="pd">Génère des bios Discord stylisées avec symboles OG</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-label">Style</div>
+    <div class="bio-style-grid" id="bio-style-grid">
+      <div class="bio-style-btn active" onclick="setBioStyle('minimal',this)">Minimal</div>
+      <div class="bio-style-btn" onclick="setBioStyle('cyber',this)">Cyber / Neon</div>
+      <div class="bio-style-btn" onclick="setBioStyle('aesthetic',this)">Aesthetic</div>
+      <div class="bio-style-btn" onclick="setBioStyle('og',this)">OG / Clean</div>
+      <div class="bio-style-btn" onclick="setBioStyle('uwu',this)">Soft / UwU</div>
+      <div class="bio-style-btn" onclick="setBioStyle('hacker',this)">Hacker</div>
+    </div>
+    <div class="card-label">Infos (optionnel)</div>
+    <input class="sinput" id="bio-name" placeholder="Ton nom / pseudo">
+    <input class="sinput" id="bio-age" placeholder="Age (ex: 17)">
+    <input class="sinput" id="bio-interest" placeholder="Centres d'intérêt (ex: design, gaming, code)">
+    <input class="sinput" id="bio-status" placeholder="Statut (ex: busy, available, grind...)">
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button class="btn btn-a" style="flex:1" onclick="generateBio()">⚙ GENERATE</button>
+      <button class="btn btn-ghost" onclick="generateBio()">↻ RETRY</button>
+    </div>
+  </div>
+  <div id="bio-output" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <div class="card-label" style="margin:0">Preview</div>
+      <button class="copy-btn" onclick="copyText(document.getElementById('bio-text').textContent,this)">COPY</button>
+    </div>
+    <div class="bio-result" id="bio-text"></div>
+  </div>
+</div>
+
+<!-- ══ SERVER TEMPLATE CLONER ════════════════════════════════ -->
+
+<div class="page" id="page-srvtemplate">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">SERVER TEMPLATE</div><div class="pd">Exporte la structure d'un serveur Discord via son template URL</div></div></div>
+
+  <div class="tmpl-step">
+    <div class="tmpl-step-num">01</div>
+    <div class="tmpl-step-title">Récupère l'URL template du serveur</div>
+    <div style="font-size:11px;color:var(--muted);margin-top:6px;line-height:1.7">
+      Dans ton serveur → <strong>Paramètres</strong> → <strong>Template de serveur</strong> → copie le lien<br>
+      Format: <code style="color:var(--accent)">discord.new/xxxxxxxx</code> ou <code style="color:var(--accent)">discord.com/template/xxxxxxxx</code>
+    </div>
+  </div>
+
+  <div class="tmpl-step">
+    <div class="tmpl-step-num">02</div>
+    <div class="tmpl-step-title">Analyse le template</div>
+    <div style="display:flex;gap:10px;margin-top:10px">
+      <input class="sinput" id="tmpl-input" placeholder="discord.new/xxxxxxxx" style="margin:0;flex:1">
+      <button class="btn btn-a" onclick="loadTemplate()">→ LOAD</button>
+    </div>
+  </div>
+
+  <div id="tmpl-result" style="display:none">
+    <div class="tmpl-step">
+      <div class="tmpl-step-num">03</div>
+      <div class="tmpl-step-title">Structure exportée</div>
+      <div id="tmpl-info" style="margin-top:10px"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <button class="btn btn-a" style="flex:1" onclick="exportTemplateJSON()">↓ EXPORT JSON</button>
+      <button class="btn btn-ghost" onclick="copyText(document.getElementById('tmpl-raw').value,this)">COPY RAW</button>
+    </div>
+    <textarea id="tmpl-raw" style="display:none"></textarea>
+    <div class="card-label" style="margin-top:14px">Preview structure</div>
+    <div class="tmpl-preview" id="tmpl-preview"></div>
+  </div>
+  <div class="notice">Fonctionne uniquement avec les serveurs qui ont activé leur template public. Aucun token requis.</div>
+</div>
+
+<!-- ══ MASS DM TRACKER ═══════════════════════════════════════ -->
+
+<div class="page" id="page-massdm">
+  <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">MASS DM TRACKER</div><div class="pd">Suit et log tes campagnes de DMs Discord</div></div></div>
+
+  <div class="dm-stat-grid">
+    <div class="dm-stat"><div class="dm-stat-val" id="dm-total" style="color:var(--accent)">0</div><div class="dm-stat-label">Total</div></div>
+    <div class="dm-stat"><div class="dm-stat-val" id="dm-sent" style="color:var(--green)">0</div><div class="dm-stat-label">Envoyés</div></div>
+    <div class="dm-stat"><div class="dm-stat-val" id="dm-fail" style="color:var(--red)">0</div><div class="dm-stat-label">Échoués</div></div>
+    <div class="dm-stat"><div class="dm-stat-val" id="dm-rate" style="color:var(--yellow)">0%</div><div class="dm-stat-label">Taux</div></div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-label">Nouvelle campagne</div>
+    <input class="sinput" id="dm-campaign" placeholder="Nom de la campagne (ex: Drop Annonce, Promo...)">
+    <textarea class="sinput" id="dm-userids" rows="4" placeholder="User IDs (un par ligne)&#10;123456789&#10;987654321" style="resize:vertical;margin-bottom:8px;font-size:11px"></textarea>
+    <textarea class="sinput" id="dm-message" rows="3" placeholder="Message envoyé..." style="resize:vertical;font-size:12px"></textarea>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn btn-a" onclick="addDMCampaign()">+ ADD CAMPAIGN</button>
+      <button class="btn-sm" onclick="clearDMLog()" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">CLEAR LOG</button>
+    </div>
+  </div>
+
+  <div class="card-label">Campagnes sauvegardées</div>
+  <div id="dm-campaigns-list" style="margin-bottom:14px"></div>
+
+  <div class="card-label">Log</div>
+  <div class="dm-log" id="dm-log"></div>
+</div>
+
 </main>
 </div>
 
@@ -664,26 +1635,28 @@ const PLATFORMS = ['Discord','Guns.lol','Sellix','MySellAuth','Kick','Instagram'
 
 function buildGrid() {
   document.getElementById('c-grid').innerHTML = PLATFORMS.map(p=>`
-    <div class="plat-card checking" id="pc-${p.replace(/\W/g,'')}">
+    <div class="plat-card checking" id="pc-${p.replace(/[^a-zA-Z0-9]/g,'')}">
       <span class="pname">${p}</span>
       <span class="pstatus"><span class="ldots"><span></span><span></span><span></span></span></span>
     </div>`).join('');
 }
 
+function safePlatId(p) { return p.replace(/[^a-zA-Z0-9]/g,''); }
+
 async function checkP(p, u) {
-  const el = document.getElementById('pc-'+p.replace(/\W/g,''));
+  const el = document.getElementById('pc-'+safePlatId(p));
+  let status = 'error';
   try {
     const r = await fetch(`${WORKER_URL}/check?user=${encodeURIComponent(u)}&platform=${encodeURIComponent(p.toLowerCase())}`);
     const d = await r.json();
-    const s = d.status === 'available' ? 'available' : d.status === 'taken' ? 'taken' : 'error';
-    el.className = 'plat-card '+s;
-    el.querySelector('.pstatus').textContent = s;
+    status = d.status === 'available' ? 'available' : d.status === 'taken' ? 'taken' : 'error';
+    if (el) { el.className = 'plat-card '+status; el.querySelector('.pstatus').textContent = status; }
   } catch(e) {
-    el.className = 'plat-card error';
-    el.querySelector('.pstatus').textContent = 'error';
+    if (el) { el.className = 'plat-card error'; el.querySelector('.pstatus').textContent = 'error'; }
   }
   document.getElementById('c-av').textContent = document.querySelectorAll('.plat-card.available').length;
   document.getElementById('c-tk').textContent = document.querySelectorAll('.plat-card.taken').length;
+  if (typeof addHistory === 'function') addHistory(u, p, status);
 }
 
 async function runChecker() {
@@ -1306,7 +2279,7 @@ async function runPing() {
   const grid = document.getElementById('ping-grid');
 
   grid.innerHTML = PING_TARGETS.map(t=>`
-    <div class="stat-card" id="ping-${t.name.replace(/\W/g,'')}">
+    <div class="stat-card" id="ping-${t.name.replace(/[^a-zA-Z0-9]/g,'')}">
       <div class="stat-label">${t.name}</div>
       <div class="stat-value" style="font-size:24px"><span class="ldots"><span></span><span></span><span></span></span></div>
       <div class="stat-sub">Measuring...</div>
@@ -1314,7 +2287,7 @@ async function runPing() {
 
   for (const t of PING_TARGETS) {
     const ms = await pingTarget(t);
-    const id = 'ping-'+t.name.replace(/\W/g,'');
+    const id = 'ping-'+t.name.replace(/[^a-zA-Z0-9]/g,'');
     const el = document.getElementById(id);
     if (!el) continue;
     const color = ms===null?'var(--red)':ms<100?'var(--green)':ms<300?'var(--yellow)':'var(--red)';
@@ -1472,10 +2445,1012 @@ function rows(arr) {
 return arr.map(([k,v,c])=>` <div class="result-row"> <span class="rk">${k}</span> <span class="rv ${c||''}">${v}</span> </div>`).join(’’);
 }
 
+// ── SERVER LOOKUP ─────────────────────────────────────────────
+async function runServerLookup() {
+const id = document.getElementById(‘srv-input’).value.trim();
+if (!id || !/^\d+$/.test(id)) return;
+const res = document.getElementById(‘srv-result’);
+const data = document.getElementById(‘srv-data’);
+res.style.display=‘block’;
+data.innerHTML = ‘<div class="result-row"><span class="rk">Loading</span><span class="rv"><span class="ldots"><span></span><span></span><span></span></span></span></div>’;
+try {
+const r = await fetch(`https://discord.com/api/v9/guilds/${id}/widget.json`);
+if (r.status === 403) {
+data.innerHTML = rows([[‘Guild ID’,id,‘accent’],[‘Widget’,‘Désactivé — active-le dans Paramètres > Widget’,‘yellow’],[‘Note’,‘Seule info publique disponible sans widget’,‘muted’]]);
+return;
+}
+if (!r.ok) { data.innerHTML = rows([[‘Erreur’,`Serveur introuvable (${r.status})`, ‘red’]]); return; }
+const d = await r.json();
+data.innerHTML = rows([
+[‘Nom’, d.name || ‘—’, ‘green’],
+[‘ID’, d.id || id, ‘accent’],
+[‘En ligne’, String(d.presence_count || 0), ‘green’],
+[‘Salon join’, d.instant_invite ? d.instant_invite : ‘—’, ‘’],
+[‘Channels’, String(d.channels?.length || 0), ‘’],
+[‘Members visibles’, String(d.members?.length || 0), ‘’],
+]);
+} catch(e) {
+data.innerHTML = rows([[‘Erreur’, e.message, ‘red’]]);
+}
+}
+
+// ── PERMISSIONS CALCULATOR ─────────────────────────────────────
+const PERMS = [
+[0x1,‘Create Instant Invite’],[0x2,‘Kick Members’],[0x4,‘Ban Members’],[0x8,‘Administrator’],
+[0x10,‘Manage Channels’],[0x20,‘Manage Guild’],[0x40,‘Add Reactions’],[0x80,‘View Audit Log’],
+[0x100,‘Priority Speaker’],[0x200,‘Stream’],[0x400,‘View Channels’],[0x800,‘Send Messages’],
+[0x1000,‘Send TTS’],[0x2000,‘Manage Messages’],[0x4000,‘Embed Links’],[0x8000,‘Attach Files’],
+[0x10000,‘Read History’],[0x20000,‘Mention Everyone’],[0x40000,‘Use External Emoji’],[0x80000,‘View Guild Insights’],
+[0x100000,‘Connect’],[0x200000,‘Speak’],[0x400000,‘Mute Members’],[0x800000,‘Deafen Members’],
+[0x1000000,‘Move Members’],[0x2000000,‘Use VAD’],[0x4000000,‘Change Nickname’],[0x8000000,‘Manage Nicknames’],
+[0x10000000,‘Manage Roles’],[0x20000000,‘Manage Webhooks’],[0x40000000,‘Manage Emojis’],
+];
+
+let permValue = BigInt(0);
+
+function buildPermGrid() {
+const grid = document.getElementById(‘perm-grid’);
+if (!grid) return;
+grid.innerHTML = PERMS.map(([bit, name]) => ` <div class="perm-item" id="perm-${bit}" onclick="togglePerm(${bit})"> <div class="perm-dot"></div> <span>${name}</span> </div>`).join(’’);
+}
+
+function togglePerm(bit) {
+const b = BigInt(bit);
+permValue ^= b;
+updatePermDisplay();
+}
+
+function updatePermDisplay() {
+const display = document.getElementById(‘perm-display’);
+if (display) display.textContent = permValue.toString();
+const input = document.getElementById(‘perm-input’);
+if (input) input.value = permValue.toString();
+PERMS.forEach(([bit]) => {
+const el = document.getElementById(‘perm-’+bit);
+if (el) el.classList.toggle(‘active’, !!(permValue & BigInt(bit)));
+});
+}
+
+function permFromValue(val) {
+try {
+permValue = BigInt(val || 0);
+updatePermDisplay();
+} catch(e) {}
+}
+
+// ── TIMESTAMP GENERATOR ────────────────────────────────────────
+const TS_FORMATS = [
+[‘t’,‘Heure courte’,‘16:20’],
+[‘T’,‘Heure longue’,‘16:20:30’],
+[‘d’,‘Date courte’,‘20/04/2021’],
+[‘D’,‘Date longue’,‘20 avril 2021’],
+[‘f’,‘Date + heure’,‘20 avril 2021 16:20’],
+[‘F’,‘Complet’,‘mardi 20 avril 2021 16:20’],
+[‘R’,‘Relatif’,‘il y a 2 ans’],
+];
+
+function updateTimestamps() {
+const val = document.getElementById(‘ts-input’)?.value;
+if (!val) return;
+const unix = Math.floor(new Date(val).getTime()/1000);
+const container = document.getElementById(‘ts-formats’);
+if (!container) return;
+container.innerHTML = TS_FORMATS.map(([flag, label, ex]) => ` <div class="ts-format-row"> <div> <div class="ts-format-label">${label}</div> <div style="font-size:10px;color:var(--muted2)">${ex}</div> </div> <div class="ts-format-code">&lt;t:${unix}:${flag}&gt;</div> <button class="copy-btn" onclick="copyText('<t:${unix}:${flag}>', this)">COPY</button> </div>`).join(’’);
+// Add raw unix row
+container.innerHTML += ` <div class="ts-format-row"> <div><div class="ts-format-label">Unix timestamp</div></div> <div class="ts-format-val">${unix}</div> <button class="copy-btn" onclick="copyText('${unix}', this)">COPY</button> </div>`;
+}
+
+// ── MARKDOWN PREVIEW ───────────────────────────────────────────
+function mdToHtml(text) {
+var t = text.replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’);
+t = t.replace(/`[\w]*/g,'<CODEBLOCK>').replace(/`/g,’</CODEBLOCK>’);
+t = t.replace(/<CODEBLOCK>([\s\S]*?)</CODEBLOCK>/g,’<pre><code>$1</code></pre>’);
+t = t.replace(/`([^`]+)`/g,’<code>$1</code>’);
+t = t.replace(/^### (.+)$/gm,’<h3>$1</h3>’);
+t = t.replace(/^## (.+)$/gm,’<h2>$1</h2>’);
+t = t.replace(/^# (.+)$/gm,’<h1>$1</h1>’);
+t = t.replace(/**(.+?)**/g,’<strong>$1</strong>’);
+t = t.replace(/**(.+?)**/g,’<strong>$1</strong>’);
+t = t.replace(/*(.+?)*/g,’<em>$1</em>’);
+t = t.replace(/~(.+?)~/g,’<del>$1</del>’);
+t = t.replace(/^> (.+)$/gm,’<blockquote>$1</blockquote>’);
+t = t.replace(/[(.+?)]((.+?))/g,’<a href="$2" target="_blank">$1</a>’);
+t = t.replace(/\n/g,’<br>’);
+return t;
+}
+function updateMd() {
+const input = document.getElementById(‘md-input’)?.value || ‘’;
+const preview = document.getElementById(‘md-preview’);
+if (preview) preview.innerHTML = mdToHtml(input) || ‘<span style="color:var(--muted2)">Tape du markdown à gauche…</span>’;
+}
+
+// ── EMBED BUILDER ──────────────────────────────────────────────
+function setEmbedColor(hex) {
+document.getElementById(‘emb-color’).value = hex;
+updateEmbed();
+}
+
+function updateEmbed() {
+const title = document.getElementById(‘emb-title’)?.value || ‘’;
+const desc = document.getElementById(‘emb-desc’)?.value || ‘’;
+const footer = document.getElementById(‘emb-footer’)?.value || ‘’;
+const url = document.getElementById(‘emb-url’)?.value || ‘’;
+const color = document.getElementById(‘emb-color’)?.value || ‘#5865F2’;
+
+// Update preview
+const preview = document.getElementById(‘emb-preview’);
+if (preview) preview.style.borderLeftColor = color;
+const prevTitle = document.getElementById(‘emb-prev-title’);
+if (prevTitle) {
+prevTitle.textContent = title || “Titre de l’embed”;
+prevTitle.style.color = url ? ‘#00b0f4’ : ‘#fff’;
+}
+const prevDesc = document.getElementById(‘emb-prev-desc’);
+if (prevDesc) prevDesc.textContent = desc || ‘Description ici…’;
+const prevFoot = document.getElementById(‘emb-prev-footer’);
+if (prevFoot) prevFoot.textContent = footer;
+if (prevFoot) prevFoot.style.display = footer ? ‘block’ : ‘none’;
+
+// Generate code
+const decimal = parseInt(color.replace(’#’,’’), 16);
+const fields = [];
+const code = {
+embeds: [{
+…(title && {title}),
+…(desc && {description: desc}),
+color: decimal,
+…(url && {url}),
+…(footer && {footer: {text: footer}}),
+}]
+};
+const codeEl = document.getElementById(‘emb-code’);
+if (codeEl) codeEl.value = JSON.stringify(code, null, 2);
+}
+
+// ── HISTORY TRACKER ────────────────────────────────────────────
+function getHistory() {
+try { return JSON.parse(localStorage.getItem(‘dt3-hist’) || ‘[]’); } catch(e) { return []; }
+}
+
+function addHistory(user, platform, status) {
+const hist = getHistory();
+hist.unshift({ user, platform, status, date: new Date().toLocaleDateString() });
+if (hist.length > 500) hist.splice(500);
+localStorage.setItem(‘dt3-hist’, JSON.stringify(hist));
+}
+
+function renderHistory() {
+const el = document.getElementById(‘hist-list’);
+if (!el) return;
+const search = document.getElementById(‘hist-search’)?.value.toLowerCase() || ‘’;
+const hist = getHistory().filter(h => h.user.toLowerCase().includes(search));
+if (!hist.length) { el.innerHTML = ‘<div style="padding:20px;text-align:center;color:var(--muted2);font-size:12px">Aucun historique</div>’; return; }
+el.innerHTML = hist.map(h => ` <div class="tbl-row hist-row"> <span style="color:var(--accent);font-weight:500">${h.user}</span> <span style="color:var(--muted)">${h.platform}</span> <span class="${h.status==='available'?'green':h.status==='taken'?'red':''}">${h.status}</span> <span style="color:var(--muted2)">${h.date}</span> </div>`).join(’’);
+}
+
+function clearHistory() {
+localStorage.removeItem(‘dt3-hist’);
+renderHistory();
+}
+
+// History is saved directly inside checkP (see checker section)
+
+// ── SIMILAR FINDER (LEVENSHTEIN) ───────────────────────────────
+function levenshtein(a, b) {
+const dp = Array.from({length:a.length+1}, (_,i) => [i]);
+for(let j=0;j<=b.length;j++) dp[0][j]=j;
+for(let i=1;i<=a.length;i++)
+for(let j=1;j<=b.length;j++)
+dp[i][j] = a[i-1]===b[j-1] ? dp[i-1][j-1] : 1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);
+return dp[a.length][b.length];
+}
+
+function runLevenshtein() {
+const word = document.getElementById(‘lev-input’)?.value.trim().toLowerCase();
+if (!word) return;
+const maxDist = parseInt(document.getElementById(‘lev-dist’)?.value || ‘2’);
+const alpha = ‘abcdefghijklmnopqrstuvwxyz’;
+const variants = new Set();
+
+// Substitutions
+for(let i=0;i<word.length;i++)
+for(const c of alpha) {
+const v = word.slice(0,i)+c+word.slice(i+1);
+if(levenshtein(word,v)<=maxDist) variants.add(v);
+}
+// Deletions
+for(let i=0;i<word.length;i++) {
+const v = word.slice(0,i)+word.slice(i+1);
+if(v && levenshtein(word,v)<=maxDist) variants.add(v);
+}
+// Insertions
+for(let i=0;i<=word.length;i++)
+for(const c of alpha) {
+const v = word.slice(0,i)+c+word.slice(i);
+if(levenshtein(word,v)<=maxDist) variants.add(v);
+}
+// Transpositions
+for(let i=0;i<word.length-1;i++) {
+const v = word.split(’’);
+[v[i],v[i+1]]=[v[i+1],v[i]];
+variants.add(v.join(’’));
+}
+
+variants.delete(word);
+const arr = […variants].sort((a,b)=>levenshtein(word,a)-levenshtein(word,b)).slice(0,80);
+
+document.getElementById(‘lev-result’).style.display=‘block’;
+document.getElementById(‘lev-count’).textContent = arr.length + ’ variantes’;
+document.getElementById(‘lev-tags’).innerHTML = arr.map(v => {
+const d = levenshtein(word,v);
+return `<div class="lev-tag" onclick="navigator.clipboard.writeText('${v}')">${v}<span class="lev-diff">+${d}</span></div>`;
+}).join(’’);
+}
+
+// ── ROLE COLOR PICKER ──────────────────────────────────────────
+function updateColorPick() {
+const hex = document.getElementById(‘cp-picker’)?.value || ‘#5865F2’;
+document.getElementById(‘cp-hex’).value = hex;
+document.getElementById(‘cp-preview’).style.background = hex;
+const decimal = parseInt(hex.replace(’#’,’’), 16);
+document.getElementById(‘cp-decimal’).textContent = decimal;
+}
+
+function cpFromHex(val) {
+if (!/^#[0-9a-fA-F]{6}$/.test(val)) return;
+document.getElementById(‘cp-picker’).value = val;
+document.getElementById(‘cp-preview’).style.background = val;
+const decimal = parseInt(val.replace(’#’,’’), 16);
+document.getElementById(‘cp-decimal’).textContent = decimal;
+}
+
+function setCp(hex) {
+document.getElementById(‘cp-picker’).value = hex;
+cpFromHex(hex);
+document.getElementById(‘cp-hex’).value = hex;
+}
+
+// ── DNS LOOKUP ─────────────────────────────────────────────────
+async function runDNS() {
+const domain = document.getElementById(‘dns-input’)?.value.trim().replace(/^https?:///,’’).replace(//.*/,’’);
+if (!domain) return;
+const res = document.getElementById(‘dns-result’);
+res.style.display=‘block’;
+res.innerHTML = ‘<div class="result-row"><span class="rk">Loading</span><span class="rv"><span class="ldots"><span></span><span></span><span></span></span></span></div>’;
+
+const types = [‘A’,‘AAAA’,‘MX’,‘TXT’,‘CNAME’,‘NS’];
+const results = await Promise.all(types.map(async t => {
+try {
+const r = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=${t}`);
+const d = await r.json();
+return { type: t, records: d.Answer || [] };
+} catch(e) { return { type: t, records: [] }; }
+}));
+
+const typeClass = {A:‘dns-a’,AAAA:‘dns-a’,MX:‘dns-mx’,TXT:‘dns-txt’,CNAME:‘dns-cname’,NS:‘dns-cname’};
+res.innerHTML = results.filter(r=>r.records.length).map(({type, records}) => ` <div class="dns-section"> <div class="card-label">${type} Records</div> ${records.map(rec=>`
+<div class="dns-record">
+<span class="dns-type-badge ${typeClass[type]||''}">${type}</span>
+<span style="color:var(--text)">${rec.data}</span>
+<span style="color:var(--muted2);margin-left:auto;font-size:9px">TTL ${rec.TTL}</span>
+</div>`).join('')} </div>`).join(’’) || ‘<div class="notice">Aucun record trouvé pour ce domaine.</div>’;
+}
+
+// ── PORT CHECKER ───────────────────────────────────────────────
+const COMMON_PORTS = [
+[21,‘FTP’],[22,‘SSH’],[25,‘SMTP’],[53,‘DNS’],[80,‘HTTP’],[110,‘POP3’],
+[143,‘IMAP’],[443,‘HTTPS’],[3306,‘MySQL’],[3389,‘RDP’],[5432,‘PostgreSQL’],[8080,‘HTTP-Alt’]
+];
+
+async function checkPort(host, port) {
+// Use a public port check API via CORS proxy
+try {
+const r = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(`https://portchecker.co/api/v1/check?host=${host}&port=${port}`)}`, {signal: AbortSignal.timeout(5000)});
+if(r.ok) {
+const d = await r.json();
+return d.open === true ? ‘open’ : ‘closed’;
+}
+} catch(e) {}
+// Fallback: try fetch to the port
+try {
+const ctrl = new AbortController();
+const tid = setTimeout(()=>ctrl.abort(), 2000);
+await fetch(`http://${host}:${port}`, {mode:‘no-cors’, signal: ctrl.signal});
+clearTimeout(tid);
+return ‘open’;
+} catch(e) {
+return e.name === ‘AbortError’ ? ‘closed’ : ‘closed’;
+}
+}
+
+async function runPortCheck() {
+const host = document.getElementById(‘port-host’)?.value.trim();
+if (!host) return;
+const customPort = document.getElementById(‘port-custom’)?.value;
+const ports = customPort ? [[parseInt(customPort),‘Custom’], …COMMON_PORTS] : COMMON_PORTS;
+
+document.getElementById(‘port-result’).style.display=‘block’;
+const grid = document.getElementById(‘port-grid’);
+grid.innerHTML = ports.map(([p,n])=>` <div class="port-item checking" id="port-${p}"> <div class="port-num">${p}</div> <div class="port-name">${n}</div> <div style="font-size:9px;color:var(--muted);margin-top:2px">...</div> </div>`).join(’’);
+
+await Promise.all(ports.map(async ([port, name]) => {
+const status = await checkPort(host, port);
+const el = document.getElementById(‘port-’+port);
+if (el) {
+el.className = ’port-item ’ + status;
+el.querySelector(‘div:last-child’).textContent = status;
+}
+}));
+}
+
+// ── COLOR PICKER ──────────────────────────────────────────────
+const CP_PRESETS = [
+{name:‘Blurple’,hex:’#5865F2’},{name:‘Green’,hex:’#57F287’},{name:‘Yellow’,hex:’#FEE75C’},
+{name:‘Fuchsia’,hex:’#EB459E’},{name:‘Red’,hex:’#ED4245’},{name:‘White’,hex:’#FFFFFF’},
+{name:‘Cyan’,hex:’#00C8FF’},{name:‘Gold’,hex:’#FFB800’},{name:‘Purple’,hex:’#9B5EFF’},
+{name:‘Teal’,hex:’#1ABC9C’},{name:‘Orange’,hex:’#E67E22’},{name:‘Dark’,hex:’#2C2F33’},
+];
+function hexToRgb(hex){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return{r,g,b};}
+function hexToDecimal(hex){return parseInt(hex.slice(1),16);}
+function hexToHsl(hex){let{r,g,b}=hexToRgb(hex);r/=255;g/=255;b/=255;const max=Math.max(r,g,b),min=Math.min(r,g,b);let h,s,l=(max+min)/2;if(max===min){h=s=0;}else{const d=max-min;s=l>.5?d/(2-max-min):d/(max+min);switch(max){case r:h=((g-b)/d+(g<b?6:0))/6;break;case g:h=((b-r)/d+2)/6;break;default:h=((r-g)/d+4)/6;}}return`hsl(${Math.round(h*360)}, ${Math.round(s*100)}%, ${Math.round(l*100)}%)`;}
+function updateColor(hex){
+document.getElementById(‘cp-swatch’).style.background=hex;
+document.getElementById(‘cp-hex’).value=hex;
+document.getElementById(‘cp-picker’).value=hex;
+const {r,g,b}=hexToRgb(hex);
+const dec=hexToDecimal(hex);
+const fmts=[{label:‘HEX’,val:hex.toUpperCase()},{label:‘RGB’,val:`rgb(${r}, ${g}, ${b})`},{label:‘Decimal’,val:dec.toString()},{label:‘HSL’,val:hexToHsl(hex)},{label:‘CSS’,val:`color: ${hex}`},{label:‘Discord’,val:dec.toString()}];
+document.getElementById(‘cp-formats’).innerHTML=fmts.map(f=>`<div class="color-fmt" onclick="navigator.clipboard.writeText('${f.val}');this.style.borderColor='var(--green)';setTimeout(()=>this.style.borderColor='',800)"><div class="color-fmt-label">${f.label}</div><div class="color-fmt-val">${f.val}</div></div>`).join(’’);
+}
+function updateColorFromHex(v){if(/^#[0-9A-Fa-f]{6}$/.test(v))updateColor(v);}
+function initColorPicker(){
+document.getElementById(‘cp-presets’).innerHTML=CP_PRESETS.map(p=>`<div style="width:28px;height:28px;border-radius:50%;background:${p.hex};cursor:pointer;border:2px solid transparent;transition:border .15s" title="${p.name}" onclick="updateColor('${p.hex}')" onmouseover="this.style.borderColor='white'" onmouseout="this.style.borderColor='transparent'"></div>`).join(’’);
+updateColor(’#00C8FF’);
+}
+
+// ── BULK CHECKER ──────────────────────────────────────────────
+async function runBulk() {
+const raw = document.getElementById(‘bulk-input’).value.trim().split(’\n’).map(s=>s.trim()).filter(Boolean).slice(0,50);
+const plats = […document.querySelectorAll(’.bulk-cb:checked’)].map(el=>el.value);
+if (!raw.length || !plats.length) return;
+const btn = document.getElementById(‘bulk-btn’);
+btn.disabled=true; btn.textContent=‘Checking…’;
+document.getElementById(‘bulk-result’).style.display=‘block’;
+const grid = document.getElementById(‘bulk-grid’);
+let availCount=0, done=0;
+grid.innerHTML = raw.map(u=>` <div class="bulk-row checking" id="bulk-row-${CSS.escape(u)}"> <span style="color:var(--accent);font-weight:600">${u}</span> <div class="bulk-platforms" id="bulk-plats-${CSS.escape(u)}"> ${plats.map(p=>`<span class="bulk-plat checking" id="bp-${CSS.escape(u)}-${CSS.escape(p)}">${p}</span>`).join('')} </div> </div>`).join(’’);
+
+for (const u of raw) {
+const results = await Promise.all(plats.map(async p => {
+try {
+const r = await fetch(`${WORKER_URL}/check?user=${encodeURIComponent(u)}&platform=${encodeURIComponent(p.toLowerCase())}`);
+const d = await r.json();
+return {p, status: d.status};
+} catch(e) { return {p, status:‘error’}; }
+}));
+const availOn = results.filter(r=>r.status===‘available’).map(r=>r.p);
+const row = document.getElementById(‘bulk-row-’+CSS.escape(u));
+if (row) row.className = ‘bulk-row ’ + (availOn.length ? ‘available’ : ‘taken’);
+results.forEach(({p, status}) => {
+const el = document.getElementById(‘bp-’+CSS.escape(u)+’-’+CSS.escape(p));
+if (el) { el.className=’bulk-plat ’+(status===‘available’?‘available’:‘taken’); }
+});
+if (availOn.length) availCount++;
+done++;
+document.getElementById(‘bulk-progress’).textContent = `${done}/${raw.length}`;
+document.getElementById(‘bulk-stats’).textContent = `${availCount} usernames dispo`;
+}
+btn.disabled=false; btn.textContent=‘→ CHECK ALL’;
+}
+
+// ── SNIPE TRACKER ─────────────────────────────────────────────
+let snipeTimer = null;
+let snipeCount = 0;
+let snipeLog = [];
+
+function addSnipeLog(msg, type=‘info’) {
+const time = new Date().toLocaleTimeString();
+snipeLog.unshift({msg, type, time});
+if (snipeLog.length > 50) snipeLog.pop();
+const el = document.getElementById(‘snipe-log’);
+if (el) el.innerHTML = snipeLog.map(l=>`<div class="snipe-log-item ${l.type}">[${l.time}] ${l.msg}</div>`).join(’’);
+}
+
+async function startSnipe() {
+const user = document.getElementById(‘snipe-user’)?.value.trim();
+const plat = document.getElementById(‘snipe-plat’)?.value;
+const interval = parseInt(document.getElementById(‘snipe-interval’)?.value || ‘10000’);
+const webhook = document.getElementById(‘snipe-webhook’)?.value.trim();
+if (!user) return;
+
+snipeCount = 0; snipeLog = [];
+document.getElementById(‘snipe-start-btn’).style.display=‘none’;
+document.getElementById(‘snipe-stop-btn’).style.display=’’;
+document.getElementById(‘snipe-dot’).classList.remove(‘idle’);
+addSnipeLog(`Démarrage — surveillance de "${user}" sur ${plat} toutes les ${interval/1000}s`);
+
+async function check() {
+snipeCount++;
+document.getElementById(‘snipe-counter’).textContent = `${snipeCount} checks`;
+document.getElementById(‘snipe-text’).textContent = `Checking ${user} sur ${plat}...`;
+try {
+const r = await fetch(`${WORKER_URL}/check?user=${encodeURIComponent(user)}&platform=${encodeURIComponent(plat.toLowerCase())}`);
+const d = await r.json();
+if (d.status === ‘available’) {
+addSnipeLog(`🎯 DISPONIBLE ! "${user}" est libre sur ${plat}`, ‘found’);
+document.getElementById(‘snipe-text’).textContent = `🎯 ${user} EST DISPONIBLE sur ${plat} !`;
+document.getElementById(‘snipe-dot’).style.background = ‘var(–green)’;
+// Send webhook
+if (webhook) {
+try {
+await fetch(webhook, {
+method:‘POST’, headers:{‘Content-Type’:‘application/json’},
+body: JSON.stringify({embeds:[{
+title:‘🎯 Username disponible !’,
+description:`**${user}** est maintenant disponible sur **${plat}** !`,
+color: 0x00FF87,
+timestamp: new Date().toISOString(),
+footer:{text:‘DTOOLS Snipe Tracker’}
+}]})
+});
+addSnipeLog(‘Webhook envoyé !’, ‘found’);
+} catch(e) { addSnipeLog(’Webhook fail: ’+e.message); }
+}
+// Sound alert
+try {
+const ctx = new AudioContext();
+const osc = ctx.createOscillator();
+osc.connect(ctx.destination);
+osc.frequency.setValueAtTime(880, ctx.currentTime);
+osc.frequency.setValueAtTime(1100, ctx.currentTime+0.1);
+osc.start(); osc.stop(ctx.currentTime+0.3);
+} catch(e) {}
+stopSnipe();
+} else {
+addSnipeLog(`✗ ${user} pris sur ${plat}`);
+}
+} catch(e) { addSnipeLog(’Erreur: ’+e.message); }
+}
+await check();
+snipeTimer = setInterval(check, interval);
+}
+
+function stopSnipe() {
+if (snipeTimer) { clearInterval(snipeTimer); snipeTimer=null; }
+document.getElementById(‘snipe-start-btn’).style.display=’’;
+document.getElementById(‘snipe-stop-btn’).style.display=‘none’;
+document.getElementById(‘snipe-dot’).classList.add(‘idle’);
+addSnipeLog(`Stoppé après ${snipeCount} checks`);
+}
+
+// ── WORDLIST BUILDER ───────────────────────────────────────────
+const LEET_MAP = {‘a’:‘4’,‘e’:‘3’,‘i’:‘1’,‘o’:‘0’,‘s’:‘5’,‘t’:‘7’,‘g’:‘9’,‘b’:‘8’};
+const WL_SUFFIXES = [‘x’,‘z’,‘og’,‘gg’,‘123’,‘0’,’_’,‘xd’,‘pro’,‘99’,’_og’,‘zz’,‘666’,‘420’,’*x’];
+const WL_PREFIXES = [‘x’,‘z’,‘the’,‘og’,’*’,‘i’,‘mr’,‘not’];
+
+function leetSpeak(word) {
+return word.split(’’).map(c => LEET_MAP[c] || c).join(’’);
+}
+
+let currentWordlist = [];
+
+function runWordlist() {
+const words = document.getElementById(‘wl-words’)?.value.trim().split(’\n’).map(s=>s.trim()).filter(Boolean);
+if (!words?.length) return;
+const doLeet = document.getElementById(‘wl-leet’)?.checked;
+const doCaps = document.getElementById(‘wl-caps’)?.checked;
+const doSuffix = document.getElementById(‘wl-suffix’)?.checked;
+const doPrefix = document.getElementById(‘wl-prefix’)?.checked;
+const doRev = document.getElementById(‘wl-rev’)?.checked;
+const doDouble = document.getElementById(‘wl-double’)?.checked;
+
+const set = new Set(words);
+words.forEach(w => {
+if (doLeet) { set.add(leetSpeak(w)); set.add(w[0].toUpperCase()+leetSpeak(w.slice(1))); }
+if (doCaps) { set.add(w.toUpperCase()); set.add(w[0].toUpperCase()+w.slice(1)); set.add(w.toLowerCase()); }
+if (doSuffix) WL_SUFFIXES.forEach(s => set.add(w+s));
+if (doPrefix) WL_PREFIXES.forEach(p => set.add(p+w));
+if (doRev) set.add(w.split(’’).reverse().join(’’));
+if (doDouble) set.add(w+w);
+});
+
+currentWordlist = […set].sort((a,b)=>a.length-b.length);
+document.getElementById(‘wl-count’).textContent = currentWordlist.length + ’ entrées’;
+document.getElementById(‘wl-tags’).innerHTML = currentWordlist.map(w=>` <div class="wl-tag" onclick="navigator.clipboard.writeText(this.textContent)">${w}</div>`).join(’’);
+}
+
+function exportWordlist() {
+if (!currentWordlist.length) return;
+const blob = new Blob([currentWordlist.join(’\n’)], {type:‘text/plain’});
+const a = document.createElement(‘a’);
+a.href = URL.createObjectURL(blob);
+a.download = ‘wordlist.txt’;
+a.click();
+}
+
+// ── BASE64 / HASH ──────────────────────────────────────────────
+function b64Encode() {
+const t = document.getElementById(‘b64-input’)?.value || ‘’;
+try {
+document.getElementById(‘b64-enc’).textContent = btoa(unescape(encodeURIComponent(t)));
+} catch(e) { document.getElementById(‘b64-enc’).textContent = ’Erreur: ’+e.message; }
+updateHashes(t);
+}
+
+function b64Decode() {
+const t = document.getElementById(‘b64-input’)?.value || ‘’;
+try {
+document.getElementById(‘b64-dec’).textContent = decodeURIComponent(escape(atob(t)));
+} catch(e) { document.getElementById(‘b64-dec’).textContent = ’Invalide: ’+e.message; }
+}
+
+async function updateHashes(text) {
+if (!text) return;
+const enc = new TextEncoder();
+const data = enc.encode(text);
+const hashBuf = async (algo) => {
+const h = await crypto.subtle.digest(algo, data);
+return […new Uint8Array(h)].map(b=>b.toString(16).padStart(2,‘0’)).join(’’);
+};
+try {
+document.getElementById(‘hash-sha256’).textContent = await hashBuf(‘SHA-256’);
+document.getElementById(‘hash-sha1’).textContent = await hashBuf(‘SHA-1’);
+} catch(e) {}
+}
+
+function updateBase64() {
+const t = document.getElementById(‘b64-input’)?.value || ‘’;
+updateHashes(t);
+}
+
+// ── JSON FORMATTER ─────────────────────────────────────────────
+function jsonHighlight(json) {
+return json.replace(/(”(?:[^”\]|\.)*”(?:\s*:)?|\b(?:true|false|null)\b|-?\d+(?:.\d+)?(?:[eE][+-]?\d+)?)/g, match => {
+if (/^”/.test(match)) {
+if (/:$/.test(match)) return `<span class="jk">${match}</span>`;
+return `<span class="jv">${match}</span>`;
+}
+if (/true|false/.test(match)) return `<span class="jb">${match}</span>`;
+if (/null/.test(match)) return `<span class="jnull">${match}</span>`;
+return `<span class="jn">${match}</span>`;
+});
+}
+
+function formatJSON() {
+const input = document.getElementById(‘json-input’)?.value;
+const err = document.getElementById(‘json-err’);
+const out = document.getElementById(‘json-output’);
+try {
+const parsed = JSON.parse(input);
+const pretty = JSON.stringify(parsed, null, 2);
+out.innerHTML = jsonHighlight(pretty.replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’));
+err.textContent = ‘✓ JSON valide’;
+err.style.color = ‘var(–green)’;
+} catch(e) {
+err.textContent = ’✗ ’ + e.message;
+err.style.color = ‘var(–red)’;
+out.innerHTML = ‘’;
+}
+}
+
+function minifyJSON() {
+const input = document.getElementById(‘json-input’)?.value;
+const err = document.getElementById(‘json-err’);
+const out = document.getElementById(‘json-output’);
+try {
+const minified = JSON.stringify(JSON.parse(input));
+out.textContent = minified;
+err.textContent = `✓ Minifié — ${minified.length} chars`;
+err.style.color = ‘var(–green)’;
+} catch(e) {
+err.textContent = ’✗ ’ + e.message;
+err.style.color = ‘var(–red)’;
+}
+}
+
+// ── REGEX TESTER ───────────────────────────────────────────────
+function runRegex() {
+const pattern = document.getElementById(‘regex-pattern’)?.value;
+const flags = document.getElementById(‘regex-flags’)?.value || ‘’;
+const text = document.getElementById(‘regex-text’)?.value || ‘’;
+const err = document.getElementById(‘regex-err’);
+const preview = document.getElementById(‘regex-preview’);
+const captures = document.getElementById(‘regex-captures’);
+if (!pattern) { preview.textContent = text; err.textContent=’’; return; }
+try {
+const re = new RegExp(pattern, flags.replace(‘g’,’’)+‘g’);
+const matches = […text.matchAll(re)];
+document.getElementById(‘regex-match-count’).textContent = matches.length + ’ match(es)’;
+err.textContent = ‘’;
+// Highlight matches
+let html = text.replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’);
+const re2 = new RegExp(pattern, flags.replace(‘g’,’’)+‘g’);
+html = html.replace(re2, m => `<mark class="regex-match">${m}</mark>`);
+preview.innerHTML = html;
+// Capture groups
+if (matches.length && matches[0].length > 1) {
+captures.innerHTML = ‘<div class="card-label">Capture groups</div>’ +
+matches.slice(0,10).map((m,i)=>`<div style="font-size:11px;color:var(--muted);margin-bottom:4px">Match ${i+1}: ${m.slice(1).map((g,j)=>`<span style="color:var(--accent)">G${j+1}: ${g||’—’}</span>`).join(' · ')}</div>`).join(’’);
+} else { captures.innerHTML=’’; }
+} catch(e) {
+err.textContent = ’✗ ’ + e.message;
+err.style.color=‘var(–red)’;
+preview.textContent = text;
+}
+}
+
+// ── UUID / ID GENERATOR ────────────────────────────────────────
+function uuidv4() {
+return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+(c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
+}
+
+function nanoId(len=21) {
+const chars=‘ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-’;
+return Array.from(crypto.getRandomValues(new Uint8Array(len))).map(b=>chars[b%chars.length]).join(’’);
+}
+
+function fakeSnowflake() {
+const ts = BigInt(Date.now() - 1420070400000) << 22n;
+const rand = BigInt(Math.floor(Math.random()*4194304));
+return (ts | rand).toString();
+}
+
+function genUUIDs() {
+const count = Math.min(parseInt(document.getElementById(‘uuid-count’)?.value||‘5’), 20);
+const out = document.getElementById(‘uuid-out’);
+const sections = [
+{ label: ‘UUID v4’, items: Array.from({length:count}, uuidv4) },
+{ label: ‘Nano ID (21 chars)’, items: Array.from({length:count}, ()=>nanoId()) },
+{ label: ‘Nano ID (12 chars)’, items: Array.from({length:count}, ()=>nanoId(12)) },
+{ label: ‘Discord Snowflake (fake)’, items: Array.from({length:count}, fakeSnowflake) },
+{ label: ‘Token-style (base64)’, items: Array.from({length:count}, ()=>btoa(uuidv4()).replace(/=/g,’’).slice(0,32)) },
+];
+out.innerHTML = sections.map(s=>` <div class="card" style="margin-bottom:12px"> <div class="card-label">${s.label}</div> ${s.items.map(id=>`
+<div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+<code style="font-size:11px;color:var(--accent)">${id}</code>
+<button class="copy-btn" onclick="this.previousElementSibling&&navigator.clipboard.writeText(this.previousElementSibling.textContent)">COPY</button>
+</div>`).join('')} </div>`).join(’’);
+}
+
+// ── DIFF CHECKER ───────────────────────────────────────────────
+function runDiff() {
+const a = document.getElementById(‘diff-a’)?.value.split(’\n’) || [];
+const b = document.getElementById(‘diff-b’)?.value.split(’\n’) || [];
+const out = document.getElementById(‘diff-out’);
+out.style.display=‘block’;
+
+// Simple LCS-based diff
+const lcs = (a, b) => {
+const dp = Array.from({length:a.length+1}, ()=>new Array(b.length+1).fill(0));
+for (let i=1;i<=a.length;i++)
+for (let j=1;j<=b.length;j++)
+dp[i][j] = a[i-1]===b[j-1] ? dp[i-1][j-1]+1 : Math.max(dp[i-1][j],dp[i][j-1]);
+let i=a.length, j=b.length, result=[];
+while(i>0||j>0) {
+if(i>0&&j>0&&a[i-1]===b[j-1]) { result.unshift({type:‘eq’,line:a[i-1]}); i–;j–; }
+else if(j>0&&(i===0||dp[i][j-1]>=dp[i-1][j])) { result.unshift({type:‘add’,line:b[j-1]}); j–; }
+else { result.unshift({type:‘rem’,line:a[i-1]}); i–; }
+}
+return result;
+};
+
+const diff = lcs(a, b);
+const added = diff.filter(d=>d.type===‘add’).length;
+const removed = diff.filter(d=>d.type===‘rem’).length;
+document.getElementById(‘diff-stats’).textContent = `+${added} ajouts · -${removed} suppressions`;
+
+out.innerHTML = diff.map(d => {
+const esc = d.line.replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’);
+if (d.type===‘add’) return `<div class="diff-add">+ ${esc}</div>`;
+if (d.type===‘rem’) return `<div class="diff-rem">- ${esc}</div>`;
+return `<div class="diff-eq">  ${esc}</div>`;
+}).join(’’);
+}
+
+// ── NITRO GIFT CHECKER ────────────────────────────────────────
+async function checkGift() {
+let raw = document.getElementById(‘gift-input’).value.trim();
+const code = raw.replace(/.*discord.gift//i,’’).replace(/?.*/,’’).trim();
+if (!code) return;
+const btn = document.getElementById(‘gift-btn’);
+const res = document.getElementById(‘gift-result’);
+btn.disabled=true; btn.textContent=‘Checking…’;
+res.style.display=‘block’;
+res.innerHTML = ‘<div style="text-align:center;padding:20px;color:var(--muted)">Checking…</div>’;
+try {
+const r = await fetch(`https://discord.com/api/v9/entitlements/gift-codes/${code}?with_application=false&with_subscription_plan=true`);
+const d = await r.json();
+if (r.status === 404 || d.code === 10038) {
+res.innerHTML = `<div class="gift-result gift-invalid"> <div class="gift-icon">❌</div> <div class="gift-title" style="color:var(--red)">INVALIDE / EXPIRÉ</div> <div class="gift-sub">Code: ${code}</div> <div class="gift-sub" style="margin-top:6px">Ce lien n'existe pas ou a déjà été utilisé</div> </div>`;
+} else if (r.ok) {
+const plan = d.subscription_plan;
+const planName = plan?.name || ‘Nitro’;
+const uses = d.max_uses ? `${d.uses||0}/${d.max_uses}` : d.uses != null ? `${d.uses} utilisations` : ‘—’;
+const expires = d.expires_at ? new Date(d.expires_at).toLocaleString() : ‘Jamais’;
+const redeemed = d.redeemed ? ‘Oui’ : ‘Non’;
+res.innerHTML = `<div class="gift-result gift-valid"> <div class="gift-icon">🎁</div> <div class="gift-title" style="color:var(--green)">VALIDE ✓</div> <div class="gift-sub" style="color:var(--accent);font-size:14px;font-weight:700;margin:8px 0">${planName}</div> </div> <div class="result-block" style="margin-top:10px">${rows([ ['Code', code, 'accent'], ['Plan', planName, 'green'], ['Utilisé', redeemed, redeemed==='Oui'?'red':'green'], ['Utilisations', uses, ''], ['Expire', expires, expires==='Jamais'?'green':'yellow'], ['Store listing', plan?.price_tier ? plan.price_tier+' tier' : '—', ''], ])}</div>`;
+} else {
+res.innerHTML = `<div class="gift-result gift-invalid"> <div class="gift-icon">⚠️</div> <div class="gift-title" style="color:var(--yellow)">ERREUR ${r.status}</div> <div class="gift-sub">${d.message || 'Réponse inattendue'}</div> </div>`;
+}
+} catch(e) {
+res.innerHTML = `<div class="gift-result gift-invalid"><div class="gift-title" style="color:var(--red)">Erreur réseau</div><div class="gift-sub">${e.message}</div></div>`;
+}
+btn.disabled=false; btn.textContent=‘→ CHECK’;
+}
+
+// ── BIO GENERATOR ─────────────────────────────────────────────
+let currentBioStyle = ‘minimal’;
+
+const BIO_TEMPLATES = {
+minimal: [
+‘{name} · {age}’,
+‘— {interest} —\n{status}’,
+‘{name}\n{interest} · {age}’,
+‘∅ {name} · {status}’,
+‘{age} · {interest}’,
+],
+cyber: [
+‘⟨ {name} ⟩\n◈ {interest}\n◈ {age}y\n⟩ {status}’,
+‘▸ {name}\n╔═ {age} ═╗\n║ {interest}\n╚══ {status}’,
+‘【 {name} 】\n⌬ {interest}\n⌬ {status}’,
+‘// {name}.exe\n> age: {age}\n> focus: {interest}\n> status: {status}’,
+‘⚡ {name}\n◀ {interest} ▶\n◀ {age} · {status} ▶’,
+],
+aesthetic: [
+‘✦ {name} ✦\n﹒{interest}﹒{age}﹒{status}’,
+‘꒰ {name} ꒱\n・{interest}\n・{status}’,
+‘{name} ˖°\n⋆ {age} ⋆ {interest}\n{status} ♡’,
+‘˚₊· ͟͟͞͞➳❥ {name}\n   {interest} · {age}’,
+‘✩°｡⋆⸜ {name}\n{interest} · {status}’,
+],
+og: [
+‘{name}’,
+‘{name}.’,
+‘{age}’,
+‘{interest}.’,
+‘{name} · {interest}’,
+],
+uwu: [
+‘✿ {name} ✿\n{age} · {interest} ♡\nstatus: {status} uwu’,
+‘( ˘▽˘)っ {name}\n♡ {interest} · {age} ♡’,
+‘˗ˏˋ {name} ˎˊ˗\n♡ {interest}\n( ´ ▽ ` ) {status}’,
+],
+hacker: [
+‘root@{name}:~# whoami\n> age: {age}\n> skills: {interest}\n> status: {status}’,
+‘[*] {name}\n[+] {interest}\n[+] {age}y old\n[?] {status}’,
+‘#!/usr/bin/env {name}\n// {interest}\n// {age} | {status}’,
+],
+};
+
+const SYMBOLS_POOL = [‘◈’,‘◉’,‘◎’,‘◇’,‘▸’,‘▹’,‘⌬’,’⟨⟩’,‘∅’,‘⚡’,‘✦’,‘✧’,‘꒰꒱’,‘˖°’,‘⋆’,‘♡’,‘✿’,’//’,’[+]’,’[*]’];
+
+function setBioStyle(style, el) {
+currentBioStyle = style;
+document.querySelectorAll(’.bio-style-btn’).forEach(b=>b.classList.remove(‘active’));
+el.classList.add(‘active’);
+}
+
+function generateBio() {
+const name = document.getElementById(‘bio-name’).value.trim() || ‘void’;
+const age = document.getElementById(‘bio-age’).value.trim() || ‘??’;
+const interest = document.getElementById(‘bio-interest’).value.trim() || ‘nothing’;
+const status = document.getElementById(‘bio-status’).value.trim() || ‘offline’;
+
+const templates = BIO_TEMPLATES[currentBioStyle] || BIO_TEMPLATES.minimal;
+const tpl = templates[Math.floor(Math.random()*templates.length)];
+
+const bio = tpl
+.replace(/{name}/g, name)
+.replace(/{age}/g, age)
+.replace(/{interest}/g, interest)
+.replace(/{status}/g, status);
+
+document.getElementById(‘bio-output’).style.display=‘block’;
+document.getElementById(‘bio-text’).textContent = bio;
+}
+
+// ── SERVER TEMPLATE ───────────────────────────────────────────
+async function loadTemplate() {
+let raw = document.getElementById(‘tmpl-input’).value.trim();
+const code = raw.replace(/.*template//i,’’).replace(/.*discord.new//i,’’).replace(/?.*/,’’).trim();
+if (!code) return;
+
+const res = document.getElementById(‘tmpl-result’);
+res.style.display=‘block’;
+document.getElementById(‘tmpl-info’).innerHTML = ‘<span style="color:var(--muted)">Loading…</span>’;
+
+try {
+const r = await fetch(`https://discord.com/api/v9/guilds/templates/${code}`);
+if (!r.ok) {
+document.getElementById(‘tmpl-info’).innerHTML = `<span style="color:var(--red)">Template introuvable (${r.status}) — vérifie que le template est public</span>`;
+return;
+}
+const d = await r.json();
+const srv = d.serialized_source_guild;
+
+```
+// Store raw
+document.getElementById('tmpl-raw').value = JSON.stringify(d, null, 2);
+
+// Info block
+const channels = srv.channels || [];
+const roles = srv.roles || [];
+const cats = channels.filter(ch=>ch.type===4);
+const textChs = channels.filter(ch=>ch.type===0);
+const voiceChs = channels.filter(ch=>ch.type===2);
+
+document.getElementById('tmpl-info').innerHTML = rows([
+  ['Nom du serveur', srv.name || '—', 'green'],
+  ['Description', srv.description || '—', ''],
+  ['Créé par', d.creator?.username || '—', 'accent'],
+  ['Utilisations', String(d.usage_count || 0), ''],
+  ['Channels total', String(channels.length), ''],
+  ['Catégories', String(cats.length), ''],
+  ['Salons texte', String(textChs.length), ''],
+  ['Salons vocaux', String(voiceChs.length), ''],
+  ['Rôles', String(roles.length), 'purple'],
+]);
+
+// Build preview
+const sortedCats = cats.sort((a,b)=>a.position-b.position);
+let previewHtml = '';
+
+// Roles
+previewHtml += '<div class="tmpl-cat">Rôles</div>';
+previewHtml += roles.map(r => {
+  const hex = r.color ? '#'+r.color.toString(16).padStart(6,'0') : '#99aab5';
+  return `<span class="tmpl-role-tag" style="color:${hex};border-color:${hex}33">${r.name}</span>`;
+}).join('');
+
+// Channels by category
+previewHtml += '<div class="tmpl-cat" style="margin-top:12px">Channels</div>';
+const uncatChannels = channels.filter(ch=>!ch.parent_id && ch.type!==4).sort((a,b)=>a.position-b.position);
+uncatChannels.forEach(ch => {
+  const icon = ch.type===2 ? '🔊' : '#';
+  previewHtml += `<div class="tmpl-ch">${icon==='🔊'?'<span style="color:var(--muted2)">🔊</span>':''} ${ch.name}</div>`;
+});
+sortedCats.forEach(cat => {
+  previewHtml += `<div class="tmpl-cat">${cat.name}</div>`;
+  channels.filter(ch=>ch.parent_id===cat.id).sort((a,b)=>a.position-b.position).forEach(ch => {
+    previewHtml += `<div class="tmpl-ch" style="${ch.type===2?'color:var(--purple)':''}">${ch.type===2?'🔊 ':''}${ch.name}</div>`;
+  });
+});
+
+document.getElementById('tmpl-preview').innerHTML = previewHtml;
+```
+
+} catch(e) {
+document.getElementById(‘tmpl-info’).innerHTML = `<span style="color:var(--red)">Erreur: ${e.message}</span>`;
+}
+}
+
+function exportTemplateJSON() {
+const raw = document.getElementById(‘tmpl-raw’).value;
+if (!raw) return;
+const blob = new Blob([raw], {type:‘application/json’});
+const a = document.createElement(‘a’);
+a.href = URL.createObjectURL(blob);
+a.download = ‘server-template.json’;
+a.click();
+}
+
+// ── MASS DM TRACKER ───────────────────────────────────────────
+let dmCampaigns = [];
+let dmLogEntries = [];
+
+function loadDMData() {
+try { dmCampaigns = JSON.parse(localStorage.getItem(‘dt3-dmcamp’) || ‘[]’); } catch(e) { dmCampaigns=[]; }
+try { dmLogEntries = JSON.parse(localStorage.getItem(‘dt3-dmlog’) || ‘[]’); } catch(e) { dmLogEntries=[]; }
+}
+
+function saveDMData() {
+localStorage.setItem(‘dt3-dmcamp’, JSON.stringify(dmCampaigns));
+localStorage.setItem(‘dt3-dmlog’, JSON.stringify(dmLogEntries));
+}
+
+function addDMLog(msg, type=‘info’) {
+const entry = {msg, type, time: new Date().toLocaleString()};
+dmLogEntries.unshift(entry);
+if (dmLogEntries.length > 200) dmLogEntries.splice(200);
+saveDMData();
+renderDMLog();
+}
+
+function renderDMLog() {
+const el = document.getElementById(‘dm-log’);
+if (!el) return;
+el.innerHTML = dmLogEntries.slice(0,50).map(l =>
+`<div class="dm-log-item ${l.type}"><span style="color:var(--muted2);font-size:9px">${l.time}</span>${l.msg}</div>`
+).join(’’);
+}
+
+function updateDMStats() {
+const sent = dmLogEntries.filter(l=>l.type===‘sent’).length;
+const fail = dmLogEntries.filter(l=>l.type===‘fail’).length;
+const total = sent + fail;
+const rate = total ? Math.round((sent/total)*100) : 0;
+const setEl = (id,val) => { const el=document.getElementById(id); if(el) el.textContent=val; };
+setEl(‘dm-total’, total);
+setEl(‘dm-sent’, sent);
+setEl(‘dm-fail’, fail);
+setEl(‘dm-rate’, rate+’%’);
+}
+
+function addDMCampaign() {
+const name = document.getElementById(‘dm-campaign’)?.value.trim() || ‘Campaign’;
+const userIds = (document.getElementById(‘dm-userids’)?.value || ‘’).trim().split(’\n’).map(s=>s.trim()).filter(Boolean);
+const message = document.getElementById(‘dm-message’)?.value.trim() || ‘’;
+if (!userIds.length) return;
+
+const campaign = {
+id: Date.now(),
+name,
+message,
+users: userIds,
+created: new Date().toLocaleString(),
+sentCount: 0,
+failCount: 0,
+};
+dmCampaigns.unshift(campaign);
+saveDMData();
+renderDMCampaigns();
+
+// Log the entries as manual tracking
+userIds.forEach(uid => {
+addDMLog(`[${name}] → User ${uid} — à envoyer`, ‘info’);
+});
+addDMLog(`Campagne "${name}" créée — ${userIds.length} users`, ‘sent’);
+updateDMStats();
+
+// Clear inputs
+[‘dm-campaign’,‘dm-userids’,‘dm-message’].forEach(id => {
+const el = document.getElementById(id); if(el) el.value=’’;
+});
+}
+
+function markDMSent(campaignId, userId) {
+const camp = dmCampaigns.find(c=>c.id===campaignId);
+if (camp) { camp.sentCount++; saveDMData(); renderDMCampaigns(); }
+addDMLog(`✓ DM envoyé → ${userId}`, ‘sent’);
+updateDMStats();
+}
+
+function markDMFail(campaignId, userId) {
+const camp = dmCampaigns.find(c=>c.id===campaignId);
+if (camp) { camp.failCount++; saveDMData(); renderDMCampaigns(); }
+addDMLog(`✗ DM fail → ${userId} (bloqué ou désactivé)`, ‘fail’);
+updateDMStats();
+}
+
+function renderDMCampaigns() {
+const el = document.getElementById(‘dm-campaigns-list’);
+if (!el) return;
+if (!dmCampaigns.length) {
+el.innerHTML = ‘<div style="color:var(--muted2);font-size:11px;padding:10px">Aucune campagne</div>’;
+return;
+}
+el.innerHTML = dmCampaigns.slice(0,10).map(c => `<div class="list-card" style="margin-bottom:8px"> <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border)"> <div> <div style="font-weight:600;font-size:12px">${c.name}</div> <div style="font-size:10px;color:var(--muted);margin-top:2px">${c.users.length} users · ${c.created}</div> </div> <div style="display:flex;gap:12px;font-size:11px"> <span style="color:var(--green)">✓ ${c.sentCount}</span> <span style="color:var(--red)">✗ ${c.failCount}</span> <span style="color:var(--muted)">${c.users.length - c.sentCount - c.failCount} restants</span> </div> </div> <div style="padding:8px 12px;max-height:120px;overflow-y:auto"> ${c.users.map(uid =>`
+<div style="display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid var(--border);font-size:11px">
+<span style="color:var(--muted);flex:1">${uid}</span>
+<button class="btn-sm" onclick="markDMSent(${c.id},'${uid}')" style="background:rgba(0,255,135,.1);border-color:rgba(0,255,135,.3);color:var(--green)">✓ Sent</button>
+<button class="btn-sm" onclick="markDMFail(${c.id},'${uid}')" style="background:rgba(255,59,92,.1);border-color:rgba(255,59,92,.3);color:var(--red)">✗ Fail</button>
+</div>`).join('')} </div> ${c.message ? `<div style="padding:10px 14px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);font-style:italic">”${c.message.slice(0,80)}${c.message.length>80?’…’:’’}”</div>` : ''} </div>`).join(’’);
+}
+
+function clearDMLog() {
+dmLogEntries = [];
+saveDMData();
+renderDMLog();
+updateDMStats();
+}
+
 // ── INIT ─────────────────────────────────────────────────────
 renderServers(); renderUsernames(); renderNitros(); renderNotes(); updateStats(); loadUA();
-initPlatCheckboxes();
-// Restore webhook URL
+initPlatCheckboxes(); buildPermGrid(); updateColorPick(); updateEmbed(); renderHistory();
+loadDMData(); renderDMCampaigns(); renderDMLog(); updateDMStats();
+const nowLocal = new Date(new Date()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,16);
+const tsEl = document.getElementById(‘ts-input’); if(tsEl){tsEl.value=nowLocal;updateTimestamps();}
 const savedWH = localStorage.getItem(‘dt3-webhook’);
 if (savedWH) { const el=document.getElementById(‘wh-url’); if(el) el.value=savedWH; }
 document.getElementById(‘wh-url’)?.addEventListener(‘change’, e => localStorage.setItem(‘dt3-webhook’, e.target.value));
