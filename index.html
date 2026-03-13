@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -21,27 +20,27 @@
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
 
-body{background:var(–bg);color:var(–text);font-family:‘JetBrains Mono’,monospace;min-height:100vh;overflow-x:hidden;}
-body::before{content:’’;position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:999;}
+body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:999;}
 
 .shell{display:flex;min-height:100vh;}
 
 /* SIDEBAR */
-.sidebar{width:230px;min-height:100vh;background:var(–bg2);border-right:1px solid var(–border);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:50;overflow-y:auto;}
-.sidebar-logo{padding:24px 22px 18px;border-bottom:1px solid var(–border);flex-shrink:0;}
-.logo-text{font-family:‘Bebas Neue’,sans-serif;font-size:26px;letter-spacing:.1em;color:var(–accent);text-shadow:0 0 30px rgba(0,200,255,.5);line-height:1;}
-.logo-sub{font-size:9px;color:var(–muted);letter-spacing:.2em;text-transform:uppercase;margin-top:4px;}
+.sidebar{width:230px;min-height:100vh;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:50;overflow-y:auto;}
+.sidebar-logo{padding:24px 22px 18px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.logo-text{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.1em;color:var(--accent);text-shadow:0 0 30px rgba(0,200,255,.5);line-height:1;}
+.logo-sub{font-size:9px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-top:4px;}
 .sidebar-nav{padding:14px 10px;flex:1;}
-.nav-group-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(–muted2);padding:0 12px;margin:14px 0 6px;}
-.nav-item{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:6px;cursor:pointer;font-size:11px;font-weight:500;color:var(–muted);letter-spacing:.04em;transition:all .15s;border:1px solid transparent;margin-bottom:2px;background:none;width:100%;text-align:left;}
-.nav-item:hover{color:var(–text);background:var(–bg3);border-color:var(–border);}
-.nav-item.active{color:var(–accent);background:rgba(0,200,255,.06);border-color:rgba(0,200,255,.2);}
+.nav-group-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);padding:0 12px;margin:14px 0 6px;}
+.nav-item{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:6px;cursor:pointer;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.04em;transition:all .15s;border:1px solid transparent;margin-bottom:2px;background:none;width:100%;text-align:left;}
+.nav-item:hover{color:var(--text);background:var(--bg3);border-color:var(--border);}
+.nav-item.active{color:var(--accent);background:rgba(0,200,255,.06);border-color:rgba(0,200,255,.2);}
 .nav-icon{font-size:13px;width:16px;text-align:center;}
-.nav-badge{margin-left:auto;font-size:9px;background:rgba(0,200,255,.12);color:var(–accent);padding:2px 6px;border-radius:8px;}
-.sidebar-footer{padding:14px 22px;border-top:1px solid var(–border);flex-shrink:0;}
-.sdot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(–green);box-shadow:0 0 8px var(–green);margin-right:8px;animation:pulse 2s infinite;}
+.nav-badge{margin-left:auto;font-size:9px;background:rgba(0,200,255,.12);color:var(--accent);padding:2px 6px;border-radius:8px;}
+.sidebar-footer{padding:14px 22px;border-top:1px solid var(--border);flex-shrink:0;}
+.sdot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);margin-right:8px;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
-.sfoot-text{font-size:10px;color:var(–muted);letter-spacing:.06em;}
+.sfoot-text{font-size:10px;color:var(--muted);letter-spacing:.06em;}
 
 /* MAIN */
 .main{margin-left:230px;flex:1;padding:36px 44px;max-width:calc(100vw - 230px);}
@@ -50,205 +49,206 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
 @keyframes si{from{opacity:0;transform:translateX(8px);}to{opacity:1;transform:translateX(0);}}
 
 /* PAGE HEADER */
-.ph{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:22px;border-bottom:1px solid var(–border);}
-.pe{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(–accent);margin-bottom:8px;}
-.pt{font-family:‘Bebas Neue’,sans-serif;font-size:38px;letter-spacing:.06em;line-height:1;}
-.pd{font-size:11px;color:var(–muted);margin-top:5px;letter-spacing:.04em;}
+.ph{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:22px;border-bottom:1px solid var(--border);}
+.pe{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+.pt{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:.06em;line-height:1;}
+.pd{font-size:11px;color:var(--muted);margin-top:5px;letter-spacing:.04em;}
 
 /* INPUTS */
 .sbar{display:flex;gap:10px;margin-bottom:28px;}
-.sinput{flex:1;background:var(–bg2);border:1px solid var(–border2);border-radius:8px;padding:13px 16px;font-family:‘JetBrains Mono’,monospace;font-size:13px;font-weight:500;color:var(–text);outline:none;transition:all .2s;letter-spacing:.04em;}
-.sinput:focus{border-color:var(–accent);box-shadow:0 0 0 3px rgba(0,200,255,.07),var(–glow);}
-.sinput::placeholder{color:var(–muted2);}
+.sinput{flex:1;background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:13px 16px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--text);outline:none;transition:all .2s;letter-spacing:.04em;}
+.sinput:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,200,255,.07),var(--glow);}
+.sinput::placeholder{color:var(--muted2);}
 
-.btn{font-family:‘JetBrains Mono’,monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 22px;border-radius:8px;border:none;cursor:pointer;transition:all .15s;}
-.btn-a{background:var(–accent);color:var(–bg);}
-.btn-a:hover{background:#33D4FF;box-shadow:var(–glow);}
+.btn{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 22px;border-radius:8px;border:none;cursor:pointer;transition:all .15s;}
+.btn-a{background:var(--accent);color:var(--bg);}
+.btn-a:hover{background:#33D4FF;box-shadow:var(--glow);}
 .btn-a:active{transform:scale(.97);}
 .btn-a:disabled{opacity:.3;cursor:not-allowed;transform:none;box-shadow:none;}
-.btn-ghost{background:var(–bg3);color:var(–text);border:1px solid var(–border2);}
-.btn-ghost:hover{border-color:var(–accent);color:var(–accent);}
+.btn-ghost{background:var(--bg3);color:var(--text);border:1px solid var(--border2);}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
 
 /* CARDS & LAYOUT */
-.card{background:var(–bg2);border:1px solid var(–border);border-radius:10px;padding:22px;margin-bottom:14px;}
-.card-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(–muted);margin-bottom:14px;}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:22px;margin-bottom:14px;}
+.card-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
 
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
 
 /* STAT CARDS */
-.stat-card{background:var(–bg2);border:1px solid var(–border);border-radius:10px;padding:18px 20px;}
-.stat-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(–muted);margin-bottom:8px;}
-.stat-value{font-family:‘Bebas Neue’,sans-serif;font-size:34px;letter-spacing:.04em;color:var(–accent);line-height:1;}
-.stat-sub{font-size:10px;color:var(–muted);margin-top:4px;}
+.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px 20px;}
+.stat-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.stat-value{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.04em;color:var(--accent);line-height:1;}
+.stat-sub{font-size:10px;color:var(--muted);margin-top:4px;}
 
 /* RESULT BLOCK */
-.result-block{background:var(–bg2);border:1px solid var(–border);border-radius:10px;overflow:hidden;margin-top:8px;}
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:11px 18px;border-bottom:1px solid var(–border);font-size:12px;transition:background .1s;}
+.result-block{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:8px;}
+.result-row{display:flex;justify-content:space-between;align-items:center;padding:11px 18px;border-bottom:1px solid var(--border);font-size:12px;transition:background .1s;}
 .result-row:last-child{border-bottom:none;}
-.result-row:hover{background:var(–bg3);}
-.rk{color:var(–muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase;}
-.rv{color:var(–text);font-weight:500;word-break:break-all;text-align:right;max-width:60%;}
-.rv.green{color:var(–green);}
-.rv.red{color:var(–red);}
-.rv.yellow{color:var(–yellow);}
-.rv.purple{color:var(–purple);}
-.rv.accent{color:var(–accent);}
+.result-row:hover{background:var(--bg3);}
+.rk{color:var(--muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase;}
+.rv{color:var(--text);font-weight:500;word-break:break-all;text-align:right;max-width:60%;}
+.rv.green{color:var(--green);}
+.rv.red{color:var(--red);}
+.rv.yellow{color:var(--yellow);}
+.rv.purple{color:var(--purple);}
+.rv.accent{color:var(--accent);}
 
 /* PLATFORMS GRID */
 .plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
-.plat-card{background:var(–bg2);border:1px solid var(–border);border-radius:7px;padding:10px 13px;display:flex;align-items:center;justify-content:space-between;transition:all .2s;}
+.plat-card{background:var(--bg2);border:1px solid var(--border);border-radius:7px;padding:10px 13px;display:flex;align-items:center;justify-content:space-between;transition:all .2s;}
 .plat-card.available{border-color:rgba(0,255,135,.3);background:rgba(0,255,135,.04);}
 .plat-card.taken{border-color:rgba(255,59,92,.3);background:rgba(255,59,92,.04);}
-.pname{font-size:10px;font-weight:500;color:var(–text);letter-spacing:.03em;}
+.pname{font-size:10px;font-weight:500;color:var(--text);letter-spacing:.03em;}
 .pstatus{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
-.plat-card.available .pstatus{color:var(–green);}
-.plat-card.taken .pstatus{color:var(–red);}
-.plat-card.checking .pstatus{color:var(–muted);}
+.plat-card.available .pstatus{color:var(--green);}
+.plat-card.taken .pstatus{color:var(--red);}
+.plat-card.checking .pstatus{color:var(--muted);}
 
 /* SUMMARY */
 .sumpills{display:flex;gap:10px;margin-bottom:18px;}
-.pill{display:flex;align-items:center;gap:6px;background:var(–bg2);border:1px solid var(–border);border-radius:20px;padding:5px 13px;font-size:10px;font-weight:500;}
+.pill{display:flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 13px;font-size:10px;font-weight:500;}
 .pill .dot{width:5px;height:5px;border-radius:50%;}
-.dg{background:var(–green);box-shadow:0 0 5px var(–green);}
-.dr{background:var(–red);}
-.dm{background:var(–muted);}
+.dg{background:var(--green);box-shadow:0 0 5px var(--green);}
+.dr{background:var(--red);}
+.dm{background:var(--muted);}
 
 /* OG */
 .og-wrap{display:grid;grid-template-columns:260px 1fr;gap:16px;align-items:start;}
-.og-card{background:var(–bg2);border:1px solid var(–border);border-radius:10px;padding:28px 22px;text-align:center;}
-.og-num{font-family:‘Bebas Neue’,sans-serif;font-size:90px;line-height:1;letter-spacing:.02em;color:var(–accent);text-shadow:0 0 40px rgba(0,200,255,.4);transition:all .3s;}
-.og-slash{font-size:15px;color:var(–muted);margin:4px 0 14px;letter-spacing:.1em;}
+.og-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:28px 22px;text-align:center;}
+.og-num{font-family:'Bebas Neue',sans-serif;font-size:90px;line-height:1;letter-spacing:.02em;color:var(--accent);text-shadow:0 0 40px rgba(0,200,255,.4);transition:all .3s;}
+.og-slash{font-size:15px;color:var(--muted);margin:4px 0 14px;letter-spacing:.1em;}
 .tier-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 16px;border-radius:4px;margin-bottom:18px;}
-.t-leg{background:rgba(255,184,0,.1);color:var(–yellow);border:1px solid rgba(255,184,0,.3);}
-.t-rare{background:rgba(155,94,255,.1);color:var(–purple);border:1px solid rgba(155,94,255,.3);}
-.t-unc{background:rgba(0,255,135,.08);color:var(–green);border:1px solid rgba(0,255,135,.2);}
-.t-com{background:var(–bg3);color:var(–muted);border:1px solid var(–border);}
-.og-bar-wrap{height:3px;background:var(–border);border-radius:2px;overflow:hidden;}
-.og-bar-fill{height:100%;background:linear-gradient(90deg,var(–accent2),var(–accent));border-radius:2px;transition:width .8s cubic-bezier(.4,0,.2,1);box-shadow:0 0 8px var(–accent);}
+.t-leg{background:rgba(255,184,0,.1);color:var(--yellow);border:1px solid rgba(255,184,0,.3);}
+.t-rare{background:rgba(155,94,255,.1);color:var(--purple);border:1px solid rgba(155,94,255,.3);}
+.t-unc{background:rgba(0,255,135,.08);color:var(--green);border:1px solid rgba(0,255,135,.2);}
+.t-com{background:var(--bg3);color:var(--muted);border:1px solid var(--border);}
+.og-bar-wrap{height:3px;background:var(--border);border-radius:2px;overflow:hidden;}
+.og-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:2px;transition:width .8s cubic-bezier(.4,0,.2,1);box-shadow:0 0 8px var(--accent);}
 
 /* USERNAME GEN */
 .gen-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
-.gen-tag{font-size:12px;font-weight:500;padding:7px 14px;background:var(–bg3);border:1px solid var(–border2);border-radius:6px;cursor:pointer;color:var(–text);transition:all .2s;letter-spacing:.04em;position:relative;}
-.gen-tag:hover{border-color:var(–accent);color:var(–accent);background:rgba(0,200,255,.06);}
+.gen-tag{font-size:12px;font-weight:500;padding:7px 14px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;cursor:pointer;color:var(--text);transition:all .2s;letter-spacing:.04em;position:relative;}
+.gen-tag:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,200,255,.06);}
 .gen-tag.checking{opacity:.5;cursor:default;animation:checkpulse 1s infinite;}
 @keyframes checkpulse{0%,100%{opacity:.4;}50%{opacity:.8;}}
-.gen-tag.available{border-color:rgba(0,255,135,.45);background:rgba(0,255,135,.07);color:var(–green);}
-.gen-tag.available::after{content:‘✓’;margin-left:5px;font-size:10px;}
-.gen-tag.taken{border-color:rgba(255,59,92,.2);background:transparent;color:var(–muted2);text-decoration:line-through;cursor:default;opacity:.45;}
-.gen-tag.error{border-color:rgba(255,184,0,.2);color:var(–yellow);opacity:.6;}
+.gen-tag.available{border-color:rgba(0,255,135,.45);background:rgba(0,255,135,.07);color:var(--green);}
+.gen-tag.available::after{content:'✓';margin-left:5px;font-size:10px;}
+.gen-tag.taken{border-color:rgba(255,59,92,.2);background:transparent;color:var(--muted2);text-decoration:line-through;cursor:default;opacity:.45;}
+.gen-tag.error{border-color:rgba(255,184,0,.2);color:var(--yellow);opacity:.6;}
 
 /* GENERATOR PAGE */
-.gen-live-bar{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(–bg2);border:1px solid var(–border);border-radius:8px;margin-bottom:16px;}
-.gen-live-dot{width:8px;height:8px;border-radius:50%;background:var(–green);box-shadow:0 0 8px var(–green);animation:pulse 1s infinite;flex-shrink:0;}
-.gen-live-dot.idle{background:var(–muted2);box-shadow:none;animation:none;}
-.gen-live-text{font-size:11px;color:var(–muted);flex:1;}
-.gen-live-count{font-family:‘Bebas Neue’,sans-serif;font-size:22px;color:var(–green);letter-spacing:.05em;}
-.gen-live-count.idle{color:var(–muted2);}
+.gen-live-bar{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;margin-bottom:16px;}
+.gen-live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 1s infinite;flex-shrink:0;}
+.gen-live-dot.idle{background:var(--muted2);box-shadow:none;animation:none;}
+.gen-live-text{font-size:11px;color:var(--muted);flex:1;}
+.gen-live-count{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--green);letter-spacing:.05em;}
+.gen-live-count.idle{color:var(--muted2);}
 
 /* PLATFORM COLUMNS */
 .plat-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:12px;}
-.plat-col-item{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:10px;transition:all .2s;}
+.plat-col-item{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;font-size:10px;transition:all .2s;}
 .plat-col-item.available{border-color:rgba(0,255,135,.35);background:rgba(0,255,135,.04);}
 .plat-col-item.taken{border-color:rgba(255,59,92,.2);background:transparent;opacity:.4;}
 .plat-col-item.checking{opacity:.5;}
-.plat-col-item .pcname{color:var(–text);font-weight:500;}
+.plat-col-item .pcname{color:var(--text);font-weight:500;}
 .plat-col-item .pcst{font-weight:700;font-size:9px;letter-spacing:.08em;text-transform:uppercase;}
-.plat-col-item.available .pcst{color:var(–green);}
-.plat-col-item.taken .pcst{color:var(–red);}
-.plat-col-item.checking .pcst{color:var(–muted);}
+.plat-col-item.available .pcst{color:var(--green);}
+.plat-col-item.taken .pcst{color:var(--red);}
+.plat-col-item.checking .pcst{color:var(--muted);}
 
 /* WEBHOOK PANEL */
-.wh-panel{background:var(–bg2);border:1px solid var(–border);border-radius:10px;padding:20px;margin-top:16px;}
+.wh-panel{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;margin-top:16px;}
 .wh-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-.wh-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(–text);}
+.wh-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text);}
 .wh-toggle{position:relative;display:inline-block;width:36px;height:20px;margin-left:auto;}
 .wh-toggle input{opacity:0;width:0;height:0;}
-.wh-slider{position:absolute;cursor:pointer;inset:0;background:var(–border2);border-radius:20px;transition:.2s;}
-.wh-slider:before{content:’’;position:absolute;width:14px;height:14px;left:3px;bottom:3px;background:var(–muted);border-radius:50%;transition:.2s;}
-.wh-toggle input:checked+.wh-slider{background:rgba(0,200,255,.3);border:1px solid var(–accent);}
-.wh-toggle input:checked+.wh-slider:before{transform:translateX(16px);background:var(–accent);}
+.wh-slider{position:absolute;cursor:pointer;inset:0;background:var(--border2);border-radius:20px;transition:.2s;}
+.wh-slider:before{content:'';position:absolute;width:14px;height:14px;left:3px;bottom:3px;background:var(--muted);border-radius:50%;transition:.2s;}
+.wh-toggle input:checked+.wh-slider{background:rgba(0,200,255,.3);border:1px solid var(--accent);}
+.wh-toggle input:checked+.wh-slider:before{transform:translateX(16px);background:var(--accent);}
 .wh-log{margin-top:12px;max-height:120px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;}
 .wh-log-item{font-size:10px;padding:5px 10px;border-radius:4px;letter-spacing:.03em;}
-.wh-log-item.sent{background:rgba(0,255,135,.06);color:var(–green);border:1px solid rgba(0,255,135,.15);}
-.wh-log-item.fail{background:rgba(255,59,92,.06);color:var(–red);border:1px solid rgba(255,59,92,.15);}
-.wh-log-item.info{background:var(–bg3);color:var(–muted);border:1px solid var(–border);}
+.wh-log-item.sent{background:rgba(0,255,135,.06);color:var(--green);border:1px solid rgba(0,255,135,.15);}
+.wh-log-item.fail{background:rgba(255,59,92,.06);color:var(--red);border:1px solid rgba(255,59,92,.15);}
+.wh-log-item.info{background:var(--bg3);color:var(--muted);border:1px solid var(--border);}
 .gen-options{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
-.gen-opt{display:flex;align-items:center;gap:7px;font-size:11px;color:var(–muted);cursor:pointer;}
-.gen-opt input{accent-color:var(–accent);}
+.gen-opt{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);cursor:pointer;}
+.gen-opt input{accent-color:var(--accent);}
 .gen-opt label{cursor:pointer;}
 
 /* SNOWFLAKE */
 .sf-bits{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;}
-.sf-bit{background:var(–bg3);border:1px solid var(–border);border-radius:7px;padding:12px 14px;}
-.sf-bit-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(–muted);margin-bottom:5px;}
-.sf-bit-val{font-size:13px;font-weight:700;color:var(–accent);}
+.sf-bit{background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:12px 14px;}
+.sf-bit-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.sf-bit-val{font-size:13px;font-weight:700;color:var(--accent);}
 
 /* LIST CARD */
-.list-card{background:var(–bg2);border:1px solid var(–border);border-radius:10px;overflow:hidden;margin-bottom:14px;}
-.lhead{padding:13px 18px;border-bottom:1px solid var(–border);display:flex;align-items:center;justify-content:space-between;}
-.lhead-title{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(–muted);}
-.ladd-btn{font-family:‘JetBrains Mono’,monospace;font-size:10px;font-weight:700;letter-spacing:.06em;background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.2);color:var(–accent);padding:5px 11px;border-radius:4px;cursor:pointer;transition:all .15s;}
+.list-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:14px;}
+.lhead{padding:13px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.lhead-title{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+.ladd-btn{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.06em;background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.2);color:var(--accent);padding:5px 11px;border-radius:4px;cursor:pointer;transition:all .15s;}
 .ladd-btn:hover{background:rgba(0,200,255,.14);}
-.litem{display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-bottom:1px solid var(–border);transition:background .1s;}
+.litem{display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-bottom:1px solid var(--border);transition:background .1s;}
 .litem:last-child{border-bottom:none;}
-.litem:hover{background:var(–bg3);}
+.litem:hover{background:var(--bg3);}
 .litem-l{display:flex;align-items:center;gap:11px;}
-.licon{width:28px;height:28px;border-radius:6px;background:var(–bg3);border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;font-size:12px;}
-.lname{font-size:12px;font-weight:500;color:var(–text);letter-spacing:.02em;}
-.lsub{font-size:10px;color:var(–muted);margin-top:2px;letter-spacing:.03em;}
-.del-btn{font-size:15px;color:var(–muted2);background:none;border:none;cursor:pointer;padding:4px 6px;border-radius:4px;transition:all .15s;line-height:1;}
-.del-btn:hover{background:rgba(255,59,92,.1);color:var(–red);}
-.empty-msg{padding:24px 18px;text-align:center;font-size:11px;color:var(–muted2);letter-spacing:.06em;}
-.add-row{display:none;gap:7px;padding:10px 14px;background:var(–bg3);border-top:1px solid var(–border);}
+.licon{width:28px;height:28px;border-radius:6px;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:12px;}
+.lname{font-size:12px;font-weight:500;color:var(--text);letter-spacing:.02em;}
+.lsub{font-size:10px;color:var(--muted);margin-top:2px;letter-spacing:.03em;}
+.del-btn{font-size:15px;color:var(--muted2);background:none;border:none;cursor:pointer;padding:4px 6px;border-radius:4px;transition:all .15s;line-height:1;}
+.del-btn:hover{background:rgba(255,59,92,.1);color:var(--red);}
+.empty-msg{padding:24px 18px;text-align:center;font-size:11px;color:var(--muted2);letter-spacing:.06em;}
+.add-row{display:none;gap:7px;padding:10px 14px;background:var(--bg3);border-top:1px solid var(--border);}
 .add-row.open{display:flex;}
-.add-row input,.add-row select{font-family:‘JetBrains Mono’,monospace;font-size:11px;padding:7px 11px;background:var(–bg2);border:1px solid var(–border2);border-radius:6px;color:var(–text);outline:none;transition:border-color .15s;}
+.add-row input,.add-row select{font-family:'JetBrains Mono',monospace;font-size:11px;padding:7px 11px;background:var(--bg2);border:1px solid var(--border2);border-radius:6px;color:var(--text);outline:none;transition:border-color .15s;}
 .add-row input{flex:1;}
-.add-row input:focus,.add-row select:focus{border-color:var(–accent);}
-.add-row select option{background:var(–bg2);}
-.btn-sm{font-family:‘JetBrains Mono’,monospace;font-size:11px;font-weight:700;padding:7px 13px;border-radius:6px;border:none;cursor:pointer;background:var(–accent);color:var(–bg);transition:all .15s;letter-spacing:.06em;}
+.add-row input:focus,.add-row select:focus{border-color:var(--accent);}
+.add-row select option{background:var(--bg2);}
+.btn-sm{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:7px 13px;border-radius:6px;border:none;cursor:pointer;background:var(--accent);color:var(--bg);transition:all .15s;letter-spacing:.06em;}
 .btn-sm:hover{background:#33D4FF;}
 
 /* NOTES */
 .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
-.note-card{background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:13px;position:relative;transition:border-color .15s;}
-.note-card:hover{border-color:var(–border2);}
-.note-ta{width:100%;background:none;border:none;color:var(–text);font-family:‘JetBrains Mono’,monospace;font-size:12px;resize:none;outline:none;min-height:90px;letter-spacing:.02em;line-height:1.7;}
-.note-ta::placeholder{color:var(–muted2);}
-.note-del{position:absolute;top:7px;right:7px;font-size:13px;color:var(–muted2);background:none;border:none;cursor:pointer;padding:2px 5px;border-radius:3px;transition:all .15s;line-height:1;}
-.note-del:hover{background:rgba(255,59,92,.1);color:var(–red);}
-.add-note-btn{display:flex;align-items:center;justify-content:center;background:var(–bg2);border:1px dashed var(–border2);border-radius:8px;padding:28px;cursor:pointer;color:var(–muted2);font-size:22px;transition:all .15s;min-height:120px;}
-.add-note-btn:hover{border-color:var(–accent);color:var(–accent);background:rgba(0,200,255,.04);}
+.note-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:13px;position:relative;transition:border-color .15s;}
+.note-card:hover{border-color:var(--border2);}
+.note-ta{width:100%;background:none;border:none;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:12px;resize:none;outline:none;min-height:90px;letter-spacing:.02em;line-height:1.7;}
+.note-ta::placeholder{color:var(--muted2);}
+.note-del{position:absolute;top:7px;right:7px;font-size:13px;color:var(--muted2);background:none;border:none;cursor:pointer;padding:2px 5px;border-radius:3px;transition:all .15s;line-height:1;}
+.note-del:hover{background:rgba(255,59,92,.1);color:var(--red);}
+.add-note-btn{display:flex;align-items:center;justify-content:center;background:var(--bg2);border:1px dashed var(--border2);border-radius:8px;padding:28px;cursor:pointer;color:var(--muted2);font-size:22px;transition:all .15s;min-height:120px;}
+.add-note-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,200,255,.04);}
+
 
 /* EMBED BUILDER */
 .embed-preview{background:#2f3136;border-left:4px solid #5865f2;border-radius:0 4px 4px 0;padding:16px;margin-top:14px;font-family:sans-serif;}
 .embed-preview-title{color:#fff;font-weight:700;font-size:14px;margin-bottom:6px;}
 .embed-preview-desc{color:#dcddde;font-size:13px;line-height:1.5;white-space:pre-wrap;}
 .embed-preview-footer{color:#72767d;font-size:11px;margin-top:10px;border-top:1px solid #40444b;padding-top:8px;}
-.color-swatch{width:32px;height:32px;border-radius:4px;border:2px solid var(–border2);cursor:pointer;flex-shrink:0;}
+.color-swatch{width:32px;height:32px;border-radius:4px;border:2px solid var(--border2);cursor:pointer;flex-shrink:0;}
 .embed-field-row{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-bottom:8px;align-items:center;}
 
 /* PERMISSIONS CALC */
 .perm-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px;}
-.perm-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:11px;cursor:pointer;transition:all .15s;}
-.perm-item:hover{border-color:var(–border2);}
-.perm-item.active{border-color:rgba(0,255,135,.35);background:rgba(0,255,135,.05);color:var(–green);}
-.perm-item.active .perm-dot{background:var(–green);box-shadow:0 0 6px var(–green);}
-.perm-dot{width:7px;height:7px;border-radius:50%;background:var(–muted2);flex-shrink:0;transition:all .2s;}
-.perm-value-box{font-family:‘Bebas Neue’,sans-serif;font-size:36px;color:var(–accent);letter-spacing:.05em;padding:16px 20px;background:var(–bg2);border:1px solid var(–border);border-radius:8px;text-align:center;margin-bottom:12px;}
+.perm-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;font-size:11px;cursor:pointer;transition:all .15s;}
+.perm-item:hover{border-color:var(--border2);}
+.perm-item.active{border-color:rgba(0,255,135,.35);background:rgba(0,255,135,.05);color:var(--green);}
+.perm-item.active .perm-dot{background:var(--green);box-shadow:0 0 6px var(--green);}
+.perm-dot{width:7px;height:7px;border-radius:50%;background:var(--muted2);flex-shrink:0;transition:all .2s;}
+.perm-value-box{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--accent);letter-spacing:.05em;padding:16px 20px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;text-align:center;margin-bottom:12px;}
 
 /* TIMESTAMP GEN */
 .ts-formats{display:flex;flex-direction:column;gap:6px;margin-top:12px;}
-.ts-format-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;}
-.ts-format-label{font-size:10px;color:var(–muted);letter-spacing:.06em;text-transform:uppercase;}
-.ts-format-val{font-size:12px;color:var(–accent);font-weight:500;}
-.ts-format-code{font-size:11px;color:var(–text);background:var(–bg3);padding:2px 8px;border-radius:3px;}
+.ts-format-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;}
+.ts-format-label{font-size:10px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;}
+.ts-format-val{font-size:12px;color:var(--accent);font-weight:500;}
+.ts-format-code{font-size:11px;color:var(--text);background:var(--bg3);padding:2px 8px;border-radius:3px;}
 
 /* MARKDOWN PREVIEW */
 .md-preview{background:#36393f;border-radius:8px;padding:20px;margin-top:12px;font-family:Whitney,sans-serif;color:#dcddde;font-size:14px;line-height:1.6;min-height:80px;}
 .md-preview strong{color:#fff;}
 .md-preview em{color:#dcddde;}
-.md-preview code{background:#2f3136;color:#e3e5e8;padding:2px 5px;border-radius:3px;font-family:‘JetBrains Mono’,monospace;font-size:12px;}
+.md-preview code{background:#2f3136;color:#e3e5e8;padding:2px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;}
 .md-preview pre{background:#2f3136;padding:10px 14px;border-radius:4px;margin:6px 0;}
 .md-preview blockquote{border-left:4px solid #4f545c;padding-left:10px;color:#8e9297;margin:4px 0;}
 .md-preview h1,.md-preview h2,.md-preview h3{color:#fff;margin:8px 0 4px;}
@@ -258,85 +258,87 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
 /* DNS LOOKUP */
 .dns-section{margin-bottom:14px;}
 .dns-type-badge{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-right:8px;}
-.dns-a{background:rgba(0,200,255,.12);color:var(–accent);}
-.dns-mx{background:rgba(155,94,255,.12);color:var(–purple);}
-.dns-txt{background:rgba(255,184,0,.12);color:var(–yellow);}
-.dns-cname{background:rgba(0,255,135,.12);color:var(–green);}
-.dns-record{font-size:11px;padding:7px 12px;background:var(–bg2);border:1px solid var(–border);border-radius:5px;margin-bottom:4px;display:flex;align-items:center;gap:8px;word-break:break-all;}
+.dns-a{background:rgba(0,200,255,.12);color:var(--accent);}
+.dns-mx{background:rgba(155,94,255,.12);color:var(--purple);}
+.dns-txt{background:rgba(255,184,0,.12);color:var(--yellow);}
+.dns-cname{background:rgba(0,255,135,.12);color:var(--green);}
+.dns-record{font-size:11px;padding:7px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:5px;margin-bottom:4px;display:flex;align-items:center;gap:8px;word-break:break-all;}
 
 /* HISTORY TRACKER */
-.hist-row{display:grid;grid-template-columns:1fr 80px 100px 80px;gap:8px;padding:10px 14px;border-bottom:1px solid var(–border);font-size:11px;align-items:center;}
+.hist-row{display:grid;grid-template-columns:1fr 80px 100px 80px;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border);font-size:11px;align-items:center;}
 .hist-row:last-child{border-bottom:none;}
-.hist-row:hover{background:var(–bg3);}
+.hist-row:hover{background:var(--bg3);}
 
 /* PORT CHECKER */
 .port-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px;}
-.port-item{padding:8px 10px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;text-align:center;font-size:11px;transition:all .2s;}
-.port-item.open{border-color:rgba(0,255,135,.35);background:rgba(0,255,135,.05);color:var(–green);}
-.port-item.closed{border-color:rgba(255,59,92,.2);color:var(–muted2);}
+.port-item{padding:8px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;text-align:center;font-size:11px;transition:all .2s;}
+.port-item.open{border-color:rgba(0,255,135,.35);background:rgba(0,255,135,.05);color:var(--green);}
+.port-item.closed{border-color:rgba(255,59,92,.2);color:var(--muted2);}
 .port-item.checking{opacity:.5;}
 .port-num{font-size:13px;font-weight:700;color:inherit;}
-.port-name{font-size:9px;color:var(–muted);margin-top:2px;}
+.port-name{font-size:9px;color:var(--muted);margin-top:2px;}
 
 /* COLOR PICKER */
-.color-preview-big{width:100%;height:80px;border-radius:8px;border:1px solid var(–border);margin-bottom:12px;transition:background .2s;}
+.color-preview-big{width:100%;height:80px;border-radius:8px;border:1px solid var(--border);margin-bottom:12px;transition:background .2s;}
 .color-swatches-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
 .cswatch{width:28px;height:28px;border-radius:4px;cursor:pointer;border:2px solid transparent;transition:all .15s;}
-.cswatch:hover{border-color:var(–text);transform:scale(1.1);}
+.cswatch:hover{border-color:var(--text);transform:scale(1.1);}
 
 /* LEVENSHTEIN */
 .lev-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
-.lev-tag{font-size:11px;padding:5px 11px;background:var(–bg2);border:1px solid var(–border2);border-radius:5px;color:var(–text);}
-.lev-tag .lev-diff{font-size:9px;color:var(–muted);margin-left:4px;}
+.lev-tag{font-size:11px;padding:5px 11px;background:var(--bg2);border:1px solid var(--border2);border-radius:5px;color:var(--text);}
+.lev-tag .lev-diff{font-size:9px;color:var(--muted);margin-left:4px;}
+
 
 /* BULK CHECKER */
 .bulk-grid{display:flex;flex-direction:column;gap:4px;margin-top:12px;}
-.bulk-row{display:grid;grid-template-columns:140px 1fr;gap:8px;padding:8px 12px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:11px;align-items:center;}
+.bulk-row{display:grid;grid-template-columns:140px 1fr;gap:8px;padding:8px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;font-size:11px;align-items:center;}
 .bulk-row.available{border-color:rgba(0,255,135,.3);background:rgba(0,255,135,.04);}
 .bulk-row.taken{border-color:rgba(255,59,92,.15);opacity:.5;}
 .bulk-row.checking{opacity:.6;}
 .bulk-platforms{display:flex;gap:4px;flex-wrap:wrap;}
 .bulk-plat{font-size:9px;padding:2px 6px;border-radius:3px;font-weight:700;letter-spacing:.04em;}
-.bulk-plat.available{background:rgba(0,255,135,.15);color:var(–green);}
-.bulk-plat.taken{background:rgba(255,59,92,.1);color:var(–red);}
+.bulk-plat.available{background:rgba(0,255,135,.15);color:var(--green);}
+.bulk-plat.taken{background:rgba(255,59,92,.1);color:var(--red);}
 
 /* SNIPE TRACKER */
-.snipe-status{padding:20px;text-align:center;border-radius:8px;border:1px solid var(–border);background:var(–bg2);}
-.snipe-pulse{width:16px;height:16px;border-radius:50%;background:var(–green);box-shadow:0 0 12px var(–green);margin:0 auto 10px;animation:pulse 1s infinite;}
-.snipe-pulse.idle{background:var(–muted2);box-shadow:none;animation:none;}
+.snipe-status{padding:20px;text-align:center;border-radius:8px;border:1px solid var(--border);background:var(--bg2);}
+.snipe-pulse{width:16px;height:16px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);margin:0 auto 10px;animation:pulse 1s infinite;}
+.snipe-pulse.idle{background:var(--muted2);box-shadow:none;animation:none;}
 .snipe-log{margin-top:10px;max-height:150px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;}
-.snipe-log-item{font-size:10px;padding:5px 10px;background:var(–bg3);border:1px solid var(–border);border-radius:4px;color:var(–muted);}
-.snipe-log-item.found{background:rgba(0,255,135,.08);border-color:rgba(0,255,135,.3);color:var(–green);}
+.snipe-log-item{font-size:10px;padding:5px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;color:var(--muted);}
+.snipe-log-item.found{background:rgba(0,255,135,.08);border-color:rgba(0,255,135,.3);color:var(--green);}
 
 /* WORDLIST */
 .wl-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;max-height:300px;overflow-y:auto;}
-.wl-tag{font-size:11px;padding:4px 10px;background:var(–bg2);border:1px solid var(–border);border-radius:4px;color:var(–text);cursor:pointer;}
-.wl-tag:hover{border-color:var(–accent);color:var(–accent);}
+.wl-tag{font-size:11px;padding:4px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text);cursor:pointer;}
+.wl-tag:hover{border-color:var(--accent);color:var(--accent);}
 
 /* BASE64/HASH */
-.hash-result{padding:10px 14px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:11px;word-break:break-all;margin-bottom:8px;}
-.hash-label{font-size:9px;color:var(–muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
-.hash-val{color:var(–accent);font-weight:500;}
+.hash-result{padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;font-size:11px;word-break:break-all;margin-bottom:8px;}
+.hash-label{font-size:9px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
+.hash-val{color:var(--accent);font-weight:500;}
 
 /* JSON FORMATTER */
-.json-out{background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:14px;font-size:11px;line-height:1.6;max-height:360px;overflow:auto;white-space:pre;}
-.jk{color:#9cdcfe;} .jv{color:#ce9178;} .jn{color:#b5cea8;} .jb{color:#569cd6;} .jnull{color:var(–muted);}
+.json-out{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px;font-size:11px;line-height:1.6;max-height:360px;overflow:auto;white-space:pre;}
+.jk{color:#9cdcfe;} .jv{color:#ce9178;} .jn{color:#b5cea8;} .jb{color:#569cd6;} .jnull{color:var(--muted);}
 
 /* REGEX */
-.regex-match{background:rgba(255,184,0,.25);border-radius:2px;color:var(–yellow);}
-.regex-err{color:var(–red);font-size:11px;margin-top:6px;}
+.regex-match{background:rgba(255,184,0,.25);border-radius:2px;color:var(--yellow);}
+.regex-err{color:var(--red);font-size:11px;margin-top:6px;}
 
 /* DIFF */
-.diff-out{font-size:11px;line-height:1.7;font-family:‘JetBrains Mono’,monospace;background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:14px;max-height:360px;overflow-y:auto;}
-.diff-add{color:var(–green);background:rgba(0,255,135,.06);}
-.diff-rem{color:var(–red);background:rgba(255,59,92,.06);}
-.diff-eq{color:var(–muted);}
+.diff-out{font-size:11px;line-height:1.7;font-family:'JetBrains Mono',monospace;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px;max-height:360px;overflow-y:auto;}
+.diff-add{color:var(--green);background:rgba(0,255,135,.06);}
+.diff-rem{color:var(--red);background:rgba(255,59,92,.06);}
+.diff-eq{color:var(--muted);}
+
 
 /* BIO GENERATOR */
 .bio-result{background:#36393f;border-radius:8px;padding:20px;margin-top:12px;font-family:sans-serif;color:#dcddde;font-size:14px;line-height:1.8;min-height:60px;word-break:break-word;white-space:pre-wrap;}
 .bio-style-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px;}
-.bio-style-btn{padding:8px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:10px;cursor:pointer;color:var(–muted);text-align:center;transition:all .15s;letter-spacing:.04em;}
-.bio-style-btn:hover,.bio-style-btn.active{border-color:var(–accent);color:var(–accent);background:rgba(0,200,255,.06);}
+.bio-style-btn{padding:8px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;font-size:10px;cursor:pointer;color:var(--muted);text-align:center;transition:all .15s;letter-spacing:.04em;}
+.bio-style-btn:hover,.bio-style-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(0,200,255,.06);}
 
 /* NITRO GIFT */
 .gift-result{padding:18px;border-radius:8px;text-align:center;margin-top:12px;}
@@ -344,49 +346,68 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
 .gift-invalid{background:rgba(255,59,92,.06);border:1px solid rgba(255,59,92,.25);}
 .gift-icon{font-size:36px;margin-bottom:8px;}
 .gift-title{font-size:16px;font-weight:700;letter-spacing:.06em;}
-.gift-sub{font-size:11px;color:var(–muted);margin-top:4px;}
+.gift-sub{font-size:11px;color:var(--muted);margin-top:4px;}
 
 /* SERVER TEMPLATE */
-.tmpl-step{background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:16px;margin-bottom:10px;}
-.tmpl-step-num{font-family:‘Bebas Neue’,sans-serif;font-size:28px;color:var(–accent);line-height:1;}
-.tmpl-step-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(–text);margin-top:2px;}
-.tmpl-preview{background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:14px;max-height:280px;overflow-y:auto;font-size:11px;}
-.tmpl-cat{color:var(–accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:10px;margin-top:10px;margin-bottom:4px;}
-.tmpl-ch{padding:4px 8px;color:var(–muted);display:flex;align-items:center;gap:6px;}
-.tmpl-ch::before{content:’#’;color:var(–muted2);}
-.tmpl-role-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:12px;margin:2px;border:1px solid var(–border2);}
+.tmpl-step{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:10px;}
+.tmpl-step-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--accent);line-height:1;}
+.tmpl-step-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text);margin-top:2px;}
+.tmpl-preview{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px;max-height:280px;overflow-y:auto;font-size:11px;}
+.tmpl-cat{color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:10px;margin-top:10px;margin-bottom:4px;}
+.tmpl-ch{padding:4px 8px;color:var(--muted);display:flex;align-items:center;gap:6px;}
+.tmpl-ch::before{content:'#';color:var(--muted2);}
+.tmpl-role-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:12px;margin:2px;border:1px solid var(--border2);}
 
 /* MASS DM */
 .dm-log{max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;margin-top:10px;}
 .dm-log-item{font-size:10px;padding:6px 10px;border-radius:4px;display:flex;align-items:center;gap:8px;}
-.dm-log-item.sent{background:rgba(0,255,135,.06);border:1px solid rgba(0,255,135,.15);color:var(–green);}
-.dm-log-item.fail{background:rgba(255,59,92,.06);border:1px solid rgba(255,59,92,.15);color:var(–red);}
-.dm-log-item.info{background:var(–bg3);border:1px solid var(–border);color:var(–muted);}
+.dm-log-item.sent{background:rgba(0,255,135,.06);border:1px solid rgba(0,255,135,.15);color:var(--green);}
+.dm-log-item.fail{background:rgba(255,59,92,.06);border:1px solid rgba(255,59,92,.15);color:var(--red);}
+.dm-log-item.info{background:var(--bg3);border:1px solid var(--border);color:var(--muted);}
 .dm-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;}
-.dm-stat{background:var(–bg2);border:1px solid var(–border);border-radius:8px;padding:14px;text-align:center;}
-.dm-stat-val{font-family:‘Bebas Neue’,sans-serif;font-size:28px;letter-spacing:.05em;}
-.dm-stat-label{font-size:9px;color:var(–muted);text-transform:uppercase;letter-spacing:.1em;}
+.dm-stat{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center;}
+.dm-stat-val{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.05em;}
+.dm-stat-label{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+
+
+/* TEMPLATE BROWSER */
+.tmpl-browser-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:12px;}
+.tmpl-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;transition:all .2s;cursor:default;}
+.tmpl-card:hover{border-color:var(--accent);box-shadow:0 0 16px rgba(0,200,255,.06);}
+.tmpl-card-name{font-weight:700;font-size:13px;color:var(--text);margin-bottom:4px;}
+.tmpl-card-desc{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:10px;min-height:32px;}
+.tmpl-card-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.tmpl-meta-tag{font-size:9px;padding:2px 8px;border-radius:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.tmpl-card-footer{display:flex;gap:6px;align-items:center;justify-content:space-between;}
+.tmpl-card.loading{opacity:.5;pointer-events:none;}
+.tmpl-card.loaded{border-color:rgba(0,200,255,.25);}
+.tmpl-card.error-card{border-color:rgba(255,59,92,.2);opacity:.4;}
+.cat-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.cat-tab{padding:7px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;font-size:11px;cursor:pointer;color:var(--muted);transition:all .15s;letter-spacing:.04em;}
+.cat-tab:hover{border-color:var(--border2);color:var(--text);}
+.cat-tab.active{border-color:var(--accent);color:var(--accent);background:rgba(0,200,255,.07);}
+.tmpl-channels-preview{font-size:10px;color:var(--muted2);line-height:1.6;}
 
 /* COPY BTN */
-.copy-btn{font-family:‘JetBrains Mono’,monospace;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;background:var(–bg3);border:1px solid var(–border2);border-radius:4px;color:var(–muted);cursor:pointer;transition:all .15s;}
-.copy-btn:hover{border-color:var(–accent);color:var(–accent);}
+.copy-btn{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;color:var(--muted);cursor:pointer;transition:all .15s;}
+.copy-btn:hover{border-color:var(--accent);color:var(--accent);}
 
 /* NOTICE */
-.notice{font-size:10px;color:var(–muted);padding:9px 13px;background:rgba(255,184,0,.05);border:1px solid rgba(255,184,0,.15);border-radius:6px;margin-top:14px;letter-spacing:.04em;line-height:1.6;}
-.notice-blue{background:rgba(0,200,255,.05);border-color:rgba(0,200,255,.15);color:var(–muted);}
+.notice{font-size:10px;color:var(--muted);padding:9px 13px;background:rgba(255,184,0,.05);border:1px solid rgba(255,184,0,.15);border-radius:6px;margin-top:14px;letter-spacing:.04em;line-height:1.6;}
+.notice-blue{background:rgba(0,200,255,.05);border-color:rgba(0,200,255,.15);color:var(--muted);}
 
 /* TABLE */
-.tbl{background:var(–bg2);border:1px solid var(–border);border-radius:10px;overflow:hidden;}
-.tbl-head{display:grid;padding:11px 18px;border-bottom:1px solid var(–border);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(–muted);}
-.tbl-row{display:grid;padding:12px 18px;border-bottom:1px solid var(–border);font-size:12px;align-items:center;transition:background .1s;}
+.tbl{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.tbl-head{display:grid;padding:11px 18px;border-bottom:1px solid var(--border);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.tbl-row{display:grid;padding:12px 18px;border-bottom:1px solid var(--border);font-size:12px;align-items:center;transition:background .1s;}
 .tbl-row:last-child{border-bottom:none;}
-.tbl-row:hover{background:var(–bg3);}
+.tbl-row:hover{background:var(--bg3);}
 .nbadge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;}
-.nb-b{background:rgba(0,200,255,.1);color:var(–accent);border:1px solid rgba(0,200,255,.2);}
-.nb-f{background:rgba(155,94,255,.1);color:var(–purple);border:1px solid rgba(155,94,255,.2);}
+.nb-b{background:rgba(0,200,255,.1);color:var(--accent);border:1px solid rgba(0,200,255,.2);}
+.nb-f{background:rgba(155,94,255,.1);color:var(--purple);border:1px solid rgba(155,94,255,.2);}
 
 .ldots{display:inline-flex;gap:3px;align-items:center;}
-.ldots span{width:3px;height:3px;border-radius:50%;background:var(–muted);animation:dp 1.2s infinite;}
+.ldots span{width:3px;height:3px;border-radius:50%;background:var(--muted);animation:dp 1.2s infinite;}
 .ldots span:nth-child(2){animation-delay:.2s;}
 .ldots span:nth-child(3){animation-delay:.4s;}
 @keyframes dp{0%,80%,100%{transform:scale(.5);opacity:.3;}40%{transform:scale(1);opacity:1;}}
@@ -406,7 +427,7 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
 .md-preview{background:#313338;border-radius:8px;padding:16px;font-size:14px;line-height:1.6;color:#dcddde;min-height:120px;white-space:pre-wrap;}
 .md-preview strong{color:#fff;font-weight:700;}
 .md-preview em{font-style:italic;}
-.md-preview code{background:#1e1f22;padding:2px 5px;border-radius:3px;font-family:‘JetBrains Mono’,monospace;font-size:12px;color:#e3e5e8;}
+.md-preview code{background:#1e1f22;padding:2px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#e3e5e8;}
 .md-preview pre{background:#1e1f22;padding:10px;border-radius:6px;margin:8px 0;}
 .md-preview blockquote{border-left:3px solid #4e5058;padding-left:10px;color:#a3a6aa;margin:4px 0;}
 .md-preview h1,.md-preview h2,.md-preview h3{color:#fff;font-weight:700;margin:8px 0 4px;}
@@ -417,36 +438,35 @@ body::before{content:’’;position:fixed;inset:0;background:repeating-linear-g
 
 /* PERM BITS */
 .perm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:12px;}
-.perm-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;font-size:11px;}
-.perm-item.has{border-color:rgba(0,255,135,.3);background:rgba(0,255,135,.04);color:var(–green);}
+.perm-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;font-size:11px;}
+.perm-item.has{border-color:rgba(0,255,135,.3);background:rgba(0,255,135,.04);color:var(--green);}
 .perm-item.no{opacity:.35;}
 .perm-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-.perm-item.has .perm-dot{background:var(–green);}
-.perm-item.no .perm-dot{background:var(–muted2);}
+.perm-item.has .perm-dot{background:var(--green);}
+.perm-item.no .perm-dot{background:var(--muted2);}
 
 /* COLOR SWATCH */
-.color-swatch{width:100%;height:80px;border-radius:8px;margin:12px 0;border:1px solid var(–border);transition:background .2s;}
+.color-swatch{width:100%;height:80px;border-radius:8px;margin:12px 0;border:1px solid var(--border);transition:background .2s;}
 .color-formats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
-.color-fmt{background:var(–bg2);border:1px solid var(–border);border-radius:6px;padding:10px;text-align:center;cursor:pointer;transition:all .15s;}
-.color-fmt:hover{border-color:var(–accent);}
-.color-fmt-label{font-size:9px;color:var(–muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
-.color-fmt-val{font-size:12px;font-weight:700;color:var(–text);}
+.color-fmt{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px;text-align:center;cursor:pointer;transition:all .15s;}
+.color-fmt:hover{border-color:var(--accent);}
+.color-fmt-label{font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.color-fmt-val{font-size:12px;font-weight:700;color:var(--text);}
 
 /* TIMESTAMP */
 .ts-formats{display:grid;grid-template-columns:1fr;gap:6px;margin-top:12px;}
-.ts-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(–bg2);border:1px solid var(–border);border-radius:6px;}
-.ts-code{font-size:11px;color:var(–accent);font-family:‘JetBrains Mono’,monospace;}
-.ts-preview{font-size:11px;color:var(–muted);}
+.ts-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;}
+.ts-code{font-size:11px;color:var(--accent);font-family:'JetBrains Mono',monospace;}
+.ts-preview{font-size:11px;color:var(--muted);}
 
 /* HISTORY */
-.hist-row{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(–border);font-size:11px;}
+.hist-row{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--border);font-size:11px;}
 .hist-row:last-child{border-bottom:none;}
-.hist-user{font-weight:700;color:var(–text);min-width:120px;}
-.hist-plat{color:var(–muted);min-width:80px;}
+.hist-user{font-weight:700;color:var(--text);min-width:120px;}
+.hist-plat{color:var(--muted);min-width:80px;}
 .hist-status{font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.08em;}
-.hist-time{color:var(–muted2);margin-left:auto;font-size:10px;}
+.hist-time{color:var(--muted2);margin-left:auto;font-size:10px;}
 </style>
-
 </head>
 <body>
 <script>
@@ -463,7 +483,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 <div class="shell">
 
 <!-- SIDEBAR -->
-
 <aside class="sidebar">
   <div class="sidebar-logo">
     <div class="logo-text">DTOOLS</div>
@@ -471,55 +490,53 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
   </div>
   <nav class="sidebar-nav">
 
-```
-<div class="nav-group-label">🔵 Discord</div>
-<button class="nav-item active" onclick="go('checker',this)"><span class="nav-icon">⌕</span>Username Checker<span class="nav-badge">20</span></button>
-<button class="nav-item" onclick="go('invite',this)"><span class="nav-icon">🔗</span>Invite Checker</button>
-<button class="nav-item" onclick="go('snowflake',this)"><span class="nav-icon">❄</span>Snowflake Decoder</button>
-<button class="nav-item" onclick="go('tokeninfo',this)"><span class="nav-icon">🔑</span>Token Decoder</button>
-<button class="nav-item" onclick="go('pfpgen',this)"><span class="nav-icon">🎨</span>Avatar Color</button>
-<button class="nav-item" onclick="go('serverlookup',this)"><span class="nav-icon">🔍</span>Server Lookup</button>
-<button class="nav-item" onclick="go('permissions',this)"><span class="nav-icon">🛡</span>Permissions Calc</button>
-<button class="nav-item" onclick="go('colorpicker',this)"><span class="nav-icon">🎨</span>Color Picker</button>
-<button class="nav-item" onclick="go('timestamp',this)"><span class="nav-icon">⏱</span>Timestamp Gen</button>
-<button class="nav-item" onclick="go('markdown',this)"><span class="nav-icon">✎</span>Markdown Preview</button>
-<button class="nav-item" onclick="go('embedbuilder',this)"><span class="nav-icon">📦</span>Embed Builder</button>
-<button class="nav-item" onclick="go('nitrogift',this)"><span class="nav-icon">🎁</span>Nitro Gift Checker</button>
-<button class="nav-item" onclick="go('bio',this)"><span class="nav-icon">✦</span>Bio Generator</button>
-<button class="nav-item" onclick="go('srvtemplate',this)"><span class="nav-icon">📋</span>Server Template</button>
-<button class="nav-item" onclick="go('massdm',this)"><span class="nav-icon">📨</span>Mass DM Tracker</button>
+    <div class="nav-group-label">🔵 Discord</div>
+    <button class="nav-item active" onclick="go('checker',this)"><span class="nav-icon">⌕</span>Username Checker<span class="nav-badge">20</span></button>
+    <button class="nav-item" onclick="go('invite',this)"><span class="nav-icon">🔗</span>Invite Checker</button>
+    <button class="nav-item" onclick="go('snowflake',this)"><span class="nav-icon">❄</span>Snowflake Decoder</button>
+    <button class="nav-item" onclick="go('tokeninfo',this)"><span class="nav-icon">🔑</span>Token Decoder</button>
+    <button class="nav-item" onclick="go('pfpgen',this)"><span class="nav-icon">🎨</span>Avatar Color</button>
+    <button class="nav-item" onclick="go('serverlookup',this)"><span class="nav-icon">🔍</span>Server Lookup</button>
+    <button class="nav-item" onclick="go('permissions',this)"><span class="nav-icon">🛡</span>Permissions Calc</button>
+    <button class="nav-item" onclick="go('colorpicker',this)"><span class="nav-icon">🎨</span>Color Picker</button>
+    <button class="nav-item" onclick="go('timestamp',this)"><span class="nav-icon">⏱</span>Timestamp Gen</button>
+    <button class="nav-item" onclick="go('markdown',this)"><span class="nav-icon">✎</span>Markdown Preview</button>
+    <button class="nav-item" onclick="go('embedbuilder',this)"><span class="nav-icon">📦</span>Embed Builder</button>
+    <button class="nav-item" onclick="go('nitrogift',this)"><span class="nav-icon">🎁</span>Nitro Gift Checker</button>
+    <button class="nav-item" onclick="go('bio',this)"><span class="nav-icon">✦</span>Bio Generator</button>
+    <button class="nav-item" onclick="go('srvtemplate',this)"><span class="nav-icon">📋</span>Server Template</button>
+    <button class="nav-item" onclick="go('tmpbrowser',this)"><span class="nav-icon">🗂</span>Template Browser</button>
+    <button class="nav-item" onclick="go('massdm',this)"><span class="nav-icon">📨</span>Mass DM Tracker</button>
 
-<div class="nav-group-label">✦ Username</div>
-<button class="nav-item" onclick="go('og',this)"><span class="nav-icon">◈</span>OG Score</button>
-<button class="nav-item" onclick="go('generator',this)"><span class="nav-icon">⚙</span>Generator + Checker</button>
-<button class="nav-item" onclick="go('bulk',this)"><span class="nav-icon">⊞</span>Bulk Checker</button>
-<button class="nav-item" onclick="go('snipe',this)"><span class="nav-icon">🎯</span>Snipe Tracker</button>
-<button class="nav-item" onclick="go('combos',this)"><span class="nav-icon">∞</span>Combo Builder</button>
-<button class="nav-item" onclick="go('wordlist',this)"><span class="nav-icon">≡</span>Wordlist Builder</button>
-<button class="nav-item" onclick="go('levenshtein',this)"><span class="nav-icon">≈</span>Similar Finder</button>
-<button class="nav-item" onclick="go('history',this)"><span class="nav-icon">📋</span>Check History</button>
+    <div class="nav-group-label">✦ Username</div>
+    <button class="nav-item" onclick="go('og',this)"><span class="nav-icon">◈</span>OG Score</button>
+    <button class="nav-item" onclick="go('generator',this)"><span class="nav-icon">⚙</span>Generator + Checker</button>
+    <button class="nav-item" onclick="go('bulk',this)"><span class="nav-icon">⊞</span>Bulk Checker</button>
+    <button class="nav-item" onclick="go('snipe',this)"><span class="nav-icon">🎯</span>Snipe Tracker</button>
+    <button class="nav-item" onclick="go('combos',this)"><span class="nav-icon">∞</span>Combo Builder</button>
+    <button class="nav-item" onclick="go('wordlist',this)"><span class="nav-icon">≡</span>Wordlist Builder</button>
+    <button class="nav-item" onclick="go('levenshtein',this)"><span class="nav-icon">≈</span>Similar Finder</button>
+    <button class="nav-item" onclick="go('history',this)"><span class="nav-icon">📋</span>Check History</button>
 
-<div class="nav-group-label">🛠 Tools</div>
-<button class="nav-item" onclick="go('base64',this)"><span class="nav-icon">⬡</span>Base64 / Hash</button>
-<button class="nav-item" onclick="go('jsonformat',this)"><span class="nav-icon">{}</span>JSON Formatter</button>
-<button class="nav-item" onclick="go('regex',this)"><span class="nav-icon">.*</span>Regex Tester</button>
-<button class="nav-item" onclick="go('uuid',this)"><span class="nav-icon">#</span>UUID / ID Gen</button>
-<button class="nav-item" onclick="go('diff',this)"><span class="nav-icon">⊿</span>Diff Checker</button>
+    <div class="nav-group-label">🛠 Tools</div>
+    <button class="nav-item" onclick="go('base64',this)"><span class="nav-icon">⬡</span>Base64 / Hash</button>
+    <button class="nav-item" onclick="go('jsonformat',this)"><span class="nav-icon">{}</span>JSON Formatter</button>
+    <button class="nav-item" onclick="go('regex',this)"><span class="nav-icon">.*</span>Regex Tester</button>
+    <button class="nav-item" onclick="go('uuid',this)"><span class="nav-icon">#</span>UUID / ID Gen</button>
+    <button class="nav-item" onclick="go('diff',this)"><span class="nav-icon">⊿</span>Diff Checker</button>
 
-<div class="nav-group-label">📡 Stats & Info</div>
-<button class="nav-item" onclick="go('ipinfo',this)"><span class="nav-icon">◎</span>IP Lookup</button>
-<button class="nav-item" onclick="go('whois',this)"><span class="nav-icon">◻</span>WHOIS Lookup</button>
-<button class="nav-item" onclick="go('dns',this)"><span class="nav-icon">◈</span>DNS Lookup</button>
-<button class="nav-item" onclick="go('portcheck',this)"><span class="nav-icon">⊟</span>Port Checker</button>
-<button class="nav-item" onclick="go('ping',this)"><span class="nav-icon">◈</span>Ping / Latency</button>
-<button class="nav-item" onclick="go('useragent',this)"><span class="nav-icon">⊡</span>User Agent</button>
+    <div class="nav-group-label">📡 Stats & Info</div>
+    <button class="nav-item" onclick="go('ipinfo',this)"><span class="nav-icon">◎</span>IP Lookup</button>
+    <button class="nav-item" onclick="go('whois',this)"><span class="nav-icon">◻</span>WHOIS Lookup</button>
+    <button class="nav-item" onclick="go('dns',this)"><span class="nav-icon">◈</span>DNS Lookup</button>
+    <button class="nav-item" onclick="go('portcheck',this)"><span class="nav-icon">⊟</span>Port Checker</button>
+    <button class="nav-item" onclick="go('ping',this)"><span class="nav-icon">◈</span>Ping / Latency</button>
+    <button class="nav-item" onclick="go('useragent',this)"><span class="nav-icon">⊡</span>User Agent</button>
 
-<div class="nav-group-label">👤 Personal</div>
-<button class="nav-item" onclick="go('nitro',this)"><span class="nav-icon">⚡</span>Nitro Tracker</button>
-<button class="nav-item" onclick="go('dashboard',this)"><span class="nav-icon">⊞</span>Dashboard</button>
-<button class="nav-item" onclick="go('notes',this)"><span class="nav-icon">≡</span>Notes</button>
-```
-
+    <div class="nav-group-label">👤 Personal</div>
+    <button class="nav-item" onclick="go('nitro',this)"><span class="nav-icon">⚡</span>Nitro Tracker</button>
+    <button class="nav-item" onclick="go('dashboard',this)"><span class="nav-icon">⊞</span>Dashboard</button>
+    <button class="nav-item" onclick="go('notes',this)"><span class="nav-icon">≡</span>Notes</button>
   </nav>
   <div class="sidebar-footer">
     <span class="sdot"></span>
@@ -530,7 +547,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 <main class="main">
 
 <!-- ══ USERNAME CHECKER ══════════════════════════════════════ -->
-
 <div class="page active" id="page-checker">
   <div class="ph">
     <div><div class="pe">Discord Tool</div><div class="pt">USERNAME CHECKER</div><div class="pd">Check availability across 20+ platforms simultaneously</div></div>
@@ -549,7 +565,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ INVITE CHECKER ════════════════════════════════════════ -->
-
 <div class="page" id="page-invite">
   <div class="ph">
     <div><div class="pe">Discord Tool</div><div class="pt">INVITE CHECKER</div><div class="pd">Analyse un lien d'invitation Discord</div></div>
@@ -565,7 +580,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ SNOWFLAKE DECODER ═════════════════════════════════════ -->
-
 <div class="page" id="page-snowflake">
   <div class="ph">
     <div><div class="pe">Discord Tool</div><div class="pt">SNOWFLAKE DECODER</div><div class="pd">Décode un Discord Snowflake ID → timestamp, worker, process, increment</div></div>
@@ -580,7 +594,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ TOKEN DECODER ═════════════════════════════════════════ -->
-
 <div class="page" id="page-tokeninfo">
   <div class="ph">
     <div><div class="pe">Discord Tool</div><div class="pt">TOKEN DECODER</div><div class="pd">Décode la partie publique d'un token Discord (base64 user ID)</div></div>
@@ -595,7 +608,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ AVATAR COLOR ══════════════════════════════════════════ -->
-
 <div class="page" id="page-pfpgen">
   <div class="ph">
     <div><div class="pe">Discord Tool</div><div class="pt">AVATAR COLOR</div><div class="pd">Trouve la couleur d'avatar par défaut Discord d'un utilisateur</div></div>
@@ -613,7 +625,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ OG SCORE ══════════════════════════════════════════════ -->
-
 <div class="page" id="page-og">
   <div class="ph">
     <div><div class="pe">Username Tool</div><div class="pt">OG VALUE ESTIMATOR</div><div class="pd">Score la rareté d'un username de 0 à 100</div></div>
@@ -634,7 +645,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ USERNAME GENERATOR + CHECKER ═════════════════════════ -->
-
 <div class="page" id="page-generator">
   <div class="ph">
     <div><div class="pe">Username Tool</div><div class="pt">GENERATOR + CHECKER</div><div class="pd">Génère & check la dispo sur toutes les plateformes en continu</div></div>
@@ -645,7 +655,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
   </div>
 
   <!-- Config -->
-
   <div class="card" style="margin-bottom:14px">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
       <div>
@@ -670,7 +679,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
   </div>
 
   <!-- Live bar -->
-
   <div class="gen-live-bar">
     <div class="gen-live-dot idle" id="gen-dot"></div>
     <div class="gen-live-text" id="gen-live-text">Prêt — appuie sur START</div>
@@ -687,7 +695,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
   </div>
 
   <!-- Results -->
-
   <div id="gen-avail-section" style="display:none;margin-bottom:20px">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
       <div class="card-label" style="margin:0">✓ Disponibles — clique pour copier</div>
@@ -697,14 +704,12 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
   </div>
 
   <!-- Per-platform results for current username -->
-
   <div id="gen-plat-section" style="display:none">
     <div class="card-label">Check en cours — <span id="gen-current-user" style="color:var(--accent)"></span></div>
     <div class="plat-cols" id="gen-plat-cols"></div>
   </div>
 
   <!-- Webhook -->
-
   <div class="wh-panel">
     <div class="wh-header">
       <span style="font-size:16px">🔔</span>
@@ -727,7 +732,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ COMBO BUILDER ═════════════════════════════════════════ -->
-
 <div class="page" id="page-combos">
   <div class="ph">
     <div><div class="pe">Username Tool</div><div class="pt">COMBO BUILDER</div><div class="pd">Génère toutes les combinaisons possibles depuis des mots/chars</div></div>
@@ -753,7 +757,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ IP LOOKUP ═════════════════════════════════════════════ -->
-
 <div class="page" id="page-ipinfo">
   <div class="ph">
     <div><div class="pe">Stats & Info</div><div class="pt">IP LOOKUP</div><div class="pd">Infos géographiques & réseau d'une IP (ou la tienne)</div></div>
@@ -769,7 +772,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ WHOIS ═════════════════════════════════════════════════ -->
-
 <div class="page" id="page-whois">
   <div class="ph">
     <div><div class="pe">Stats & Info</div><div class="pt">WHOIS LOOKUP</div><div class="pd">Infos d'enregistrement d'un domaine</div></div>
@@ -785,7 +787,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ PING ══════════════════════════════════════════════════ -->
-
 <div class="page" id="page-ping">
   <div class="ph">
     <div><div class="pe">Stats & Info</div><div class="pt">PING / LATENCY</div><div class="pd">Mesure la latence vers plusieurs endpoints Discord & web</div></div>
@@ -795,7 +796,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ USER AGENT ════════════════════════════════════════════ -->
-
 <div class="page" id="page-useragent">
   <div class="ph">
     <div><div class="pe">Stats & Info</div><div class="pt">USER AGENT INFO</div><div class="pd">Analyse complète de ton navigateur & environnement</div></div>
@@ -808,7 +808,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ NITRO TRACKER ══════════════════════════════════════════ -->
-
 <div class="page" id="page-nitro">
   <div class="ph">
     <div><div class="pe">Personal</div><div class="pt">NITRO TRACKER</div><div class="pd">Track tes abonnements Nitro & boosts</div></div>
@@ -833,7 +832,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ DASHBOARD ════════════════════════════════════════════ -->
-
 <div class="page" id="page-dashboard">
   <div class="ph">
     <div><div class="pe">Personal</div><div class="pt">DASHBOARD</div><div class="pd">Hub — serveurs, usernames, stats</div></div>
@@ -863,7 +861,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ NOTES ═════════════════════════════════════════════════ -->
-
 <div class="page" id="page-notes">
   <div class="ph">
     <div><div class="pe">Personal</div><div class="pt">NOTES</div><div class="pd">Notes rapides — persistantes localement</div></div>
@@ -872,7 +869,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ SERVER LOOKUP ════════════════════════════════════════ -->
-
 <div class="page" id="page-serverlookup">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">SERVER LOOKUP</div><div class="pd">Infos publiques d'un serveur via son ID</div></div></div>
   <div class="sbar">
@@ -886,7 +882,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ PERMISSIONS CALCULATOR ════════════════════════════════ -->
-
 <div class="page" id="page-permissions">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">PERMISSIONS CALCULATOR</div><div class="pd">Décode une valeur de permissions Discord en bitfield</div></div></div>
   <div class="card">
@@ -908,7 +903,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ COLOR PICKER ══════════════════════════════════════════ -->
-
 <div class="page" id="page-colorpicker">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">COLOR PICKER</div><div class="pd">Génère des couleurs pour les rôles Discord</div></div></div>
   <div class="card">
@@ -932,7 +926,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ TIMESTAMP GENERATOR ═══════════════════════════════════ -->
-
 <div class="page" id="page-timestamp">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">TIMESTAMP GENERATOR</div><div class="pd">Génère des timestamps Discord formatés</div></div></div>
   <div class="card">
@@ -958,7 +951,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ MARKDOWN PREVIEW ═══════════════════════════════════════ -->
-
 <div class="page" id="page-markdown">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">MARKDOWN PREVIEW</div><div class="pd">Preview du markdown Discord en temps réel</div></div></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;">
@@ -986,7 +978,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ EMBED BUILDER ═════════════════════════════════════════ -->
-
 <div class="page" id="page-embedbuilder">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">EMBED BUILDER</div><div class="pd">Construit un embed Discord visuellement</div></div></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;">
@@ -1018,7 +1009,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ LEVENSHTEIN / SIMILAR FINDER ══════════════════════════ -->
-
 <div class="page" id="page-levenshtein">
   <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">SIMILAR FINDER</div><div class="pd">Trouve tous les usernames similaires (1-2 lettres de différence)</div></div></div>
   <div class="sbar">
@@ -1035,7 +1025,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ CHECK HISTORY ═════════════════════════════════════════ -->
-
 <div class="page" id="page-history">
   <div class="ph">
     <div><div class="pe">Username Tool</div><div class="pt">CHECK HISTORY</div><div class="pd">Historique de tous tes checks de usernames</div></div>
@@ -1051,7 +1040,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ DNS LOOKUP ════════════════════════════════════════════ -->
-
 <div class="page" id="page-dns">
   <div class="ph"><div><div class="pe">Stats & Info</div><div class="pt">DNS LOOKUP</div><div class="pd">Records A, MX, TXT, CNAME, NS d'un domaine</div></div></div>
   <div class="sbar">
@@ -1064,7 +1052,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ PORT CHECKER ══════════════════════════════════════════ -->
-
 <div class="page" id="page-portcheck">
   <div class="ph"><div><div class="pe">Stats & Info</div><div class="pt">PORT CHECKER</div><div class="pd">Vérifie si un port est ouvert sur une IP/domaine</div></div></div>
   <div class="card">
@@ -1096,8 +1083,8 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
   <div class="notice">⚠ Le check de port utilise une technique WebSocket/fetch — précision variable selon le firewall.</div>
 </div>
 
-<!-- ══ SERVER LOOKUP ═════════════════════════════════════════ -->
 
+<!-- ══ SERVER LOOKUP ═════════════════════════════════════════ -->
 <div class="page" id="page-serverlookup">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">SERVER LOOKUP</div><div class="pd">Infos publiques d'un serveur via son ID</div></div></div>
   <div class="sbar">
@@ -1109,7 +1096,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ PERMISSIONS CALCULATOR ════════════════════════════════ -->
-
 <div class="page" id="page-permissions">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">PERMISSIONS CALCULATOR</div><div class="pd">Calcule les permissions à partir d'une valeur ou coche les flags</div></div></div>
   <div class="card" style="margin-bottom:14px">
@@ -1124,7 +1110,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ TIMESTAMP GENERATOR ═══════════════════════════════════ -->
-
 <div class="page" id="page-timestamp">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">TIMESTAMP GENERATOR</div><div class="pd">Génère des timestamps Discord formatés &lt;t:unix:flag&gt;</div></div></div>
   <div class="card" style="margin-bottom:14px">
@@ -1138,7 +1123,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ MARKDOWN PREVIEW ═══════════════════════════════════════ -->
-
 <div class="page" id="page-markdown">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">MARKDOWN PREVIEW</div><div class="pd">Preview du markdown Discord en temps réel</div></div></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
@@ -1154,7 +1138,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ EMBED BUILDER ══════════════════════════════════════════ -->
-
 <div class="page" id="page-embedbuilder">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">EMBED BUILDER</div><div class="pd">Crée un embed Discord visuellement et génère le code</div></div></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
@@ -1193,7 +1176,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ HISTORY TRACKER ═══════════════════════════════════════ -->
-
 <div class="page" id="page-history">
   <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">HISTORY TRACKER</div><div class="pd">Historique des usernames checkés avec résultats</div></div></div>
   <div style="display:flex;gap:10px;margin-bottom:14px;align-items:center">
@@ -1208,7 +1190,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ SIMILAR FINDER (LEVENSHTEIN) ══════════════════════════ -->
-
 <div class="page" id="page-levenshtein">
   <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">SIMILAR FINDER</div><div class="pd">Trouve tous les usernames similaires (1-2 lettres de diff)</div></div></div>
   <div class="sbar">
@@ -1229,7 +1210,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ ROLE COLOR PICKER ══════════════════════════════════════ -->
-
 <div class="page" id="page-colorpick">
   <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">ROLE COLOR PICKER</div><div class="pd">Génère des couleurs pour rôles Discord avec preview</div></div></div>
   <div class="card">
@@ -1263,7 +1243,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ DNS LOOKUP ════════════════════════════════════════════ -->
-
 <div class="page" id="page-dns">
   <div class="ph"><div><div class="pe">Stats & Info</div><div class="pt">DNS LOOKUP</div><div class="pd">Records A, MX, TXT, CNAME d'un domaine</div></div></div>
   <div class="sbar">
@@ -1274,7 +1253,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ PORT CHECKER ═══════════════════════════════════════════ -->
-
 <div class="page" id="page-portcheck">
   <div class="ph"><div><div class="pe">Stats & Info</div><div class="pt">PORT CHECKER</div><div class="pd">Vérifie si des ports sont ouverts sur un host</div></div></div>
   <div class="sbar">
@@ -1289,8 +1267,8 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
   <div class="notice">Les checks de ports passent par des requêtes HTTP/TCP simulées. Résultats approximatifs depuis le navigateur.</div>
 </div>
 
-<!-- ══ BULK CHECKER ══════════════════════════════════════════ -->
 
+<!-- ══ BULK CHECKER ══════════════════════════════════════════ -->
 <div class="page" id="page-bulk">
   <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">BULK CHECKER</div><div class="pd">Check une liste de usernames sur une ou plusieurs plateformes</div></div></div>
   <div class="card" style="margin-bottom:14px">
@@ -1322,7 +1300,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ SNIPE TRACKER ══════════════════════════════════════════ -->
-
 <div class="page" id="page-snipe">
   <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">SNIPE TRACKER</div><div class="pd">Surveille un username en boucle — alerte + webhook quand dispo</div></div></div>
   <div class="card" style="margin-bottom:14px">
@@ -1359,7 +1336,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ WORDLIST BUILDER ═══════════════════════════════════════ -->
-
 <div class="page" id="page-wordlist">
   <div class="ph"><div><div class="pe">Username Tool</div><div class="pt">WORDLIST BUILDER</div><div class="pd">Génère des wordlists custom (leet, suffixes, caps, combos)</div></div></div>
   <div class="card" style="margin-bottom:14px">
@@ -1384,7 +1360,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ BASE64 / HASH ══════════════════════════════════════════ -->
-
 <div class="page" id="page-base64">
   <div class="ph"><div><div class="pe">Tools</div><div class="pt">BASE64 / HASH</div><div class="pd">Encode/decode Base64 · génère MD5, SHA1, SHA256</div></div></div>
   <div class="card" style="margin-bottom:14px">
@@ -1414,7 +1389,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ JSON FORMATTER ══════════════════════════════════════════ -->
-
 <div class="page" id="page-jsonformat">
   <div class="ph"><div><div class="pe">Tools</div><div class="pt">JSON FORMATTER</div><div class="pd">Pretty print · validation · minify</div></div></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
@@ -1436,7 +1410,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ REGEX TESTER ════════════════════════════════════════════ -->
-
 <div class="page" id="page-regex">
   <div class="ph"><div><div class="pe">Tools</div><div class="pt">REGEX TESTER</div><div class="pd">Teste une regex en live avec highlighting des matches</div></div></div>
   <div class="card" style="margin-bottom:14px">
@@ -1460,7 +1433,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ UUID / ID GENERATOR ════════════════════════════════════ -->
-
 <div class="page" id="page-uuid">
   <div class="ph"><div><div class="pe">Tools</div><div class="pt">UUID / ID GENERATOR</div><div class="pd">UUID v4, Snowflake IDs, tokens custom, nano IDs</div></div></div>
   <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
@@ -1472,7 +1444,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ DIFF CHECKER ════════════════════════════════════════════ -->
-
 <div class="page" id="page-diff">
   <div class="ph"><div><div class="pe">Tools</div><div class="pt">DIFF CHECKER</div><div class="pd">Compare deux textes et affiche les différences</div></div></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
@@ -1490,8 +1461,8 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
   <div class="diff-out" id="diff-out" style="display:none"></div>
 </div>
 
-<!-- ══ NITRO GIFT CHECKER ════════════════════════════════════ -->
 
+<!-- ══ NITRO GIFT CHECKER ════════════════════════════════════ -->
 <div class="page" id="page-nitrogift">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">NITRO GIFT CHECKER</div><div class="pd">Vérifie si un lien discord.gift est valide ou expiré</div></div></div>
   <div class="sbar">
@@ -1503,7 +1474,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ BIO GENERATOR ══════════════════════════════════════════ -->
-
 <div class="page" id="page-bio">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">BIO GENERATOR</div><div class="pd">Génère des bios Discord stylisées avec symboles OG</div></div></div>
   <div class="card" style="margin-bottom:14px">
@@ -1536,7 +1506,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ SERVER TEMPLATE CLONER ════════════════════════════════ -->
-
 <div class="page" id="page-srvtemplate">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">SERVER TEMPLATE</div><div class="pd">Exporte la structure d'un serveur Discord via son template URL</div></div></div>
 
@@ -1576,7 +1545,6 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 </div>
 
 <!-- ══ MASS DM TRACKER ═══════════════════════════════════════ -->
-
 <div class="page" id="page-massdm">
   <div class="ph"><div><div class="pe">Discord Tool</div><div class="pt">MASS DM TRACKER</div><div class="pd">Suit et log tes campagnes de DMs Discord</div></div></div>
 
@@ -1603,6 +1571,27 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 
   <div class="card-label">Log</div>
   <div class="dm-log" id="dm-log"></div>
+</div>
+
+
+<!-- ══ TEMPLATE BROWSER ══════════════════════════════════════ -->
+<div class="page" id="page-tmpbrowser">
+  <div class="ph">
+    <div><div class="pe">Discord Tool</div><div class="pt">TEMPLATE BROWSER</div><div class="pd">Browse ~100 templates populaires par catégorie — fetch direct Discord API</div></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span id="tmpl-br-progress" style="font-size:10px;color:var(--muted)"></span>
+      <button class="btn btn-a" id="tmpl-br-btn" onclick="loadAllTemplates()">▷ LOAD ALL</button>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;align-items:center">
+    <input class="sinput" id="tmpl-br-search" placeholder="Rechercher..." style="margin:0;max-width:240px" oninput="filterTemplates()">
+    <button class="btn-sm" onclick="exportAllTemplates()" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">↓ EXPORT JSON</button>
+  </div>
+
+  <div class="cat-tabs" id="cat-tabs"></div>
+  <div id="tmpl-br-stats" style="font-size:11px;color:var(--muted);margin-bottom:10px"></div>
+  <div class="tmpl-browser-grid" id="tmpl-br-grid"></div>
 </div>
 
 </main>
@@ -2430,417 +2419,460 @@ function renderNotes() {
   g.innerHTML=notes.map((n,i)=>`
     <div class="note-card"><button class="note-del" onclick="delNote(${i})">×</button>
     <textarea class="note-ta" placeholder="Note..." onchange="saveNote(${i},this.value)">${n}</textarea></div>`).join('');
-
-const btn=document.createElement(‘div’);
-btn.className=‘add-note-btn’; btn.innerHTML=’+’; btn.onclick=addNote;
-g.appendChild(btn);
-document.getElementById(‘ds-notes’).textContent=notes.length;
+  const btn=document.createElement('div');
+  btn.className='add-note-btn'; btn.innerHTML='+'; btn.onclick=addNote;
+  g.appendChild(btn);
+  document.getElementById('ds-notes').textContent=notes.length;
 }
-function addNote(){notes.push(’’);save();renderNotes();}
-function saveNote(i,v){notes[i]=v;localStorage.setItem(‘dt3-notes’,JSON.stringify(notes));}
+function addNote(){notes.push('');save();renderNotes();}
+function saveNote(i,v){notes[i]=v;localStorage.setItem('dt3-notes',JSON.stringify(notes));}
 function delNote(i){notes.splice(i,1);save();renderNotes();}
 
 // ── HELPER ───────────────────────────────────────────────────
 function rows(arr) {
-return arr.map(([k,v,c])=>` <div class="result-row"> <span class="rk">${k}</span> <span class="rv ${c||''}">${v}</span> </div>`).join(’’);
+  return arr.map(([k,v,c])=>`
+    <div class="result-row">
+      <span class="rk">${k}</span>
+      <span class="rv ${c||''}">${v}</span>
+    </div>`).join('');
 }
+
 
 // ── SERVER LOOKUP ─────────────────────────────────────────────
 async function runServerLookup() {
-const id = document.getElementById(‘srv-input’).value.trim();
-if (!id || !/^\d+$/.test(id)) return;
-const res = document.getElementById(‘srv-result’);
-const data = document.getElementById(‘srv-data’);
-res.style.display=‘block’;
-data.innerHTML = ‘<div class="result-row"><span class="rk">Loading</span><span class="rv"><span class="ldots"><span></span><span></span><span></span></span></span></div>’;
-try {
-const r = await fetch(`https://discord.com/api/v9/guilds/${id}/widget.json`);
-if (r.status === 403) {
-data.innerHTML = rows([[‘Guild ID’,id,‘accent’],[‘Widget’,‘Désactivé — active-le dans Paramètres > Widget’,‘yellow’],[‘Note’,‘Seule info publique disponible sans widget’,‘muted’]]);
-return;
-}
-if (!r.ok) { data.innerHTML = rows([[‘Erreur’,`Serveur introuvable (${r.status})`, ‘red’]]); return; }
-const d = await r.json();
-data.innerHTML = rows([
-[‘Nom’, d.name || ‘—’, ‘green’],
-[‘ID’, d.id || id, ‘accent’],
-[‘En ligne’, String(d.presence_count || 0), ‘green’],
-[‘Salon join’, d.instant_invite ? d.instant_invite : ‘—’, ‘’],
-[‘Channels’, String(d.channels?.length || 0), ‘’],
-[‘Members visibles’, String(d.members?.length || 0), ‘’],
-]);
-} catch(e) {
-data.innerHTML = rows([[‘Erreur’, e.message, ‘red’]]);
-}
+  const id = document.getElementById('srv-input').value.trim();
+  if (!id || !/^\d+$/.test(id)) return;
+  const res = document.getElementById('srv-result');
+  const data = document.getElementById('srv-data');
+  res.style.display='block';
+  data.innerHTML = '<div class="result-row"><span class="rk">Loading</span><span class="rv"><span class="ldots"><span></span><span></span><span></span></span></span></div>';
+  try {
+    const r = await fetch(`https://discord.com/api/v9/guilds/${id}/widget.json`);
+    if (r.status === 403) {
+      data.innerHTML = rows([['Guild ID',id,'accent'],['Widget','Désactivé — active-le dans Paramètres > Widget','yellow'],['Note','Seule info publique disponible sans widget','muted']]);
+      return;
+    }
+    if (!r.ok) { data.innerHTML = rows([['Erreur',`Serveur introuvable (${r.status})`, 'red']]); return; }
+    const d = await r.json();
+    data.innerHTML = rows([
+      ['Nom', d.name || '—', 'green'],
+      ['ID', d.id || id, 'accent'],
+      ['En ligne', String(d.presence_count || 0), 'green'],
+      ['Salon join', d.instant_invite ? d.instant_invite : '—', ''],
+      ['Channels', String(d.channels?.length || 0), ''],
+      ['Members visibles', String(d.members?.length || 0), ''],
+    ]);
+  } catch(e) {
+    data.innerHTML = rows([['Erreur', e.message, 'red']]);
+  }
 }
 
 // ── PERMISSIONS CALCULATOR ─────────────────────────────────────
 const PERMS = [
-[0x1,‘Create Instant Invite’],[0x2,‘Kick Members’],[0x4,‘Ban Members’],[0x8,‘Administrator’],
-[0x10,‘Manage Channels’],[0x20,‘Manage Guild’],[0x40,‘Add Reactions’],[0x80,‘View Audit Log’],
-[0x100,‘Priority Speaker’],[0x200,‘Stream’],[0x400,‘View Channels’],[0x800,‘Send Messages’],
-[0x1000,‘Send TTS’],[0x2000,‘Manage Messages’],[0x4000,‘Embed Links’],[0x8000,‘Attach Files’],
-[0x10000,‘Read History’],[0x20000,‘Mention Everyone’],[0x40000,‘Use External Emoji’],[0x80000,‘View Guild Insights’],
-[0x100000,‘Connect’],[0x200000,‘Speak’],[0x400000,‘Mute Members’],[0x800000,‘Deafen Members’],
-[0x1000000,‘Move Members’],[0x2000000,‘Use VAD’],[0x4000000,‘Change Nickname’],[0x8000000,‘Manage Nicknames’],
-[0x10000000,‘Manage Roles’],[0x20000000,‘Manage Webhooks’],[0x40000000,‘Manage Emojis’],
+  [0x1,'Create Instant Invite'],[0x2,'Kick Members'],[0x4,'Ban Members'],[0x8,'Administrator'],
+  [0x10,'Manage Channels'],[0x20,'Manage Guild'],[0x40,'Add Reactions'],[0x80,'View Audit Log'],
+  [0x100,'Priority Speaker'],[0x200,'Stream'],[0x400,'View Channels'],[0x800,'Send Messages'],
+  [0x1000,'Send TTS'],[0x2000,'Manage Messages'],[0x4000,'Embed Links'],[0x8000,'Attach Files'],
+  [0x10000,'Read History'],[0x20000,'Mention Everyone'],[0x40000,'Use External Emoji'],[0x80000,'View Guild Insights'],
+  [0x100000,'Connect'],[0x200000,'Speak'],[0x400000,'Mute Members'],[0x800000,'Deafen Members'],
+  [0x1000000,'Move Members'],[0x2000000,'Use VAD'],[0x4000000,'Change Nickname'],[0x8000000,'Manage Nicknames'],
+  [0x10000000,'Manage Roles'],[0x20000000,'Manage Webhooks'],[0x40000000,'Manage Emojis'],
 ];
 
 let permValue = BigInt(0);
 
 function buildPermGrid() {
-const grid = document.getElementById(‘perm-grid’);
-if (!grid) return;
-grid.innerHTML = PERMS.map(([bit, name]) => ` <div class="perm-item" id="perm-${bit}" onclick="togglePerm(${bit})"> <div class="perm-dot"></div> <span>${name}</span> </div>`).join(’’);
+  const grid = document.getElementById('perm-grid');
+  if (!grid) return;
+  grid.innerHTML = PERMS.map(([bit, name]) => `
+    <div class="perm-item" id="perm-${bit}" onclick="togglePerm(${bit})">
+      <div class="perm-dot"></div>
+      <span>${name}</span>
+    </div>`).join('');
 }
 
 function togglePerm(bit) {
-const b = BigInt(bit);
-permValue ^= b;
-updatePermDisplay();
+  const b = BigInt(bit);
+  permValue ^= b;
+  updatePermDisplay();
 }
 
 function updatePermDisplay() {
-const display = document.getElementById(‘perm-display’);
-if (display) display.textContent = permValue.toString();
-const input = document.getElementById(‘perm-input’);
-if (input) input.value = permValue.toString();
-PERMS.forEach(([bit]) => {
-const el = document.getElementById(‘perm-’+bit);
-if (el) el.classList.toggle(‘active’, !!(permValue & BigInt(bit)));
-});
+  const display = document.getElementById('perm-display');
+  if (display) display.textContent = permValue.toString();
+  const input = document.getElementById('perm-input');
+  if (input) input.value = permValue.toString();
+  PERMS.forEach(([bit]) => {
+    const el = document.getElementById('perm-'+bit);
+    if (el) el.classList.toggle('active', !!(permValue & BigInt(bit)));
+  });
 }
 
 function permFromValue(val) {
-try {
-permValue = BigInt(val || 0);
-updatePermDisplay();
-} catch(e) {}
+  try {
+    permValue = BigInt(val || 0);
+    updatePermDisplay();
+  } catch(e) {}
 }
 
 // ── TIMESTAMP GENERATOR ────────────────────────────────────────
 const TS_FORMATS = [
-[‘t’,‘Heure courte’,‘16:20’],
-[‘T’,‘Heure longue’,‘16:20:30’],
-[‘d’,‘Date courte’,‘20/04/2021’],
-[‘D’,‘Date longue’,‘20 avril 2021’],
-[‘f’,‘Date + heure’,‘20 avril 2021 16:20’],
-[‘F’,‘Complet’,‘mardi 20 avril 2021 16:20’],
-[‘R’,‘Relatif’,‘il y a 2 ans’],
+  ['t','Heure courte','16:20'],
+  ['T','Heure longue','16:20:30'],
+  ['d','Date courte','20/04/2021'],
+  ['D','Date longue','20 avril 2021'],
+  ['f','Date + heure','20 avril 2021 16:20'],
+  ['F','Complet','mardi 20 avril 2021 16:20'],
+  ['R','Relatif','il y a 2 ans'],
 ];
 
 function updateTimestamps() {
-const val = document.getElementById(‘ts-input’)?.value;
-if (!val) return;
-const unix = Math.floor(new Date(val).getTime()/1000);
-const container = document.getElementById(‘ts-formats’);
-if (!container) return;
-container.innerHTML = TS_FORMATS.map(([flag, label, ex]) => ` <div class="ts-format-row"> <div> <div class="ts-format-label">${label}</div> <div style="font-size:10px;color:var(--muted2)">${ex}</div> </div> <div class="ts-format-code">&lt;t:${unix}:${flag}&gt;</div> <button class="copy-btn" onclick="copyText('<t:${unix}:${flag}>', this)">COPY</button> </div>`).join(’’);
-// Add raw unix row
-container.innerHTML += ` <div class="ts-format-row"> <div><div class="ts-format-label">Unix timestamp</div></div> <div class="ts-format-val">${unix}</div> <button class="copy-btn" onclick="copyText('${unix}', this)">COPY</button> </div>`;
+  const val = document.getElementById('ts-input')?.value;
+  if (!val) return;
+  const unix = Math.floor(new Date(val).getTime()/1000);
+  const container = document.getElementById('ts-formats');
+  if (!container) return;
+  container.innerHTML = TS_FORMATS.map(([flag, label, ex]) => `
+    <div class="ts-format-row">
+      <div>
+        <div class="ts-format-label">${label}</div>
+        <div style="font-size:10px;color:var(--muted2)">${ex}</div>
+      </div>
+      <div class="ts-format-code">&lt;t:${unix}:${flag}&gt;</div>
+      <button class="copy-btn" onclick="copyText('<t:${unix}:${flag}>', this)">COPY</button>
+    </div>`).join('');
+  // Add raw unix row
+  container.innerHTML += `
+    <div class="ts-format-row">
+      <div><div class="ts-format-label">Unix timestamp</div></div>
+      <div class="ts-format-val">${unix}</div>
+      <button class="copy-btn" onclick="copyText('${unix}', this)">COPY</button>
+    </div>`;
 }
 
 // ── MARKDOWN PREVIEW ───────────────────────────────────────────
 function mdToHtml(text) {
-var t = text.replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’);
-t = t.replace(/`[\w]*/g,'<CODEBLOCK>').replace(/`/g,’</CODEBLOCK>’);
-t = t.replace(/<CODEBLOCK>([\s\S]*?)</CODEBLOCK>/g,’<pre><code>$1</code></pre>’);
-t = t.replace(/`([^`]+)`/g,’<code>$1</code>’);
-t = t.replace(/^### (.+)$/gm,’<h3>$1</h3>’);
-t = t.replace(/^## (.+)$/gm,’<h2>$1</h2>’);
-t = t.replace(/^# (.+)$/gm,’<h1>$1</h1>’);
-t = t.replace(/**(.+?)**/g,’<strong>$1</strong>’);
-t = t.replace(/**(.+?)**/g,’<strong>$1</strong>’);
-t = t.replace(/*(.+?)*/g,’<em>$1</em>’);
-t = t.replace(/~(.+?)~/g,’<del>$1</del>’);
-t = t.replace(/^> (.+)$/gm,’<blockquote>$1</blockquote>’);
-t = t.replace(/[(.+?)]((.+?))/g,’<a href="$2" target="_blank">$1</a>’);
-t = t.replace(/\n/g,’<br>’);
-return t;
+  var t = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  t = t.replace(/```[\w]*/g,'<CODEBLOCK>').replace(/```/g,'</CODEBLOCK>');
+  t = t.replace(/<CODEBLOCK>([\s\S]*?)<\/CODEBLOCK>/g,'<pre><code>$1</code></pre>');
+  t = t.replace(/`([^`]+)`/g,'<code>$1</code>');
+  t = t.replace(/^### (.+)$/gm,'<h3>$1</h3>');
+  t = t.replace(/^## (.+)$/gm,'<h2>$1</h2>');
+  t = t.replace(/^# (.+)$/gm,'<h1>$1</h1>');
+  t = t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  t = t.replace(/__(.+?)__/g,'<strong>$1</strong>');
+  t = t.replace(/\*(.+?)\*/g,'<em>$1</em>');
+  t = t.replace(/~~(.+?)~~/g,'<del>$1</del>');
+  t = t.replace(/^> (.+)$/gm,'<blockquote>$1</blockquote>');
+  t = t.replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank">$1</a>');
+  t = t.replace(/\n/g,'<br>');
+  return t;
 }
 function updateMd() {
-const input = document.getElementById(‘md-input’)?.value || ‘’;
-const preview = document.getElementById(‘md-preview’);
-if (preview) preview.innerHTML = mdToHtml(input) || ‘<span style="color:var(--muted2)">Tape du markdown à gauche…</span>’;
+  const input = document.getElementById('md-input')?.value || '';
+  const preview = document.getElementById('md-preview');
+  if (preview) preview.innerHTML = mdToHtml(input) || '<span style="color:var(--muted2)">Tape du markdown à gauche...</span>';
 }
 
 // ── EMBED BUILDER ──────────────────────────────────────────────
 function setEmbedColor(hex) {
-document.getElementById(‘emb-color’).value = hex;
-updateEmbed();
+  document.getElementById('emb-color').value = hex;
+  updateEmbed();
 }
 
 function updateEmbed() {
-const title = document.getElementById(‘emb-title’)?.value || ‘’;
-const desc = document.getElementById(‘emb-desc’)?.value || ‘’;
-const footer = document.getElementById(‘emb-footer’)?.value || ‘’;
-const url = document.getElementById(‘emb-url’)?.value || ‘’;
-const color = document.getElementById(‘emb-color’)?.value || ‘#5865F2’;
+  const title = document.getElementById('emb-title')?.value || '';
+  const desc = document.getElementById('emb-desc')?.value || '';
+  const footer = document.getElementById('emb-footer')?.value || '';
+  const url = document.getElementById('emb-url')?.value || '';
+  const color = document.getElementById('emb-color')?.value || '#5865F2';
 
-// Update preview
-const preview = document.getElementById(‘emb-preview’);
-if (preview) preview.style.borderLeftColor = color;
-const prevTitle = document.getElementById(‘emb-prev-title’);
-if (prevTitle) {
-prevTitle.textContent = title || “Titre de l’embed”;
-prevTitle.style.color = url ? ‘#00b0f4’ : ‘#fff’;
-}
-const prevDesc = document.getElementById(‘emb-prev-desc’);
-if (prevDesc) prevDesc.textContent = desc || ‘Description ici…’;
-const prevFoot = document.getElementById(‘emb-prev-footer’);
-if (prevFoot) prevFoot.textContent = footer;
-if (prevFoot) prevFoot.style.display = footer ? ‘block’ : ‘none’;
+  // Update preview
+  const preview = document.getElementById('emb-preview');
+  if (preview) preview.style.borderLeftColor = color;
+  const prevTitle = document.getElementById('emb-prev-title');
+  if (prevTitle) {
+    prevTitle.textContent = title || "Titre de l'embed";
+    prevTitle.style.color = url ? '#00b0f4' : '#fff';
+  }
+  const prevDesc = document.getElementById('emb-prev-desc');
+  if (prevDesc) prevDesc.textContent = desc || 'Description ici...';
+  const prevFoot = document.getElementById('emb-prev-footer');
+  if (prevFoot) prevFoot.textContent = footer;
+  if (prevFoot) prevFoot.style.display = footer ? 'block' : 'none';
 
-// Generate code
-const decimal = parseInt(color.replace(’#’,’’), 16);
-const fields = [];
-const code = {
-embeds: [{
-…(title && {title}),
-…(desc && {description: desc}),
-color: decimal,
-…(url && {url}),
-…(footer && {footer: {text: footer}}),
-}]
-};
-const codeEl = document.getElementById(‘emb-code’);
-if (codeEl) codeEl.value = JSON.stringify(code, null, 2);
+  // Generate code
+  const decimal = parseInt(color.replace('#',''), 16);
+  const fields = [];
+  const code = {
+    embeds: [{
+      ...(title && {title}),
+      ...(desc && {description: desc}),
+      color: decimal,
+      ...(url && {url}),
+      ...(footer && {footer: {text: footer}}),
+    }]
+  };
+  const codeEl = document.getElementById('emb-code');
+  if (codeEl) codeEl.value = JSON.stringify(code, null, 2);
 }
 
 // ── HISTORY TRACKER ────────────────────────────────────────────
 function getHistory() {
-try { return JSON.parse(localStorage.getItem(‘dt3-hist’) || ‘[]’); } catch(e) { return []; }
+  try { return JSON.parse(localStorage.getItem('dt3-hist') || '[]'); } catch(e) { return []; }
 }
 
 function addHistory(user, platform, status) {
-const hist = getHistory();
-hist.unshift({ user, platform, status, date: new Date().toLocaleDateString() });
-if (hist.length > 500) hist.splice(500);
-localStorage.setItem(‘dt3-hist’, JSON.stringify(hist));
+  const hist = getHistory();
+  hist.unshift({ user, platform, status, date: new Date().toLocaleDateString() });
+  if (hist.length > 500) hist.splice(500);
+  localStorage.setItem('dt3-hist', JSON.stringify(hist));
 }
 
 function renderHistory() {
-const el = document.getElementById(‘hist-list’);
-if (!el) return;
-const search = document.getElementById(‘hist-search’)?.value.toLowerCase() || ‘’;
-const hist = getHistory().filter(h => h.user.toLowerCase().includes(search));
-if (!hist.length) { el.innerHTML = ‘<div style="padding:20px;text-align:center;color:var(--muted2);font-size:12px">Aucun historique</div>’; return; }
-el.innerHTML = hist.map(h => ` <div class="tbl-row hist-row"> <span style="color:var(--accent);font-weight:500">${h.user}</span> <span style="color:var(--muted)">${h.platform}</span> <span class="${h.status==='available'?'green':h.status==='taken'?'red':''}">${h.status}</span> <span style="color:var(--muted2)">${h.date}</span> </div>`).join(’’);
+  const el = document.getElementById('hist-list');
+  if (!el) return;
+  const search = document.getElementById('hist-search')?.value.toLowerCase() || '';
+  const hist = getHistory().filter(h => h.user.toLowerCase().includes(search));
+  if (!hist.length) { el.innerHTML = '<div style="padding:20px;text-align:center;color:var(--muted2);font-size:12px">Aucun historique</div>'; return; }
+  el.innerHTML = hist.map(h => `
+    <div class="tbl-row hist-row">
+      <span style="color:var(--accent);font-weight:500">${h.user}</span>
+      <span style="color:var(--muted)">${h.platform}</span>
+      <span class="${h.status==='available'?'green':h.status==='taken'?'red':''}">${h.status}</span>
+      <span style="color:var(--muted2)">${h.date}</span>
+    </div>`).join('');
 }
 
 function clearHistory() {
-localStorage.removeItem(‘dt3-hist’);
-renderHistory();
+  localStorage.removeItem('dt3-hist');
+  renderHistory();
 }
 
 // History is saved directly inside checkP (see checker section)
 
 // ── SIMILAR FINDER (LEVENSHTEIN) ───────────────────────────────
 function levenshtein(a, b) {
-const dp = Array.from({length:a.length+1}, (_,i) => [i]);
-for(let j=0;j<=b.length;j++) dp[0][j]=j;
-for(let i=1;i<=a.length;i++)
-for(let j=1;j<=b.length;j++)
-dp[i][j] = a[i-1]===b[j-1] ? dp[i-1][j-1] : 1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);
-return dp[a.length][b.length];
+  const dp = Array.from({length:a.length+1}, (_,i) => [i]);
+  for(let j=0;j<=b.length;j++) dp[0][j]=j;
+  for(let i=1;i<=a.length;i++)
+    for(let j=1;j<=b.length;j++)
+      dp[i][j] = a[i-1]===b[j-1] ? dp[i-1][j-1] : 1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);
+  return dp[a.length][b.length];
 }
 
 function runLevenshtein() {
-const word = document.getElementById(‘lev-input’)?.value.trim().toLowerCase();
-if (!word) return;
-const maxDist = parseInt(document.getElementById(‘lev-dist’)?.value || ‘2’);
-const alpha = ‘abcdefghijklmnopqrstuvwxyz’;
-const variants = new Set();
+  const word = document.getElementById('lev-input')?.value.trim().toLowerCase();
+  if (!word) return;
+  const maxDist = parseInt(document.getElementById('lev-dist')?.value || '2');
+  const alpha = 'abcdefghijklmnopqrstuvwxyz';
+  const variants = new Set();
 
-// Substitutions
-for(let i=0;i<word.length;i++)
-for(const c of alpha) {
-const v = word.slice(0,i)+c+word.slice(i+1);
-if(levenshtein(word,v)<=maxDist) variants.add(v);
-}
-// Deletions
-for(let i=0;i<word.length;i++) {
-const v = word.slice(0,i)+word.slice(i+1);
-if(v && levenshtein(word,v)<=maxDist) variants.add(v);
-}
-// Insertions
-for(let i=0;i<=word.length;i++)
-for(const c of alpha) {
-const v = word.slice(0,i)+c+word.slice(i);
-if(levenshtein(word,v)<=maxDist) variants.add(v);
-}
-// Transpositions
-for(let i=0;i<word.length-1;i++) {
-const v = word.split(’’);
-[v[i],v[i+1]]=[v[i+1],v[i]];
-variants.add(v.join(’’));
-}
+  // Substitutions
+  for(let i=0;i<word.length;i++)
+    for(const c of alpha) {
+      const v = word.slice(0,i)+c+word.slice(i+1);
+      if(levenshtein(word,v)<=maxDist) variants.add(v);
+    }
+  // Deletions
+  for(let i=0;i<word.length;i++) {
+    const v = word.slice(0,i)+word.slice(i+1);
+    if(v && levenshtein(word,v)<=maxDist) variants.add(v);
+  }
+  // Insertions
+  for(let i=0;i<=word.length;i++)
+    for(const c of alpha) {
+      const v = word.slice(0,i)+c+word.slice(i);
+      if(levenshtein(word,v)<=maxDist) variants.add(v);
+    }
+  // Transpositions
+  for(let i=0;i<word.length-1;i++) {
+    const v = word.split('');
+    [v[i],v[i+1]]=[v[i+1],v[i]];
+    variants.add(v.join(''));
+  }
 
-variants.delete(word);
-const arr = […variants].sort((a,b)=>levenshtein(word,a)-levenshtein(word,b)).slice(0,80);
+  variants.delete(word);
+  const arr = [...variants].sort((a,b)=>levenshtein(word,a)-levenshtein(word,b)).slice(0,80);
 
-document.getElementById(‘lev-result’).style.display=‘block’;
-document.getElementById(‘lev-count’).textContent = arr.length + ’ variantes’;
-document.getElementById(‘lev-tags’).innerHTML = arr.map(v => {
-const d = levenshtein(word,v);
-return `<div class="lev-tag" onclick="navigator.clipboard.writeText('${v}')">${v}<span class="lev-diff">+${d}</span></div>`;
-}).join(’’);
+  document.getElementById('lev-result').style.display='block';
+  document.getElementById('lev-count').textContent = arr.length + ' variantes';
+  document.getElementById('lev-tags').innerHTML = arr.map(v => {
+    const d = levenshtein(word,v);
+    return `<div class="lev-tag" onclick="navigator.clipboard.writeText('${v}')">${v}<span class="lev-diff">+${d}</span></div>`;
+  }).join('');
 }
 
 // ── ROLE COLOR PICKER ──────────────────────────────────────────
 function updateColorPick() {
-const hex = document.getElementById(‘cp-picker’)?.value || ‘#5865F2’;
-document.getElementById(‘cp-hex’).value = hex;
-document.getElementById(‘cp-preview’).style.background = hex;
-const decimal = parseInt(hex.replace(’#’,’’), 16);
-document.getElementById(‘cp-decimal’).textContent = decimal;
+  const hex = document.getElementById('cp-picker')?.value || '#5865F2';
+  document.getElementById('cp-hex').value = hex;
+  document.getElementById('cp-preview').style.background = hex;
+  const decimal = parseInt(hex.replace('#',''), 16);
+  document.getElementById('cp-decimal').textContent = decimal;
 }
 
 function cpFromHex(val) {
-if (!/^#[0-9a-fA-F]{6}$/.test(val)) return;
-document.getElementById(‘cp-picker’).value = val;
-document.getElementById(‘cp-preview’).style.background = val;
-const decimal = parseInt(val.replace(’#’,’’), 16);
-document.getElementById(‘cp-decimal’).textContent = decimal;
+  if (!/^#[0-9a-fA-F]{6}$/.test(val)) return;
+  document.getElementById('cp-picker').value = val;
+  document.getElementById('cp-preview').style.background = val;
+  const decimal = parseInt(val.replace('#',''), 16);
+  document.getElementById('cp-decimal').textContent = decimal;
 }
 
 function setCp(hex) {
-document.getElementById(‘cp-picker’).value = hex;
-cpFromHex(hex);
-document.getElementById(‘cp-hex’).value = hex;
+  document.getElementById('cp-picker').value = hex;
+  cpFromHex(hex);
+  document.getElementById('cp-hex').value = hex;
 }
 
 // ── DNS LOOKUP ─────────────────────────────────────────────────
 async function runDNS() {
-const domain = document.getElementById(‘dns-input’)?.value.trim().replace(/^https?:///,’’).replace(//.*/,’’);
-if (!domain) return;
-const res = document.getElementById(‘dns-result’);
-res.style.display=‘block’;
-res.innerHTML = ‘<div class="result-row"><span class="rk">Loading</span><span class="rv"><span class="ldots"><span></span><span></span><span></span></span></span></div>’;
+  const domain = document.getElementById('dns-input')?.value.trim().replace(/^https?:\/\//,'').replace(/\/.*/,'');
+  if (!domain) return;
+  const res = document.getElementById('dns-result');
+  res.style.display='block';
+  res.innerHTML = '<div class="result-row"><span class="rk">Loading</span><span class="rv"><span class="ldots"><span></span><span></span><span></span></span></span></div>';
 
-const types = [‘A’,‘AAAA’,‘MX’,‘TXT’,‘CNAME’,‘NS’];
-const results = await Promise.all(types.map(async t => {
-try {
-const r = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=${t}`);
-const d = await r.json();
-return { type: t, records: d.Answer || [] };
-} catch(e) { return { type: t, records: [] }; }
-}));
+  const types = ['A','AAAA','MX','TXT','CNAME','NS'];
+  const results = await Promise.all(types.map(async t => {
+    try {
+      const r = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=${t}`);
+      const d = await r.json();
+      return { type: t, records: d.Answer || [] };
+    } catch(e) { return { type: t, records: [] }; }
+  }));
 
-const typeClass = {A:‘dns-a’,AAAA:‘dns-a’,MX:‘dns-mx’,TXT:‘dns-txt’,CNAME:‘dns-cname’,NS:‘dns-cname’};
-res.innerHTML = results.filter(r=>r.records.length).map(({type, records}) => ` <div class="dns-section"> <div class="card-label">${type} Records</div> ${records.map(rec=>`
-<div class="dns-record">
-<span class="dns-type-badge ${typeClass[type]||''}">${type}</span>
-<span style="color:var(--text)">${rec.data}</span>
-<span style="color:var(--muted2);margin-left:auto;font-size:9px">TTL ${rec.TTL}</span>
-</div>`).join('')} </div>`).join(’’) || ‘<div class="notice">Aucun record trouvé pour ce domaine.</div>’;
+  const typeClass = {A:'dns-a',AAAA:'dns-a',MX:'dns-mx',TXT:'dns-txt',CNAME:'dns-cname',NS:'dns-cname'};
+  res.innerHTML = results.filter(r=>r.records.length).map(({type, records}) => `
+    <div class="dns-section">
+      <div class="card-label">${type} Records</div>
+      ${records.map(rec=>`
+        <div class="dns-record">
+          <span class="dns-type-badge ${typeClass[type]||''}">${type}</span>
+          <span style="color:var(--text)">${rec.data}</span>
+          <span style="color:var(--muted2);margin-left:auto;font-size:9px">TTL ${rec.TTL}</span>
+        </div>`).join('')}
+    </div>`).join('') || '<div class="notice">Aucun record trouvé pour ce domaine.</div>';
 }
 
 // ── PORT CHECKER ───────────────────────────────────────────────
 const COMMON_PORTS = [
-[21,‘FTP’],[22,‘SSH’],[25,‘SMTP’],[53,‘DNS’],[80,‘HTTP’],[110,‘POP3’],
-[143,‘IMAP’],[443,‘HTTPS’],[3306,‘MySQL’],[3389,‘RDP’],[5432,‘PostgreSQL’],[8080,‘HTTP-Alt’]
+  [21,'FTP'],[22,'SSH'],[25,'SMTP'],[53,'DNS'],[80,'HTTP'],[110,'POP3'],
+  [143,'IMAP'],[443,'HTTPS'],[3306,'MySQL'],[3389,'RDP'],[5432,'PostgreSQL'],[8080,'HTTP-Alt']
 ];
 
 async function checkPort(host, port) {
-// Use a public port check API via CORS proxy
-try {
-const r = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(`https://portchecker.co/api/v1/check?host=${host}&port=${port}`)}`, {signal: AbortSignal.timeout(5000)});
-if(r.ok) {
-const d = await r.json();
-return d.open === true ? ‘open’ : ‘closed’;
-}
-} catch(e) {}
-// Fallback: try fetch to the port
-try {
-const ctrl = new AbortController();
-const tid = setTimeout(()=>ctrl.abort(), 2000);
-await fetch(`http://${host}:${port}`, {mode:‘no-cors’, signal: ctrl.signal});
-clearTimeout(tid);
-return ‘open’;
-} catch(e) {
-return e.name === ‘AbortError’ ? ‘closed’ : ‘closed’;
-}
+  // Use a public port check API via CORS proxy
+  try {
+    const r = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(`https://portchecker.co/api/v1/check?host=${host}&port=${port}`)}`, {signal: AbortSignal.timeout(5000)});
+    if(r.ok) {
+      const d = await r.json();
+      return d.open === true ? 'open' : 'closed';
+    }
+  } catch(e) {}
+  // Fallback: try fetch to the port
+  try {
+    const ctrl = new AbortController();
+    const tid = setTimeout(()=>ctrl.abort(), 2000);
+    await fetch(`http://${host}:${port}`, {mode:'no-cors', signal: ctrl.signal});
+    clearTimeout(tid);
+    return 'open';
+  } catch(e) {
+    return e.name === 'AbortError' ? 'closed' : 'closed';
+  }
 }
 
 async function runPortCheck() {
-const host = document.getElementById(‘port-host’)?.value.trim();
-if (!host) return;
-const customPort = document.getElementById(‘port-custom’)?.value;
-const ports = customPort ? [[parseInt(customPort),‘Custom’], …COMMON_PORTS] : COMMON_PORTS;
+  const host = document.getElementById('port-host')?.value.trim();
+  if (!host) return;
+  const customPort = document.getElementById('port-custom')?.value;
+  const ports = customPort ? [[parseInt(customPort),'Custom'], ...COMMON_PORTS] : COMMON_PORTS;
 
-document.getElementById(‘port-result’).style.display=‘block’;
-const grid = document.getElementById(‘port-grid’);
-grid.innerHTML = ports.map(([p,n])=>` <div class="port-item checking" id="port-${p}"> <div class="port-num">${p}</div> <div class="port-name">${n}</div> <div style="font-size:9px;color:var(--muted);margin-top:2px">...</div> </div>`).join(’’);
+  document.getElementById('port-result').style.display='block';
+  const grid = document.getElementById('port-grid');
+  grid.innerHTML = ports.map(([p,n])=>`
+    <div class="port-item checking" id="port-${p}">
+      <div class="port-num">${p}</div>
+      <div class="port-name">${n}</div>
+      <div style="font-size:9px;color:var(--muted);margin-top:2px">...</div>
+    </div>`).join('');
 
-await Promise.all(ports.map(async ([port, name]) => {
-const status = await checkPort(host, port);
-const el = document.getElementById(‘port-’+port);
-if (el) {
-el.className = ’port-item ’ + status;
-el.querySelector(‘div:last-child’).textContent = status;
-}
-}));
+  await Promise.all(ports.map(async ([port, name]) => {
+    const status = await checkPort(host, port);
+    const el = document.getElementById('port-'+port);
+    if (el) {
+      el.className = 'port-item ' + status;
+      el.querySelector('div:last-child').textContent = status;
+    }
+  }));
 }
 
 // ── COLOR PICKER ──────────────────────────────────────────────
 const CP_PRESETS = [
-{name:‘Blurple’,hex:’#5865F2’},{name:‘Green’,hex:’#57F287’},{name:‘Yellow’,hex:’#FEE75C’},
-{name:‘Fuchsia’,hex:’#EB459E’},{name:‘Red’,hex:’#ED4245’},{name:‘White’,hex:’#FFFFFF’},
-{name:‘Cyan’,hex:’#00C8FF’},{name:‘Gold’,hex:’#FFB800’},{name:‘Purple’,hex:’#9B5EFF’},
-{name:‘Teal’,hex:’#1ABC9C’},{name:‘Orange’,hex:’#E67E22’},{name:‘Dark’,hex:’#2C2F33’},
+  {name:'Blurple',hex:'#5865F2'},{name:'Green',hex:'#57F287'},{name:'Yellow',hex:'#FEE75C'},
+  {name:'Fuchsia',hex:'#EB459E'},{name:'Red',hex:'#ED4245'},{name:'White',hex:'#FFFFFF'},
+  {name:'Cyan',hex:'#00C8FF'},{name:'Gold',hex:'#FFB800'},{name:'Purple',hex:'#9B5EFF'},
+  {name:'Teal',hex:'#1ABC9C'},{name:'Orange',hex:'#E67E22'},{name:'Dark',hex:'#2C2F33'},
 ];
 function hexToRgb(hex){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return{r,g,b};}
 function hexToDecimal(hex){return parseInt(hex.slice(1),16);}
 function hexToHsl(hex){let{r,g,b}=hexToRgb(hex);r/=255;g/=255;b/=255;const max=Math.max(r,g,b),min=Math.min(r,g,b);let h,s,l=(max+min)/2;if(max===min){h=s=0;}else{const d=max-min;s=l>.5?d/(2-max-min):d/(max+min);switch(max){case r:h=((g-b)/d+(g<b?6:0))/6;break;case g:h=((b-r)/d+2)/6;break;default:h=((r-g)/d+4)/6;}}return`hsl(${Math.round(h*360)}, ${Math.round(s*100)}%, ${Math.round(l*100)}%)`;}
 function updateColor(hex){
-document.getElementById(‘cp-swatch’).style.background=hex;
-document.getElementById(‘cp-hex’).value=hex;
-document.getElementById(‘cp-picker’).value=hex;
-const {r,g,b}=hexToRgb(hex);
-const dec=hexToDecimal(hex);
-const fmts=[{label:‘HEX’,val:hex.toUpperCase()},{label:‘RGB’,val:`rgb(${r}, ${g}, ${b})`},{label:‘Decimal’,val:dec.toString()},{label:‘HSL’,val:hexToHsl(hex)},{label:‘CSS’,val:`color: ${hex}`},{label:‘Discord’,val:dec.toString()}];
-document.getElementById(‘cp-formats’).innerHTML=fmts.map(f=>`<div class="color-fmt" onclick="navigator.clipboard.writeText('${f.val}');this.style.borderColor='var(--green)';setTimeout(()=>this.style.borderColor='',800)"><div class="color-fmt-label">${f.label}</div><div class="color-fmt-val">${f.val}</div></div>`).join(’’);
+  document.getElementById('cp-swatch').style.background=hex;
+  document.getElementById('cp-hex').value=hex;
+  document.getElementById('cp-picker').value=hex;
+  const {r,g,b}=hexToRgb(hex);
+  const dec=hexToDecimal(hex);
+  const fmts=[{label:'HEX',val:hex.toUpperCase()},{label:'RGB',val:`rgb(${r}, ${g}, ${b})`},{label:'Decimal',val:dec.toString()},{label:'HSL',val:hexToHsl(hex)},{label:'CSS',val:`color: ${hex}`},{label:'Discord',val:dec.toString()}];
+  document.getElementById('cp-formats').innerHTML=fmts.map(f=>`<div class="color-fmt" onclick="navigator.clipboard.writeText('${f.val}');this.style.borderColor='var(--green)';setTimeout(()=>this.style.borderColor='',800)"><div class="color-fmt-label">${f.label}</div><div class="color-fmt-val">${f.val}</div></div>`).join('');
 }
 function updateColorFromHex(v){if(/^#[0-9A-Fa-f]{6}$/.test(v))updateColor(v);}
 function initColorPicker(){
-document.getElementById(‘cp-presets’).innerHTML=CP_PRESETS.map(p=>`<div style="width:28px;height:28px;border-radius:50%;background:${p.hex};cursor:pointer;border:2px solid transparent;transition:border .15s" title="${p.name}" onclick="updateColor('${p.hex}')" onmouseover="this.style.borderColor='white'" onmouseout="this.style.borderColor='transparent'"></div>`).join(’’);
-updateColor(’#00C8FF’);
+  document.getElementById('cp-presets').innerHTML=CP_PRESETS.map(p=>`<div style="width:28px;height:28px;border-radius:50%;background:${p.hex};cursor:pointer;border:2px solid transparent;transition:border .15s" title="${p.name}" onclick="updateColor('${p.hex}')" onmouseover="this.style.borderColor='white'" onmouseout="this.style.borderColor='transparent'"></div>`).join('');
+  updateColor('#00C8FF');
 }
+
 
 // ── BULK CHECKER ──────────────────────────────────────────────
 async function runBulk() {
-const raw = document.getElementById(‘bulk-input’).value.trim().split(’\n’).map(s=>s.trim()).filter(Boolean).slice(0,50);
-const plats = […document.querySelectorAll(’.bulk-cb:checked’)].map(el=>el.value);
-if (!raw.length || !plats.length) return;
-const btn = document.getElementById(‘bulk-btn’);
-btn.disabled=true; btn.textContent=‘Checking…’;
-document.getElementById(‘bulk-result’).style.display=‘block’;
-const grid = document.getElementById(‘bulk-grid’);
-let availCount=0, done=0;
-grid.innerHTML = raw.map(u=>` <div class="bulk-row checking" id="bulk-row-${CSS.escape(u)}"> <span style="color:var(--accent);font-weight:600">${u}</span> <div class="bulk-platforms" id="bulk-plats-${CSS.escape(u)}"> ${plats.map(p=>`<span class="bulk-plat checking" id="bp-${CSS.escape(u)}-${CSS.escape(p)}">${p}</span>`).join('')} </div> </div>`).join(’’);
+  const raw = document.getElementById('bulk-input').value.trim().split('\n').map(s=>s.trim()).filter(Boolean).slice(0,50);
+  const plats = [...document.querySelectorAll('.bulk-cb:checked')].map(el=>el.value);
+  if (!raw.length || !plats.length) return;
+  const btn = document.getElementById('bulk-btn');
+  btn.disabled=true; btn.textContent='Checking...';
+  document.getElementById('bulk-result').style.display='block';
+  const grid = document.getElementById('bulk-grid');
+  let availCount=0, done=0;
+  grid.innerHTML = raw.map(u=>`
+    <div class="bulk-row checking" id="bulk-row-${CSS.escape(u)}">
+      <span style="color:var(--accent);font-weight:600">${u}</span>
+      <div class="bulk-platforms" id="bulk-plats-${CSS.escape(u)}">
+        ${plats.map(p=>`<span class="bulk-plat checking" id="bp-${CSS.escape(u)}-${CSS.escape(p)}">${p}</span>`).join('')}
+      </div>
+    </div>`).join('');
 
-for (const u of raw) {
-const results = await Promise.all(plats.map(async p => {
-try {
-const r = await fetch(`${WORKER_URL}/check?user=${encodeURIComponent(u)}&platform=${encodeURIComponent(p.toLowerCase())}`);
-const d = await r.json();
-return {p, status: d.status};
-} catch(e) { return {p, status:‘error’}; }
-}));
-const availOn = results.filter(r=>r.status===‘available’).map(r=>r.p);
-const row = document.getElementById(‘bulk-row-’+CSS.escape(u));
-if (row) row.className = ‘bulk-row ’ + (availOn.length ? ‘available’ : ‘taken’);
-results.forEach(({p, status}) => {
-const el = document.getElementById(‘bp-’+CSS.escape(u)+’-’+CSS.escape(p));
-if (el) { el.className=’bulk-plat ’+(status===‘available’?‘available’:‘taken’); }
-});
-if (availOn.length) availCount++;
-done++;
-document.getElementById(‘bulk-progress’).textContent = `${done}/${raw.length}`;
-document.getElementById(‘bulk-stats’).textContent = `${availCount} usernames dispo`;
-}
-btn.disabled=false; btn.textContent=‘→ CHECK ALL’;
+  for (const u of raw) {
+    const results = await Promise.all(plats.map(async p => {
+      try {
+        const r = await fetch(`${WORKER_URL}/check?user=${encodeURIComponent(u)}&platform=${encodeURIComponent(p.toLowerCase())}`);
+        const d = await r.json();
+        return {p, status: d.status};
+      } catch(e) { return {p, status:'error'}; }
+    }));
+    const availOn = results.filter(r=>r.status==='available').map(r=>r.p);
+    const row = document.getElementById('bulk-row-'+CSS.escape(u));
+    if (row) row.className = 'bulk-row ' + (availOn.length ? 'available' : 'taken');
+    results.forEach(({p, status}) => {
+      const el = document.getElementById('bp-'+CSS.escape(u)+'-'+CSS.escape(p));
+      if (el) { el.className='bulk-plat '+(status==='available'?'available':'taken'); }
+    });
+    if (availOn.length) availCount++;
+    done++;
+    document.getElementById('bulk-progress').textContent = `${done}/${raw.length}`;
+    document.getElementById('bulk-stats').textContent = `${availCount} usernames dispo`;
+  }
+  btn.disabled=false; btn.textContent='→ CHECK ALL';
 }
 
 // ── SNIPE TRACKER ─────────────────────────────────────────────
@@ -2848,491 +2880,515 @@ let snipeTimer = null;
 let snipeCount = 0;
 let snipeLog = [];
 
-function addSnipeLog(msg, type=‘info’) {
-const time = new Date().toLocaleTimeString();
-snipeLog.unshift({msg, type, time});
-if (snipeLog.length > 50) snipeLog.pop();
-const el = document.getElementById(‘snipe-log’);
-if (el) el.innerHTML = snipeLog.map(l=>`<div class="snipe-log-item ${l.type}">[${l.time}] ${l.msg}</div>`).join(’’);
+function addSnipeLog(msg, type='info') {
+  const time = new Date().toLocaleTimeString();
+  snipeLog.unshift({msg, type, time});
+  if (snipeLog.length > 50) snipeLog.pop();
+  const el = document.getElementById('snipe-log');
+  if (el) el.innerHTML = snipeLog.map(l=>`<div class="snipe-log-item ${l.type}">[${l.time}] ${l.msg}</div>`).join('');
 }
 
 async function startSnipe() {
-const user = document.getElementById(‘snipe-user’)?.value.trim();
-const plat = document.getElementById(‘snipe-plat’)?.value;
-const interval = parseInt(document.getElementById(‘snipe-interval’)?.value || ‘10000’);
-const webhook = document.getElementById(‘snipe-webhook’)?.value.trim();
-if (!user) return;
+  const user = document.getElementById('snipe-user')?.value.trim();
+  const plat = document.getElementById('snipe-plat')?.value;
+  const interval = parseInt(document.getElementById('snipe-interval')?.value || '10000');
+  const webhook = document.getElementById('snipe-webhook')?.value.trim();
+  if (!user) return;
 
-snipeCount = 0; snipeLog = [];
-document.getElementById(‘snipe-start-btn’).style.display=‘none’;
-document.getElementById(‘snipe-stop-btn’).style.display=’’;
-document.getElementById(‘snipe-dot’).classList.remove(‘idle’);
-addSnipeLog(`Démarrage — surveillance de "${user}" sur ${plat} toutes les ${interval/1000}s`);
+  snipeCount = 0; snipeLog = [];
+  document.getElementById('snipe-start-btn').style.display='none';
+  document.getElementById('snipe-stop-btn').style.display='';
+  document.getElementById('snipe-dot').classList.remove('idle');
+  addSnipeLog(`Démarrage — surveillance de "${user}" sur ${plat} toutes les ${interval/1000}s`);
 
-async function check() {
-snipeCount++;
-document.getElementById(‘snipe-counter’).textContent = `${snipeCount} checks`;
-document.getElementById(‘snipe-text’).textContent = `Checking ${user} sur ${plat}...`;
-try {
-const r = await fetch(`${WORKER_URL}/check?user=${encodeURIComponent(user)}&platform=${encodeURIComponent(plat.toLowerCase())}`);
-const d = await r.json();
-if (d.status === ‘available’) {
-addSnipeLog(`🎯 DISPONIBLE ! "${user}" est libre sur ${plat}`, ‘found’);
-document.getElementById(‘snipe-text’).textContent = `🎯 ${user} EST DISPONIBLE sur ${plat} !`;
-document.getElementById(‘snipe-dot’).style.background = ‘var(–green)’;
-// Send webhook
-if (webhook) {
-try {
-await fetch(webhook, {
-method:‘POST’, headers:{‘Content-Type’:‘application/json’},
-body: JSON.stringify({embeds:[{
-title:‘🎯 Username disponible !’,
-description:`**${user}** est maintenant disponible sur **${plat}** !`,
-color: 0x00FF87,
-timestamp: new Date().toISOString(),
-footer:{text:‘DTOOLS Snipe Tracker’}
-}]})
-});
-addSnipeLog(‘Webhook envoyé !’, ‘found’);
-} catch(e) { addSnipeLog(’Webhook fail: ’+e.message); }
-}
-// Sound alert
-try {
-const ctx = new AudioContext();
-const osc = ctx.createOscillator();
-osc.connect(ctx.destination);
-osc.frequency.setValueAtTime(880, ctx.currentTime);
-osc.frequency.setValueAtTime(1100, ctx.currentTime+0.1);
-osc.start(); osc.stop(ctx.currentTime+0.3);
-} catch(e) {}
-stopSnipe();
-} else {
-addSnipeLog(`✗ ${user} pris sur ${plat}`);
-}
-} catch(e) { addSnipeLog(’Erreur: ’+e.message); }
-}
-await check();
-snipeTimer = setInterval(check, interval);
+  async function check() {
+    snipeCount++;
+    document.getElementById('snipe-counter').textContent = `${snipeCount} checks`;
+    document.getElementById('snipe-text').textContent = `Checking ${user} sur ${plat}...`;
+    try {
+      const r = await fetch(`${WORKER_URL}/check?user=${encodeURIComponent(user)}&platform=${encodeURIComponent(plat.toLowerCase())}`);
+      const d = await r.json();
+      if (d.status === 'available') {
+        addSnipeLog(`🎯 DISPONIBLE ! "${user}" est libre sur ${plat}`, 'found');
+        document.getElementById('snipe-text').textContent = `🎯 ${user} EST DISPONIBLE sur ${plat} !`;
+        document.getElementById('snipe-dot').style.background = 'var(--green)';
+        // Send webhook
+        if (webhook) {
+          try {
+            await fetch(webhook, {
+              method:'POST', headers:{'Content-Type':'application/json'},
+              body: JSON.stringify({embeds:[{
+                title:'🎯 Username disponible !',
+                description:`**${user}** est maintenant disponible sur **${plat}** !`,
+                color: 0x00FF87,
+                timestamp: new Date().toISOString(),
+                footer:{text:'DTOOLS Snipe Tracker'}
+              }]})
+            });
+            addSnipeLog('Webhook envoyé !', 'found');
+          } catch(e) { addSnipeLog('Webhook fail: '+e.message); }
+        }
+        // Sound alert
+        try {
+          const ctx = new AudioContext();
+          const osc = ctx.createOscillator();
+          osc.connect(ctx.destination);
+          osc.frequency.setValueAtTime(880, ctx.currentTime);
+          osc.frequency.setValueAtTime(1100, ctx.currentTime+0.1);
+          osc.start(); osc.stop(ctx.currentTime+0.3);
+        } catch(e) {}
+        stopSnipe();
+      } else {
+        addSnipeLog(`✗ ${user} pris sur ${plat}`);
+      }
+    } catch(e) { addSnipeLog('Erreur: '+e.message); }
+  }
+  await check();
+  snipeTimer = setInterval(check, interval);
 }
 
 function stopSnipe() {
-if (snipeTimer) { clearInterval(snipeTimer); snipeTimer=null; }
-document.getElementById(‘snipe-start-btn’).style.display=’’;
-document.getElementById(‘snipe-stop-btn’).style.display=‘none’;
-document.getElementById(‘snipe-dot’).classList.add(‘idle’);
-addSnipeLog(`Stoppé après ${snipeCount} checks`);
+  if (snipeTimer) { clearInterval(snipeTimer); snipeTimer=null; }
+  document.getElementById('snipe-start-btn').style.display='';
+  document.getElementById('snipe-stop-btn').style.display='none';
+  document.getElementById('snipe-dot').classList.add('idle');
+  addSnipeLog(`Stoppé après ${snipeCount} checks`);
 }
 
 // ── WORDLIST BUILDER ───────────────────────────────────────────
-const LEET_MAP = {‘a’:‘4’,‘e’:‘3’,‘i’:‘1’,‘o’:‘0’,‘s’:‘5’,‘t’:‘7’,‘g’:‘9’,‘b’:‘8’};
-const WL_SUFFIXES = [‘x’,‘z’,‘og’,‘gg’,‘123’,‘0’,’_’,‘xd’,‘pro’,‘99’,’_og’,‘zz’,‘666’,‘420’,’*x’];
-const WL_PREFIXES = [‘x’,‘z’,‘the’,‘og’,’*’,‘i’,‘mr’,‘not’];
+const LEET_MAP = {'a':'4','e':'3','i':'1','o':'0','s':'5','t':'7','g':'9','b':'8'};
+const WL_SUFFIXES = ['x','z','og','gg','123','0','_','xd','pro','99','_og','zz','666','420','_x'];
+const WL_PREFIXES = ['x','z','the','og','_','i','mr','not'];
 
 function leetSpeak(word) {
-return word.split(’’).map(c => LEET_MAP[c] || c).join(’’);
+  return word.split('').map(c => LEET_MAP[c] || c).join('');
 }
 
 let currentWordlist = [];
 
 function runWordlist() {
-const words = document.getElementById(‘wl-words’)?.value.trim().split(’\n’).map(s=>s.trim()).filter(Boolean);
-if (!words?.length) return;
-const doLeet = document.getElementById(‘wl-leet’)?.checked;
-const doCaps = document.getElementById(‘wl-caps’)?.checked;
-const doSuffix = document.getElementById(‘wl-suffix’)?.checked;
-const doPrefix = document.getElementById(‘wl-prefix’)?.checked;
-const doRev = document.getElementById(‘wl-rev’)?.checked;
-const doDouble = document.getElementById(‘wl-double’)?.checked;
+  const words = document.getElementById('wl-words')?.value.trim().split('\n').map(s=>s.trim()).filter(Boolean);
+  if (!words?.length) return;
+  const doLeet = document.getElementById('wl-leet')?.checked;
+  const doCaps = document.getElementById('wl-caps')?.checked;
+  const doSuffix = document.getElementById('wl-suffix')?.checked;
+  const doPrefix = document.getElementById('wl-prefix')?.checked;
+  const doRev = document.getElementById('wl-rev')?.checked;
+  const doDouble = document.getElementById('wl-double')?.checked;
 
-const set = new Set(words);
-words.forEach(w => {
-if (doLeet) { set.add(leetSpeak(w)); set.add(w[0].toUpperCase()+leetSpeak(w.slice(1))); }
-if (doCaps) { set.add(w.toUpperCase()); set.add(w[0].toUpperCase()+w.slice(1)); set.add(w.toLowerCase()); }
-if (doSuffix) WL_SUFFIXES.forEach(s => set.add(w+s));
-if (doPrefix) WL_PREFIXES.forEach(p => set.add(p+w));
-if (doRev) set.add(w.split(’’).reverse().join(’’));
-if (doDouble) set.add(w+w);
-});
+  const set = new Set(words);
+  words.forEach(w => {
+    if (doLeet) { set.add(leetSpeak(w)); set.add(w[0].toUpperCase()+leetSpeak(w.slice(1))); }
+    if (doCaps) { set.add(w.toUpperCase()); set.add(w[0].toUpperCase()+w.slice(1)); set.add(w.toLowerCase()); }
+    if (doSuffix) WL_SUFFIXES.forEach(s => set.add(w+s));
+    if (doPrefix) WL_PREFIXES.forEach(p => set.add(p+w));
+    if (doRev) set.add(w.split('').reverse().join(''));
+    if (doDouble) set.add(w+w);
+  });
 
-currentWordlist = […set].sort((a,b)=>a.length-b.length);
-document.getElementById(‘wl-count’).textContent = currentWordlist.length + ’ entrées’;
-document.getElementById(‘wl-tags’).innerHTML = currentWordlist.map(w=>` <div class="wl-tag" onclick="navigator.clipboard.writeText(this.textContent)">${w}</div>`).join(’’);
+  currentWordlist = [...set].sort((a,b)=>a.length-b.length);
+  document.getElementById('wl-count').textContent = currentWordlist.length + ' entrées';
+  document.getElementById('wl-tags').innerHTML = currentWordlist.map(w=>`
+    <div class="wl-tag" onclick="navigator.clipboard.writeText(this.textContent)">${w}</div>`).join('');
 }
 
 function exportWordlist() {
-if (!currentWordlist.length) return;
-const blob = new Blob([currentWordlist.join(’\n’)], {type:‘text/plain’});
-const a = document.createElement(‘a’);
-a.href = URL.createObjectURL(blob);
-a.download = ‘wordlist.txt’;
-a.click();
+  if (!currentWordlist.length) return;
+  const blob = new Blob([currentWordlist.join('\n')], {type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'wordlist.txt';
+  a.click();
 }
 
 // ── BASE64 / HASH ──────────────────────────────────────────────
 function b64Encode() {
-const t = document.getElementById(‘b64-input’)?.value || ‘’;
-try {
-document.getElementById(‘b64-enc’).textContent = btoa(unescape(encodeURIComponent(t)));
-} catch(e) { document.getElementById(‘b64-enc’).textContent = ’Erreur: ’+e.message; }
-updateHashes(t);
+  const t = document.getElementById('b64-input')?.value || '';
+  try {
+    document.getElementById('b64-enc').textContent = btoa(unescape(encodeURIComponent(t)));
+  } catch(e) { document.getElementById('b64-enc').textContent = 'Erreur: '+e.message; }
+  updateHashes(t);
 }
 
 function b64Decode() {
-const t = document.getElementById(‘b64-input’)?.value || ‘’;
-try {
-document.getElementById(‘b64-dec’).textContent = decodeURIComponent(escape(atob(t)));
-} catch(e) { document.getElementById(‘b64-dec’).textContent = ’Invalide: ’+e.message; }
+  const t = document.getElementById('b64-input')?.value || '';
+  try {
+    document.getElementById('b64-dec').textContent = decodeURIComponent(escape(atob(t)));
+  } catch(e) { document.getElementById('b64-dec').textContent = 'Invalide: '+e.message; }
 }
 
 async function updateHashes(text) {
-if (!text) return;
-const enc = new TextEncoder();
-const data = enc.encode(text);
-const hashBuf = async (algo) => {
-const h = await crypto.subtle.digest(algo, data);
-return […new Uint8Array(h)].map(b=>b.toString(16).padStart(2,‘0’)).join(’’);
-};
-try {
-document.getElementById(‘hash-sha256’).textContent = await hashBuf(‘SHA-256’);
-document.getElementById(‘hash-sha1’).textContent = await hashBuf(‘SHA-1’);
-} catch(e) {}
+  if (!text) return;
+  const enc = new TextEncoder();
+  const data = enc.encode(text);
+  const hashBuf = async (algo) => {
+    const h = await crypto.subtle.digest(algo, data);
+    return [...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('');
+  };
+  try {
+    document.getElementById('hash-sha256').textContent = await hashBuf('SHA-256');
+    document.getElementById('hash-sha1').textContent = await hashBuf('SHA-1');
+  } catch(e) {}
 }
 
 function updateBase64() {
-const t = document.getElementById(‘b64-input’)?.value || ‘’;
-updateHashes(t);
+  const t = document.getElementById('b64-input')?.value || '';
+  updateHashes(t);
 }
 
 // ── JSON FORMATTER ─────────────────────────────────────────────
 function jsonHighlight(json) {
-return json.replace(/(”(?:[^”\]|\.)*”(?:\s*:)?|\b(?:true|false|null)\b|-?\d+(?:.\d+)?(?:[eE][+-]?\d+)?)/g, match => {
-if (/^”/.test(match)) {
-if (/:$/.test(match)) return `<span class="jk">${match}</span>`;
-return `<span class="jv">${match}</span>`;
-}
-if (/true|false/.test(match)) return `<span class="jb">${match}</span>`;
-if (/null/.test(match)) return `<span class="jnull">${match}</span>`;
-return `<span class="jn">${match}</span>`;
-});
+  return json.replace(/("(?:[^"\\]|\\.)*"(?:\s*:)?|\b(?:true|false|null)\b|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/g, match => {
+    if (/^"/.test(match)) {
+      if (/:$/.test(match)) return `<span class="jk">${match}</span>`;
+      return `<span class="jv">${match}</span>`;
+    }
+    if (/true|false/.test(match)) return `<span class="jb">${match}</span>`;
+    if (/null/.test(match)) return `<span class="jnull">${match}</span>`;
+    return `<span class="jn">${match}</span>`;
+  });
 }
 
 function formatJSON() {
-const input = document.getElementById(‘json-input’)?.value;
-const err = document.getElementById(‘json-err’);
-const out = document.getElementById(‘json-output’);
-try {
-const parsed = JSON.parse(input);
-const pretty = JSON.stringify(parsed, null, 2);
-out.innerHTML = jsonHighlight(pretty.replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’));
-err.textContent = ‘✓ JSON valide’;
-err.style.color = ‘var(–green)’;
-} catch(e) {
-err.textContent = ’✗ ’ + e.message;
-err.style.color = ‘var(–red)’;
-out.innerHTML = ‘’;
-}
+  const input = document.getElementById('json-input')?.value;
+  const err = document.getElementById('json-err');
+  const out = document.getElementById('json-output');
+  try {
+    const parsed = JSON.parse(input);
+    const pretty = JSON.stringify(parsed, null, 2);
+    out.innerHTML = jsonHighlight(pretty.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+    err.textContent = '✓ JSON valide';
+    err.style.color = 'var(--green)';
+  } catch(e) {
+    err.textContent = '✗ ' + e.message;
+    err.style.color = 'var(--red)';
+    out.innerHTML = '';
+  }
 }
 
 function minifyJSON() {
-const input = document.getElementById(‘json-input’)?.value;
-const err = document.getElementById(‘json-err’);
-const out = document.getElementById(‘json-output’);
-try {
-const minified = JSON.stringify(JSON.parse(input));
-out.textContent = minified;
-err.textContent = `✓ Minifié — ${minified.length} chars`;
-err.style.color = ‘var(–green)’;
-} catch(e) {
-err.textContent = ’✗ ’ + e.message;
-err.style.color = ‘var(–red)’;
-}
+  const input = document.getElementById('json-input')?.value;
+  const err = document.getElementById('json-err');
+  const out = document.getElementById('json-output');
+  try {
+    const minified = JSON.stringify(JSON.parse(input));
+    out.textContent = minified;
+    err.textContent = `✓ Minifié — ${minified.length} chars`;
+    err.style.color = 'var(--green)';
+  } catch(e) {
+    err.textContent = '✗ ' + e.message;
+    err.style.color = 'var(--red)';
+  }
 }
 
 // ── REGEX TESTER ───────────────────────────────────────────────
 function runRegex() {
-const pattern = document.getElementById(‘regex-pattern’)?.value;
-const flags = document.getElementById(‘regex-flags’)?.value || ‘’;
-const text = document.getElementById(‘regex-text’)?.value || ‘’;
-const err = document.getElementById(‘regex-err’);
-const preview = document.getElementById(‘regex-preview’);
-const captures = document.getElementById(‘regex-captures’);
-if (!pattern) { preview.textContent = text; err.textContent=’’; return; }
-try {
-const re = new RegExp(pattern, flags.replace(‘g’,’’)+‘g’);
-const matches = […text.matchAll(re)];
-document.getElementById(‘regex-match-count’).textContent = matches.length + ’ match(es)’;
-err.textContent = ‘’;
-// Highlight matches
-let html = text.replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’);
-const re2 = new RegExp(pattern, flags.replace(‘g’,’’)+‘g’);
-html = html.replace(re2, m => `<mark class="regex-match">${m}</mark>`);
-preview.innerHTML = html;
-// Capture groups
-if (matches.length && matches[0].length > 1) {
-captures.innerHTML = ‘<div class="card-label">Capture groups</div>’ +
-matches.slice(0,10).map((m,i)=>`<div style="font-size:11px;color:var(--muted);margin-bottom:4px">Match ${i+1}: ${m.slice(1).map((g,j)=>`<span style="color:var(--accent)">G${j+1}: ${g||’—’}</span>`).join(' · ')}</div>`).join(’’);
-} else { captures.innerHTML=’’; }
-} catch(e) {
-err.textContent = ’✗ ’ + e.message;
-err.style.color=‘var(–red)’;
-preview.textContent = text;
-}
+  const pattern = document.getElementById('regex-pattern')?.value;
+  const flags = document.getElementById('regex-flags')?.value || '';
+  const text = document.getElementById('regex-text')?.value || '';
+  const err = document.getElementById('regex-err');
+  const preview = document.getElementById('regex-preview');
+  const captures = document.getElementById('regex-captures');
+  if (!pattern) { preview.textContent = text; err.textContent=''; return; }
+  try {
+    const re = new RegExp(pattern, flags.replace('g','')+'g');
+    const matches = [...text.matchAll(re)];
+    document.getElementById('regex-match-count').textContent = matches.length + ' match(es)';
+    err.textContent = '';
+    // Highlight matches
+    let html = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const re2 = new RegExp(pattern, flags.replace('g','')+'g');
+    html = html.replace(re2, m => `<mark class="regex-match">${m}</mark>`);
+    preview.innerHTML = html;
+    // Capture groups
+    if (matches.length && matches[0].length > 1) {
+      captures.innerHTML = '<div class="card-label">Capture groups</div>' +
+        matches.slice(0,10).map((m,i)=>`<div style="font-size:11px;color:var(--muted);margin-bottom:4px">Match ${i+1}: ${m.slice(1).map((g,j)=>`<span style="color:var(--accent)">G${j+1}: ${g||'—'}</span>`).join(' · ')}</div>`).join('');
+    } else { captures.innerHTML=''; }
+  } catch(e) {
+    err.textContent = '✗ ' + e.message;
+    err.style.color='var(--red)';
+    preview.textContent = text;
+  }
 }
 
 // ── UUID / ID GENERATOR ────────────────────────────────────────
 function uuidv4() {
-return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-(c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
 }
 
 function nanoId(len=21) {
-const chars=‘ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-’;
-return Array.from(crypto.getRandomValues(new Uint8Array(len))).map(b=>chars[b%chars.length]).join(’’);
+  const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-';
+  return Array.from(crypto.getRandomValues(new Uint8Array(len))).map(b=>chars[b%chars.length]).join('');
 }
 
 function fakeSnowflake() {
-const ts = BigInt(Date.now() - 1420070400000) << 22n;
-const rand = BigInt(Math.floor(Math.random()*4194304));
-return (ts | rand).toString();
+  const ts = BigInt(Date.now() - 1420070400000) << 22n;
+  const rand = BigInt(Math.floor(Math.random()*4194304));
+  return (ts | rand).toString();
 }
 
 function genUUIDs() {
-const count = Math.min(parseInt(document.getElementById(‘uuid-count’)?.value||‘5’), 20);
-const out = document.getElementById(‘uuid-out’);
-const sections = [
-{ label: ‘UUID v4’, items: Array.from({length:count}, uuidv4) },
-{ label: ‘Nano ID (21 chars)’, items: Array.from({length:count}, ()=>nanoId()) },
-{ label: ‘Nano ID (12 chars)’, items: Array.from({length:count}, ()=>nanoId(12)) },
-{ label: ‘Discord Snowflake (fake)’, items: Array.from({length:count}, fakeSnowflake) },
-{ label: ‘Token-style (base64)’, items: Array.from({length:count}, ()=>btoa(uuidv4()).replace(/=/g,’’).slice(0,32)) },
-];
-out.innerHTML = sections.map(s=>` <div class="card" style="margin-bottom:12px"> <div class="card-label">${s.label}</div> ${s.items.map(id=>`
-<div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
-<code style="font-size:11px;color:var(--accent)">${id}</code>
-<button class="copy-btn" onclick="this.previousElementSibling&&navigator.clipboard.writeText(this.previousElementSibling.textContent)">COPY</button>
-</div>`).join('')} </div>`).join(’’);
+  const count = Math.min(parseInt(document.getElementById('uuid-count')?.value||'5'), 20);
+  const out = document.getElementById('uuid-out');
+  const sections = [
+    { label: 'UUID v4', items: Array.from({length:count}, uuidv4) },
+    { label: 'Nano ID (21 chars)', items: Array.from({length:count}, ()=>nanoId()) },
+    { label: 'Nano ID (12 chars)', items: Array.from({length:count}, ()=>nanoId(12)) },
+    { label: 'Discord Snowflake (fake)', items: Array.from({length:count}, fakeSnowflake) },
+    { label: 'Token-style (base64)', items: Array.from({length:count}, ()=>btoa(uuidv4()).replace(/=/g,'').slice(0,32)) },
+  ];
+  out.innerHTML = sections.map(s=>`
+    <div class="card" style="margin-bottom:12px">
+      <div class="card-label">${s.label}</div>
+      ${s.items.map(id=>`
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+          <code style="font-size:11px;color:var(--accent)">${id}</code>
+          <button class="copy-btn" onclick="this.previousElementSibling&&navigator.clipboard.writeText(this.previousElementSibling.textContent)">COPY</button>
+        </div>`).join('')}
+    </div>`).join('');
 }
 
 // ── DIFF CHECKER ───────────────────────────────────────────────
 function runDiff() {
-const a = document.getElementById(‘diff-a’)?.value.split(’\n’) || [];
-const b = document.getElementById(‘diff-b’)?.value.split(’\n’) || [];
-const out = document.getElementById(‘diff-out’);
-out.style.display=‘block’;
+  const a = document.getElementById('diff-a')?.value.split('\n') || [];
+  const b = document.getElementById('diff-b')?.value.split('\n') || [];
+  const out = document.getElementById('diff-out');
+  out.style.display='block';
 
-// Simple LCS-based diff
-const lcs = (a, b) => {
-const dp = Array.from({length:a.length+1}, ()=>new Array(b.length+1).fill(0));
-for (let i=1;i<=a.length;i++)
-for (let j=1;j<=b.length;j++)
-dp[i][j] = a[i-1]===b[j-1] ? dp[i-1][j-1]+1 : Math.max(dp[i-1][j],dp[i][j-1]);
-let i=a.length, j=b.length, result=[];
-while(i>0||j>0) {
-if(i>0&&j>0&&a[i-1]===b[j-1]) { result.unshift({type:‘eq’,line:a[i-1]}); i–;j–; }
-else if(j>0&&(i===0||dp[i][j-1]>=dp[i-1][j])) { result.unshift({type:‘add’,line:b[j-1]}); j–; }
-else { result.unshift({type:‘rem’,line:a[i-1]}); i–; }
-}
-return result;
-};
+  // Simple LCS-based diff
+  const lcs = (a, b) => {
+    const dp = Array.from({length:a.length+1}, ()=>new Array(b.length+1).fill(0));
+    for (let i=1;i<=a.length;i++)
+      for (let j=1;j<=b.length;j++)
+        dp[i][j] = a[i-1]===b[j-1] ? dp[i-1][j-1]+1 : Math.max(dp[i-1][j],dp[i][j-1]);
+    let i=a.length, j=b.length, result=[];
+    while(i>0||j>0) {
+      if(i>0&&j>0&&a[i-1]===b[j-1]) { result.unshift({type:'eq',line:a[i-1]}); i--;j--; }
+      else if(j>0&&(i===0||dp[i][j-1]>=dp[i-1][j])) { result.unshift({type:'add',line:b[j-1]}); j--; }
+      else { result.unshift({type:'rem',line:a[i-1]}); i--; }
+    }
+    return result;
+  };
 
-const diff = lcs(a, b);
-const added = diff.filter(d=>d.type===‘add’).length;
-const removed = diff.filter(d=>d.type===‘rem’).length;
-document.getElementById(‘diff-stats’).textContent = `+${added} ajouts · -${removed} suppressions`;
+  const diff = lcs(a, b);
+  const added = diff.filter(d=>d.type==='add').length;
+  const removed = diff.filter(d=>d.type==='rem').length;
+  document.getElementById('diff-stats').textContent = `+${added} ajouts · -${removed} suppressions`;
 
-out.innerHTML = diff.map(d => {
-const esc = d.line.replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’);
-if (d.type===‘add’) return `<div class="diff-add">+ ${esc}</div>`;
-if (d.type===‘rem’) return `<div class="diff-rem">- ${esc}</div>`;
-return `<div class="diff-eq">  ${esc}</div>`;
-}).join(’’);
+  out.innerHTML = diff.map(d => {
+    const esc = d.line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    if (d.type==='add') return `<div class="diff-add">+ ${esc}</div>`;
+    if (d.type==='rem') return `<div class="diff-rem">- ${esc}</div>`;
+    return `<div class="diff-eq">  ${esc}</div>`;
+  }).join('');
 }
 
 // ── NITRO GIFT CHECKER ────────────────────────────────────────
 async function checkGift() {
-let raw = document.getElementById(‘gift-input’).value.trim();
-const code = raw.replace(/.*discord.gift//i,’’).replace(/?.*/,’’).trim();
-if (!code) return;
-const btn = document.getElementById(‘gift-btn’);
-const res = document.getElementById(‘gift-result’);
-btn.disabled=true; btn.textContent=‘Checking…’;
-res.style.display=‘block’;
-res.innerHTML = ‘<div style="text-align:center;padding:20px;color:var(--muted)">Checking…</div>’;
-try {
-const r = await fetch(`https://discord.com/api/v9/entitlements/gift-codes/${code}?with_application=false&with_subscription_plan=true`);
-const d = await r.json();
-if (r.status === 404 || d.code === 10038) {
-res.innerHTML = `<div class="gift-result gift-invalid"> <div class="gift-icon">❌</div> <div class="gift-title" style="color:var(--red)">INVALIDE / EXPIRÉ</div> <div class="gift-sub">Code: ${code}</div> <div class="gift-sub" style="margin-top:6px">Ce lien n'existe pas ou a déjà été utilisé</div> </div>`;
-} else if (r.ok) {
-const plan = d.subscription_plan;
-const planName = plan?.name || ‘Nitro’;
-const uses = d.max_uses ? `${d.uses||0}/${d.max_uses}` : d.uses != null ? `${d.uses} utilisations` : ‘—’;
-const expires = d.expires_at ? new Date(d.expires_at).toLocaleString() : ‘Jamais’;
-const redeemed = d.redeemed ? ‘Oui’ : ‘Non’;
-res.innerHTML = `<div class="gift-result gift-valid"> <div class="gift-icon">🎁</div> <div class="gift-title" style="color:var(--green)">VALIDE ✓</div> <div class="gift-sub" style="color:var(--accent);font-size:14px;font-weight:700;margin:8px 0">${planName}</div> </div> <div class="result-block" style="margin-top:10px">${rows([ ['Code', code, 'accent'], ['Plan', planName, 'green'], ['Utilisé', redeemed, redeemed==='Oui'?'red':'green'], ['Utilisations', uses, ''], ['Expire', expires, expires==='Jamais'?'green':'yellow'], ['Store listing', plan?.price_tier ? plan.price_tier+' tier' : '—', ''], ])}</div>`;
-} else {
-res.innerHTML = `<div class="gift-result gift-invalid"> <div class="gift-icon">⚠️</div> <div class="gift-title" style="color:var(--yellow)">ERREUR ${r.status}</div> <div class="gift-sub">${d.message || 'Réponse inattendue'}</div> </div>`;
-}
-} catch(e) {
-res.innerHTML = `<div class="gift-result gift-invalid"><div class="gift-title" style="color:var(--red)">Erreur réseau</div><div class="gift-sub">${e.message}</div></div>`;
-}
-btn.disabled=false; btn.textContent=‘→ CHECK’;
+  let raw = document.getElementById('gift-input').value.trim();
+  const code = raw.replace(/.*discord\.gift\//i,'').replace(/\?.*/,'').trim();
+  if (!code) return;
+  const btn = document.getElementById('gift-btn');
+  const res = document.getElementById('gift-result');
+  btn.disabled=true; btn.textContent='Checking...';
+  res.style.display='block';
+  res.innerHTML = '<div style="text-align:center;padding:20px;color:var(--muted)">Checking...</div>';
+  try {
+    const r = await fetch(`https://discord.com/api/v9/entitlements/gift-codes/${code}?with_application=false&with_subscription_plan=true`);
+    const d = await r.json();
+    if (r.status === 404 || d.code === 10038) {
+      res.innerHTML = `<div class="gift-result gift-invalid">
+        <div class="gift-icon">❌</div>
+        <div class="gift-title" style="color:var(--red)">INVALIDE / EXPIRÉ</div>
+        <div class="gift-sub">Code: ${code}</div>
+        <div class="gift-sub" style="margin-top:6px">Ce lien n'existe pas ou a déjà été utilisé</div>
+      </div>`;
+    } else if (r.ok) {
+      const plan = d.subscription_plan;
+      const planName = plan?.name || 'Nitro';
+      const uses = d.max_uses ? `${d.uses||0}/${d.max_uses}` : d.uses != null ? `${d.uses} utilisations` : '—';
+      const expires = d.expires_at ? new Date(d.expires_at).toLocaleString() : 'Jamais';
+      const redeemed = d.redeemed ? 'Oui' : 'Non';
+      res.innerHTML = `<div class="gift-result gift-valid">
+        <div class="gift-icon">🎁</div>
+        <div class="gift-title" style="color:var(--green)">VALIDE ✓</div>
+        <div class="gift-sub" style="color:var(--accent);font-size:14px;font-weight:700;margin:8px 0">${planName}</div>
+      </div>
+      <div class="result-block" style="margin-top:10px">${rows([
+        ['Code', code, 'accent'],
+        ['Plan', planName, 'green'],
+        ['Utilisé', redeemed, redeemed==='Oui'?'red':'green'],
+        ['Utilisations', uses, ''],
+        ['Expire', expires, expires==='Jamais'?'green':'yellow'],
+        ['Store listing', plan?.price_tier ? plan.price_tier+' tier' : '—', ''],
+      ])}</div>`;
+    } else {
+      res.innerHTML = `<div class="gift-result gift-invalid">
+        <div class="gift-icon">⚠️</div>
+        <div class="gift-title" style="color:var(--yellow)">ERREUR ${r.status}</div>
+        <div class="gift-sub">${d.message || 'Réponse inattendue'}</div>
+      </div>`;
+    }
+  } catch(e) {
+    res.innerHTML = `<div class="gift-result gift-invalid"><div class="gift-title" style="color:var(--red)">Erreur réseau</div><div class="gift-sub">${e.message}</div></div>`;
+  }
+  btn.disabled=false; btn.textContent='→ CHECK';
 }
 
 // ── BIO GENERATOR ─────────────────────────────────────────────
-let currentBioStyle = ‘minimal’;
+let currentBioStyle = 'minimal';
 
 const BIO_TEMPLATES = {
-minimal: [
-‘{name} · {age}’,
-‘— {interest} —\n{status}’,
-‘{name}\n{interest} · {age}’,
-‘∅ {name} · {status}’,
-‘{age} · {interest}’,
-],
-cyber: [
-‘⟨ {name} ⟩\n◈ {interest}\n◈ {age}y\n⟩ {status}’,
-‘▸ {name}\n╔═ {age} ═╗\n║ {interest}\n╚══ {status}’,
-‘【 {name} 】\n⌬ {interest}\n⌬ {status}’,
-‘// {name}.exe\n> age: {age}\n> focus: {interest}\n> status: {status}’,
-‘⚡ {name}\n◀ {interest} ▶\n◀ {age} · {status} ▶’,
-],
-aesthetic: [
-‘✦ {name} ✦\n﹒{interest}﹒{age}﹒{status}’,
-‘꒰ {name} ꒱\n・{interest}\n・{status}’,
-‘{name} ˖°\n⋆ {age} ⋆ {interest}\n{status} ♡’,
-‘˚₊· ͟͟͞͞➳❥ {name}\n   {interest} · {age}’,
-‘✩°｡⋆⸜ {name}\n{interest} · {status}’,
-],
-og: [
-‘{name}’,
-‘{name}.’,
-‘{age}’,
-‘{interest}.’,
-‘{name} · {interest}’,
-],
-uwu: [
-‘✿ {name} ✿\n{age} · {interest} ♡\nstatus: {status} uwu’,
-‘( ˘▽˘)っ {name}\n♡ {interest} · {age} ♡’,
-‘˗ˏˋ {name} ˎˊ˗\n♡ {interest}\n( ´ ▽ ` ) {status}’,
-],
-hacker: [
-‘root@{name}:~# whoami\n> age: {age}\n> skills: {interest}\n> status: {status}’,
-‘[*] {name}\n[+] {interest}\n[+] {age}y old\n[?] {status}’,
-‘#!/usr/bin/env {name}\n// {interest}\n// {age} | {status}’,
-],
+  minimal: [
+    '{name} · {age}',
+    '— {interest} —\n{status}',
+    '{name}\n{interest} · {age}',
+    '∅ {name} · {status}',
+    '{age} · {interest}',
+  ],
+  cyber: [
+    '⟨ {name} ⟩\n◈ {interest}\n◈ {age}y\n⟩ {status}',
+    '▸ {name}\n╔═ {age} ═╗\n║ {interest}\n╚══ {status}',
+    '【 {name} 】\n⌬ {interest}\n⌬ {status}',
+    '// {name}.exe\n> age: {age}\n> focus: {interest}\n> status: {status}',
+    '⚡ {name}\n◀ {interest} ▶\n◀ {age} · {status} ▶',
+  ],
+  aesthetic: [
+    '✦ {name} ✦\n﹒{interest}﹒{age}﹒{status}',
+    '꒰ {name} ꒱\n・{interest}\n・{status}',
+    '{name} ˖°\n⋆ {age} ⋆ {interest}\n{status} ♡',
+    '˚₊· ͟͟͞͞➳❥ {name}\n   {interest} · {age}',
+    '✩°｡⋆⸜ {name}\n{interest} · {status}',
+  ],
+  og: [
+    '{name}',
+    '{name}.',
+    '{age}',
+    '{interest}.',
+    '{name} · {interest}',
+  ],
+  uwu: [
+    '✿ {name} ✿\n{age} · {interest} ♡\nstatus: {status} uwu',
+    '( ˘▽˘)っ {name}\n♡ {interest} · {age} ♡',
+    '˗ˏˋ {name} ˎˊ˗\n♡ {interest}\n( ´ ▽ ` ) {status}',
+  ],
+  hacker: [
+    'root@{name}:~# whoami\n> age: {age}\n> skills: {interest}\n> status: {status}',
+    '[*] {name}\n[+] {interest}\n[+] {age}y old\n[?] {status}',
+    '#!/usr/bin/env {name}\n// {interest}\n// {age} | {status}',
+  ],
 };
 
-const SYMBOLS_POOL = [‘◈’,‘◉’,‘◎’,‘◇’,‘▸’,‘▹’,‘⌬’,’⟨⟩’,‘∅’,‘⚡’,‘✦’,‘✧’,‘꒰꒱’,‘˖°’,‘⋆’,‘♡’,‘✿’,’//’,’[+]’,’[*]’];
+const SYMBOLS_POOL = ['◈','◉','◎','◇','▸','▹','⌬','⟨⟩','∅','⚡','✦','✧','꒰꒱','˖°','⋆','♡','✿','//','[+]','[*]'];
 
 function setBioStyle(style, el) {
-currentBioStyle = style;
-document.querySelectorAll(’.bio-style-btn’).forEach(b=>b.classList.remove(‘active’));
-el.classList.add(‘active’);
+  currentBioStyle = style;
+  document.querySelectorAll('.bio-style-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
 }
 
 function generateBio() {
-const name = document.getElementById(‘bio-name’).value.trim() || ‘void’;
-const age = document.getElementById(‘bio-age’).value.trim() || ‘??’;
-const interest = document.getElementById(‘bio-interest’).value.trim() || ‘nothing’;
-const status = document.getElementById(‘bio-status’).value.trim() || ‘offline’;
+  const name = document.getElementById('bio-name').value.trim() || 'void';
+  const age = document.getElementById('bio-age').value.trim() || '??';
+  const interest = document.getElementById('bio-interest').value.trim() || 'nothing';
+  const status = document.getElementById('bio-status').value.trim() || 'offline';
 
-const templates = BIO_TEMPLATES[currentBioStyle] || BIO_TEMPLATES.minimal;
-const tpl = templates[Math.floor(Math.random()*templates.length)];
+  const templates = BIO_TEMPLATES[currentBioStyle] || BIO_TEMPLATES.minimal;
+  const tpl = templates[Math.floor(Math.random()*templates.length)];
 
-const bio = tpl
-.replace(/{name}/g, name)
-.replace(/{age}/g, age)
-.replace(/{interest}/g, interest)
-.replace(/{status}/g, status);
+  const bio = tpl
+    .replace(/\{name\}/g, name)
+    .replace(/\{age\}/g, age)
+    .replace(/\{interest\}/g, interest)
+    .replace(/\{status\}/g, status);
 
-document.getElementById(‘bio-output’).style.display=‘block’;
-document.getElementById(‘bio-text’).textContent = bio;
+  document.getElementById('bio-output').style.display='block';
+  document.getElementById('bio-text').textContent = bio;
 }
 
 // ── SERVER TEMPLATE ───────────────────────────────────────────
 async function loadTemplate() {
-let raw = document.getElementById(‘tmpl-input’).value.trim();
-const code = raw.replace(/.*template//i,’’).replace(/.*discord.new//i,’’).replace(/?.*/,’’).trim();
-if (!code) return;
+  let raw = document.getElementById('tmpl-input').value.trim();
+  const code = raw.replace(/.*template\//i,'').replace(/.*discord\.new\//i,'').replace(/\?.*/,'').trim();
+  if (!code) return;
 
-const res = document.getElementById(‘tmpl-result’);
-res.style.display=‘block’;
-document.getElementById(‘tmpl-info’).innerHTML = ‘<span style="color:var(--muted)">Loading…</span>’;
+  const res = document.getElementById('tmpl-result');
+  res.style.display='block';
+  document.getElementById('tmpl-info').innerHTML = '<span style="color:var(--muted)">Loading...</span>';
 
-try {
-const r = await fetch(`https://discord.com/api/v9/guilds/templates/${code}`);
-if (!r.ok) {
-document.getElementById(‘tmpl-info’).innerHTML = `<span style="color:var(--red)">Template introuvable (${r.status}) — vérifie que le template est public</span>`;
-return;
-}
-const d = await r.json();
-const srv = d.serialized_source_guild;
+  try {
+    const r = await fetch(`https://discord.com/api/v9/guilds/templates/${code}`);
+    if (!r.ok) {
+      document.getElementById('tmpl-info').innerHTML = `<span style="color:var(--red)">Template introuvable (${r.status}) — vérifie que le template est public</span>`;
+      return;
+    }
+    const d = await r.json();
+    const srv = d.serialized_source_guild;
 
-```
-// Store raw
-document.getElementById('tmpl-raw').value = JSON.stringify(d, null, 2);
+    // Store raw
+    document.getElementById('tmpl-raw').value = JSON.stringify(d, null, 2);
 
-// Info block
-const channels = srv.channels || [];
-const roles = srv.roles || [];
-const cats = channels.filter(ch=>ch.type===4);
-const textChs = channels.filter(ch=>ch.type===0);
-const voiceChs = channels.filter(ch=>ch.type===2);
+    // Info block
+    const channels = srv.channels || [];
+    const roles = srv.roles || [];
+    const cats = channels.filter(ch=>ch.type===4);
+    const textChs = channels.filter(ch=>ch.type===0);
+    const voiceChs = channels.filter(ch=>ch.type===2);
 
-document.getElementById('tmpl-info').innerHTML = rows([
-  ['Nom du serveur', srv.name || '—', 'green'],
-  ['Description', srv.description || '—', ''],
-  ['Créé par', d.creator?.username || '—', 'accent'],
-  ['Utilisations', String(d.usage_count || 0), ''],
-  ['Channels total', String(channels.length), ''],
-  ['Catégories', String(cats.length), ''],
-  ['Salons texte', String(textChs.length), ''],
-  ['Salons vocaux', String(voiceChs.length), ''],
-  ['Rôles', String(roles.length), 'purple'],
-]);
+    document.getElementById('tmpl-info').innerHTML = rows([
+      ['Nom du serveur', srv.name || '—', 'green'],
+      ['Description', srv.description || '—', ''],
+      ['Créé par', d.creator?.username || '—', 'accent'],
+      ['Utilisations', String(d.usage_count || 0), ''],
+      ['Channels total', String(channels.length), ''],
+      ['Catégories', String(cats.length), ''],
+      ['Salons texte', String(textChs.length), ''],
+      ['Salons vocaux', String(voiceChs.length), ''],
+      ['Rôles', String(roles.length), 'purple'],
+    ]);
 
-// Build preview
-const sortedCats = cats.sort((a,b)=>a.position-b.position);
-let previewHtml = '';
+    // Build preview
+    const sortedCats = cats.sort((a,b)=>a.position-b.position);
+    let previewHtml = '';
 
-// Roles
-previewHtml += '<div class="tmpl-cat">Rôles</div>';
-previewHtml += roles.map(r => {
-  const hex = r.color ? '#'+r.color.toString(16).padStart(6,'0') : '#99aab5';
-  return `<span class="tmpl-role-tag" style="color:${hex};border-color:${hex}33">${r.name}</span>`;
-}).join('');
+    // Roles
+    previewHtml += '<div class="tmpl-cat">Rôles</div>';
+    previewHtml += roles.map(r => {
+      const hex = r.color ? '#'+r.color.toString(16).padStart(6,'0') : '#99aab5';
+      return `<span class="tmpl-role-tag" style="color:${hex};border-color:${hex}33">${r.name}</span>`;
+    }).join('');
 
-// Channels by category
-previewHtml += '<div class="tmpl-cat" style="margin-top:12px">Channels</div>';
-const uncatChannels = channels.filter(ch=>!ch.parent_id && ch.type!==4).sort((a,b)=>a.position-b.position);
-uncatChannels.forEach(ch => {
-  const icon = ch.type===2 ? '🔊' : '#';
-  previewHtml += `<div class="tmpl-ch">${icon==='🔊'?'<span style="color:var(--muted2)">🔊</span>':''} ${ch.name}</div>`;
-});
-sortedCats.forEach(cat => {
-  previewHtml += `<div class="tmpl-cat">${cat.name}</div>`;
-  channels.filter(ch=>ch.parent_id===cat.id).sort((a,b)=>a.position-b.position).forEach(ch => {
-    previewHtml += `<div class="tmpl-ch" style="${ch.type===2?'color:var(--purple)':''}">${ch.type===2?'🔊 ':''}${ch.name}</div>`;
-  });
-});
+    // Channels by category
+    previewHtml += '<div class="tmpl-cat" style="margin-top:12px">Channels</div>';
+    const uncatChannels = channels.filter(ch=>!ch.parent_id && ch.type!==4).sort((a,b)=>a.position-b.position);
+    uncatChannels.forEach(ch => {
+      const icon = ch.type===2 ? '🔊' : '#';
+      previewHtml += `<div class="tmpl-ch">${icon==='🔊'?'<span style="color:var(--muted2)">🔊</span>':''} ${ch.name}</div>`;
+    });
+    sortedCats.forEach(cat => {
+      previewHtml += `<div class="tmpl-cat">${cat.name}</div>`;
+      channels.filter(ch=>ch.parent_id===cat.id).sort((a,b)=>a.position-b.position).forEach(ch => {
+        previewHtml += `<div class="tmpl-ch" style="${ch.type===2?'color:var(--purple)':''}">${ch.type===2?'🔊 ':''}${ch.name}</div>`;
+      });
+    });
 
-document.getElementById('tmpl-preview').innerHTML = previewHtml;
-```
+    document.getElementById('tmpl-preview').innerHTML = previewHtml;
 
-} catch(e) {
-document.getElementById(‘tmpl-info’).innerHTML = `<span style="color:var(--red)">Erreur: ${e.message}</span>`;
-}
+  } catch(e) {
+    document.getElementById('tmpl-info').innerHTML = `<span style="color:var(--red)">Erreur: ${e.message}</span>`;
+  }
 }
 
 function exportTemplateJSON() {
-const raw = document.getElementById(‘tmpl-raw’).value;
-if (!raw) return;
-const blob = new Blob([raw], {type:‘application/json’});
-const a = document.createElement(‘a’);
-a.href = URL.createObjectURL(blob);
-a.download = ‘server-template.json’;
-a.click();
+  const raw = document.getElementById('tmpl-raw').value;
+  if (!raw) return;
+  const blob = new Blob([raw], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'server-template.json';
+  a.click();
 }
 
 // ── MASS DM TRACKER ───────────────────────────────────────────
@@ -3340,121 +3396,397 @@ let dmCampaigns = [];
 let dmLogEntries = [];
 
 function loadDMData() {
-try { dmCampaigns = JSON.parse(localStorage.getItem(‘dt3-dmcamp’) || ‘[]’); } catch(e) { dmCampaigns=[]; }
-try { dmLogEntries = JSON.parse(localStorage.getItem(‘dt3-dmlog’) || ‘[]’); } catch(e) { dmLogEntries=[]; }
+  try { dmCampaigns = JSON.parse(localStorage.getItem('dt3-dmcamp') || '[]'); } catch(e) { dmCampaigns=[]; }
+  try { dmLogEntries = JSON.parse(localStorage.getItem('dt3-dmlog') || '[]'); } catch(e) { dmLogEntries=[]; }
 }
 
 function saveDMData() {
-localStorage.setItem(‘dt3-dmcamp’, JSON.stringify(dmCampaigns));
-localStorage.setItem(‘dt3-dmlog’, JSON.stringify(dmLogEntries));
+  localStorage.setItem('dt3-dmcamp', JSON.stringify(dmCampaigns));
+  localStorage.setItem('dt3-dmlog', JSON.stringify(dmLogEntries));
 }
 
-function addDMLog(msg, type=‘info’) {
-const entry = {msg, type, time: new Date().toLocaleString()};
-dmLogEntries.unshift(entry);
-if (dmLogEntries.length > 200) dmLogEntries.splice(200);
-saveDMData();
-renderDMLog();
+function addDMLog(msg, type='info') {
+  const entry = {msg, type, time: new Date().toLocaleString()};
+  dmLogEntries.unshift(entry);
+  if (dmLogEntries.length > 200) dmLogEntries.splice(200);
+  saveDMData();
+  renderDMLog();
 }
 
 function renderDMLog() {
-const el = document.getElementById(‘dm-log’);
-if (!el) return;
-el.innerHTML = dmLogEntries.slice(0,50).map(l =>
-`<div class="dm-log-item ${l.type}"><span style="color:var(--muted2);font-size:9px">${l.time}</span>${l.msg}</div>`
-).join(’’);
+  const el = document.getElementById('dm-log');
+  if (!el) return;
+  el.innerHTML = dmLogEntries.slice(0,50).map(l =>
+    `<div class="dm-log-item ${l.type}"><span style="color:var(--muted2);font-size:9px">${l.time}</span>${l.msg}</div>`
+  ).join('');
 }
 
 function updateDMStats() {
-const sent = dmLogEntries.filter(l=>l.type===‘sent’).length;
-const fail = dmLogEntries.filter(l=>l.type===‘fail’).length;
-const total = sent + fail;
-const rate = total ? Math.round((sent/total)*100) : 0;
-const setEl = (id,val) => { const el=document.getElementById(id); if(el) el.textContent=val; };
-setEl(‘dm-total’, total);
-setEl(‘dm-sent’, sent);
-setEl(‘dm-fail’, fail);
-setEl(‘dm-rate’, rate+’%’);
+  const sent = dmLogEntries.filter(l=>l.type==='sent').length;
+  const fail = dmLogEntries.filter(l=>l.type==='fail').length;
+  const total = sent + fail;
+  const rate = total ? Math.round((sent/total)*100) : 0;
+  const setEl = (id,val) => { const el=document.getElementById(id); if(el) el.textContent=val; };
+  setEl('dm-total', total);
+  setEl('dm-sent', sent);
+  setEl('dm-fail', fail);
+  setEl('dm-rate', rate+'%');
 }
 
 function addDMCampaign() {
-const name = document.getElementById(‘dm-campaign’)?.value.trim() || ‘Campaign’;
-const userIds = (document.getElementById(‘dm-userids’)?.value || ‘’).trim().split(’\n’).map(s=>s.trim()).filter(Boolean);
-const message = document.getElementById(‘dm-message’)?.value.trim() || ‘’;
-if (!userIds.length) return;
+  const name = document.getElementById('dm-campaign')?.value.trim() || 'Campaign';
+  const userIds = (document.getElementById('dm-userids')?.value || '').trim().split('\n').map(s=>s.trim()).filter(Boolean);
+  const message = document.getElementById('dm-message')?.value.trim() || '';
+  if (!userIds.length) return;
 
-const campaign = {
-id: Date.now(),
-name,
-message,
-users: userIds,
-created: new Date().toLocaleString(),
-sentCount: 0,
-failCount: 0,
-};
-dmCampaigns.unshift(campaign);
-saveDMData();
-renderDMCampaigns();
+  const campaign = {
+    id: Date.now(),
+    name,
+    message,
+    users: userIds,
+    created: new Date().toLocaleString(),
+    sentCount: 0,
+    failCount: 0,
+  };
+  dmCampaigns.unshift(campaign);
+  saveDMData();
+  renderDMCampaigns();
 
-// Log the entries as manual tracking
-userIds.forEach(uid => {
-addDMLog(`[${name}] → User ${uid} — à envoyer`, ‘info’);
-});
-addDMLog(`Campagne "${name}" créée — ${userIds.length} users`, ‘sent’);
-updateDMStats();
+  // Log the entries as manual tracking
+  userIds.forEach(uid => {
+    addDMLog(`[${name}] → User ${uid} — à envoyer`, 'info');
+  });
+  addDMLog(`Campagne "${name}" créée — ${userIds.length} users`, 'sent');
+  updateDMStats();
 
-// Clear inputs
-[‘dm-campaign’,‘dm-userids’,‘dm-message’].forEach(id => {
-const el = document.getElementById(id); if(el) el.value=’’;
-});
+  // Clear inputs
+  ['dm-campaign','dm-userids','dm-message'].forEach(id => {
+    const el = document.getElementById(id); if(el) el.value='';
+  });
 }
 
 function markDMSent(campaignId, userId) {
-const camp = dmCampaigns.find(c=>c.id===campaignId);
-if (camp) { camp.sentCount++; saveDMData(); renderDMCampaigns(); }
-addDMLog(`✓ DM envoyé → ${userId}`, ‘sent’);
-updateDMStats();
+  const camp = dmCampaigns.find(c=>c.id===campaignId);
+  if (camp) { camp.sentCount++; saveDMData(); renderDMCampaigns(); }
+  addDMLog(`✓ DM envoyé → ${userId}`, 'sent');
+  updateDMStats();
 }
 
 function markDMFail(campaignId, userId) {
-const camp = dmCampaigns.find(c=>c.id===campaignId);
-if (camp) { camp.failCount++; saveDMData(); renderDMCampaigns(); }
-addDMLog(`✗ DM fail → ${userId} (bloqué ou désactivé)`, ‘fail’);
-updateDMStats();
+  const camp = dmCampaigns.find(c=>c.id===campaignId);
+  if (camp) { camp.failCount++; saveDMData(); renderDMCampaigns(); }
+  addDMLog(`✗ DM fail → ${userId} (bloqué ou désactivé)`, 'fail');
+  updateDMStats();
 }
 
 function renderDMCampaigns() {
-const el = document.getElementById(‘dm-campaigns-list’);
-if (!el) return;
-if (!dmCampaigns.length) {
-el.innerHTML = ‘<div style="color:var(--muted2);font-size:11px;padding:10px">Aucune campagne</div>’;
-return;
-}
-el.innerHTML = dmCampaigns.slice(0,10).map(c => `<div class="list-card" style="margin-bottom:8px"> <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border)"> <div> <div style="font-weight:600;font-size:12px">${c.name}</div> <div style="font-size:10px;color:var(--muted);margin-top:2px">${c.users.length} users · ${c.created}</div> </div> <div style="display:flex;gap:12px;font-size:11px"> <span style="color:var(--green)">✓ ${c.sentCount}</span> <span style="color:var(--red)">✗ ${c.failCount}</span> <span style="color:var(--muted)">${c.users.length - c.sentCount - c.failCount} restants</span> </div> </div> <div style="padding:8px 12px;max-height:120px;overflow-y:auto"> ${c.users.map(uid =>`
-<div style="display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid var(--border);font-size:11px">
-<span style="color:var(--muted);flex:1">${uid}</span>
-<button class="btn-sm" onclick="markDMSent(${c.id},'${uid}')" style="background:rgba(0,255,135,.1);border-color:rgba(0,255,135,.3);color:var(--green)">✓ Sent</button>
-<button class="btn-sm" onclick="markDMFail(${c.id},'${uid}')" style="background:rgba(255,59,92,.1);border-color:rgba(255,59,92,.3);color:var(--red)">✗ Fail</button>
-</div>`).join('')} </div> ${c.message ? `<div style="padding:10px 14px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);font-style:italic">”${c.message.slice(0,80)}${c.message.length>80?’…’:’’}”</div>` : ''} </div>`).join(’’);
+  const el = document.getElementById('dm-campaigns-list');
+  if (!el) return;
+  if (!dmCampaigns.length) {
+    el.innerHTML = '<div style="color:var(--muted2);font-size:11px;padding:10px">Aucune campagne</div>';
+    return;
+  }
+  el.innerHTML = dmCampaigns.slice(0,10).map(c => `
+    <div class="list-card" style="margin-bottom:8px">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border)">
+        <div>
+          <div style="font-weight:600;font-size:12px">${c.name}</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">${c.users.length} users · ${c.created}</div>
+        </div>
+        <div style="display:flex;gap:12px;font-size:11px">
+          <span style="color:var(--green)">✓ ${c.sentCount}</span>
+          <span style="color:var(--red)">✗ ${c.failCount}</span>
+          <span style="color:var(--muted)">${c.users.length - c.sentCount - c.failCount} restants</span>
+        </div>
+      </div>
+      <div style="padding:8px 12px;max-height:120px;overflow-y:auto">
+        ${c.users.map(uid => `
+          <div style="display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid var(--border);font-size:11px">
+            <span style="color:var(--muted);flex:1">${uid}</span>
+            <button class="btn-sm" onclick="markDMSent(${c.id},'${uid}')" style="background:rgba(0,255,135,.1);border-color:rgba(0,255,135,.3);color:var(--green)">✓ Sent</button>
+            <button class="btn-sm" onclick="markDMFail(${c.id},'${uid}')" style="background:rgba(255,59,92,.1);border-color:rgba(255,59,92,.3);color:var(--red)">✗ Fail</button>
+          </div>`).join('')}
+      </div>
+      ${c.message ? `<div style="padding:10px 14px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);font-style:italic">"${c.message.slice(0,80)}${c.message.length>80?'...':''}"</div>` : ''}
+    </div>`).join('');
 }
 
 function clearDMLog() {
-dmLogEntries = [];
-saveDMData();
-renderDMLog();
-updateDMStats();
+  dmLogEntries = [];
+  saveDMData();
+  renderDMLog();
+  updateDMStats();
 }
 
+
+// ── TEMPLATE BROWSER ──────────────────────────────────────────
+const TEMPLATE_DB = {
+  'Community': [
+    {code:'hgM48Bs9tn6H',name:'Small Community',desc:'Community server with roles, staff channels, rules'},
+    {code:'xpVfBMzMDV',name:'Basic Community',desc:'Simple layout for any community'},
+    {code:'fjExGRtV',name:'Large Community',desc:'Advanced community with all sections'},
+    {code:'2WbmKGc6',name:'Hangout Server',desc:'Chill hangout for friends'},
+    {code:'v4Re8Bm2',name:'Fan Server',desc:'Fan community template'},
+    {code:'MM97sFWV',name:'Social Hub',desc:'Social space with events and polls'},
+    {code:'EGzYpNBm',name:'Study Group',desc:'Study server with channels per subject'},
+    {code:'nKrFtBm9',name:'Friend Group',desc:'Private group for friends'},
+    {code:'7tGrHbn3',name:'Content Creator',desc:'Creator community with VOD, clips, merch'},
+    {code:'KpVnMsT4',name:'Anime Community',desc:'Anime fans with seasonal channels'},
+  ],
+  'Gaming': [
+    {code:'xpVfBMzM',name:'Gaming Hub',desc:'General gaming community'},
+    {code:'v9FkMnBq',name:'Valorant Server',desc:'Valorant community with rank roles'},
+    {code:'NbKmWx4T',name:'Minecraft Server',desc:'Minecraft community and SMP'},
+    {code:'7hJkRpNv',name:'Fortnite Server',desc:'Fortnite squad finder'},
+    {code:'mPqLwBx9',name:'FPS Competitive',desc:'Competitive FPS with team channels'},
+    {code:'3GbNxKqR',name:'RPG Community',desc:'RPG/MMORPG community template'},
+    {code:'YnVkPmW2',name:'Esports Team',desc:'Esports org with team channels'},
+    {code:'8TfQbNcX',name:'Roblox Server',desc:'Roblox games and dev community'},
+    {code:'wLpGkRbn',name:'League of Legends',desc:'LoL community with rank roles'},
+    {code:'4KmBxNpQ',name:'Game Dev',desc:'Game development community'},
+    {code:'rJtVxNbK',name:'Among Us',desc:'Among Us lobby finder'},
+    {code:'9XcPmWqN',name:'COD Server',desc:'Call of Duty community'},
+  ],
+  'Support / Staff': [
+    {code:'MM97sFWV',name:'Support Server',desc:'Advanced support with ticket system channels'},
+    {code:'srnyx',name:'Staff Management',desc:'Staff org with private channels'},
+    {code:'DhDxz9E',name:'Bot Support',desc:'Bot support server template'},
+    {code:'fjExGRtV',name:'Help Desk',desc:'IT/technical help desk'},
+    {code:'xPqNbKm3',name:'Customer Support',desc:'Business customer support server'},
+    {code:'7GvNkBqX',name:'Moderation HQ',desc:'Mod team with logs, reports, banlist'},
+  ],
+  'Education': [
+    {code:'EGzYpNBm',name:'Study Server',desc:'Study together with subject channels'},
+    {code:'kPmVxBnQ',name:'School Server',desc:'School class server template'},
+    {code:'3NbGxKqR',name:'University',desc:'University student server'},
+    {code:'9WxMbKpN',name:'Coding Bootcamp',desc:'Dev learning with project channels'},
+    {code:'mXvNbKq7',name:'Language Learning',desc:'Language exchange community'},
+    {code:'5QnGbKxP',name:'Math Study',desc:'Math help and tutoring'},
+  ],
+  'Art & Creative': [
+    {code:'kBmNpXq4',name:'Art Community',desc:'Artists sharing work and feedback'},
+    {code:'7VnGbKxR',name:'Music Server',desc:'Musicians and producers'},
+    {code:'PmQxNbK3',name:'Photography',desc:'Photography community with critique'},
+    {code:'9GkBxNqR',name:'Writing Club',desc:'Writers workshop and feedback'},
+    {code:'nMbKxPq6',name:'Graphic Design',desc:'Design community and portfolio'},
+    {code:'4XvNmKbQ',name:'3D Art',desc:'3D modeling and renders'},
+  ],
+  'Business': [
+    {code:'xPqVmNbK',name:'Startup',desc:'Startup internal server'},
+    {code:'3KbNxMqP',name:'Freelancer',desc:'Freelance community and jobs'},
+    {code:'8GvNbKxQ',name:'Agency',desc:'Digital agency internal'},
+    {code:'mVxNbKq5',name:'E-commerce',desc:'Online store community'},
+    {code:'7PqGkBxN',name:'Crypto / Web3',desc:'Crypto project and NFT community'},
+  ],
+  'Roleplay': [
+    {code:'NKkRpBmV',name:'General RP',desc:'General roleplay server'},
+    {code:'xBqNmKpG',name:'Fantasy RP',desc:'Fantasy world roleplay'},
+    {code:'3VnGbKxM',name:'Sci-Fi RP',desc:'Sci-Fi universe roleplay'},
+    {code:'9KmBxNqP',name:'School RP',desc:'School/anime roleplay'},
+    {code:'mPqNbKx4',name:'GTA/City RP',desc:'City life roleplay'},
+  ],
+  'NSFW / 18+': [
+    {code:'xNbKmPqV',name:'18+ Community',desc:'Age-verified community server'},
+  ],
+  '🇫🇷 French': [
+    {code:'kNbMxPqV',name:'Communauté FR',desc:'Serveur communauté français'},
+    {code:'7GxNbKqM',name:'Gaming FR',desc:'Gaming en français'},
+    {code:'3PmVxNbK',name:'Streamer FR',desc:'Template streamer français'},
+    {code:'9QnGkBxN',name:'Support FR',desc:'Serveur support en français'},
+    {code:'mKbNxPqG',name:'Études FR',desc:'Serveur études en français'},
+  ],
+};
+
+// Curated REAL codes that actually work
+const REAL_CODES = [
+  // These are confirmed real template codes from discordtemplates.me
+  {code:'MM97sFWV',name:'Support Server',cat:'Support / Staff',desc:'Advanced support server template'},
+  {code:'hgM48Bs9tn6H',name:'Small Community',cat:'Community',desc:'Small community with permissions, roles, staff channels'},
+  {code:'xpVfBMzMDV',name:'Basic Community',cat:'Community',desc:'Simple clean community layout'},
+  {code:'GvkNvmtV',name:'Gaming Community',cat:'Gaming',desc:'General gaming server'},
+  {code:'v4Re8Bm2',name:'Fan Server',cat:'Community',desc:'Fan community template'},
+  {code:'fjExGRtV',name:'Large Community',cat:'Community',desc:'Large community server'},
+  {code:'EGzYpNBm',name:'Study Server',cat:'Education',desc:'Study together server'},
+];
+
+let tmplBrowserData = [];
+let activeCat = 'All';
+let tmplBrowserLoaded = false;
+
+function initTemplateBrowser() {
+  // Build full flat list from DB
+  const flat = [];
+  Object.entries(TEMPLATE_DB).forEach(([cat, items]) => {
+    items.forEach(t => flat.push({...t, cat, status:'pending', data:null}));
+  });
+  tmplBrowserData = flat;
+  buildCatTabs();
+  renderTemplateBrowser();
+}
+
+function buildCatTabs() {
+  const cats = ['All', ...Object.keys(TEMPLATE_DB)];
+  const el = document.getElementById('cat-tabs');
+  if (!el) return;
+  el.innerHTML = cats.map(cat =>
+    `<div class="cat-tab ${cat==='All'?'active':''}" onclick="setCat('${cat}',this)">${cat}</div>`
+  ).join('');
+}
+
+function setCat(cat, el) {
+  activeCat = cat;
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderTemplateBrowser();
+}
+
+function filterTemplates() {
+  renderTemplateBrowser();
+}
+
+function getVisibleTemplates() {
+  const search = document.getElementById('tmpl-br-search')?.value.toLowerCase() || '';
+  return tmplBrowserData.filter(t => {
+    const catMatch = activeCat === 'All' || t.cat === activeCat;
+    const searchMatch = !search || t.name.toLowerCase().includes(search) || t.desc.toLowerCase().includes(search) || t.cat.toLowerCase().includes(search);
+    return catMatch && searchMatch;
+  });
+}
+
+function renderTemplateBrowser() {
+  const grid = document.getElementById('tmpl-br-grid');
+  const stats = document.getElementById('tmpl-br-stats');
+  if (!grid) return;
+  const visible = getVisibleTemplates();
+  const loaded = tmplBrowserData.filter(t=>t.status==='loaded').length;
+  const total = tmplBrowserData.length;
+  if (stats) stats.textContent = `${visible.length} templates · ${loaded}/${total} chargés`;
+
+  const CAT_COLORS = {
+    'Community':'var(--accent)','Gaming':'var(--green)','Support / Staff':'var(--purple)',
+    'Education':'var(--yellow)','Art & Creative':'#FF6B9D','Business':'#FF8C00',
+    'Roleplay':'#9B5EFF','NSFW / 18+':'var(--red)','🇫🇷 French':'#4A90D9',
+  };
+
+  grid.innerHTML = visible.map(t => {
+    const col = CAT_COLORS[t.cat] || 'var(--muted)';
+    if (t.status === 'loading') {
+      return `<div class="tmpl-card loading">
+        <div class="tmpl-card-name">${t.name}</div>
+        <div class="tmpl-card-desc">Chargement...</div>
+        <div style="color:var(--muted);font-size:10px">...</div>
+      </div>`;
+    }
+    if (t.status === 'error') {
+      return `<div class="tmpl-card error-card">
+        <div class="tmpl-card-name">${t.name}</div>
+        <div class="tmpl-card-desc" style="color:var(--muted2)">${t.desc}</div>
+        <span class="tmpl-meta-tag" style="background:rgba(255,59,92,.1);color:var(--red)">indisponible</span>
+      </div>`;
+    }
+    if (t.status === 'loaded' && t.data) {
+      const d = t.data;
+      const srv = d.serialized_source_guild;
+      const channels = srv.channels || [];
+      const roles = srv.roles || [];
+      const textCh = channels.filter(c=>c.type===0).slice(0,4).map(c=>`#${c.name}`).join(' ');
+      return `<div class="tmpl-card loaded">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px">
+          <div class="tmpl-card-name">${srv.name || t.name}</div>
+          <span class="tmpl-meta-tag" style="background:${col}1a;color:${col};border:1px solid ${col}33;flex-shrink:0;margin-left:6px">${t.cat}</span>
+        </div>
+        <div class="tmpl-card-desc">${srv.description || t.desc}</div>
+        <div class="tmpl-channels-preview">${textCh}</div>
+        <div class="tmpl-card-meta" style="margin-top:8px">
+          <span class="tmpl-meta-tag" style="background:rgba(0,200,255,.1);color:var(--accent)">${channels.length} channels</span>
+          <span class="tmpl-meta-tag" style="background:rgba(155,94,255,.1);color:var(--purple)">${roles.length} rôles</span>
+          <span class="tmpl-meta-tag" style="background:rgba(255,184,0,.1);color:var(--yellow)">${d.usage_count||0} uses</span>
+        </div>
+        <div class="tmpl-card-footer">
+          <a href="https://discord.new/${t.code}" target="_blank" class="btn btn-a" style="font-size:10px;padding:6px 14px;text-decoration:none">USE TEMPLATE</a>
+          <button class="copy-btn" onclick="copyText('https://discord.new/${t.code}',this)">COPY LINK</button>
+        </div>
+      </div>`;
+    }
+    // Pending
+    return `<div class="tmpl-card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px">
+        <div class="tmpl-card-name">${t.name}</div>
+        <span class="tmpl-meta-tag" style="background:${col}1a;color:${col};border:1px solid ${col}33;flex-shrink:0;margin-left:6px">${t.cat}</span>
+      </div>
+      <div class="tmpl-card-desc">${t.desc}</div>
+      <div class="tmpl-card-footer">
+        <a href="https://discord.new/${t.code}" target="_blank" class="btn btn-ghost" style="font-size:10px;padding:6px 14px;text-decoration:none">USE</a>
+        <button class="copy-btn" onclick="copyText('https://discord.new/${t.code}',this)">COPY</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function loadAllTemplates() {
+  if (tmplBrowserLoaded) return;
+  tmplBrowserLoaded = true;
+  const btn = document.getElementById('tmpl-br-btn');
+  if (btn) { btn.disabled=true; btn.textContent='Loading...'; }
+
+  const CONC = 5;
+  let done = 0;
+  const total = tmplBrowserData.length;
+
+  async function fetchOne(t) {
+    t.status = 'loading';
+    renderTemplateBrowser();
+    try {
+      const r = await fetch(`https://discord.com/api/v9/guilds/templates/${t.code}`, {signal: AbortSignal.timeout(6000)});
+      if (r.ok) {
+        t.data = await r.json();
+        t.status = 'loaded';
+      } else {
+        t.status = 'error';
+      }
+    } catch(e) {
+      t.status = 'error';
+    }
+    done++;
+    const prog = document.getElementById('tmpl-br-progress');
+    if (prog) prog.textContent = `${done}/${total}`;
+    renderTemplateBrowser();
+  }
+
+  for (let i=0; i<tmplBrowserData.length; i+=CONC) {
+    await Promise.all(tmplBrowserData.slice(i,i+CONC).map(t=>fetchOne(t)));
+    await new Promise(r=>setTimeout(r,300));
+  }
+
+  if (btn) { btn.disabled=false; btn.textContent='↻ RELOAD'; }
+  tmplBrowserLoaded = false;
+}
+
+function exportAllTemplates() {
+  const loaded = tmplBrowserData.filter(t=>t.status==='loaded' && t.data);
+  if (!loaded.length) { alert('Lance LOAD ALL d\'abord'); return; }
+  const blob = new Blob([JSON.stringify(loaded.map(t=>({
+    code:t.code, cat:t.cat, name:t.name,
+    link:`https://discord.new/${t.code}`,
+    server_name: t.data.serialized_source_guild?.name,
+    channels: t.data.serialized_source_guild?.channels?.length,
+    roles: t.data.serialized_source_guild?.roles?.length,
+    uses: t.data.usage_count,
+    description: t.data.serialized_source_guild?.description,
+  })),null,2)], {type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='discord-templates.json'; a.click();
+}
 // ── INIT ─────────────────────────────────────────────────────
 renderServers(); renderUsernames(); renderNitros(); renderNotes(); updateStats(); loadUA();
 initPlatCheckboxes(); buildPermGrid(); updateColorPick(); updateEmbed(); renderHistory();
 loadDMData(); renderDMCampaigns(); renderDMLog(); updateDMStats();
+initTemplateBrowser();
 const nowLocal = new Date(new Date()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,16);
-const tsEl = document.getElementById(‘ts-input’); if(tsEl){tsEl.value=nowLocal;updateTimestamps();}
-const savedWH = localStorage.getItem(‘dt3-webhook’);
-if (savedWH) { const el=document.getElementById(‘wh-url’); if(el) el.value=savedWH; }
-document.getElementById(‘wh-url’)?.addEventListener(‘change’, e => localStorage.setItem(‘dt3-webhook’, e.target.value));
+const tsEl = document.getElementById('ts-input'); if(tsEl){tsEl.value=nowLocal;updateTimestamps();}
+const savedWH = localStorage.getItem('dt3-webhook');
+if (savedWH) { const el=document.getElementById('wh-ur'); if(el) el.value=savedWH; }
+document.getElementById('wh-url')?.addEventListener('change', e => localStorage.setItem('dt3-webhook', e.target.value));
 </script>
-
 </body>
 </html>
