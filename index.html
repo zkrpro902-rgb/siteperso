@@ -593,6 +593,17 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 <button class="nav-item" onclick="go('dotenv',this)"><span class="nav-icon">.env</span>dotenv Builder</button>
 <button class="nav-item" onclick="go('cronbuilder',this)"><span class="nav-icon">⚙</span>Cron Builder</button>
 <button class="nav-item" onclick="go('invoice',this)"><span class="nav-icon">📄</span>Invoice Gen</button>
+<button class="nav-item" onclick="go('qrcode',this)"><span class="nav-icon">⊞</span>QR Code Gen</button>
+<button class="nav-item" onclick="go('colorpalette',this)"><span class="nav-icon">🎨</span>Color Palette</button>
+<button class="nav-item" onclick="go('obfuscator',this)"><span class="nav-icon">⬡</span>Obfuscator</button>
+<button class="nav-item" onclick="go('urlencode',this)"><span class="nav-icon">🔗</span>URL Encoder</button>
+<button class="nav-item" onclick="go('baseconv',this)"><span class="nav-icon">01</span>Base Converter</button>
+<button class="nav-item" onclick="go('fakeident',this)"><span class="nav-icon">👤</span>Fake Identity</button>
+<button class="nav-item" onclick="go('ascii',this)"><span class="nav-icon">A</span>ASCII Art</button>
+<button class="nav-item" onclick="go('lorem',this)"><span class="nav-icon">¶</span>Lorem Generator</button>
+<button class="nav-item" onclick="go('texttools',this)"><span class="nav-icon">T</span>Text Tools</button>
+<button class="nav-item" onclick="go('colorconv',this)"><span class="nav-icon">◈</span>Color Converter</button>
+<button class="nav-item" onclick="go('unitconv',this)"><span class="nav-icon">⇄</span>Unit Converter</button>
 
 <div class="nav-group-label">📡 Stats & Info</div>
 <button class="nav-item" onclick="go('ipinfo',this)"><span class="nav-icon">◎</span>IP Lookup</button>
@@ -611,6 +622,12 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
 <button class="nav-item" onclick="go('botide',this)"><span class="nav-icon">⌨</span>IDE + Générateur</button>
 <button class="nav-item" onclick="go('bothost',this)"><span class="nav-icon">☁</span>Hébergement</button>
 
+<div class="nav-group-label">🎮 Gaming / Resell</div>
+<button class="nav-item" onclick="go('epiccheck',this)"><span class="nav-icon">⚡</span>Epic Games Check</button>
+<button class="nav-item" onclick="go('psncheck',this)"><span class="nav-icon">🎮</span>PSN / Xbox Check</button>
+<button class="nav-item" onclick="go('stockcheck',this)"><span class="nav-icon">📦</span>Stock Checker</button>
+<button class="nav-item" onclick="go('pricetrack',this)"><span class="nav-icon">💰</span>Price Tracker</button>
+
 <div class="nav-group-label">👤 Personal</div>
 <button class="nav-item" onclick="go('nitro',this)"><span class="nav-icon">⚡</span>Nitro Tracker</button>
 <button class="nav-item" onclick="go('dashboard',this)"><span class="nav-icon">⊞</span>Dashboard</button>
@@ -620,7 +637,7 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
   </nav>
   <div class="sidebar-footer">
     <span class="sdot"></span>
-    <span class="sfoot-text">v4.0 — local only</span>
+    <span class="sfoot-text">v5.0 — local only</span>
   </div>
 </aside>
 
@@ -1067,10 +1084,8 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
         <button class="btn-sm" onclick="insertMd('*','*')">Italic</button>
         <button class="btn-sm" onclick="insertMd('__','__')">Underline</button>
         <button class="btn-sm" onclick="insertMd('~~','~~')">Strike</button>
-        <button class="btn-sm" onclick="insertMd('`','`')">Code</button>
-        <button class="btn-sm" onclick="insertMd('```
-','
-```')">Block</button>
+        <button class="btn-sm" onclick="insertMd('\x60','\x60')">Code</button>
+        <button class="btn-sm" onclick="insertMd('\x60\x60\x60\n','\n\x60\x60\x60')">Block</button>
         <button class="btn-sm" onclick="insertMd('> ','')">Quote</button>
         <button class="btn-sm" onclick="insertMd('||','||')">Spoiler</button>
       </div>
@@ -2270,6 +2285,346 @@ function toggleAddRow(id) { var el=document.getElementById(id); if(el) el.classL
     <input class="sinput" id="drop-desc" placeholder="Description / lien (optionnel)" style="margin-top:8px;margin-bottom:0">
   </div>
   <div id="drop-list" style="display:flex;flex-direction:column;gap:8px"></div>
+</div>
+
+<!-- ══ QR CODE GENERATOR ══════════════════════════════════════ -->
+
+<div class="page" id="page-qrcode">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">QR CODE GENERATOR</div><div class="pd">Génère des QR codes depuis n'importe quel texte ou lien</div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 280px;gap:14px">
+    <div>
+      <div class="card-label">Contenu</div>
+      <textarea class="sinput" id="qr-text" rows="4" placeholder="URL, texte, Discord invite, WiFi..." style="resize:vertical" oninput="generateQR()"></textarea>
+      <div class="gen-section" style="margin-top:10px">
+        <div class="gen-section-title">Options</div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <label class="card-label" style="margin:0">Taille :</label>
+          <input type="range" id="qr-size" min="100" max="400" value="200" oninput="generateQR()" style="accent-color:var(--accent);flex:1">
+          <span id="qr-size-val" style="color:var(--accent);min-width:50px">200px</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+          <label class="card-label" style="margin:0">BG :</label>
+          <input type="color" id="qr-bg" value="#ffffff" oninput="generateQR()" style="height:32px;width:50px;padding:2px;background:var(--bg2);border:1px solid var(--border);border-radius:4px">
+          <label class="card-label" style="margin:0">FG :</label>
+          <input type="color" id="qr-fg" value="#000000" oninput="generateQR()" style="height:32px;width:50px;padding:2px;background:var(--bg2);border:1px solid var(--border);border-radius:4px">
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+      <div class="card-label" style="align-self:flex-start">Preview</div>
+      <div id="qr-preview" style="background:white;padding:12px;border-radius:8px;min-width:150px;min-height:150px;display:flex;align-items:center;justify-content:center">
+        <span style="color:#999;font-size:12px">Tape du texte...</span>
+      </div>
+      <button class="btn btn-a" onclick="downloadQR()" id="qr-dl-btn" style="display:none;width:100%">↓ DOWNLOAD PNG</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COLOR PALETTE ══════════════════════════════════════════ -->
+
+<div class="page" id="page-colorpalette">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">COLOR PALETTE</div><div class="pd">Génère des palettes Discord — dégradés, complémentaires, rôles</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <input type="color" id="pal-base" value="#00C8FF" oninput="generatePalette()" style="height:42px;width:60px;padding:3px;background:var(--bg2);border:1px solid var(--border);border-radius:6px">
+      <select class="sinput" id="pal-type" onchange="generatePalette()" style="margin:0;max-width:180px">
+        <option value="gradient">Dégradé linéaire</option>
+        <option value="complement">Complémentaires</option>
+        <option value="triadic">Triadique</option>
+        <option value="analogous">Analogues</option>
+        <option value="shades">Nuances (clair→foncé)</option>
+        <option value="discord">Palette Discord officielle</option>
+      </select>
+      <input class="sinput" id="pal-count" type="number" value="8" min="2" max="20" style="margin:0;max-width:70px">
+      <button class="btn btn-a" onclick="generatePalette()">GENERATE</button>
+    </div>
+  </div>
+  <div id="pal-swatches" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px"></div>
+  <div id="pal-roles" style="display:none">
+    <div class="card-label">Code Discord.js pour les rôles</div>
+    <div class="json-out" id="pal-code"></div>
+  </div>
+</div>
+
+<!-- ══ OBFUSCATOR ════════════════════════════════════════════ -->
+
+<div class="page" id="page-obfuscator">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">OBFUSCATOR</div><div class="pd">Rend du texte illisible — Unicode, zalgo, leet, cipher</div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div>
+      <div class="card-label">Input</div>
+      <textarea class="sinput" id="obf-input" rows="6" placeholder="Texte à obfusquer..." style="resize:vertical"></textarea>
+      <div class="card-label" style="margin-top:10px">Mode</div>
+      <div class="bio-style-grid">
+        <div class="bio-style-btn active" onclick="setObfMode('zalgo',this)">Zalgo</div>
+        <div class="bio-style-btn" onclick="setObfMode('unicode',this)">Unicode Full</div>
+        <div class="bio-style-btn" onclick="setObfMode('leet',this)">Leet Speak</div>
+        <div class="bio-style-btn" onclick="setObfMode('reverse',this)">Reversed</div>
+        <div class="bio-style-btn" onclick="setObfMode('caesar',this)">Caesar +13</div>
+        <div class="bio-style-btn" onclick="setObfMode('morse',this)">Morse Code</div>
+      </div>
+      <button class="btn btn-a" style="margin-top:10px;width:100%" onclick="runObfuscator()">→ OBFUSCATE</button>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <div class="card-label" style="margin:0">Output</div>
+        <button class="copy-btn" onclick="copyText(document.getElementById('obf-out').value,this)">COPY</button>
+      </div>
+      <textarea class="sinput" id="obf-out" rows="10" readonly style="font-size:11px;resize:vertical"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- ══ URL ENCODER ════════════════════════════════════════════ -->
+
+<div class="page" id="page-urlencode">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">URL ENCODER / DECODER</div><div class="pd">Encode et decode des URLs, query params, Base64 URL</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <textarea class="sinput" id="url-input" rows="3" placeholder="URL ou texte à encoder/décoder..." style="resize:vertical" oninput="runUrlEncode()"></textarea>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn btn-a" onclick="urlEncode()">ENCODE</button>
+      <button class="btn btn-ghost" onclick="urlDecode()">DECODE</button>
+      <button class="btn-sm" onclick="urlEncodeComponent()" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">encodeURIComponent</button>
+    </div>
+  </div>
+  <div id="url-results" style="display:flex;flex-direction:column;gap:8px"></div>
+</div>
+
+<!-- ══ BASE CONVERTER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-baseconv">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">BASE CONVERTER</div><div class="pd">Convertit entre binaire, octal, décimal, hexadécimal</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div><div class="card-label">Décimal</div><input class="sinput" id="bc-dec" placeholder="42" style="margin:0;font-family:'JetBrains Mono',monospace" oninput="convertBase('dec')"></div>
+      <div><div class="card-label">Binaire</div><input class="sinput" id="bc-bin" placeholder="101010" style="margin:0;font-family:'JetBrains Mono',monospace" oninput="convertBase('bin')"></div>
+      <div><div class="card-label">Octal</div><input class="sinput" id="bc-oct" placeholder="52" style="margin:0;font-family:'JetBrains Mono',monospace" oninput="convertBase('oct')"></div>
+      <div><div class="card-label">Hexadécimal</div><input class="sinput" id="bc-hex" placeholder="2A" style="margin:0;font-family:'JetBrains Mono',monospace;text-transform:uppercase" oninput="convertBase('hex')"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-label">ASCII / Char</div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <input class="sinput" id="bc-char" placeholder="A" style="margin:0;max-width:80px;font-size:20px;text-align:center" oninput="convertChar()">
+      <div id="bc-char-result" style="font-size:12px;color:var(--muted)"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FAKE IDENTITY ══════════════════════════════════════════ -->
+
+<div class="page" id="page-fakeident">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">FAKE IDENTITY</div><div class="pd">Génère des identités fictives pour tests — jamais pour fraude</div></div></div>
+  <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+    <select class="sinput" id="fi-country" style="margin:0;max-width:160px">
+      <option value="fr">🇫🇷 Français</option>
+      <option value="us">🇺🇸 English</option>
+      <option value="es">🇪🇸 Español</option>
+    </select>
+    <select class="sinput" id="fi-gender" style="margin:0;max-width:140px">
+      <option value="any">Any</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <button class="btn btn-a" onclick="generateIdentity()">⚙ GENERATE</button>
+    <span id="fi-count" style="font-size:11px;color:var(--muted);align-self:center"></span>
+  </div>
+  <div id="fi-result" style="display:grid;grid-template-columns:1fr 1fr;gap:10px"></div>
+  <div class="notice">Usage pour tests uniquement. Ne pas utiliser pour tromper des personnes ou services.</div>
+</div>
+
+<!-- ══ ASCII ART ══════════════════════════════════════════════ -->
+
+<div class="page" id="page-ascii">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">ASCII ART GENERATOR</div><div class="pd">Convertit du texte en ASCII art — plusieurs polices</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <input class="sinput" id="ascii-text" placeholder="Ton texte..." oninput="generateASCII()">
+    <div class="bio-style-grid" style="margin-top:10px" id="ascii-font-grid"></div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+    <div class="card-label" style="margin:0">Output</div>
+    <button class="copy-btn" onclick="copyText(document.getElementById('ascii-out').value,this)">COPY</button>
+  </div>
+  <textarea class="sinput" id="ascii-out" rows="8" readonly style="font-family:'JetBrains Mono',monospace;font-size:11px;resize:vertical;white-space:pre"></textarea>
+</div>
+
+<!-- ══ LOREM GENERATOR ════════════════════════════════════════ -->
+
+<div class="page" id="page-lorem">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">LOREM GENERATOR</div><div class="pd">Génère du faux texte — Lorem, Discord, Dev, Streetwear</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <select class="sinput" id="lorem-type" style="margin:0;max-width:180px">
+        <option value="lorem">Lorem Ipsum classique</option>
+        <option value="discord">Style Discord</option>
+        <option value="dev">Style Dev / Tech</option>
+        <option value="street">Style Streetwear</option>
+        <option value="corporate">Corporate Bullshit</option>
+      </select>
+      <input class="sinput" id="lorem-count" type="number" value="3" min="1" max="20" style="margin:0;max-width:70px">
+      <select class="sinput" id="lorem-unit" style="margin:0;max-width:130px">
+        <option value="paragraphs">Paragraphes</option>
+        <option value="sentences">Phrases</option>
+        <option value="words">Mots</option>
+      </select>
+      <button class="btn btn-a" onclick="generateLorem()">GENERATE</button>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+    <div class="card-label" style="margin:0">Output</div>
+    <button class="copy-btn" onclick="copyText(document.getElementById('lorem-out').value,this)">COPY</button>
+  </div>
+  <textarea class="sinput" id="lorem-out" rows="8" readonly style="font-size:12px;resize:vertical;line-height:1.7"></textarea>
+</div>
+
+<!-- ══ TEXT TOOLS ═════════════════════════════════════════════ -->
+
+<div class="page" id="page-texttools">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">TEXT TOOLS</div><div class="pd">Transformations de texte — case, trim, count, sort, dedupe</div></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div>
+      <div class="card-label">Input</div>
+      <textarea class="sinput" id="tt-input" rows="10" placeholder="Colle ton texte ici..." style="resize:vertical" oninput="updateTextStats()"></textarea>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
+        <button class="btn-sm" onclick="ttTransform('upper')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">UPPER</button>
+        <button class="btn-sm" onclick="ttTransform('lower')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">lower</button>
+        <button class="btn-sm" onclick="ttTransform('title')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">Title</button>
+        <button class="btn-sm" onclick="ttTransform('trim')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">TRIM</button>
+        <button class="btn-sm" onclick="ttTransform('reverse')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">REVERSE</button>
+        <button class="btn-sm" onclick="ttTransform('sort')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">SORT</button>
+        <button class="btn-sm" onclick="ttTransform('dedupe')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">DEDUPE</button>
+        <button class="btn-sm" onclick="ttTransform('shuffle')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">SHUFFLE</button>
+        <button class="btn-sm" onclick="ttTransform('slug')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">slug-ify</button>
+        <button class="btn-sm" onclick="ttTransform('camel')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">camelCase</button>
+        <button class="btn-sm" onclick="ttTransform('snake')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">snake_case</button>
+        <button class="btn-sm" onclick="ttTransform('nolines')" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted)">JOIN LINES</button>
+      </div>
+    </div>
+    <div>
+      <div class="card-label">Stats</div>
+      <div id="tt-stats" class="result-block" style="margin-bottom:10px"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <div class="card-label" style="margin:0">Output</div>
+        <button class="copy-btn" onclick="copyText(document.getElementById('tt-out').value,this)">COPY</button>
+      </div>
+      <textarea class="sinput" id="tt-out" rows="8" readonly style="resize:vertical;font-size:12px"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COLOR CONVERTER ════════════════════════════════════════ -->
+
+<div class="page" id="page-colorconv">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">COLOR CONVERTER</div><div class="pd">HEX ↔ RGB ↔ HSL ↔ Decimal Discord</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px">
+      <input type="color" id="cc-picker" value="#00C8FF" oninput="convertColor('picker')" style="height:50px;width:70px;padding:3px;background:var(--bg2);border:1px solid var(--border);border-radius:6px">
+      <div id="cc-preview" style="flex:1;height:50px;border-radius:8px;background:#00C8FF"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div><div class="card-label">HEX</div><input class="sinput" id="cc-hex" value="#00C8FF" style="margin:0;font-family:'JetBrains Mono',monospace" oninput="convertColor('hex')"></div>
+      <div><div class="card-label">RGB</div><input class="sinput" id="cc-rgb" value="0, 200, 255" style="margin:0;font-family:'JetBrains Mono',monospace" oninput="convertColor('rgb')"></div>
+      <div><div class="card-label">HSL</div><input class="sinput" id="cc-hsl" style="margin:0;font-family:'JetBrains Mono',monospace" oninput="convertColor('hsl')"></div>
+      <div><div class="card-label">Décimal (Discord)</div><input class="sinput" id="cc-dec" style="margin:0;font-family:'JetBrains Mono',monospace" oninput="convertColor('decdiscord')"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ UNIT CONVERTER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-unitconv">
+  <div class="ph"><div><div class="pe">Tools</div><div class="pt">UNIT CONVERTER</div><div class="pd">Temps, taille, poids, température, monnaie</div></div></div>
+  <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap" id="uc-cat-tabs">
+    <div class="cat-tab active" onclick="setUCCat('time',this)">⏱ Temps</div>
+    <div class="cat-tab" onclick="setUCCat('length',this)">📏 Taille</div>
+    <div class="cat-tab" onclick="setUCCat('weight',this)">⚖ Poids</div>
+    <div class="cat-tab" onclick="setUCCat('temp',this)">🌡 Température</div>
+    <div class="cat-tab" onclick="setUCCat('data',this)">💾 Données</div>
+  </div>
+  <div class="card">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap">
+      <input class="sinput" id="uc-val" type="number" value="1" style="margin:0;max-width:140px;font-size:18px" oninput="runConvert()">
+      <select class="sinput" id="uc-from" style="margin:0;flex:1" onchange="runConvert()"></select>
+      <span style="color:var(--muted)">→</span>
+      <select class="sinput" id="uc-to" style="margin:0;flex:1" onchange="runConvert()"></select>
+    </div>
+    <div id="uc-result" style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--accent);text-align:center;padding:16px"></div>
+    <div id="uc-all" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px;margin-top:14px"></div>
+  </div>
+</div>
+
+<!-- ══ EPIC GAMES CHECKER ══════════════════════════════════════ -->
+
+<div class="page" id="page-epiccheck">
+  <div class="ph"><div><div class="pe">Gaming</div><div class="pt">EPIC GAMES CHECKER</div><div class="pd">Vérifie la disponibilité d'un username Epic Games</div></div></div>
+  <div class="sbar">
+    <input class="sinput" id="epic-user" placeholder="Username Epic Games..." style="margin:0;flex:1">
+    <button class="btn btn-a" onclick="checkEpic()">→ CHECK</button>
+  </div>
+  <div id="epic-result" style="margin-top:14px"></div>
+</div>
+
+<!-- ══ PSN / XBOX CHECKER ══════════════════════════════════════ -->
+
+<div class="page" id="page-psncheck">
+  <div class="ph"><div><div class="pe">Gaming</div><div class="pt">PSN / XBOX CHECKER</div><div class="pd">Vérifie les gamertags PlayStation et Xbox</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div class="sbar" style="margin-bottom:10px">
+      <input class="sinput" id="psn-user" placeholder="Gamertag..." style="margin:0;flex:1">
+      <select class="sinput" id="psn-platform" style="margin:0;max-width:140px">
+        <option value="psn">PlayStation (PSN)</option>
+        <option value="xbox">Xbox / Microsoft</option>
+      </select>
+      <button class="btn btn-a" onclick="checkPSN()">→ CHECK</button>
+    </div>
+  </div>
+  <div id="psn-result"></div>
+</div>
+
+<!-- ══ STOCK CHECKER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-stockcheck">
+  <div class="ph"><div><div class="pe">Resell</div><div class="pt">STOCK CHECKER</div><div class="pd">Vérifie le stock d'un produit via son URL</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <input class="sinput" id="stock-url" placeholder="https://www.solebox.com/..." style="margin-bottom:8px">
+    <input class="sinput" id="stock-keyword" placeholder="Mot clé à chercher dans la page (ex: Add to cart, In Stock...)">
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn btn-a" onclick="checkStock()">→ CHECK STOCK</button>
+    </div>
+  </div>
+  <div id="stock-result" style="margin-top:10px"></div>
+  <div class="notice">Utilise l'API proxy Railway pour bypass CORS. Cherche le mot clé dans le HTML de la page.</div>
+</div>
+
+<!-- ══ PRICE TRACKER ══════════════════════════════════════════ -->
+
+<div class="page" id="page-pricetrack">
+  <div class="ph"><div><div class="pe">Resell</div><div class="pt">PRICE TRACKER</div><div class="pd">Track les prix de tes items streetwear / sneakers</div></div></div>
+  <div class="card" style="margin-bottom:14px">
+    <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end">
+      <div><div class="card-label">Item</div><input class="sinput" id="pt-name" placeholder="Air Jordan 1 Retro OG..." style="margin:0"></div>
+      <div><div class="card-label">Prix d'achat (€)</div><input class="sinput" id="pt-buy" type="number" placeholder="120" style="margin:0"></div>
+      <button class="btn btn-a" onclick="addPriceItem()" style="align-self:end">+ ADD</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px">
+      <div><div class="card-label">Prix revente (€)</div><input class="sinput" id="pt-sell" type="number" placeholder="200" style="margin:0"></div>
+      <div><div class="card-label">Frais plateforme (%)</div><input class="sinput" id="pt-fees" type="number" value="10" style="margin:0"></div>
+      <div><div class="card-label">Plateforme</div>
+        <select class="sinput" id="pt-platform" style="margin:0">
+          <option>StockX</option><option>GOAT</option><option>Vinted</option><option>Grailed</option><option>eBay</option><option>Instagram</option><option>Autre</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div id="pt-summary" style="display:none;margin-bottom:14px">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+      <div class="dm-stat"><div class="dm-stat-val" id="pt-profit" style="color:var(--green)">0€</div><div class="dm-stat-label">Profit net</div></div>
+      <div class="dm-stat"><div class="dm-stat-val" id="pt-roi" style="color:var(--accent)">0%</div><div class="dm-stat-label">ROI</div></div>
+      <div class="dm-stat"><div class="dm-stat-val" id="pt-invested" style="color:var(--yellow)">0€</div><div class="dm-stat-label">Investi</div></div>
+      <div class="dm-stat"><div class="dm-stat-val" id="pt-returned" style="color:var(--purple)">0€</div><div class="dm-stat-label">Total flippé</div></div>
+    </div>
+  </div>
+  <div id="pt-items" style="display:flex;flex-direction:column;gap:8px"></div>
 </div>
 
 </main>
@@ -5155,34 +5510,18 @@ setIDEFiles({
 }
 
 async function ideExportZip() {
-// Save current file
 const ta = document.getElementById(‘ide-code’);
 if (ta && currentIdeFile) ideFiles[currentIdeFile] = ta.value;
-
-try {
-const JSZip = (await import(‘https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js’)).default || window.JSZip;
-if (!window.JSZip) {
-// Fallback: download files individually
 for (const [name, content] of Object.entries(ideFiles)) {
+if (!content.trim()) continue;
 const blob = new Blob([content], {type:‘text/plain’});
 const a = document.createElement(‘a’);
 a.href = URL.createObjectURL(blob);
 a.download = name;
+document.body.appendChild(a);
 a.click();
-await new Promise(r=>setTimeout(r,300));
-}
-return;
-}
-} catch(e) {}
-
-// Direct download fallback
-for (const [name, content] of Object.entries(ideFiles)) {
-const blob = new Blob([content], {type:‘text/plain’});
-const a = document.createElement(‘a’);
-a.href = URL.createObjectURL(blob);
-a.download = name;
-a.click();
-await new Promise(r=>setTimeout(r,400));
+document.body.removeChild(a);
+await new Promise(r=>setTimeout(r,500));
 }
 }
 
@@ -5258,10 +5597,7 @@ el.innerHTML = HOSTING_DATA.map((h,i) => ` <div class="host-card"> <div class="h
 <div class="host-step">
 <div class="host-step-num">${s.n}</div>
 <div class="host-step-txt">${s.txt}</div>
-</div>`).join('')} <div class="card-label" style="margin-top:10px">Commandes utiles</div> <div class="host-cmd"> <pre style="margin:0;color:var(--green);font-size:11px">${h.cmd}</pre> <button class="copy-btn" onclick="copyText(\`${h.cmd.replace(/`/g,"'")}\`,this)” style=“flex-shrink:0;margin-left:10px”>COPY</button>
-</div>
-</div>
-</div>`).join(’’);
+</div>`).join('')} <div class="card-label" style="margin-top:10px">Commandes utiles</div> <div class="host-cmd" data-cmd="${h.cmd.replace(/"/g,'&quot;')}"> <pre style="margin:0;color:var(--green);font-size:11px">${h.cmd}</pre> <button class="copy-btn" onclick="copyHostCmd(this)" style="flex-shrink:0;margin-left:10px">COPY</button> </div> </div> </div>`).join(’’);
 }
 
 function toggleHost(i) {
@@ -6173,12 +6509,564 @@ res.innerHTML = `<div class="result-block">${rows([[‘Handle’,’@’+user,�
   <div class="notice" style="margin-top:10px">L'API YouTube nécessite une clé API. Clique pour voir la chaîne directement.</div>`;
 }
 
+// ── PERMISSIONS CALC ──────────────────────────────────────────
+function calcPerms() {
+const val = document.getElementById(‘perm-input’)?.value.trim();
+const bits = parseInt(val) || 0;
+document.querySelectorAll(’.perm-cb’).forEach(cb => {
+cb.checked = (bits & parseInt(cb.value)) !== 0;
+});
+const el = document.getElementById(‘perm-decimal’);
+if (el) el.textContent = bits;
+}
+function calcPermsFromCheckboxes() {
+let bits = 0;
+document.querySelectorAll(’.perm-cb:checked’).forEach(cb => { bits |= parseInt(cb.value); });
+const el = document.getElementById(‘perm-input’);
+if (el) el.value = bits;
+const dec = document.getElementById(‘perm-decimal’);
+if (dec) dec.textContent = bits;
+}
+
+// ── TIMESTAMP HELPERS ─────────────────────────────────────────
+function setTsNow() {
+const el = document.getElementById(‘ts-input’);
+if (!el) return;
+const now = new Date(Date.now() - new Date().getTimezoneOffset()*60000).toISOString().slice(0,16);
+el.value = now;
+updateTimestamps();
+}
+function setTsIn(secs) {
+const el = document.getElementById(‘ts-input’);
+if (!el) return;
+const t = new Date(Date.now() + secs*1000 - new Date().getTimezoneOffset()*60000).toISOString().slice(0,16);
+el.value = t;
+updateTimestamps();
+}
+
+// ── MARKDOWN INSERT HELPERS ───────────────────────────────────
+function insertMd(before, after) {
+const ta = document.getElementById(‘md-input’);
+if (!ta) return;
+const start = ta.selectionStart, end = ta.selectionEnd;
+const sel = ta.value.slice(start, end);
+ta.value = ta.value.slice(0,start) + before + sel + after + ta.value.slice(end);
+ta.selectionStart = start + before.length;
+ta.selectionEnd = end + before.length;
+ta.focus();
+updateMd();
+}
+function renderMarkdown() { updateMd(); }
+
+// ── EMBED BUILDER HELPERS ─────────────────────────────────────
+function renderEmbed() { updateEmbed(); }
+function copyEmbedJSON(btn) {
+const el = document.getElementById(‘emb-code’);
+if (el) copyText(el.value, btn);
+}
+
+// ── PORT CHECKER HELPER ───────────────────────────────────────
+function setPort(port) {
+const el = document.getElementById(‘port-custom’);
+if (el) { el.value = port; checkPort(port); }
+}
+
+// ── GENERATOR TAG COPY ────────────────────────────────────────
+function copyTagAndScore(username, el) {
+const s = scoreUser(username);
+const text = `${username} — OG Score: ${s.score}/100`;
+navigator.clipboard.writeText(text).catch(()=>{});
+if (el) {
+const orig = el.textContent;
+el.textContent = ‘copied!’;
+setTimeout(()=>{ el.textContent = orig; }, 1000);
+}
+}
+
+function copyHostCmd(btn) {
+const div = btn.closest(’.host-cmd’);
+const cmd = div ? (div.dataset.cmd || div.querySelector(‘pre’)?.textContent || ‘’) : ‘’;
+if (cmd) copyText(cmd, btn);
+}
+
+// ── QR CODE ────────────────────────────────────────────────────
+function generateQR() {
+const text = document.getElementById(‘qr-text’)?.value.trim();
+const size = document.getElementById(‘qr-size’)?.value || 200;
+const bg = (document.getElementById(‘qr-bg’)?.value||’#ffffff’).replace(’#’,’’);
+const fg = (document.getElementById(‘qr-fg’)?.value||’#000000’).replace(’#’,’’);
+const sizeEl = document.getElementById(‘qr-size-val’);
+if (sizeEl) sizeEl.textContent = size + ‘px’;
+const prev = document.getElementById(‘qr-preview’);
+const dlBtn = document.getElementById(‘qr-dl-btn’);
+if (!text) { if(prev) prev.innerHTML=’<span style="color:#999;font-size:12px">Tape du texte…</span>’; if(dlBtn) dlBtn.style.display=‘none’; return; }
+const url = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(text)}&bgcolor=${bg}&color=${fg}&format=png`;
+if (prev) prev.innerHTML = `<img src="${url}" style="max-width:100%;border-radius:4px" id="qr-img">`;
+if (dlBtn) dlBtn.style.display=’’;
+}
+function downloadQR() {
+const img = document.getElementById(‘qr-img’);
+if (!img) return;
+const a = document.createElement(‘a’);
+a.href = img.src; a.download = ‘qrcode.png’; a.click();
+}
+
+// ── COLOR PALETTE ──────────────────────────────────────────────
+function hexToHsl(hex) {
+let r=parseInt(hex.slice(1,3),16)/255, g=parseInt(hex.slice(3,5),16)/255, b=parseInt(hex.slice(5,7),16)/255;
+const max=Math.max(r,g,b), min=Math.min(r,g,b); let h,s,l=(max+min)/2;
+if(max===min){h=s=0;}else{const d=max-min;s=l>0.5?d/(2-max-min):d/(max+min);switch(max){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;case b:h=(r-g)/d+4;break;}h/=6;}
+return [Math.round(h*360),Math.round(s*100),Math.round(l*100)];
+}
+function hslToHex(h,s,l) {
+s/=100;l/=100;const a=s*Math.min(l,1-l);const f=n=>{const k=(n+h/30)%12;const color=l-a*Math.max(Math.min(k-3,9-k,1),-1);return Math.round(255*color).toString(16).padStart(2,‘0’);};
+return `#${f(0)}${f(8)}${f(4)}`;
+}
+function generatePalette() {
+const base = document.getElementById(‘pal-base’)?.value||’#00C8FF’;
+const type = document.getElementById(‘pal-type’)?.value||‘gradient’;
+const count = parseInt(document.getElementById(‘pal-count’)?.value||‘8’);
+const [h,s,l] = hexToHsl(base);
+let colors = [];
+const DISCORD_OFFICIAL = [’#5865F2’,’#57F287’,’#FEE75C’,’#EB459E’,’#ED4245’,’#FFFFFF’,’#23272A’,’#2C2F33’,’#99AAB5’,’#7289DA’];
+if (type===‘discord’) { colors = DISCORD_OFFICIAL; }
+else if (type===‘gradient’) { colors = Array.from({length:count},(*,i)=>hslToHex((h+i*10)%360,s,l)); }
+else if (type===‘shades’) { colors = Array.from({length:count},(*,i)=>hslToHex(h,s,Math.round(10+i*(80/count)))); }
+else if (type===‘complement’) { colors = [base,hslToHex((h+180)%360,s,l),…Array.from({length:count-2},(*,i)=>hslToHex((h+i*20)%360,s,l))]; }
+else if (type===‘triadic’) { colors = [base,hslToHex((h+120)%360,s,l),hslToHex((h+240)%360,s,l),…Array.from({length:count-3},(*,i)=>hslToHex((h+i*30)%360,s,l))]; }
+else if (type===‘analogous’) { colors = Array.from({length:count},(_,i)=>hslToHex((h-30+i*(60/(count-1)))%360,s,l)); }
+colors = colors.slice(0,count);
+const sw = document.getElementById(‘pal-swatches’);
+if (!sw) return;
+sw.innerHTML = colors.map(col => {
+const dec = parseInt(col.replace(’#’,’’),16);
+return `<div style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer" onclick="copyText('${col}',this)"> <div style="width:56px;height:56px;border-radius:10px;background:${col};box-shadow:0 2px 8px rgba(0,0,0,.3)"></div> <div style="font-size:9px;color:var(--muted);font-family:'JetBrains Mono',monospace">${col}</div> <div style="font-size:9px;color:var(--muted2)">${dec}</div> </div>`;
+}).join(’’);
+const roleCode = document.getElementById(‘pal-code’);
+const roleDiv = document.getElementById(‘pal-roles’);
+if (roleCode && roleDiv) {
+roleDiv.style.display=’’;
+roleCode.textContent = colors.map((c,i)=>`await guild.roles.cache.get(ROLE_IDS[${i}])?.edit({ color: '${c}' });`).join(’\n’);
+}
+}
+
+// ── OBFUSCATOR ────────────────────────────────────────────────
+let obfMode = ‘zalgo’;
+function setObfMode(mode,el) {
+obfMode=mode;
+document.querySelectorAll(’#page-obfuscator .bio-style-btn’).forEach(b=>b.classList.remove(‘active’));
+if(el) el.classList.add(‘active’);
+}
+const ZALGO_UP = [’\u030d’,’\u030e’,’\u0304’,’\u0305’,’\u033f’,’\u0311’,’\u0306’,’\u0310’,’\u0352’,’\u0357’,’\u0351’,’\u0307’,’\u0308’,’\u030a’,’\u0342’,’\u0343’];
+const ZALGO_DOWN = [’\u0316’,’\u0317’,’\u0318’,’\u0319’,’\u031c’,’\u031d’,’\u031e’,’\u031f’,’\u0320’,’\u0324’,’\u0325’,’\u0326’,’\u0329’,’\u032a’,’\u032b’,’\u032c’,’\u032d’];
+const UNICODE_MAP = {‘a’:’\uFF41’,‘b’:’\uFF42’,‘c’:’\uFF43’,‘d’:’\uFF44’,‘e’:’\uFF45’,‘f’:’\uFF46’,‘g’:’\uFF47’,‘h’:’\uFF48’,‘i’:’\uFF49’,‘j’:’\uFF4A’,‘k’:’\uFF4B’,‘l’:’\uFF4C’,‘m’:’\uFF4D’,‘n’:’\uFF4E’,‘o’:’\uFF4F’,‘p’:’\uFF50’,‘q’:’\uFF51’,‘r’:’\uFF52’,‘s’:’\uFF53’,‘t’:’\uFF54’,‘u’:’\uFF55’,‘v’:’\uFF56’,‘w’:’\uFF57’,‘x’:’\uFF58’,‘y’:’\uFF59’,‘z’:’\uFF5A’,‘A’:’\uFF21’,‘B’:’\uFF22’,‘C’:’\uFF23’,‘D’:’\uFF24’,‘E’:’\uFF25’,‘F’:’\uFF26’,‘G’:’\uFF27’,‘H’:’\uFF28’,‘I’:’\uFF29’,‘J’:’\uFF2A’,‘K’:’\uFF2B’,‘L’:’\uFF2C’,‘M’:’\uFF2D’,‘N’:’\uFF2E’,‘O’:’\uFF2F’,‘P’:’\uFF30’,‘Q’:’\uFF31’,‘R’:’\uFF32’,‘S’:’\uFF33’,‘T’:’\uFF34’,‘U’:’\uFF35’,‘V’:’\uFF36’,‘W’:’\uFF37’,‘X’:’\uFF38’,‘Y’:’\uFF39’,‘Z’:’\uFF3A’};
+const MORSE = {a:’.-’,b:’-…’,c:’-.-.’,d:’-..’,e:’.’,f:’..-.’,g:’–.’,h:’….’,i:’..’,j:’.—’,k:’-.-’,l:’.-..’,m:’–’,n:’-.’,o:’—’,p:’.–.’,q:’–.-’,r:’.-.’,s:’…’,t:’-’,u:’..-’,v:’…-’,w:’.–’,x:’-..-’,y:’-.–’,z:’–..’,’ ‘:’/’};
+function runObfuscator() {
+const text = document.getElementById(‘obf-input’)?.value||’’;
+const out = document.getElementById(‘obf-out’);
+if (!out) return;
+let result = ‘’;
+if (obfMode===‘zalgo’) {
+result = text.split(’’).map(c => {
+if (c===’ ‘) return ’ ‘;
+let r=c;
+for(let i=0;i<3;i++) r+=ZALGO_UP[Math.floor(Math.random()*ZALGO_UP.length)];
+for(let i=0;i<2;i++) r+=ZALGO_DOWN[Math.floor(Math.random()*ZALGO_DOWN.length)];
+return r;
+}).join(’’);
+} else if (obfMode===‘unicode’) {
+result = text.split(’’).map(c=>UNICODE_MAP[c]||c).join(’’);
+} else if (obfMode===‘leet’) {
+result = text.replace(/a/gi,‘4’).replace(/e/gi,‘3’).replace(/i/gi,‘1’).replace(/o/gi,‘0’).replace(/s/gi,‘5’).replace(/t/gi,‘7’).replace(/g/gi,‘9’).replace(/b/gi,‘8’);
+} else if (obfMode===‘reverse’) {
+result = text.split(’’).reverse().join(’’);
+} else if (obfMode===‘caesar’) {
+result = text.replace(/[a-zA-Z]/g, c => {
+const base = c < ‘a’ ? 65 : 97;
+return String.fromCharCode((c.charCodeAt(0)-base+13)%26+base);
+});
+} else if (obfMode===‘morse’) {
+result = text.toLowerCase().split(’’).map(c=>MORSE[c]||c).join(’ ’);
+}
+out.value = result;
+}
+
+// ── URL ENCODER ───────────────────────────────────────────────
+function urlEncode() {
+const v = document.getElementById(‘url-input’)?.value||’’;
+showUrlResults([[‘encodeURI’, encodeURI(v)],[‘encodeURIComponent’, encodeURIComponent(v)],[‘Base64 URL’, btoa(unescape(encodeURIComponent(v))).replace(/+/g,’-’).replace(///g,’*’).replace(/=/g,’’)]]);
+}
+function urlDecode() {
+const v = document.getElementById(‘url-input’)?.value||’’;
+const results = [];
+try { results.push([‘decodeURI’, decodeURI(v)]); } catch(e) { results.push([‘decodeURI’,’Error: ’+e.message]); }
+try { results.push([‘decodeURIComponent’, decodeURIComponent(v)]); } catch(e) { results.push([‘decodeURIComponent’,‘Error: ‘+e.message]); }
+try { results.push([‘Base64 decode’, decodeURIComponent(escape(atob(v.replace(/-/g,’+’).replace(/*/g,’/’))))]); } catch(e) {}
+showUrlResults(results);
+}
+function urlEncodeComponent() { const v = document.getElementById(‘url-input’)?.value||’’; showUrlResults([[‘encodeURIComponent’, encodeURIComponent(v)]]); }
+function runUrlEncode() {}
+function showUrlResults(items) {
+const el = document.getElementById(‘url-results’);
+if (!el) return;
+el.innerHTML = items.map(([label,val])=>` <div style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 14px"> <div style="font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">${label}</div> <div style="display:flex;align-items:center;gap:8px"> <code style="font-size:11px;color:var(--accent);word-break:break-all;flex:1">${val}</code> <button class="copy-btn" onclick="copyText(${JSON.stringify(val)},this)">COPY</button> </div> </div>`).join(’’);
+}
+
+// ── BASE CONVERTER ────────────────────────────────────────────
+function convertBase(from) {
+const vals = {dec:document.getElementById(‘bc-dec’),bin:document.getElementById(‘bc-bin’),oct:document.getElementById(‘bc-oct’),hex:document.getElementById(‘bc-hex’)};
+let n;
+try {
+const raw = vals[from]?.value.trim()||’’;
+if (!raw) return;
+if (from===‘dec’) n=parseInt(raw,10);
+else if (from===‘bin’) n=parseInt(raw,2);
+else if (from===‘oct’) n=parseInt(raw,8);
+else if (from===‘hex’) n=parseInt(raw,16);
+if (isNaN(n)) return;
+if (from!==‘dec’&&vals.dec) vals.dec.value=n;
+if (from!==‘bin’&&vals.bin) vals.bin.value=n.toString(2);
+if (from!==‘oct’&&vals.oct) vals.oct.value=n.toString(8);
+if (from!==‘hex’&&vals.hex) vals.hex.value=n.toString(16).toUpperCase();
+} catch(e) {}
+}
+function convertChar() {
+const ch = document.getElementById(‘bc-char’)?.value||’’;
+const el = document.getElementById(‘bc-char-result’);
+if (!el || !ch) return;
+const code = ch.charCodeAt(0);
+el.innerHTML = `Dec: <span style="color:var(--accent)">${code}</span> · Hex: <span style="color:var(--accent)">${code.toString(16).toUpperCase()}</span> · Bin: <span style="color:var(--accent)">${code.toString(2)}</span> · Oct: <span style="color:var(--accent)">${code.toString(8)}</span>`;
+}
+
+// ── FAKE IDENTITY ─────────────────────────────────────────────
+const FAKE_DATA = {
+fr: {
+maleFirst:[‘Lucas’,‘Théo’,‘Hugo’,‘Nathan’,‘Tom’,‘Maxime’,‘Antoine’,‘Julien’,‘Pierre’,‘Louis’,‘Léo’,‘Romain’,‘Alexandre’,‘Baptiste’,‘Clément’],
+femaleFirst:[‘Emma’,‘Léa’,‘Manon’,‘Clara’,‘Inès’,‘Camille’,‘Lucie’,‘Jade’,‘Sarah’,‘Zoé’,‘Alice’,‘Anaïs’,‘Chloé’,‘Marie’,‘Julie’],
+last:[‘Martin’,‘Bernard’,‘Thomas’,‘Petit’,‘Robert’,‘Richard’,‘Durand’,‘Leroy’,‘Moreau’,‘Simon’,‘Laurent’,‘Michel’,‘Lefebvre’,‘Lefevre’,‘Garcia’],
+domains:[‘gmail.com’,‘yahoo.fr’,‘hotmail.fr’,‘outlook.fr’,‘laposte.net’],
+cities:[‘Paris’,‘Lyon’,‘Marseille’,‘Toulouse’,‘Nice’,‘Nantes’,‘Strasbourg’,‘Montpellier’,‘Bordeaux’,‘Lille’],
+},
+us: {
+maleFirst:[‘James’,‘John’,‘Robert’,‘Michael’,‘William’,‘David’,‘Richard’,‘Joseph’,‘Thomas’,‘Charles’,‘Chris’,‘Daniel’,‘Matthew’,‘Anthony’,‘Mark’],
+femaleFirst:[‘Mary’,‘Patricia’,‘Jennifer’,‘Linda’,‘Barbara’,‘Elizabeth’,‘Susan’,‘Jessica’,‘Sarah’,‘Karen’,‘Lisa’,‘Nancy’,‘Betty’,‘Margaret’,‘Sandra’],
+last:[‘Smith’,‘Johnson’,‘Williams’,‘Brown’,‘Jones’,‘Garcia’,‘Miller’,‘Davis’,‘Rodriguez’,‘Martinez’,‘Hernandez’,‘Lopez’,‘Wilson’,‘Anderson’,‘Taylor’],
+domains:[‘gmail.com’,‘yahoo.com’,‘hotmail.com’,‘outlook.com’,‘icloud.com’],
+cities:[‘New York’,‘Los Angeles’,‘Chicago’,‘Houston’,‘Phoenix’,‘Philadelphia’,‘San Antonio’,‘San Diego’,‘Dallas’,‘San Jose’],
+},
+es: {
+maleFirst:[‘Antonio’,‘Manuel’,‘Francisco’,‘Juan’,‘José’,‘David’,‘Carlos’,‘Daniel’,‘Miguel’,‘Rafael’,‘Pablo’,‘Pedro’,‘Alejandro’,‘Fernando’,‘Luis’],
+femaleFirst:[‘María’,‘Carmen’,‘Isabel’,‘Ana’,‘Laura’,‘Sara’,‘Marta’,‘Elena’,‘Paula’,‘Rosa’,‘Cristina’,‘Lucia’,‘Andrea’,‘Raquel’,‘Patricia’],
+last:[‘García’,‘González’,‘Rodríguez’,‘Fernández’,‘López’,‘Martínez’,‘Sánchez’,‘Pérez’,‘Gómez’,‘Martín’,‘Jiménez’,‘Ruiz’,‘Hernández’,‘Díaz’,‘Moreno’],
+domains:[‘gmail.com’,‘yahoo.es’,‘hotmail.es’,‘outlook.es’],
+cities:[‘Madrid’,‘Barcelona’,‘Valencia’,‘Sevilla’,‘Zaragoza’,‘Málaga’,‘Murcia’,‘Palma’,‘Bilbao’,‘Alicante’],
+}
+};
+function generateIdentity() {
+const country = document.getElementById(‘fi-country’)?.value||‘fr’;
+const gender = document.getElementById(‘fi-gender’)?.value||‘any’;
+const d = FAKE_DATA[country]||FAKE_DATA.fr;
+const isMale = gender===‘any’ ? Math.random()>0.5 : gender===‘male’;
+const first = isMale ? d.maleFirst[Math.floor(Math.random()*d.maleFirst.length)] : d.femaleFirst[Math.floor(Math.random()*d.femaleFirst.length)];
+const last = d.last[Math.floor(Math.random()*d.last.length)];
+const city = d.cities[Math.floor(Math.random()*d.cities.length)];
+const domain = d.domains[Math.floor(Math.random()*d.domains.length)];
+const year = 1990+Math.floor(Math.random()*20);
+const month = String(1+Math.floor(Math.random()*12)).padStart(2,‘0’);
+const day = String(1+Math.floor(Math.random()*28)).padStart(2,‘0’);
+const phone = country===‘fr’ ? `06 ${Array.from({length:4},()=>Math.floor(10+Math.random()*90)).join(' ')}` : `(${Math.floor(200+Math.random()*800)}) ${Math.floor(100+Math.random()*900)}-${Math.floor(1000+Math.random()*9000)}`;
+const username = (first.toLowerCase().normalize(‘NFD’).replace(/[\u0300-\u036f]/g,’’) + Math.floor(Math.random()*999)).replace(/\s/g,’’);
+const email = `${username}@${domain}`;
+const passwd = Array.from(crypto.getRandomValues(new Uint8Array(12))).map(b=>‘ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789!@#$’[b%58]).join(’’);
+const el = document.getElementById(‘fi-result’);
+if (!el) return;
+const items = [
+[‘Prénom’,first,‘green’],[‘Nom’,last,‘green’],[‘Genre’,isMale?‘Homme’:‘Femme’,’’],
+[‘Date naissance’,`${day}/${month}/${year}`,’’],[‘Ville’,city,’’],[‘Téléphone’,phone,’’],
+[‘Username’,username,‘accent’],[‘Email’,email,‘accent’],[‘Password (test)’,passwd,‘yellow’],
+];
+el.innerHTML = items.map(([k,v,col])=>`<div style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 14px"> <div style="font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">${k}</div> <div style="display:flex;align-items:center;gap:6px;margin-top:4px"> <span style="font-size:13px;font-weight:600;color:${col?`var(–${col})`:’ var(–text)’};flex:1”>${v}</span>
+<button class="copy-btn" onclick="copyText(${JSON.stringify(v)},this)">COPY</button>
+</div>
+
+  </div>`).join('');
+}
+
+// ── ASCII ART ─────────────────────────────────────────────────
+const ASCII_FONTS = {
+‘Block’: (t) => {
+const chars = {A:’  A  \n A A \nAAAAA\nA   A\nA   A’,B:‘BBBB \nB   B\nBBBB \nB   B\nBBBB ‘,C:’ CCC \nC    \nC    \nC    \n CCC ‘,D:‘DDD  \nD  D \nD   D\nD  D \nDDD  ‘,E:‘EEEEE\nE    \nEEE  \nE    \nEEEEE’,F:‘FFFFF\nF    \nFFF  \nF    \nF    ‘,G:’ GGG \nG    \nG  GG\nG   G\n GGG ‘,H:‘H   H\nH   H\nHHHHH\nH   H\nH   H’,I:‘IIIII\n  I  \n  I  \n  I  \nIIIII’,J:‘JJJJJ\n   J \n   J \nJ  J \n JJ  ‘,K:‘K   K\nK  K \nKKK  \nK  K \nK   K’,L:‘L    \nL    \nL    \nL    \nLLLLL’,M:‘M   M\nMM MM\nM M M\nM   M\nM   M’,N:‘N   N\nNN  N\nN N N\nN  NN\nN   N’,O:’ OOO \nO   O\nO   O\nO   O\n OOO ‘,P:‘PPPP \nP   P\nPPPP \nP    \nP    ‘,Q:’ QQQ \nQ   Q\nQ Q Q\nQ  QQ\n QQQQ’,R:‘RRRR \nR   R\nRRRR \nR  R \nR   R’,S:’ SSS \nS    \n SSS \n    S\n SSS ‘,T:‘TTTTT\n  T  \n  T  \n  T  \n  T  ‘,U:‘U   U\nU   U\nU   U\nU   U\n UUU ‘,V:‘V   V\nV   V\nV   V\n V V \n  V  ‘,W:‘W   W\nW   W\nW W W\nWW WW\nW   W’,X:‘X   X\n X X \n  X  \n X X \nX   X’,Y:‘Y   Y\n Y Y \n  Y  \n  Y  \n  Y  ‘,Z:‘ZZZZZ\n   Z \n  Z  \n Z   \nZZZZZ’,’ ‘:’     \n     \n     \n     \n     ‘};
+const lines = [0,1,2,3,4].map(()=>’’);
+for (const ch of t.toUpperCase()) {
+const c = chars[ch]||chars[’ ‘];
+const rows = c.split(’\n’);
+for (let i=0;i<5;i++) lines[i] += (rows[i]||’     ‘) + ’  ‘;
+}
+return lines.join(’\n’);
+},
+‘Simple’: (t) => t.toUpperCase().split(’’).join(’  ‘),
+‘Dots’: (t) => t.split(’’).map(c=>’•’+c+’•’).join(’’),
+‘Brackets’: (t) => ‘【’ + t.toUpperCase().split(’’).join(’】【’) + ‘】’,
+‘Stars’: (t) => ‘✦ ’ + t.toUpperCase().split(’’).join(’ ✦ ‘) + ’ ✦’,
+‘Wide’: (t) => t.split(’’).map(c=>UNICODE_MAP[c]||c).join(’’),
+‘Shadow’: (t) => t.toUpperCase() + ‘\n’ + t.toLowerCase().split(’’).map(()=>’‾’).join(’’),
+};
+let currentAsciiFont = ‘Block’;
+function initASCII() {
+const grid = document.getElementById(‘ascii-font-grid’);
+if (!grid) return;
+grid.innerHTML = Object.keys(ASCII_FONTS).map(f=>
+`<div class="bio-style-btn ${f==='Block'?'active':''}" onclick="setAsciiFont('${f}',this)">${f}</div>`
+).join(’’);
+}
+function setAsciiFont(font,el) {
+currentAsciiFont=font;
+document.querySelectorAll(’#page-ascii .bio-style-btn’).forEach(b=>b.classList.remove(‘active’));
+if(el) el.classList.add(‘active’);
+generateASCII();
+}
+function generateASCII() {
+const text = document.getElementById(‘ascii-text’)?.value||’’;
+const out = document.getElementById(‘ascii-out’);
+if (!out || !text) { if(out) out.value=’’; return; }
+const fn = ASCII_FONTS[currentAsciiFont]||ASCII_FONTS[‘Simple’];
+out.value = fn(text);
+}
+
+// ── LOREM GENERATOR ───────────────────────────────────────────
+const LOREM_WORDS = {
+lorem: ‘lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit’.split(’ ‘),
+discord: ‘yo bro tu veux rejoindre le serveur check les salons lis les règles reacts aux roles ping muted ban kick nitro boost level server community drop’,
+dev: ‘function async await const let var return import export class interface type props state render component hook fetch api endpoint database query schema migration deploy pipeline’,
+street: ‘drop cop resell hypebeast deadstock retail grail pickup collab exclusive release limited restock sell flip profit legit heat fire wave og rare vintage’,
+corporate: ‘synergy leverage paradigm disruptive stakeholder deliverable bandwidth agile scrum sprint roadmap actionable insights pivot scalable ecosystem touchpoint’,
+};
+function generateLorem() {
+const type = document.getElementById(‘lorem-type’)?.value||‘lorem’;
+const count = parseInt(document.getElementById(‘lorem-count’)?.value||‘3’);
+const unit = document.getElementById(‘lorem-unit’)?.value||‘paragraphs’;
+const words = LOREM_WORDS[type]?.split ? LOREM_WORDS[type].split(’ ‘) : LOREM_WORDS[type];
+const randWord = () => words[Math.floor(Math.random()*words.length)];
+const sentence = () => {
+const len = 8+Math.floor(Math.random()*12);
+const s = Array.from({length:len},randWord).join(’ ‘);
+return s.charAt(0).toUpperCase()+s.slice(1)+’.’;
+};
+const para = () => Array.from({length:4+Math.floor(Math.random()*4)},sentence).join(’ ‘);
+let result = ‘’;
+if (unit===‘words’) result = Array.from({length:count},randWord).join(’ ‘);
+else if (unit===‘sentences’) result = Array.from({length:count},sentence).join(’ ‘);
+else result = Array.from({length:count},para).join(’\n\n’);
+const out = document.getElementById(‘lorem-out’);
+if (out) out.value = result;
+}
+
+// ── TEXT TOOLS ────────────────────────────────────────────────
+function updateTextStats() {
+const text = document.getElementById(‘tt-input’)?.value||’’;
+const el = document.getElementById(‘tt-stats’);
+if (!el) return;
+const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+const lines = text.split(’\n’).length;
+const chars = text.length;
+const unique = new Set(text.toLowerCase().replace(/[^a-z]/g,’’)).size;
+el.innerHTML = rows([[‘Chars’,String(chars),’’],[‘Mots’,String(words),’’],[‘Lignes’,String(lines),’’],[‘Lettres uniques’,String(unique),‘accent’]]);
+document.getElementById(‘tt-out’).value = text;
+}
+function ttTransform(op) {
+const ta = document.getElementById(‘tt-input’);
+const out = document.getElementById(‘tt-out’);
+if (!ta||!out) return;
+let t = ta.value;
+if (op===‘upper’) t=t.toUpperCase();
+else if (op===‘lower’) t=t.toLowerCase();
+else if (op===‘title’) t=t.replace(/\b\w/g,c=>c.toUpperCase());
+else if (op===‘trim’) t=t.split(’\n’).map(l=>l.trim()).join(’\n’).trim();
+else if (op===‘reverse’) t=t.split(’’).reverse().join(’’);
+else if (op===‘sort’) t=t.split(’\n’).sort().join(’\n’);
+else if (op===‘dedupe’) t=[…new Set(t.split(’\n’))].join(’\n’);
+else if (op===‘shuffle’) { const a=t.split(’\n’); for(let i=a.length-1;i>0;i–){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} t=a.join(’\n’); }
+else if (op===‘slug’) t=t.toLowerCase().normalize(‘NFD’).replace(/[\u0300-\u036f]/g,’’).replace(/[^a-z0-9]+/g,’-’).replace(/^-|-$/g,’’);
+else if (op===‘camel’) t=t.replace(/[-*\s]+(.)/g,(*,c)=>c.toUpperCase()).replace(/^./,c=>c.toLowerCase());
+else if (op===‘snake’) t=t.replace(/([A-Z])/g,’*$1’).toLowerCase().replace(/[-\s]+/g,’*’).replace(/^_/,’’);
+else if (op===‘nolines’) t=t.split(’\n’).map(l=>l.trim()).filter(Boolean).join(’ ’);
+out.value = t;
+ta.value = t;
+updateTextStats();
+}
+
+// ── COLOR CONVERTER ───────────────────────────────────────────
+function convertColor(from) {
+let r,g,b;
+try {
+if (from===‘picker’||from===‘hex’) {
+const hex = document.getElementById(from===‘picker’?‘cc-picker’:‘cc-hex’)?.value.trim();
+if (!hex||hex.length<4) return;
+const h = hex.replace(’#’,’’);
+if (h.length===3) { r=parseInt(h[0]+h[0],16);g=parseInt(h[1]+h[1],16);b=parseInt(h[2]+h[2],16); }
+else { r=parseInt(h.slice(0,2),16);g=parseInt(h.slice(2,4),16);b=parseInt(h.slice(4,6),16); }
+} else if (from===‘rgb’) {
+const v = document.getElementById(‘cc-rgb’)?.value||’’;
+[r,g,b] = v.split(’,’).map(n=>parseInt(n.trim()));
+} else if (from===‘decdiscord’) {
+const dec = parseInt(document.getElementById(‘cc-dec’)?.value||‘0’);
+r=(dec>>16)&255; g=(dec>>8)&255; b=dec&255;
+} else if (from===‘hsl’) {
+const v = document.getElementById(‘cc-hsl’)?.value||’’;
+const [h,s,l] = v.replace(/[hsl()%]/gi,’’).split(’,’).map(n=>parseFloat(n.trim()));
+const hex = hslToHex(h,s,l); r=parseInt(hex.slice(1,3),16);g=parseInt(hex.slice(3,5),16);b=parseInt(hex.slice(5,7),16);
+}
+if (isNaN(r)||isNaN(g)||isNaN(b)) return;
+const hex = ‘#’+[r,g,b].map(v=>v.toString(16).padStart(2,‘0’)).join(’’);
+const [h,s,l] = hexToHsl(hex);
+const dec = (r<<16)|(g<<8)|b;
+const setV = (id,val) => { const el=document.getElementById(id); if(el&&document.activeElement!==el) el.value=val; };
+setV(‘cc-hex’,hex); setV(‘cc-rgb’,`${r}, ${g}, ${b}`); setV(‘cc-hsl’,`hsl(${h}, ${s}%, ${l}%)`); setV(‘cc-dec’,String(dec));
+const picker = document.getElementById(‘cc-picker’); if(picker) picker.value=hex;
+const prev = document.getElementById(‘cc-preview’); if(prev) prev.style.background=hex;
+} catch(e) {}
+}
+
+// ── UNIT CONVERTER ────────────────────────────────────────────
+const UC_UNITS = {
+time: {base:‘seconds’,units:{nanoseconds:1e-9,microseconds:1e-6,milliseconds:0.001,seconds:1,minutes:60,hours:3600,days:86400,weeks:604800,months:2592000,years:31536000}},
+length: {base:‘meters’,units:{millimeters:0.001,centimeters:0.01,meters:1,kilometers:1000,inches:0.0254,feet:0.3048,yards:0.9144,miles:1609.344}},
+weight: {base:‘kilograms’,units:{milligrams:0.000001,grams:0.001,kilograms:1,tonnes:1000,ounces:0.0283495,pounds:0.453592}},
+data: {base:‘bytes’,units:{bits:0.125,bytes:1,kilobytes:1024,megabytes:1048576,gigabytes:1073741824,terabytes:1099511627776}},
+temp: {base:‘celsius’,units:{celsius:1,fahrenheit:1,kelvin:1}},
+};
+let ucCat = ‘time’;
+function setUCCat(cat,el) {
+ucCat=cat;
+document.querySelectorAll(’#uc-cat-tabs .cat-tab’).forEach(t=>t.classList.remove(‘active’));
+if(el) el.classList.add(‘active’);
+const u = UC_UNITS[cat];
+const keys = Object.keys(u.units);
+[‘uc-from’,‘uc-to’].forEach((id,i) => {
+const sel = document.getElementById(id);
+if (!sel) return;
+sel.innerHTML = keys.map(k=>`<option value="${k}" ${i===0&&k===u.base?'selected':i===1&&k!==u.base&&keys.indexOf(k)===1?'selected':''}>${k}</option>`).join(’’);
+});
+runConvert();
+}
+function runConvert() {
+const val = parseFloat(document.getElementById(‘uc-val’)?.value||‘1’);
+const from = document.getElementById(‘uc-from’)?.value;
+const to = document.getElementById(‘uc-to’)?.value;
+const res = document.getElementById(‘uc-result’);
+const all = document.getElementById(‘uc-all’);
+if (!from||!to||!res||isNaN(val)) return;
+const u = UC_UNITS[ucCat];
+let result;
+if (ucCat===‘temp’) {
+let celsius = from===‘fahrenheit’?(val-32)/1.8:from===‘kelvin’?val-273.15:val;
+result = to===‘fahrenheit’?celsius*1.8+32:to===‘kelvin’?celsius+273.15:celsius;
+} else {
+const inBase = val * (u.units[from]||1);
+result = inBase / (u.units[to]||1);
+}
+res.textContent = Number(result.toPrecision(8)) + ’ ’ + to;
+if (all) {
+all.innerHTML = Object.entries(u.units).map(([unit,factor]) => {
+let v;
+if (ucCat===‘temp’) { let c=from===‘fahrenheit’?(val-32)/1.8:from===‘kelvin’?val-273.15:val; v=unit===‘fahrenheit’?c*1.8+32:unit===‘kelvin’?c+273.15:c; }
+else { v = val*(u.units[from]||1)/(factor||1); }
+return `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:8px 12px;font-size:11px"><span style="color:var(--muted)">${unit}</span><br><span style="color:var(--accent);font-weight:600">${Number(v.toPrecision(6))}</span></div>`;
+}).join(’’);
+}
+}
+function initUnitConverter() {
+setUCCat(‘time’, document.querySelector(’#uc-cat-tabs .cat-tab’));
+}
+
+// ── GAMING CHECKERS ───────────────────────────────────────────
+async function checkEpic() {
+const user = document.getElementById(‘epic-user’)?.value.trim();
+const res = document.getElementById(‘epic-result’);
+if (!user||!res) return;
+res.innerHTML = ‘<div style="color:var(--muted)">Checking…</div>’;
+try {
+const r = await fetch(`https://account-public-service-prod.ol.epicgames.com/account/api/public/account/displayName/${encodeURIComponent(user)}`, {mode:‘no-cors’});
+res.innerHTML = `<div class="result-block">${rows([['Username',user,'accent'],['Epic Games','Lookup direct (opaque response — CORS Epic)','yellow']])}</div> <a href="https://www.epicgames.com/id/login" target="_blank" class="btn btn-a" style="display:inline-block;margin-top:10px;text-decoration:none">Vérifier sur Epic →</a>`;
+} catch(e) {
+res.innerHTML = `<div class="result-block">${rows([['Username',user,'accent'],['Statut','Impossible via browser (CORS Epic)','yellow']])}</div> <a href="https://www.epicgames.com" target="_blank" class="btn btn-a" style="display:inline-block;margin-top:8px;text-decoration:none">Ouvrir Epic Games →</a>`;
+}
+}
+async function checkPSN() {
+const user = document.getElementById(‘psn-user’)?.value.trim();
+const platform = document.getElementById(‘psn-platform’)?.value||‘psn’;
+const res = document.getElementById(‘psn-result’);
+if (!user||!res) return;
+res.innerHTML = ‘<div style="color:var(--muted)">Checking…</div>’;
+const links = { psn:`https://psnprofiles.com/${encodeURIComponent(user)}`, xbox:`https://xboxgamertag.com/search/${encodeURIComponent(user)}` };
+const labels = { psn:‘PSN Profiles’, xbox:‘Xbox Gamertag’ };
+res.innerHTML = `<div class="result-block">${rows([['Gamertag',user,'accent'],['Platform',platform==='psn'?'PlayStation Network':'Xbox / Microsoft','green']])}</div> <a href="${links[platform]}" target="_blank" class="btn btn-a" style="display:inline-block;margin-top:10px;text-decoration:none">Voir sur ${labels[platform]} →</a>`;
+}
+async function checkStock() {
+const url = document.getElementById(‘stock-url’)?.value.trim();
+const keyword = document.getElementById(‘stock-keyword’)?.value.trim()||‘add to cart’;
+const res = document.getElementById(‘stock-result’);
+if (!url||!res) return;
+res.innerHTML = ‘<div style="color:var(--muted)">Checking via proxy…</div>’;
+try {
+const r = await fetch(`${WORKER_URL}/check?user=${encodeURIComponent(url)}&platform=stockcheck`);
+res.innerHTML = `<div class="result-block">${rows([['URL',url,'accent'],['Keyword',keyword,''],['Statut','Route /stockcheck non implémentée sur Railway — ajoute-la','yellow']])}</div>`;
+} catch(e) {
+res.innerHTML = `<a href="${url}" target="_blank" class="btn btn-a" style="display:inline-block;text-decoration:none">Ouvrir le site directement →</a><div class="notice" style="margin-top:8px">Pour une vraie vérification de stock, ajoute un endpoint /stockcheck à l'API Railway qui fetch la page et cherche le mot clé.</div>`;
+}
+}
+
+// ── PRICE TRACKER ─────────────────────────────────────────────
+let ptItems = [];
+function loadPTItems() {
+try { ptItems = JSON.parse(localStorage.getItem(‘dt3-prices’)||’[]’); } catch(e) { ptItems=[]; }
+}
+function savePTItems() { localStorage.setItem(‘dt3-prices’, JSON.stringify(ptItems)); }
+function addPriceItem() {
+const name = document.getElementById(‘pt-name’)?.value.trim();
+const buy = parseFloat(document.getElementById(‘pt-buy’)?.value||‘0’);
+const sell = parseFloat(document.getElementById(‘pt-sell’)?.value||‘0’);
+const fees = parseFloat(document.getElementById(‘pt-fees’)?.value||‘10’);
+const platform = document.getElementById(‘pt-platform’)?.value||‘StockX’;
+if (!name) return;
+ptItems.unshift({id:Date.now(),name,buy,sell,fees,platform,date:new Date().toLocaleDateString()});
+savePTItems();
+renderPTItems();
+[‘pt-name’,‘pt-sell’].forEach(id=>{const el=document.getElementById(id);if(el)el.value=’’;});
+}
+function renderPTItems() {
+const el = document.getElementById(‘pt-items’);
+const sumEl = document.getElementById(‘pt-summary’);
+if (!el) return;
+if (!ptItems.length) { el.innerHTML=’<div style="color:var(--muted2);font-size:11px">Aucun item ajouté</div>’; if(sumEl)sumEl.style.display=‘none’; return; }
+if (sumEl) {
+sumEl.style.display=’’;
+const totalBuy = ptItems.reduce((s,i)=>s+i.buy,0);
+const totalSell = ptItems.reduce((s,i)=>s+i.sell*(1-i.fees/100),0);
+const profit = totalSell-totalBuy;
+const roi = totalBuy ? ((profit/totalBuy)*100).toFixed(1) : 0;
+const setV=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+setV(‘pt-profit’,(profit>=0?’+’:’’)+profit.toFixed(2)+‘€’);
+setV(‘pt-roi’,(roi>=0?’+’:’’)+roi+’%’);
+setV(‘pt-invested’,totalBuy.toFixed(2)+‘€’);
+setV(‘pt-returned’,totalSell.toFixed(2)+‘€’);
+document.getElementById(‘pt-profit’).style.color=profit>=0?‘var(–green)’:‘var(–red)’;
+}
+el.innerHTML = ptItems.map((item,i) => {
+const net = item.sell*(1-item.fees/100)-item.buy;
+const roi = item.buy?((net/item.buy)*100).toFixed(1):0;
+return `<div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--bg2);border:1px solid ${net>=0?'rgba(0,255,135,.2)':'rgba(255,59,92,.2)'};border-radius:8px"> <div style="flex:1"><div style="font-weight:600;font-size:13px">${item.name}</div><div style="font-size:10px;color:var(--muted);margin-top:2px">${item.platform} · ${item.date}</div></div> <div style="text-align:center;min-width:60px"><div style="font-size:10px;color:var(--muted)">Achat</div><div style="font-weight:700">${item.buy}€</div></div> <div style="text-align:center;min-width:60px"><div style="font-size:10px;color:var(--muted)">Vente</div><div style="font-weight:700">${item.sell}€</div></div> <div style="text-align:center;min-width:70px"><div style="font-size:10px;color:var(--muted)">Profit net</div><div style="font-weight:700;color:${net>=0?'var(--green)':'var(--red)'}">${net>=0?'+':''}${net.toFixed(2)}€</div></div> <div style="text-align:center;min-width:50px"><div style="font-size:10px;color:var(--muted)">ROI</div><div style="font-weight:700;color:${roi>=0?'var(--accent)':'var(--red)'}">${roi}%</div></div> <button class="copy-btn" onclick="ptItems.splice(${i},1);savePTItems();renderPTItems()">✕</button> </div>`;
+}).join(’’);
+}
+
 // ── INIT ─────────────────────────────────────────────────────
-renderServers(); renderUsernames(); renderNitros(); renderNotes(); updateStats(); loadUA();
-initPlatCheckboxes(); buildPermGrid(); updateColorPick(); updateEmbed(); renderHistory();
-loadDMData(); renderDMCampaigns(); renderDMLog(); updateDMStats();
-initTemplateBrowser();
-initBotStore(); initHosting(); initAIBotGen(); initCronBuilder(); renderInvItems(); previewInvoice(); previewEmbed(); loadDrops(); loadDiscordStatus();
+// Safe init wrapper
+function safeCall(fn, name) { try { fn(); } catch(e) { console.warn(‘Init error in’, name, e); } }
+safeCall(()=>{ renderServers(); renderUsernames(); renderNitros(); renderNotes(); updateStats(); loadUA(); }, ‘core’);
+safeCall(()=>{ initPlatCheckboxes(); buildPermGrid(); updateColorPick(); updateEmbed(); renderHistory(); }, ‘discord’);
+safeCall(()=>{ loadDMData(); renderDMCampaigns(); renderDMLog(); updateDMStats(); }, ‘dm’);
+safeCall(()=>{ initTemplateBrowser(); }, ‘templates’);
+safeCall(()=>{ initBotStore(); initHosting(); initAIBotGen(); initCronBuilder(); renderInvItems(); previewInvoice(); previewEmbed(); loadDrops(); initASCII(); initUnitConverter(); loadPTItems(); renderPTItems(); }, ‘tools’);
 document.getElementById(‘ide-code’)?.addEventListener(‘input’, updateLineCount);
 const nowLocal = new Date(new Date()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,16);
 const tsEl = document.getElementById(‘ts-input’); if(tsEl){tsEl.value=nowLocal;updateTimestamps();}
